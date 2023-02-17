@@ -137,6 +137,7 @@ class PostController extends Controller
             'balcony' => $request->input('balcony'),
             'terrace' => $request->input('terrace'),
             'garden' => $request->input('garden'),
+            'price' => $request->input('price'),
 
         ];
 
@@ -177,6 +178,15 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->index = $request->index;
         $post->address = $request->address;
+        $post->rooms = $request->rooms;
+        $post->square = $request->square;
+        $post->bedrooms = $request->bedrooms;
+        $post->garage = $request->garage;
+        $post->balcony = $request->balcony;
+        $post->terrace = $request->terrace;
+        $post->garden = $request->garden;
+        $post->price = $request->price;
+
 	$post->update();
 
         return Redirect::route("showMy");
@@ -196,7 +206,7 @@ class PostController extends Controller
 
     public function filters(Request $request)
     {
-        
+
         $query = Post::query();
 
         if ($request->rooms){

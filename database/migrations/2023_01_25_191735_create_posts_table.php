@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('address');
             $table->integer('rooms');
             $table->bigInteger('square');
+            $table->bigInteger('price');
             $table->integer('bedrooms');
             $table->boolean('garage');
             $table->boolean('balcony');

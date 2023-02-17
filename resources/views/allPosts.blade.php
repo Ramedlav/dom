@@ -8,11 +8,10 @@
             <div class="card">
                 <div class="dropdown">
                 <div class="card-header post-header">
-                    {{ __('All posts') }}
-
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                         {{__('Filters')}}
                     </button>
+{{--                    {{ __('All posts') }}--}}
 
                     <form class="dropdown-menu p-4 w-100" action="{{route('filters')}}" method="post">
                         @csrf
@@ -171,28 +170,27 @@
                                 <div class="post-title"><a href="post/{{$post->id}}">{{ $post->title }}</a></div>
                                 <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
                                 <div class="">
-                                    <label><b>{{__('rooms')}}:</b> </label><div>{{$post->rooms}}</div>
-                                    <label><b>{{__('bedrooms')}}:</b> </label><div>{{$post->bedrooms}}</div>
-                                    <label><b>{{__('square')}}:</b> </label><div>{{$post->square}} м²</div>
-                                    <label><b>{{__('garage')}}:</b> </label>
-                                    <div>
+                                    <div><label><b>{{__('price')}}:</b> </label> {{$post->price}} €.</div>
+                                    <div><label><b>{{__('rooms')}}:</b> </label> {{$post->rooms}}</div>
+                                    <div><label><b>{{__('bedrooms')}}:</b> </label> {{$post->bedrooms}}</div>
+                                    <div><label><b>{{__('square')}}:</b> </label> {{$post->square}} м²</div>
+                                    <div><label><b>{{__('garage')}}:</b> </label>
                                         @if($post->garage === 1){{__('with garage')}}
                                         @else{{__('without garage')}}
                                         @endif
                                     </div>
-                                    <label><b>{{__('balcony')}}:</b> </label>
-                                    <div>
+                                    <div><label><b>{{__('balcony')}}:</b> </label>
                                         @if($post->balcony === 1){{__('with balcony')}}
                                         @else{{__('without balcony')}}
                                         @endif
                                     </div>
-                                    <label><b>{{__('terrace')}}:</b> </label><div>
+                                    <div><label><b>{{__('terrace')}}:</b> </label>
                                         @if($post->terrace === 1){{__('with terrace')}}
                                         @else{{__('without terrace')}}
                                         @endif
                                     </div>
-                                    <label><b>{{__('garden')}}:</b> </label>
-                                    <div>
+                                    <div><label><b>{{__('garden')}}:</b> </label>
+
                                         @if($post->garden === 1){{__('with garden')}}
                                         @else{{__('without garden')}}
                                         @endif
