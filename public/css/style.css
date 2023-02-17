@@ -1,0 +1,29 @@
+.post-header {
+	background-color: #e3f2fd;
+	font-weight: bold;
+}
+.post-title {
+	font-weight: bold;
+}
+.post-fulladdress {
+	font-weight: bold;
+	color: blue;
+}
+.thumb img {
+            -webkit-filter: grayscale(0);
+            filter: none;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+		width: 100%;
+        }
+
+.thumb img:hover {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+
+.thumb {
+            padding: 5px;
+        }
