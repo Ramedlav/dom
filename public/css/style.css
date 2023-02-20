@@ -2,6 +2,12 @@
 	background-color: #e3f2fd;
 	font-weight: bold;
 }
+.post-footer {
+	background-color: #e3f2fd;
+}
+.label-dropdown {
+	font-weight: bold;
+}
 .post-title {
 	font-weight: bold;
 }
@@ -27,6 +33,22 @@
 .thumb {
             padding: 5px;
         }
+#city-box {
+	height: 200px;
+	overflow: auto;
+	z-index: 100;
+	display: none;
+	position: absolute;
+}
+.zebra {
+  list-style: none;
+  border-left: 10px solid #71BE00;
+  padding: 0;
+}
+.zebra li {padding: 10px;}
+.zebra li:nth-child(odd) {background: #E1F1FF;}
+.zebra li:nth-child(even) {background: white;}
+
 .progress-button {
     position: relative;
     display: inline-block;

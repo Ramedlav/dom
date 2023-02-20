@@ -13,7 +13,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [PostController::class, 'showAll']);
+Route::get('/',   function (){ return view('home'); });
 Route::get('/try', function (){
     return view('welcome2');
 });
@@ -23,8 +23,12 @@ Route::get('/post/allphotos/{id_post}',[PostController::class, 'PhotoAll'])->nam
 Route::post('/post/publish/{id_post}',[PostController::class, 'publish'])->name('publish');
 Route::get('/posts/',[PostController::class, 'showAll'])->name('showAll');
 Route::get('/gettown/',[PostController::class, 'getTown'])->name('getTown');
-
-
+Route::post('/home_filters/',[PostController::class, 'home_filters'])->name('home_filters');
+Route::get('/home_filters/',[PostController::class, 'home_filters'])->name('home_filters');
+Route::get('/getcity/',[PostController::class, 'getCity'])->name('getCity');
+Route::post('/getcity/',[PostController::class, 'getCity'])->name('getCity');
+Route::post('/filterPosts/',[PostController::class, 'filterPosts'])->name('filterPosts');
+Route::get('/filterPosts/',[PostController::class, 'filterPosts'])->name('filterPosts');
 
 Auth::routes([
     Route::get('/myposts/',[PostController::class, 'myPosts'])->name('showMy')->middleware('auth'),

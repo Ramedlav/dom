@@ -56,17 +56,17 @@
 
                     <div class="form-group">
                         <label for="rooms">{{ __('number of rooms') }}</label>
-                        <select name="rooms" id="rooms" class="form-control" value="{{ $post->rooms ?? old('rooms') }}">
-                            <option id="1" value="1">1</option>
-                            <option id="2" value="2">2</option>
-                            <option id="3" value="3">3</option>
-                            <option id="4" value="4">4</option>
-                            <option id="5" value="5">5</option>
-                            <option id="6" value="6">6</option>
-                            <option id="7" value="7">7</option>
-                            <option id="8" value="8">8</option>
-                            <option id="9" value="9">9</option>
-                            <option id="10" value="10">10</option>
+                        <select name="rooms" id="rooms" class="form-control">
+                            <option id="1" value="1" {{ (($post->rooms ?? old('rooms'))==1?"selected":"") }}>1</option>
+                            <option id="2" value="2" {{ (($post->rooms ?? old('rooms'))==2?"selected":"") }}>2</option>
+                            <option id="3" value="3" {{ (($post->rooms ?? old('rooms'))==3?"selected":"") }}>3</option>
+                            <option id="4" value="4" {{ (($post->rooms ?? old('rooms'))==4?"selected":"") }}>4</option>
+                            <option id="5" value="5" {{ (($post->rooms ?? old('rooms'))==5?"selected":"") }}>5</option>
+                            <option id="6" value="6" {{ (($post->rooms ?? old('rooms'))==6?"selected":"") }}>6</option>
+                            <option id="7" value="7" {{ (($post->rooms ?? old('rooms'))==7?"selected":"") }}>7</option>
+                            <option id="8" value="8" {{ (($post->rooms ?? old('rooms'))==8?"selected":"") }}>8</option>
+                            <option id="9" value="9" {{ (($post->rooms ?? old('rooms'))==9?"selected":"") }}>9</option>
+                            <option id="10" value="10" {{ (($post->rooms ?? old('rooms'))==10?"selected":"") }}>10</option>
                         </select>
                     </div>
 
@@ -78,21 +78,21 @@
                     <div class="form-group">
                         <label for="bedrooms">{{ __('number of bedrooms') }}</label>
                         <select name="bedrooms" id="bedrooms" class="form-control" value="{{ $post->bedrooms ?? old('bedrooms') }}">
-                            <option id="1b" value="1">1</option>
-                            <option id="2b" value="2">2</option>
-                            <option id="3b" value="3">3</option>
-                            <option id="4b" value="4">4</option>
-                            <option id="5b" value="5">5</option>
-                            <option id="6b" value="6">6</option>
-                            <option id="7b" value="7">7</option>
-                            <option id="8b" value="8">8</option>
-                            <option id="9b" value="9">9</option>
-                            <option id="10b" value="10">10</option>
+                            <option id="1b" value="1" {{ (($post->bedrooms ?? old('bedrooms'))==1?"selected":"") }}>1</option>
+                            <option id="2b" value="2" {{ (($post->bedrooms ?? old('bedrooms'))==2?"selected":"") }}>2</option>
+                            <option id="3b" value="3" {{ (($post->bedrooms ?? old('bedrooms'))==3?"selected":"") }}>3</option>
+                            <option id="4b" value="4" {{ (($post->bedrooms ?? old('bedrooms'))==4?"selected":"") }}>4</option>
+                            <option id="5b" value="5" {{ (($post->bedrooms ?? old('bedrooms'))==5?"selected":"") }}>5</option>
+                            <option id="6b" value="6" {{ (($post->bedrooms ?? old('bedrooms'))==6?"selected":"") }}>6</option>
+                            <option id="7b" value="7" {{ (($post->bedrooms ?? old('bedrooms'))==7?"selected":"") }}>7</option>
+                            <option id="8b" value="8" {{ (($post->bedrooms ?? old('bedrooms'))==8?"selected":"") }}>8</option>
+                            <option id="9b" value="9" {{ (($post->bedrooms ?? old('bedrooms'))==9?"selected":"") }}>9</option>
+                            <option id="10b" value="10" {{ (($post->bedrooms ?? old('bedrooms'))==10?"selected":"") }}>10</option>
                         </select>
                     </div>
                     <hr/>
                     <div class="form-group">
-                        <input type="checkbox" id="garage" name="garage" value="1">
+                        <input type="checkbox" id="garage" name="garage" value="1" {{ (($post->garage ?? old('garage'))==1?"checked":"") }}>
                         <label for="garage">{{ __('garage') }}</label>
                     </div>
                     <hr/>
@@ -100,35 +100,36 @@
                         <label>{{__('free space')}}</label>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" id="balcony" name="balcony" value="1">
+                        <input type="checkbox" id="balcony" name="balcony" value="1" {{ (($post->balcony ?? old('balcony'))==1?"checked":"") }}>
                         <label for="balcony">{{ __('balcony') }}</label>
                     </div>
 
                     <div class="form-group">
-                        <input type="checkbox" id="terrace" name="terrace" value="1">
+                        <input type="checkbox" id="terrace" name="terrace" value="1" {{ (($post->terrace ?? old('terrace'))==1?"checked":"") }}>
                         <label for="terrace">{{ __('terrace') }}</label>
                     </div>
 
                     <div class="form-group">
-                        <input type="checkbox" id="garden" name="garden" value="1">
+                        <input type="checkbox" id="garden" name="garden" value="1" {{ (($post->garden ?? old('garden'))==1?"checked":"") }}>
                         <label for="garden">{{ __('garden') }}</label>
                     </div>
-
-
 				</div>
 				<div class="col-12 col-sm-6">
-                    <div class="row" id="photo_hallery">
-        	            @include('postEditGallery')
-			<div class="text-center" style="margin: 15px 0;">
-			   <input name="file" type="file" id="photos-file" class="input input__file" multiple onchange="addPhotos()">
-			   <label for="photos-file">
-			      <span class="input__file-button-text btn btn-success">{{ __('Add photos') }}</span>
-			   </label>
-			</div>
-		    </div>
+		                    <div class="row" id="photo_gallery">
+		        	            @include('postEditGallery')
+				    </div>
 				</div>
 			</div>
-                            <div class="card-footer form-group"><button type="submit" class="btn btn-success progress-button">{{ __('Edit') }}</button></div>
+                        <div class="card-footer form-group text-center justify-content-center" role="group">
+				<div class="btn-group">
+					<div>
+						<button type="submit" class="btn btn-success progress-button">{{ __('Save') }}</button>
+					</div>
+					<div>
+				 		<button class="btn btn-primary progress-button" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
+					</div>
+				</div>
+			</div>
                         </form>
                 </div>
             </div>
@@ -136,22 +137,58 @@
     </div>
 </div>
 @endsection
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
-tinymce.init({
-	selector:'textarea.description',
-	height: 300
-});
+document.addEventListener("DOMContentLoaded", ready);
+function ready(){
+	$('#description').summernote({height: 300, lang:'{{ app()->getLocale() }}-GB'});
+};
 
 function updatePhoto(photo_id) {
-	console.log($("#photo-file-"+photo_id)[0].files[0]);
-	console.log(photo_id);
+	f=$("#photo-file-"+photo_id)[0].files;
+	Data = new FormData();
+	Data.append('photo_id', photo_id);
+	$(f).each(function(index, file) {
+		Data.append('file[]',file);
+	});
+
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: path + 'edit/updatephoto',
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+                $('#photo_gallery').html(data);
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
 }
 
-function addPhotos() {
-	$.each($("#photos-file")[0].files,function(key, input){
-		console.log(input);
+function addPhotos(post_id) {
+	Data = new FormData();
+	Data.append('post_id', post_id);
+	$.each($("#photos-file")[0].files,function(key, file){
+		Data.append('file[]',file);
 	});
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: path + 'edit/addphotos',
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+                $('#photo_gallery').html(data);
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
 }
 </script>
 <style>

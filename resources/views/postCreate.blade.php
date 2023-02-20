@@ -127,17 +127,10 @@
     </div>
 </div>
 @endsection
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<!-- <script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script> -->
 <script>
-tinymce.init({
-	selector:'textarea.description',
-	height: 300
-});
-/*
-CKEDITOR.replace( 'description', {
-    filebrowserUploadUrl: "/post/create",
-    filebrowserUploadMethod: 'form'
-});
-*/
+document.addEventListener("DOMContentLoaded", ready);
+function ready(){
+	$('#description').summernote({height: 300, lang:'{{ app()->getLocale() }}-GB'});
+};
+
 </script>

@@ -235,6 +235,67 @@ class PostController extends Controller
         return view('allPosts', compact('posts'));
     }
 
+    public function getCity(Request $request)
+    {
+	$towns = Town::where('name','like', '%'.$request->keyword.'%')->distinct()->select('name')->get();
+        $html = '<ul class="list-circle zebra" id="city-list" >';
 
+        foreach ($towns as $row) {
+            $html .= "<li style='cursor: pointer;' onClick='selectCity(".'"'.addslashes($row->name).'"'.");'>".$row->name.'</li>';
+        }
+        $html .= '</ul>';
+        return ($html);
+    }
+
+    public function home_filters(Request $request)
+    {
+	$city = $request->city;
+        $posts = Post::where('price','>=',$request->from_price)
+		->when($city, function ($query) use ($city) {
+                        return $query->where('index','like', '%'.$city.'%')
+				->orWhere('address','like', '%'.$city.'%');
+                    })
+		->paginate(100);
+        return view('filterPosts', compact('posts'));
+    }
+
+    public function filterPosts(Request $request)
+    {
+
+        $query = Post::query();
+
+	if ($request->days != "") {
+		$diff_date = date('Y-m-d', strtotime(date("Y-m-d"). " -".$request->days." day"));
+		$query = $query->whereDate('created_at', $diff_date);
+	}
+
+        if ($request->price){
+            $query = $query->where('price' , '>=' , $request->price);
+        }
+        if ($request->rooms){
+            $query = $query->where('rooms' , $request->rooms);
+        }
+        if ($request->square){
+            $query = $query->where('square' , '>=' , $request->square);
+        }
+        if ($request->bedrooms){
+            $query = $query->where('bedrooms' , $request->bedrooms);
+        }
+        if ($request->garage){
+            $query = $query->where('garage' , 1);
+        }
+        if ($request->balcony){
+            $query = $query->where('balcony' , 1);
+        }
+        if ($request->terrace){
+            $query = $query->where('terrace' , 1);
+        }
+        if ($request->garden){
+            $query = $query->where('garden' , 1);
+        }
+
+        $posts = $query->paginate(100);
+        return view('gridPosts', compact('posts'));
+    }
 
 }
