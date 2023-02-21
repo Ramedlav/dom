@@ -78,6 +78,8 @@
                                     <a class="dropdown-item" href="{{ route('createCreateForm') }}">{{ __('New post') }}</a>
                                     <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All posts') }}</a>
                                     <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My posts') }}</a>
+                                    <a class="dropdown-item" href="{{ route('google-autocomplete') }}">{{ __('Google autocomplete') }}</a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -93,5 +95,31 @@
             @yield('content')
         </main>
     </div>
+
+    <script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" ></script>
+    <script>
+        $(document).ready(function () {
+            $("#latitudeArea").addClass("d-none");
+            $("#longtitudeArea").addClass("d-none");
+        });
+    </script>
+    <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        function initialize() {
+            var input = document.getElementById('autocomplete');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                $('#latitude').val(place.geometry['location'].lat());
+                $('#longitude').val(place.geometry['location'].lng());
+
+                $("#latitudeArea").removeClass("d-none");
+                $("#longtitudeArea").removeClass("d-none");
+            });
+        }
+    </script>
 </body>
 </html>

@@ -116,23 +116,23 @@
             </div>
         </div>
     </div>
-                @include('layouts.copyright')
+                {{-- @include('layouts.copyright') --}}
 
 </div>
 @endsection
 
 
 <script>
-// AJAX call for autocomplete 
+// AJAX call for autocomplete
 document.addEventListener("DOMContentLoaded", function(){
 	$("#input-city").keyup(function(e){
         var path = $('#program_folder').val();
-	if (e.keyCode === 27) {         
+	if (e.keyCode === 27) {
 		$('#city-box').hide();
 	} else {
 		Data = new FormData();
 		Data.append('keyword',$(this).val());
-		
+
 		$.ajax({
 		type: "POST",
 		url: path + 'getcity',
