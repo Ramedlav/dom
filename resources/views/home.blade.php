@@ -152,7 +152,7 @@
                         </div>
                     @endif
 
-                    {{ __('Chto to nado vyvesti))))))') }}
+                    {{ __('random posts near you') }}
                 </div>
             </div>
         </div>

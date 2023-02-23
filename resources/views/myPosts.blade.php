@@ -37,27 +37,27 @@
 			</div>
 
                             @if($post->is_published)
-                                <div style="text-decoration-color: greenyellow" ><p style="color: green">is published</p></div>
+                                <div style="text-decoration-color: greenyellow" ><p style="color: green">{{__('is published')}}</p></div>
                             @else
-                                <div style="text-decoration-color: red" ><p style="color: red">is not published</p></div>
+                                <div style="text-decoration-color: red" ><p style="color: red">{{__('is not published')}}</p></div>
                             @endif
 			<div class="btn-group">
                             @if($post->is_published)
                                 <form action="/post/publish/{{$post->id}}" method="post">
                                     @csrf
-                                    <input type="submit" value="unpublish" class="btn btn-success form-control">
+                                    <input type="submit" value="{{__('unpublish')}}" class="delete-button btn-success form-control">
                                 </form>
                             @else
                                 <form action="/post/publish/{{$post->id}}" method="post">
                                     @csrf
-                                    <input type="submit" value="publish" class="btn btn-success form-control">
+                                    <input type="submit" value="{{__('publish')}}" class="progress-button btn-success form-control">
                                 </form>
                             @endif
 			</div>
             <div class="">
                 <a class="btn btn-primary form-control progress-button" href="{{ route('editEditForm',['id_post' => $post->id]) }}">{{ __('Edit') }}</a>
             </div>
-            <div><button class="btn btn-primary delete-button">Delete</button></div>
+            <div><button class="btn btn-primary delete-button">{{__('Delete')}}</button></div>
             <div><hr></div>
                     @endforeach
                 </div>
