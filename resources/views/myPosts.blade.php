@@ -53,11 +53,12 @@
                                     <input type="submit" value="publish" class="btn btn-success form-control">
                                 </form>
                             @endif
-                        <div class="">
-				<a class="btn btn-primary form-control" href="{{ route('editEditForm',['id_post' => $post->id]) }}">{{ __('Edit') }}</a>
 			</div>
-			</div>
-                        <div><hr></div>
+            <div class="">
+                <a class="btn btn-primary form-control progress-button" href="{{ route('editEditForm',['id_post' => $post->id]) }}">{{ __('Edit') }}</a>
+            </div>
+            <div><button class="btn btn-primary delete-button">Delete</button></div>
+            <div><hr></div>
                     @endforeach
                 </div>
             </div>

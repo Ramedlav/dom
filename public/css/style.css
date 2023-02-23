@@ -55,16 +55,28 @@
     text-align: center;
 }
 
-button.progress-button {
+.next-button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.delete-button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.progress-button {
     display: block;
     margin: 0 auto;
     padding: 0;
     width: 100px;
     height: 40px;
-    border: 2px solid #1ECD97;
+    border: 1px solid #228B22;
     border-radius: 40px;
     background: transparent;
-    color: #1ECD97;
+    color: #228B22;
     letter-spacing: 1px;
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
@@ -72,11 +84,56 @@ button.progress-button {
     transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
 }
 
-button.progress-button:hover{
-    border-color: #1ECD97;
-    background-color: #1ECD97;
+.progress-button:hover{
+    border-color: #228B22;
+    background-color: #228B22;
     color: #fff;
 }
 
+.next-button {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #ffc107;
+    border-radius: 40px;
+    background-color: #ffc107;
+    /*background: transparent;*/
+    color: #fefefe;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+}
 
+.next-button:hover{
+    border-color: #ffca2c;
+    background-color: #ffca2c;
+    color: #fff;
+}
+
+.delete-button {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #a52834;
+    border-radius: 40px;
+    background: transparent;
+    color: #a52834;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+}
+
+.delete-button:hover{
+    border-color: #a52834;
+    background-color: #a52834;
+    color: #fff;
+}
 

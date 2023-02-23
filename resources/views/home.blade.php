@@ -5,32 +5,32 @@
     <div class="row justify-content-center">
     <div class="row">
         <div class="col-12">
-            <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carousel" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#carousel" data-bs-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div id="slide_1" class="carousel-item active">
-                        <img src="/img/c-1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div id="slide_2" class="carousel-item">
-                        <img src="/img/c-2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div id="slide_3" class="carousel-item">
-                        <img src="/img/c-3.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <a class="left carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Предыдущий</span>
-                </a>
-                <a class="right carousel-control-next" href="#carousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Следующий</span>
-                </a>
-            </div>
+{{--            <div id="carousel" class="carousel slide" data-bs-ride="carousel">--}}
+{{--                <ol class="carousel-indicators">--}}
+{{--                    <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>--}}
+{{--                    <li data-bs-target="#carousel" data-bs-slide-to="1"></li>--}}
+{{--                    <li data-bs-target="#carousel" data-bs-slide-to="2"></li>--}}
+{{--                </ol>--}}
+{{--                <div class="carousel-inner">--}}
+{{--                    <div id="slide_1" class="carousel-item active">--}}
+{{--                        <img src="/img/c-1.jpg" class="d-block w-100" alt="...">--}}
+{{--                    </div>--}}
+{{--                    <div id="slide_2" class="carousel-item">--}}
+{{--                        <img src="/img/c-2.jpg" class="d-block w-100" alt="...">--}}
+{{--                    </div>--}}
+{{--                    <div id="slide_3" class="carousel-item">--}}
+{{--                        <img src="/img/c-3.jpg" class="d-block w-100" alt="...">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <a class="left carousel-control-prev" href="#carousel" role="button" data-slide="prev">--}}
+{{--                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--}}
+{{--                    <span class="sr-only">Предыдущий</span>--}}
+{{--                </a>--}}
+{{--                <a class="right carousel-control-next" href="#carousel" role="button" data-slide="next">--}}
+{{--                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--}}
+{{--                    <span class="sr-only">Следующий</span>--}}
+{{--                </a>--}}
+{{--            </div>--}}
         </div>
     </div>
 
@@ -97,7 +97,7 @@
 		</select>
 				</div>
 				<div class="col-sm-2">
-					<button class="btn btn-primary btn-block w-100" type="submit">{{ __('Search') }}</button>
+					<button class="btn-primary btn-block w-100 next-button" type="submit">{{ __('Search') }}</button>
 				</div>
 			</div>
 		</div>
@@ -123,16 +123,16 @@
 
 
 <script>
-// AJAX call for autocomplete 
+// AJAX call for autocomplete
 document.addEventListener("DOMContentLoaded", function(){
 	$("#input-city").keyup(function(e){
         var path = $('#program_folder').val();
-	if (e.keyCode === 27) {         
+	if (e.keyCode === 27) {
 		$('#city-box').hide();
 	} else {
 		Data = new FormData();
 		Data.append('keyword',$(this).val());
-		
+
 		$.ajax({
 		type: "POST",
 		url: path + 'getcity',
