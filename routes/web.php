@@ -44,5 +44,10 @@ Auth::routes([
     ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/google-autocomplete', [GoogleController::class, 'index'])->name('google-autocomplete');
-?>
+Route::get('/google-map',[GoogleController::class, 'indexMap'])->name('google-map');
+Route::post('/store',[GoogleController::class, 'store'])->name('google.map.store');
+// Route::get('/show-map', [GoogleController::class, 'showMap'])->name('show-map');
+
+

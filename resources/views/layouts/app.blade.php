@@ -15,6 +15,8 @@
     <script type="text/javascript" src="{{ asset('css/jquery/jquery-2.1.1.min.js') }}"></script>
     <script src="{{ asset('summernote/summernote.js') }}"></script>
     <script src="{{ asset('summernote/lang/summernote-en-GB.js') }}"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -79,6 +81,7 @@
                                     <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All posts') }}</a>
                                     <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My posts') }}</a>
                                     <a class="dropdown-item" href="{{ route('google-autocomplete') }}">{{ __('Google autocomplete') }}</a>
+                                    <a class="dropdown-item" href="{{ route('google-map') }}">{{ __('Show map') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -96,8 +99,10 @@
         </main>
     </div>
 
+
+
     <script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" ></script>
+        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }} &libraries=places" ></script>
     <script>
         $(document).ready(function () {
             $("#latitudeArea").addClass("d-none");
