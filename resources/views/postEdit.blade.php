@@ -126,7 +126,7 @@
 						<button type="submit" class="btn btn-success progress-button">{{ __('Save') }}</button>
 					</div>
 					<div>
-				 		<button class="btn btn-primary progress-button" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
+				 		<button class=" btn-primary next-button" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
 					</div>
 				</div>
 			</div>

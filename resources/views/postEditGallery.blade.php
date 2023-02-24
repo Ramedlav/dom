@@ -13,7 +13,7 @@
                         @endisset
                     @endforeach
 			<div class="text-center" style="margin: 15px 0;">
-			   <input name="file" type="file" id="photos-file" class="input input__file" multiple onchange="addPhotos({{ $photo->post_id }})">
+			   <input name="file" type="file" id="photos-file" class=" input input__file" multiple onchange="addPhotos({{ $photo->post_id }})">
 			   <label for="photos-file">
 			      <span class="input__file-button-text btn btn-success">{{ __('Add photos') }}</span>
 			   </label>

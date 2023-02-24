@@ -250,7 +250,7 @@ class PostController extends Controller
     public function home_filters(Request $request)
     {
 	$city = $request->city;
-        $posts = Post::where('price','>=',$request->from_price)
+        $posts = Post::where('price','>=',$request->from_price)->where('price','<=',$request->to_price)
 		->when($city, function ($query) use ($city) {
                         return $query->where('index','like', '%'.$city.'%')
 				->orWhere('address','like', '%'.$city.'%');
