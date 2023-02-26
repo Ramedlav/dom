@@ -7,6 +7,8 @@ use App\Models\Article;
 use App\Models\User;
 use App\Http\Requests\FormMapRequest;
 use App\Models\Boxmap;
+use App\Models\Post;
+
 
 class GoogleController extends Controller
 {
@@ -24,8 +26,10 @@ class GoogleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexMap()
+    public function indexMap(Post $posts)
     {
+        $posts = Post::all();
+
         $boxmap = Boxmap::all();
 
         $dataMap  = Array();
@@ -40,7 +44,7 @@ class GoogleController extends Controller
                 $feaures['properties']= $properties;
                 array_push($dataMap['features'],$feaures);
     }
-        return View('google-maps.google-map')->with('dataArray',json_encode($dataMap));
+        return View('google-maps.google-map', compact('posts'))->with('dataArray',json_encode($dataMap));
     }
 
     /**
@@ -63,7 +67,7 @@ class GoogleController extends Controller
     {
         $validated = $request->validated();
         Boxmap::create($request->all());
-        return redirect('/google-maps')->with('success',"Add map success!");
+        return redirect('/google-map')->with('success',"Add map success!");
 
     }
 }
