@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Post $posts)
     {
-        return view('home');
+        $posts = Post::All();
+	    $posts = Post::paginate(3);
+        // dd($posts);
+        return view('home', compact('posts'));
     }
 }

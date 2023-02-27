@@ -83,9 +83,6 @@
                                     <a class="dropdown-item" href="{{ route('createCreateForm') }}">{{ __('New post') }}</a>
                                     <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All posts') }}</a>
                                     <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My posts') }}</a>
-                                    <a class="dropdown-item" href="{{ route('google-autocomplete') }}">{{ __('Google autocomplete') }}</a>
-                                    <a class="dropdown-item" href="{{ route('google-map') }}">{{ __('Show map') }}</a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

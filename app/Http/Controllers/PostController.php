@@ -72,6 +72,14 @@ class PostController extends Controller
         return view('allPosts',compact('posts'));
     }
 
+    public function index()
+    {
+//        $posts = Post::All();
+	$posts = Post::paginate(10);
+        return view('home',compact('posts'));
+    }
+
+
     public function myPosts(){
         $user_id = Auth::user()->id;
         $posts = User::find($user_id)->posts;
