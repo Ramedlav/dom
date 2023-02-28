@@ -15,8 +15,8 @@
 
                     <form class="dropdown-menu p-4 w-100" action="{{route('filters')}}" method="post">
                         @csrf
-			<div class="row">
-			<div class="col-12 col-sm-2">
+			        <div class="row">
+			        <div class="col-12 col-sm-2">
                         <label>{{__('time on freebe')}}</label>
                         <fieldset>
                             <div>

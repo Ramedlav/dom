@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -25,9 +27,10 @@ class HomeController extends Controller
      */
     public function index(Post $posts)
     {
-        $posts = Post::All();
+        // $posts = Post::orderBy('id','desc')->take(3)->get()->reverse();
+        // Post::latest()->limit(3)->get();
+// dd($posts);
 	    $posts = Post::paginate(3);
-        // dd($posts);
         return view('home', compact('posts'));
     }
 }
