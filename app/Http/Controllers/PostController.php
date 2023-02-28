@@ -196,6 +196,8 @@ class PostController extends Controller
         $post->terrace = $request->terrace;
         $post->garden = $request->garden;
         $post->price = $request->price;
+        $post->address_latitude = $request->address_latitude;
+        $post->address_longitude = $request->address_longitude;
 
 	$post->update();
 

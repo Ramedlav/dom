@@ -45,15 +45,15 @@
                   <div class="form-group">
                     {{-- <label for="address">{{ __('address') }}</label> --}}
                     <input type="text"
-                           name="city"
-                           id="input-city"
-                           placeholder="{{ __('City, address, etc') }}"
-                           class="form-control  map-input"
-                           value="">
-                    <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
-                    <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
+                            name="address"
+                            placeholder="address"
+                            id="address"
+                            class="form-control map-input"
+                            value="{{ $post->address ?? old('address') }}">
+                    <input type="hidden" name="address_latitude" id="address-latitude" value="  @foreach($posts as $post) {{ $post->address_latitude }}  @endforeach" />
+                    <input type="hidden" name="address_longitude" id="address-longitude" value="@foreach($posts as $post) {{ $post->address_longitude }}  @endforeach" />
                 </div>
-                <div id="address-map-container" style="width:100%;height:300px; ">
+                <div id="address-map-container" style="width:100%;height:200px; ">
                     <div style="width: 100%; height: 100%" id="address-map"></div>
                 </div>
 				  <div id="city-box"></div>
@@ -167,34 +167,32 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     <div class="">
-
                         @foreach($posts as $post)
                         <div class="">
                             <div class="col-12 d-flex justify-content-between align-items-center">
-                                <div class="post-title"><a href="{{route('show',['id_post' => $post->id])}}">{{ $post->title }}</a></div>
-                                <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
-
-                                    @foreach($post->photos as $photo)
-                                        @if ($loop->first)
-                                            @php
-                                            $img=$photo->img;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-
-                                    <div class="col-12 col-sm-6">
-                                            <img class="img-fluid w-50" src="{{ asset('/storage/' . $img) }}">
-                                    </div>
-
+                                <div class="post-title">
+                                    <a href="{{route('show',['id_post' => $post->id])}}">
+                                        {{ $post->title }}
+                                    </a>
                                 </div>
-
+                                <div class="post-fulladdress">
+                                    {{ $post->index }} {{ $post->address }}
+                                </div>
+                                @foreach($post->photos as $photo)
+                                    @if ($loop->first)
+                                        @php
+                                        $img=$photo->img;
+                                        @endphp
+                                    @endif
+                                @endforeach
+                                <div class="col-12 col-sm-6">
+                                    <img class="img-fluid w-50" src="{{ asset('/storage/' . $img) }}">
+                                </div>
+                            </div>
                         </div>
-
                         @endforeach
                     </div>
-
                 </div>
                 @if($posts->total() > $posts->count())
                     <br>
@@ -207,8 +205,7 @@
             </div>
         </div>
     </div>
-                @include('layouts.copyright')
-
+    @include('layouts.copyright')
 </div>
 @endsection
 
