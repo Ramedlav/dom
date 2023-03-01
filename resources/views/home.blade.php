@@ -13,7 +13,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="card home-form col-8 mx-auto">
+                <div class="card home-form col-md-8 mx-auto">
                     <div class=" p-2 m-2">
                         <form action="{{ route('home_filters') }}" method="POST">
                         @csrf
@@ -28,8 +28,12 @@
                                                 id="address"
                                                 class="form-control map-input mb-2"
                                                 value="{{ $post->address ?? old('address') }}">
-                                        <input type="hidden" name="address_latitude" id="address-latitude" value="  @foreach($posts as $post) {{ $post->address_latitude }}  @endforeach" />
-                                        <input type="hidden" name="address_longitude" id="address-longitude" value="@foreach($posts as $post) {{ $post->address_longitude }}  @endforeach" />
+                                        @foreach($posts as $post)
+                                        {{-- <input type="hidden" name="address_latitude" id="address-latitude" value="@foreach($posts as $post) {{ $post->address_latitude }}  @endforeach" />
+                                        <input type="hidden" name="address_longitude" id="address-longitude" value="@foreach($posts as $post) {{ $post->address_longitude }}  @endforeach" /> --}}
+                                        <input type="hidden" name="address_latitude" id="address-latitude" value=" {{ $post->address_latitude }} " />
+                                        <input type="hidden" name="address_longitude" id="address-longitude" value=" {{ $post->address_longitude }} " />
+                                        @endforeach
                                     </div>
                                     <div id="address-map-container" style="width:100%;height:200px; ">
                                         <div style="width: 100%; height: 100%" id="address-map"></div>
@@ -146,26 +150,20 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="card p-2 my-2">
-                    <div class="card-body">
+            <div class="col-12 text-center ">
+                <h2 class="form-title mt-5">Promowane oferty</h2>
+                <div class="card home-page-card py-2 my-2">
+                    <div class="card-body p-0">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="">
+                        <div class="d-flex flex-wrap">
                             @foreach($posts as $post)
-                            <div class="">
-                                <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="post-title">
-                                        <a href="{{route('show',['id_post' => $post->id])}}">
-                                            {{ $post->title }}
-                                        </a>
-                                    </div>
-                                    <div class="post-fulladdress">
-                                        {{ $post->index }} {{ $post->address }}
-                                    </div>
+
+                            <div class="form-card col-lg-6 col-xl-4 p-1">
+                                <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">
                                     @foreach($post->photos as $photo)
                                         @if ($loop->first)
                                             @php
@@ -173,10 +171,20 @@
                                             @endphp
                                         @endif
                                     @endforeach
-                                    <div class="col-12 col-sm-6">
-                                        <img class="img-fluid w-50" src="{{ asset('/storage/' . $img) }}">
+                                    <img class="img-fluid" src="{{ asset('/storage/' . $img) }}">
+                                    <div class="form-text text-start">
+                                        <div class="post-title">
+                                            {{ $post->title }}
+                                        </div>
+                                        <div class="post-title">
+                                           {{ $post->price }}&nbsp;zł
+                                        </div>
+                                        <div class="post-fulladdress">
+                                           {{ $post->address }}
+                                        </div>
                                     </div>
-                                </div>
+
+                                </a>
                             </div>
                             @endforeach
                         </div>
@@ -192,11 +200,32 @@
                 </div>
             </div>
         </div>
-        @include('layouts.copyright')
+        {{-- @include('layouts.copyright') --}}
     </div>
 </section>
+{{-- <script type="text/javascript">
+    $(document).ready(function(){
+        $('#address').on('keyup',function () {
+            var query = $(this).val();
+            $.ajax({
+                url:'{{ route('search') }}',
+                type:'GET',
+                data:{'name':query},
+                success:function (data) {
+                    $('#post_list').html(data);
+                }
+            })
+        });
+        $(document).on('click', 'li', function(){
+            var value = $(this).text();
+            $('#address').val(value);
+            $('#post_list').html("");
+        });
+    });
+</script> --}}
 
 @endsection
+
 
 
     {{-- <div class="row">

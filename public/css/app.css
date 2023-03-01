@@ -10887,3 +10887,73 @@ textarea.form-control-lg {
 .home-page .home-form {
   background: rgba(172, 175, 183, 0.6588235294);
 }
+
+.css-jvvr2h {
+  width: 152px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.main-footer a {
+  font-size: 12px;
+  line-height: 20px;
+  color: #757575;
+  text-decoration: none;
+}
+
+h2.form-title, .form-title.h2 {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  text-shadow: 1px 1px 1px rgba(48, 48, 48, 0.35);
+}
+
+.home-page-card .form-card .form-link {
+  display: block;
+  position: relative;
+  height: 220px;
+  line-height: 1.4285714286;
+}
+
+.home-page-card .form-card .img-fluid {
+  width: 100%;
+  height: 220px;
+  line-height: 1.42857;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.home-page-card .form-card .form-text {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.home-page-card {
+  background: transparent;
+  border: none;
+}
+
+.home-page-card .form-card .form-text .post-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-page-card .form-card .form-text .post-fulladdress {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
