@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,9 +35,14 @@ Route::get('/filterPosts/',[PostController::class, 'filterPosts'])->name('filter
 
 Auth::routes([
     Route::get('/myposts/',[PostController::class, 'myPosts'])->name('showMy')->middleware('auth'),
-    Route::get('/dialog/{id_dialog}',[PostController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
+
+//    Route::get('/dialog/{id_dialog}',[MessageController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
 //    Route::post('/dialog/{id_dialog}',[PostController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
-    Route::get('/dialogs/',[PostController::class, 'ShowDialogs'])->name('ShowDialogs')->middleware('auth'),
+    Route::get('/dialogs/',[MessageController::class, 'ShowDialogs'])->name('ShowDialogs')->middleware('auth'),
+    Route::post('/dialog/create/form/',   [MessageController::class, 'CreateDialogForm'])->name('CreateDialogForm')->middleware('auth'),
+    Route::get('/dialog/create/form/',   [MessageController::class, 'CreateDialogForm'])->name('CreateDialogForm')->middleware('auth'),
+    Route::post('/dialog/create/',[MessageController::class, 'CreatePostDialog'])->name('CreatePostDialog')->middleware('auth'),
+
     Route::get('/post/update/{id_post}',[PostController::class, 'upload'])->middleware('auth'),
     Route::post('/filters/',[PostController::class, 'filters'])->name('filters'),
     Route::get('/filters/',[PostController::class, 'filters']),

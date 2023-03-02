@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->bigInteger('dialog_id');
             $table->bigInteger('user_id');
+            $table->boolean('read');
             $table->text('message');
             $table->timestamps();
         });
