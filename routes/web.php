@@ -13,7 +13,9 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/',   function (){ return view('home'); });
+Route::get('/',   function (){ return redirect('/home'); });
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/try', function (){
     return view('welcome2');
 });
@@ -42,8 +44,8 @@ Auth::routes([
     Route::get('/post/edit/form/{id_post}',[PostController::class, 'editForm'])->name('editEditForm')->middleware('auth'),
     ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/home/search', [App\Http\Controllers\HomeController::class, 'autosearch'])->name('search');
+
+Route::get('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 
 

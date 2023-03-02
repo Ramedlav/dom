@@ -40,5 +40,6 @@
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initialize" async defer></script>
     <script src="/js/mapInput.js"></script>
+    @yield('custom_js')
 </body>
 </html>

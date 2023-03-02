@@ -15,15 +15,16 @@
             <div class="col-12">
                 <div class="card home-form col-md-8 mx-auto">
                     <div class=" p-2 m-2">
-                        <form action="{{ route('home_filters') }}" method="POST">
+                        <form action="{{ route('home') }}" method="GET">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-8">
                                 {{-- <input type="text" name="city" placeholder="{{ __('City, address, etc') }}" value="" class="form-control" id="input-city" /> --}}
                                     <div class="form-group">
+
                                         {{-- <label for="address">{{ __('address') }}</label> --}}
                                         <input type="text"
-                                                name="address"
+                                                name="search"
                                                 placeholder="address"
                                                 id="address"
                                                 class="form-control map-input mb-2"
@@ -44,7 +45,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-2">
                                         <select name="filter_km" id="city-km" autocomplete="off" class="form-control">
-                                            <option value="0">+ 0 km</option>
+                                            <option selected="" value="0">+ 0 km</option>
                                             <option value="1">+ 1 km</option>
                                             <option value="2">+ 2 km</option>
                                             <option value="5">+ 5 km</option>
@@ -136,7 +137,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn-primary btn-block w-100 next-button" type="submit">{{ __('Search') }}</button>
+                                        <button id="nBtn" class="btn  btn-block w-100 next-button p-o" type="submit">{{ __('Search') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -159,9 +160,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="d-flex flex-wrap">
+                        <div id="postsList"  class="d-flex flex-wrap">
                             @foreach($posts as $post)
-
                             <div class="form-card col-lg-6 col-xl-4 p-1">
                                 <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">
                                     @foreach($post->photos as $photo)
@@ -203,30 +203,11 @@
         {{-- @include('layouts.copyright') --}}
     </div>
 </section>
-{{-- <script type="text/javascript">
-    $(document).ready(function(){
-        $('#address').on('keyup',function () {
-            var query = $(this).val();
-            $.ajax({
-                url:'{{ route('search') }}',
-                type:'GET',
-                data:{'name':query},
-                success:function (data) {
-                    $('#post_list').html(data);
-                }
-            })
-        });
-        $(document).on('click', 'li', function(){
-            var value = $(this).text();
-            $('#address').val(value);
-            $('#post_list').html("");
-        });
-    });
-</script> --}}
-
 @endsection
 
+@section('custom_js')
 
+@endsection
 
     {{-- <div class="row">
         <div class="col-12"> --}}
