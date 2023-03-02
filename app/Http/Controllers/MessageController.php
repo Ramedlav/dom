@@ -14,12 +14,14 @@ class MessageController extends Controller
     public function ShowDialogs(){
         $user_id = Auth::user()->id;
         $dialogs = User::find($user_id)->dialogs;
+        dd($dialogs);
         return view('messages',compact('dialogs'));
     }
 
     public function ShowDialog($id_dialog){
 
         $messages = Message::find($id_dialog)->messages;
+        dd($messages);
         return view('message',compact('messages'));
     }
 
@@ -34,22 +36,35 @@ class MessageController extends Controller
         Message::create($message);
     }
 
-    public function CreateDialog(Request $request){
+    public function CreateDialogForm(Request $request){
+        $post_id = $request->post_id;
+        $dialog = Dialog::where('post_id', 4);
+        dd($dialog);
+        if ($dialog){
+            $this->ShowDialog($dialog->id);
+        }
+        return view('CreateDialog', compact('post_id'));
+    }
 
-        $user_id = Post::find($request->post_id)->('user_id')->get();
+    public function CreatePostDialog(Request $request){
 
+        $post = Post::find($request->post_id);
+        $user_id = $post->user_id;
+//        dd($user_id);
         $dialog = [
             'user_id' => $user_id,
             'sub_id' => Auth::user()->id,
-            'post_id' => $request->post_id,
+            'post_id' => $request->input('post_id'),
         ];
+
 
         $model = Dialog::create($dialog);
 
         $message = [
-            'dialog_id' => $request->input($model->id),
+            'read' => 0,
+            'dialog_id' => $model->id,
             'user_id' =>  Auth::user()->id,
-            'message' => $request->input('dialog_id'),
+            'message' => $request->input('message'),
         ];
 
         Message::create($message);

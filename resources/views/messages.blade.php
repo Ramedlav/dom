@@ -14,7 +14,9 @@
                         </div>
                     @endif
 {{--                    тут будут диалоги пользователя--}}
-
+                        @foreach($dialogs as $dialog)
+                            {{$dialog->sub_id}} {{$dialog->post_id}}
+                        @endforeach
 
                 </div>
             </div>

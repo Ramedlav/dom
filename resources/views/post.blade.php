@@ -58,7 +58,12 @@
 	                    <div class="post-title">{!! $post->title !!}</div>
        	        	    <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
        		            <div class="post-description">{!! $post->description !!}</div>
-		    </div>
+                        <form action={{Route('CreateDialogForm')}} method="post">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                            <button type="submit" class="btn progress-button">{{__('Send message')}}</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
