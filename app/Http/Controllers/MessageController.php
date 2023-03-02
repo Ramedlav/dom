@@ -18,7 +18,7 @@ class MessageController extends Controller
 
     public function ShowDialog($id_dialog){
         $dialog = Dialog::find($id_dialog);
-        $messages = Message::find($id_post)->messages;
+        $messages = Message::find($id_dialog)->messages;
         return view('message',compact('messages'));
     }
 
