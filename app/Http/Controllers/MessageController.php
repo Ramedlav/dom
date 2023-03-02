@@ -17,9 +17,28 @@ class MessageController extends Controller
     }
 
     public function ShowDialog($id_dialog){
-        $dialog = Dialog::find($id_dialog);
+
         $messages = Message::find($id_dialog)->messages;
         return view('message',compact('messages'));
     }
+
+    public function SendMessage(Request $request){
+
+        $message = [
+            'dialog_id' => $request->input('dialog_id'),
+            'user_id' =>  Auth::user()->id,
+            'message' => $request->input('dialog_id'),
+        ];
+
+        Message::create($message);
+    }
+
+    public function FirstMessage(Request $request){
+
+
+
+    }
+
+
 
 }

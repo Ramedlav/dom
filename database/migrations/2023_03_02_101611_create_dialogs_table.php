@@ -16,6 +16,7 @@ class CreateDialogsTable extends Migration
         Schema::create('dialogs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
+            $table->bigInteger('sub_id');
             $table->bigInteger('post_id');
             $table->timestamps();
         });
