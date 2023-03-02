@@ -15,7 +15,7 @@
             <div class="col-12">
                 <div class="card home-form col-md-8 mx-auto">
                     <div class=" p-2 m-2">
-                        <form action="{{ route('home') }}" method="GET">
+                        <form action="{{ route('home_filters') }}" method="POST">
                         @csrf
                             <div class="row">
                                 <div class="col-sm-8">
@@ -207,7 +207,26 @@
 @endsection
 
 @section('custom_js')
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#name').on('keyup',function () {
+            var query = $(this).val();
+            $.ajax({
+                url:'{{ route('home') }}',
+                type:'GET',
+                data:{'name':query},
+                success:function (data) {
+                    $('#posts_list').html(data);
+                }
+            })
+        });
+        $(document).on('click', 'li', function(){
+            var value = $(this).text();
+            $('#name').val(value);
+            $('#posts_list').html("");
+        });
+    });
+</script>
 @endsection
 
     {{-- <div class="row">
