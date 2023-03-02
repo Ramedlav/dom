@@ -164,10 +164,11 @@
                             @foreach($posts as $post)
                             <div class="form-card col-lg-6 col-xl-4 p-1">
                                 <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">
+                                    @php $img=''; @endphp
                                     @foreach($post->photos as $photo)
                                         @if ($loop->first)
                                             @php
-                                            $img=$photo->img;
+                                            $img = $photo->img;
                                             @endphp
                                         @endif
                                     @endforeach

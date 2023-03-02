@@ -34,6 +34,9 @@ Route::get('/filterPosts/',[PostController::class, 'filterPosts'])->name('filter
 
 Auth::routes([
     Route::get('/myposts/',[PostController::class, 'myPosts'])->name('showMy')->middleware('auth'),
+    Route::get('/dialog/{id_dialog}',[PostController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
+//    Route::post('/dialog/{id_dialog}',[PostController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
+    Route::get('/dialogs/',[PostController::class, 'ShowDialogs'])->name('ShowDialogs')->middleware('auth'),
     Route::get('/post/update/{id_post}',[PostController::class, 'upload'])->middleware('auth'),
     Route::post('/filters/',[PostController::class, 'filters'])->name('filters'),
     Route::get('/filters/',[PostController::class, 'filters']),
