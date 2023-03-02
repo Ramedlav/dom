@@ -13,7 +13,8 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/',   function (){ return view('home'); });
+//Route::get('/',   function (){ return view('home'); });
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/try', function (){
     return view('welcome2');
 });
