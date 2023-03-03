@@ -70,6 +70,4 @@ class MessageController extends Controller
         Message::create($message);
     }
 
-
-
 }
