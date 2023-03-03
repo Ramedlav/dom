@@ -77,7 +77,7 @@
     background: transparent;
     color: #228B22;
     letter-spacing: 1px;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
     transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
@@ -123,7 +123,7 @@
     background: transparent;
     color: #a52834;
     letter-spacing: 1px;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
     transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
