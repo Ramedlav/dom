@@ -39,6 +39,7 @@ class HomeController extends Controller
         {
 
             $output = '';
+
             $query = $request->get('query');
             if ($query !== '') {
                 $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->get();
@@ -46,15 +47,24 @@ class HomeController extends Controller
                 $posts = Post::orderBy('id','desc')->get();
             }
 
+
+
             $total_row = $posts->count();
             if($total_row > 0){
                 foreach($posts as $post)
                 {
+                    $img = '';
+                    foreach($post->photos as $photo){
+                        if ($photo){
+                            $img = $photo->img;
+                        }
+                    }
+
                     $output .= '
                     <div class="form-card col-lg-6 col-xl-4 p-1">
                         <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
                             <div>
-                                <img class="img-fluid" src="">
+                                <img class="img-fluid" src="'.asset('/storage/' . $img).'">
                             </div>
                            <div class="form-text text-start">
                                 <div class="post-title">'
