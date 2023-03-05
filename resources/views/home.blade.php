@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@php /** @var \App\Models\Post $post */ @endphp
 <section class="py-5 home-page">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <h1 class="css-1kqh57f e5z15hn1 mt-5">
-                    Adresujemy marzenia
+                        Adresujemy marzenia
                     <small>Znajdź dom, który Ci odpowiada</small>
                 </h1>
             </div>
@@ -21,20 +22,19 @@
                                 <div class="col-sm-8">
                                 {{-- <input type="text" name="city" placeholder="{{ __('City, address, etc') }}" value="" class="form-control" id="input-city" /> --}}
                                     <div class="form-group">
-
                                         {{-- <label for="address">{{ __('address') }}</label> --}}
                                         <input type="text"
-                                                name="search"
+                                                name="address"
                                                 placeholder="address"
                                                 id="address"
                                                 class="form-control map-input mb-2"
-                                                value="{{ $post->address ?? old('address') }}">
+                                                value="{{ $post->address ?? old('address') }}" >
+
                                         @foreach($posts as $post)
-                                        {{-- <input type="hidden" name="address_latitude" id="address-latitude" value="@foreach($posts as $post) {{ $post->address_latitude }}  @endforeach" />
-                                        <input type="hidden" name="address_longitude" id="address-longitude" value="@foreach($posts as $post) {{ $post->address_longitude }}  @endforeach" /> --}}
-                                        <input type="hidden" name="address_latitude" id="address-latitude" value=" {{ $post->address_latitude }} " />
-                                        <input type="hidden" name="address_longitude" id="address-longitude" value=" {{ $post->address_longitude }} " />
+                                            <input type="hidden" name="address_latitude" id="address-latitude" value=" {{ $post->address_latitude }} " />
+                                            <input type="hidden" name="address_longitude" id="address-longitude" value=" {{ $post->address_longitude }} " />
                                         @endforeach
+
                                     </div>
                                     <div id="address-map-container" style="width:100%;height:200px; ">
                                         <div style="width: 100%; height: 100%" id="address-map"></div>
@@ -137,7 +137,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <button id="nBtn" class="btn  btn-block w-100 next-button p-o" type="submit">{{ __('Search') }}</button>
+                                        <button  class="btn  btn-block w-100 next-button p-o" type="submit">
+                                            <div class="d-flex justify-content-center">
+                                                {{ __('Search') }}:&nbsp;
+                                                <div id="result" class="">
+                                                </div>
+                                                <p class="mb-0">&nbsp;{{ __('posts') }}</p>
+                                            </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -160,8 +167,9 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+
                         <div id="postsList"  class="d-flex flex-wrap">
-                            @foreach($posts as $post)
+                            {{-- @foreach($posts as $post)
                             <div class="form-card col-lg-6 col-xl-4 p-1">
                                 <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">
                                     @php $img=''; @endphp
@@ -187,46 +195,54 @@
 
                                 </a>
                             </div>
-                            @endforeach
+                            @endforeach --}}
                         </div>
+
                     </div>
-                    @if($posts->total() > $posts->count())
+                    {{-- @if($posts->total() > $posts->count())
                         <br>
                         <div class="row justify-content-center">
                             <div class="col-md-12 d-flex justify-content-center">
                                 {{ $posts->onEachSide(1)->links() }}
                             </div>
                         </div>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>
         {{-- @include('layouts.copyright') --}}
     </div>
 </section>
-@endsection
-
-@section('custom_js')
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#name').on('keyup',function () {
-            var query = $(this).val();
+        fetch_customer_data();
+
+        function  fetch_customer_data(query='')
+        {
+            // alert("load data = " + query);
             $.ajax({
-                url:'{{ route('home') }}',
-                type:'GET',
-                data:{'name':query},
-                success:function (data) {
-                    $('#posts_list').html(data);
+                url:"{{ route('action') }}",
+                method: 'GET',
+                data:{query:query},
+                dataType:'json',
+                success:function(data)
+                {
+                    $('#postsList').html(data.table_data);
+                    $('#result').text(data.total_data);
                 }
             })
-        });
-        $(document).on('click', 'li', function(){
-            var value = $(this).text();
-            $('#name').val(value);
-            $('#posts_list').html("");
+        }
+
+        $(document).on('keyup', '#address', function(){
+            var query = $(this).val();
+                fetch_customer_data(query);
         });
     });
 </script>
+@endsection
+
+@section('custom_js')
+
 @endsection
 
     {{-- <div class="row">

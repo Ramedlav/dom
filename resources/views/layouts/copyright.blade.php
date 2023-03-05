@@ -3,7 +3,10 @@
   <div class="container">
     <div class="row">
         <div class="col-12">
-            <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_black.svg" alt="Otodom.pl" width="152" height="60" loading="lazy" class="css-jvvr2h edaqzvg11">
+            <div width="152" height="60" loading="lazy" class="css-jvvr2h edaqzvg11">
+                LOGO
+            </div>
+            {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_black.svg" alt="Otodom.pl" width="152" height="60" loading="lazy" class="css-jvvr2h edaqzvg11"> --}}
         </div>
         <div class="col-12 d-sm-flex flex-wrapper justify-content-between mb-3 ">
             <div>

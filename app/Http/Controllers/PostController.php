@@ -98,6 +98,8 @@ class PostController extends Controller
         $post = Post::find($id_post);
         $photos = Post::find($id_post)->photos;
 
+
+
         return view('allPhotos',compact('post'),compact('photos'));
     }
 

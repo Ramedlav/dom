@@ -14,7 +14,7 @@ class Search implements Filterable
 {
     public static function apply(Builder $builder, $value)
     {
-        return $builder->where(mb_strtolower('address'), $value);
+        return $builder->where('address', 'like', '%' . $value . '%');
     }
 
 }

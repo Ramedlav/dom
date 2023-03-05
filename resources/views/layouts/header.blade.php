@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-light  main-header py-0">
     <div class="container h-100">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt="">
+            <div  width="153" height="35" class="text-white">
+                LOGO
+            </div>
+
+            {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt=""> --}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>

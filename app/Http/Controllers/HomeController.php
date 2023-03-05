@@ -22,14 +22,75 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request, Post $post)
+    public function index()
     {
         // $posts = Post::orderBy('id','desc')->take(3)->get()->reverse();
         // $posts = Post::query()->limit(3)->get();
-        $posts = $post->getPostsBySearch($request)->paginate(6);
-
+        // $posts = $post->getPostsBySearch($request)->paginate(6);
+        $posts = Post::all();
 // dd($posts);
         return view('home', compact('posts'));
+    }
+
+    public function action(Request $request, Post $posts)
+    {
+
+        if($request->ajax())
+        {
+            $output = '';
+            $query = $request->get('query');
+            if ($query !== '') {
+                $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->take(6)->get();
+            }else {
+                $posts = Post::orderBy('id','desc')->take(6)->get();
+            }
+
+            $total_row = $posts->count();
+            if($total_row > 0){
+                foreach($posts as $post)
+                {
+                    $output .= '
+                    <div class="form-card col-lg-6 col-xl-4 p-1">
+                        <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
+                            <div>'
+                                . $img="";
+                                foreach($post->photos as $photo){
+                                    if ($loop->first){
+                                        $img = $photo->img;
+                                    }
+                                }.'
+                                <img class="img-fluid" src="'.asset('/storage/' . $img).'">
+                            </div>
+                           <div class="form-text text-start">
+                                <div class="post-title">'
+                                    .$post->title.'
+                                </div>
+                                <div class="post-title">'
+                                    .$post->price.'&nbsp;zł
+                                </div>
+                                <div class="post-fulladdress">'
+                                    .$post->address.'
+                             </div>
+                           </div>
+                        </a>
+                    </div>
+                    ';
+                }
+            } else {
+                $output = '
+                <div class="form-card col-lg-6 col-xl-4 p-1">
+                    <span>No Data Found</span>
+                </div>
+                 ';
+            }
+
+            $posts = array(
+                'table_data' => $output,
+                'total_data' => $total_row
+            );
+
+            echo json_encode($posts);
+        }
     }
 
 }

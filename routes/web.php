@@ -16,6 +16,7 @@ use App\Http\Controllers\MessageController;
 
 Route::get('/',   function (){ return redirect('/home'); });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/action', [App\Http\Controllers\HomeController::class, 'action'])->name('action');
 
 Route::get('/try', function (){
     return view('welcome2');
