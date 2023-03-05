@@ -27,7 +27,7 @@ class HomeController extends Controller
         // $posts = Post::orderBy('id','desc')->take(3)->get()->reverse();
         // $posts = Post::query()->limit(3)->get();
         // $posts = $post->getPostsBySearch($request)->paginate(6);
-        $posts = Post::all();
+        $posts = Post::paginate(6);
 // dd($posts);
         return view('home', compact('posts'));
     }
@@ -37,12 +37,13 @@ class HomeController extends Controller
 
         if($request->ajax())
         {
+
             $output = '';
             $query = $request->get('query');
             if ($query !== '') {
-                $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->take(6)->get();
+                $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->get();
             }else {
-                $posts = Post::orderBy('id','desc')->take(6)->get();
+                $posts = Post::orderBy('id','desc')->get();
             }
 
             $total_row = $posts->count();
@@ -52,14 +53,8 @@ class HomeController extends Controller
                     $output .= '
                     <div class="form-card col-lg-6 col-xl-4 p-1">
                         <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
-                            <div>'
-                                . $img="";
-                                foreach($post->photos as $photo){
-                                    if ($loop->first){
-                                        $img = $photo->img;
-                                    }
-                                }.'
-                                <img class="img-fluid" src="'.asset('/storage/' . $img).'">
+                            <div>
+                                <img class="img-fluid" src="">
                             </div>
                            <div class="form-text text-start">
                                 <div class="post-title">'
