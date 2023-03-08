@@ -37,12 +37,14 @@ Route::get('/filterPosts/',[PostController::class, 'filterPosts'])->name('filter
 Auth::routes([
     Route::get('/myposts/',[PostController::class, 'myPosts'])->name('showMy')->middleware('auth'),
 
-//    Route::get('/dialog/{id_dialog}',[MessageController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
-//    Route::post('/dialog/{id_dialog}',[PostController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
+    Route::get('/dialog/{dialog_id}',[MessageController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
+    Route::post('/dialog/{dialog_id}',[MessageController::class, 'ShowDialog'])->name('ShowDialog')->middleware('auth'),
     Route::get('/dialogs/',[MessageController::class, 'ShowDialogs'])->name('ShowDialogs')->middleware('auth'),
     Route::post('/dialog/create/form/',   [MessageController::class, 'CreateDialogForm'])->name('CreateDialogForm')->middleware('auth'),
     Route::get('/dialog/create/form/',   [MessageController::class, 'CreateDialogForm'])->name('CreateDialogForm')->middleware('auth'),
     Route::post('/dialog/create/',[MessageController::class, 'CreatePostDialog'])->name('CreatePostDialog')->middleware('auth'),
+    Route::post('/message',[MessageController::class, 'SendMessage'])->name('SendMessage')->middleware('auth'),
+    Route::get('/message',[MessageController::class, 'SendMessage'])->name('SendMessage')->middleware('auth'),
 
     Route::get('/post/update/{id_post}',[PostController::class, 'upload'])->middleware('auth'),
     Route::post('/filters/',[PostController::class, 'filters'])->name('filters'),

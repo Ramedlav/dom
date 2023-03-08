@@ -15,6 +15,7 @@
                     @endif
 {{--                    форма отправки первого сообщения
                         должна отправлять post_id, message --}}
+                        create
                         <div>
                             <form action={{Route('CreatePostDialog')}} method="post">
                                 @csrf
