@@ -20,9 +20,9 @@ class MessageController extends Controller
 
     public function ShowDialog($id_dialog){
 
-        $messages = Message::where('dialog_id',$id_dialog)->latest()->get();
-        $mess = Dialog::find($id_dialog)->messages;
-        dd($mess);
+//        $messages = Message::where('dialog_id',$id_dialog)->latest()->get();
+        $messages = Dialog::find($id_dialog)->messages;
+        dd($messages);
         return view('message',compact('messages'));
     }
 
@@ -39,12 +39,12 @@ class MessageController extends Controller
 
     public function CreateDialogForm(Request $request){
         $post_id = $request->post_id;
-        $dialog = Dialog::where('post_id', $post_id)->first();
+        $dialog = Dialog::where('post_id', $post_id)->where('sub_id', Auth::user()->id)->first();
+//        dd($request->post_id);
 //        dd($dialog->id);
         if ($dialog){
             $this->ShowDialog($dialog->id);
-        }
-        return view('CreateDialog', compact('post_id'));
+        }else{ return view('CreateDialog', compact('post_id'));}
     }
 
     public function CreatePostDialog(Request $request){
