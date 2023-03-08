@@ -14,7 +14,7 @@ class MessageController extends Controller
     public function ShowDialogs(){
         $user_id = Auth::user()->id;
         $dialogs = User::find($user_id)->dialogs;
-        dd($dialogs);
+//        dd($dialogs);
         return view('messages',compact('dialogs'));
     }
 
@@ -43,34 +43,40 @@ class MessageController extends Controller
 
         $dialog = Dialog::where('post_id', $post_id)->where('sub_id', Auth::user()->id)->first();
         if ($dialog){
-            return $this->ShowDialog($dialog->id);
+//            dd($dialog);
+//            redirect()->to(route('ShowDialog',['dialog_id'=> $dialog->id]));
+//            return $this->ShowDialog($dialog->id);
         }else{
-            return view('CreateDialog', compact('post_id'));}
+//            dd(22222);
+            return view('CreateDialog', compact('post_id'));
+        }
     }
 
     public function CreatePostDialog(Request $request){
 
-        dd($request->post_id);
+//        dd($request->post_id);
 
-//        $post = Post::find($request->post_id);
-//        $user_id = $post->user_id;
-//        $dialog = [
-//            'user_id' => $user_id,
-//            'sub_id' => Auth::user()->id,
-//            'post_id' => $request->input('post_id'),
-//        ];
-//
-//
-//        $model = Dialog::create($dialog);
+        $post = Post::find($request->post_id);
+        $user_id = $post->user_id;
+        $dialog = [
+            'user_id' => $user_id,
+            'sub_id' => Auth::user()->id,
+            'post_id' => $request->input('post_id'),
+        ];
+
+
+        $model = Dialog::create($dialog);
 //        dd($model);
-//        $message = [
-//            'read' => 0,
-//            'dialog_id' => $model->id,
-//            'user_id' =>  Auth::user()->id,
-//            'message' => $request->input('message'),
-//        ];
-//
-//        Message::create($message);
+        $message = [
+            'read' => 0,
+            'dialog_id' => $model->id,
+            'user_id' =>  Auth::user()->id,
+            'message' => $request->input('message'),
+        ];
+
+        Message::create($message);
+        return redirect()->to(route('ShowDialog',['dialog_id'=>$model->id]));
+
 //        $this->ShowDialog($model->id);
     }
 
