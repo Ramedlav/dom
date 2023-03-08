@@ -27,30 +27,31 @@ class HomeController extends Controller
         // $posts = Post::orderBy('id','desc')->take(3)->get()->reverse();
         // $posts = Post::query()->limit(3)->get();
         // $posts = $post->getPostsBySearch($request)->paginate(6);
-        $posts = Post::paginate(6);
+        $posts = Post::all();
 // dd($posts);
         return view('home', compact('posts'));
     }
 
     public function action(Request $request, Post $posts)
     {
+        // $lat = $_GET['latitude'];
+        // dd($lat);
+        // $lng = $_GET['longitude'];
 
         if($request->ajax())
         {
-
             $output = '';
-
             $query = $request->get('query');
+
             if ($query !== '') {
                 $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->get();
             }else {
                 $posts = Post::orderBy('id','desc')->get();
             }
 
-
-
             $total_row = $posts->count();
             if($total_row > 0){
+
                 foreach($posts as $post)
                 {
                     $img = '';

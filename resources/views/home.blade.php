@@ -216,7 +216,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         fetch_customer_data();
-
         function  fetch_customer_data(query='')
         {
             // alert("load data = " + query);
@@ -229,8 +228,12 @@
                 {
                     $('#postsList').html(data.table_data);
                     $('#result').text(data.total_data);
+
+                },
+                error: function(data){
+		            console.log(data);
                 }
-            })
+            });
         }
 
         $(document).on('keyup', '#address', function(){
