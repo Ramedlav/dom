@@ -193,10 +193,10 @@ class PostController extends Controller
         $post->rooms = $request->rooms;
         $post->square = $request->square;
         $post->bedrooms = $request->bedrooms;
-        $post->garage = $request->garage;
-        $post->balcony = $request->balcony;
-        $post->terrace = $request->terrace;
-        $post->garden = $request->garden;
+        if($request->garage){$post->garage = $request->garage;}else{$post->garage = 0;}
+        if($request->balcony){$post->balcony = $request->balcony;}else{$post->garage = 0;}
+        if($request->terrace){$post->terrace = $request->terrace;}else{$post->terrace = 0;}
+        if($request->garden){$post->garden = $request->garden;}else{$post->garden = 0;}
         $post->price = $request->price;
         $post->address_latitude = $request->address_latitude;
         $post->address_longitude = $request->address_longitude;
