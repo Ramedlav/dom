@@ -20,8 +20,9 @@ class MessageController extends Controller
 
     public function ShowDialog($id_dialog){
 
-        $messages = Message::where('dialog_id',$id_dialog)->get();
-        dd($messages);
+        $messages = Message::where('dialog_id',$id_dialog)->latest()->get();
+        $mess = Dialog::find($id_dialog)->messages;
+        dd($mess);
         return view('message',compact('messages'));
     }
 
@@ -43,7 +44,7 @@ class MessageController extends Controller
         if ($dialog){
             $this->ShowDialog($dialog->id);
         }
-//        return view('CreateDialog', compact('post_id'));
+        return view('CreateDialog', compact('post_id'));
     }
 
     public function CreatePostDialog(Request $request){
@@ -68,6 +69,8 @@ class MessageController extends Controller
         ];
 
         Message::create($message);
+        $this->ShowDialog($model->id);
     }
+
 
 }
