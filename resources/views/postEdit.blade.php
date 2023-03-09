@@ -125,6 +125,14 @@
                         <input type="checkbox" id="garden" name="garden" value="1" {{ (($post->garden ?? old('garden'))==1?"checked":"") }}>
                         <label for="garden">{{ __('garden') }}</label>
                     </div>
+
+                    <div class="form-group">
+                        <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
+                            <option value = "0">{{__('rent')}}</option>
+                            <option value = "1">{{__('sale')}}</option>
+                        </select>
+                    </div>
+
 				</div>
 				<div class="col-12 col-sm-6">
 		                    <div class="row" id="photo_gallery">

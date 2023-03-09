@@ -58,11 +58,12 @@
 	                    <div class="post-title">{!! $post->title !!}</div>
        	        	    <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
        		            <div class="post-description">{!! $post->description !!}</div>
-                        <form action={{Route('CreateDialogForm')}} method="post">
-                            @csrf
-                            <input type="hidden" name="post_id" value="{{$post->id}}">
-                            <button type="submit" class="btn progress-button">{{__('message')}}</button>
-                        </form>
+
+                        @if($post->user->id !== Auth::user()->id)
+                            @include('messageButton');
+                        @endif
+
+
                     </div>
                 </div>
             </div>

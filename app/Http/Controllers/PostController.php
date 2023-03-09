@@ -148,6 +148,7 @@ class PostController extends Controller
             'terrace' => $request->input('terrace'),
             'garden' => $request->input('garden'),
             'price' => $request->input('price'),
+            'sale' => $request->input('sale'),
             'address_latitude' => $request->input('address_latitude'),
             'address_longitude' => $request->input('address_longitude'),
 
