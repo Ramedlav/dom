@@ -15,7 +15,12 @@
                     @endif
 {{--                    тут будут диалоги пользователя--}}
                         @foreach($dialogs as $dialog)
-                            {{$dialog->sub_id}} {{$dialog->post_id}}
+                            <a href="{{route('ShowDialog',['dialog_id'=>$dialog->id])}}">{{__('open')}}</a>
+                            @foreach($dialog->messages as $message)
+                                {{$message->user->name}}:
+                                {{$message->message}}<br>
+                            @endforeach
+                            <br> {{$dialog->post_id}}<br> {{$dialog->created_at}} <hr>
                         @endforeach
 
                 </div>

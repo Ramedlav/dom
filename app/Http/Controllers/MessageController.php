@@ -14,13 +14,11 @@ class MessageController extends Controller
     public function ShowDialogs(){
         $user_id = Auth::user()->id;
         $dialogs = User::find($user_id)->dialogs;
-//        dd($dialogs);
         return view('messages',compact('dialogs'));
     }
 
     public function ShowDialog($id_dialog){
 
-//        $messages = Message::where('dialog_id',$id_dialog)->latest()->get();
         $messages = Dialog::find($id_dialog)->messages;
         return view('message',compact('messages'));
     }
@@ -43,18 +41,13 @@ class MessageController extends Controller
 
         $dialog = Dialog::where('post_id', $post_id)->where('sub_id', Auth::user()->id)->first();
         if ($dialog){
-//            dd($dialog);
-//            redirect()->to(route('ShowDialog',['dialog_id'=> $dialog->id]));
-//            return $this->ShowDialog($dialog->id);
+            return redirect()->to(route('ShowDialog',['dialog_id'=> $dialog->id]));
         }else{
-//            dd(22222);
             return view('CreateDialog', compact('post_id'));
         }
     }
 
     public function CreatePostDialog(Request $request){
-
-//        dd($request->post_id);
 
         $post = Post::find($request->post_id);
         $user_id = $post->user_id;
@@ -66,7 +59,7 @@ class MessageController extends Controller
 
 
         $model = Dialog::create($dialog);
-//        dd($model);
+
         $message = [
             'read' => 0,
             'dialog_id' => $model->id,
@@ -77,7 +70,6 @@ class MessageController extends Controller
         Message::create($message);
         return redirect()->to(route('ShowDialog',['dialog_id'=>$model->id]));
 
-//        $this->ShowDialog($model->id);
     }
 
 

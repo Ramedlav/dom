@@ -61,6 +61,7 @@
                             <a class="dropdown-item" href="{{ route('createCreateForm') }}">{{ __('New post') }}</a>
                             <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All posts') }}</a>
                             <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My posts') }}</a>
+                            <a class="dropdown-item" href="{{ route('ShowDialogs') }}">{{ __('My dialogs') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

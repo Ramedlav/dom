@@ -21,7 +21,7 @@
                         <div>
                         {{--                    это отдеьный диалог--}}
                             @foreach($messages as $message)
-                                {{$message->message}} {{$message->created_at}}<br>
+                                {{$message->user->name}} {{$message->message}} {{$message->created_at}}<br>
                             @endforeach
                         </div>
                         <form action={{Route('SendMessage')}} method="post">
