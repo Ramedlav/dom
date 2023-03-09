@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class Message extends Model
 {
     use HasFactory;
-    protected $table = 'photos';
+
+    protected $table = 'messages';
     protected $guarded = [];
 
-    public function post()
+    public function dialog()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Dialog::class);
     }
 }

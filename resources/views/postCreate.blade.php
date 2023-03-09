@@ -114,10 +114,18 @@
 
                             <div class="form-group">
                                 <label for="address">{{ __('address') }}</label>
-                                <input type="text" name="address" placeholder="address" id="address" class="form-control" value="{{ $post->address ?? old('address') }}">
+                                <input type="text"
+                                       name="address"
+                                       placeholder="address"
+                                       id="address"
+                                       class="form-control map-input"
+                                       value="{{ $post->address ?? old('address') }}">
+                                <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
+                                <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
                             </div>
-
-
+                            <div id="address-map-container" style="width:100%;height:400px; ">
+                                <div style="width: 100%; height: 100%" id="address-map"></div>
+                            </div>
 
                             <div class="card-footer form-group"><button type="submit" class="btn progress-button">{{ __('Add') }}</button></div>
                         </form>

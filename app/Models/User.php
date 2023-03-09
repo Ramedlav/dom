@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function dialogs()
+    {
+        return $this->hasMany(Dialog::class);
+    }
+
     public function logo()
     {
         return $this->hasOne(Logo::class);

@@ -51,7 +51,19 @@
 
                             <div class="form-group">
                                 <label for="address">{{ __('address') }}</label>
-                                <input type="text" name="address" placeholder="address" id="address" class="form-control" value="{{ ($errors->all()) ? old('address'):$post->address }}">
+                                <input type="text"
+                                       name="address"
+                                       placeholder="address"
+                                       id="address"
+                                       class="form-control map-input"
+                                       value="{{ ($errors->all()) ? old('address'):$post->address }}">
+                                <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude }}" />
+                                <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
+                            </div>
+
+
+                            <div id="address-map-container" style="width:100%;height:300px; ">
+                                <div style="width: 100%; height: 100%" id="address-map"></div>
                             </div>
 
                     <div class="form-group">
@@ -126,7 +138,7 @@
 						<button type="submit" class="btn btn-success progress-button">{{ __('Save') }}</button>
 					</div>
 					<div>
-				 		<button class="btn btn-primary progress-button" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
+				 		<button class=" btn-primary next-button" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
 					</div>
 				</div>
 			</div>

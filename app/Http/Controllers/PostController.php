@@ -72,6 +72,14 @@ class PostController extends Controller
         return view('allPosts',compact('posts'));
     }
 
+    public function index()
+    {
+//        $posts = Post::All();
+	$posts = Post::paginate(10);
+        return view('home',compact('posts'));
+    }
+
+
     public function myPosts(){
         $user_id = Auth::user()->id;
         $posts = User::find($user_id)->posts;
@@ -89,6 +97,8 @@ class PostController extends Controller
     {
         $post = Post::find($id_post);
         $photos = Post::find($id_post)->photos;
+
+
 
         return view('allPhotos',compact('post'),compact('photos'));
     }
@@ -138,6 +148,8 @@ class PostController extends Controller
             'terrace' => $request->input('terrace'),
             'garden' => $request->input('garden'),
             'price' => $request->input('price'),
+            'address_latitude' => $request->input('address_latitude'),
+            'address_longitude' => $request->input('address_longitude'),
 
         ];
 
@@ -181,11 +193,13 @@ class PostController extends Controller
         $post->rooms = $request->rooms;
         $post->square = $request->square;
         $post->bedrooms = $request->bedrooms;
-        $post->garage = $request->garage;
-        $post->balcony = $request->balcony;
-        $post->terrace = $request->terrace;
-        $post->garden = $request->garden;
+        if($request->garage){$post->garage = $request->garage;}else{$post->garage = 0;}
+        if($request->balcony){$post->balcony = $request->balcony;}else{$post->garage = 0;}
+        if($request->terrace){$post->terrace = $request->terrace;}else{$post->terrace = 0;}
+        if($request->garden){$post->garden = $request->garden;}else{$post->garden = 0;}
         $post->price = $request->price;
+        $post->address_latitude = $request->address_latitude;
+        $post->address_longitude = $request->address_longitude;
 
 	$post->update();
 
@@ -247,15 +261,21 @@ class PostController extends Controller
         return ($html);
     }
 
+
+
     public function home_filters(Request $request)
     {
-	$city = $request->city;
-        $posts = Post::where('price','>=',$request->from_price)
-		->when($city, function ($query) use ($city) {
-                        return $query->where('index','like', '%'.$city.'%')
-				->orWhere('address','like', '%'.$city.'%');
-                    })
-		->paginate(100);
+    $query = $request->get('query');
+     $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->paginate(3);
+    //   dd($posts);
+	//  $city = $request->city;
+    //     $posts = Post::where('price','>=',$request->from_price)->where('price','<=',$request->to_price)
+	// 	            ->when($city, function ($query) use ($city) {
+
+    //                     return $query->where('index','like', '%'.$city.'%')
+	// 			->orWhere('address','like', '%'.$city.'%');
+    //                 })
+	// 	->paginate(100);
         return view('filterPosts', compact('posts'));
     }
 
