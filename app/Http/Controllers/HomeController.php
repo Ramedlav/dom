@@ -34,12 +34,13 @@ class HomeController extends Controller
 
     public function action(Request $request, Post $posts)
     {
-        // $lat = $_GET['latitude'];
-        // dd($lat);
-        // $lng = $_GET['longitude'];
 
         if($request->ajax())
         {
+        // $lat = $_GET['address_latitude'];
+        // dd($lat);
+        // $lng = $_GET['longitude'];
+
             $output = '';
             $query = $request->get('query');
 

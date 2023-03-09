@@ -10895,6 +10895,10 @@ textarea.form-control-lg {
      object-fit: contain;
 }
 
+.main-wrapper {
+  min-height: calc(100vh - 222px);
+}
+
 .main-footer a {
   font-size: 12px;
   line-height: 20px;

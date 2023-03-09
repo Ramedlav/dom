@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card">
+        <div class="col-md-12 pt-5">
+            <div class="card mt-4">
                 <div class="card-header post-header">{{ __('Post') }}</div>
 
                 <div class="card-body">

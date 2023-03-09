@@ -33,7 +33,7 @@
 <body>
     <div id="app">
         @include('layouts.header')
-        <main class="py-4">
+        <main class="main-wrapper py-4">
             @yield('content')
         </main>
     @include('layouts.copyright')
