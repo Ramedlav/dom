@@ -105,6 +105,12 @@
                                 <label for="garden">{{ __('garden') }}</label>
                             </div>
 
+                            <div class="form-group">
+                                <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
+                                    <option value = "0">{{__('rent')}}</option>
+                                    <option value = "1">{{__('sale')}}</option>
+                                </select>
+                            </div>
 
 
                             <div class="form-group">
