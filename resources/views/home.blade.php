@@ -223,8 +223,10 @@
 <script type="text/javascript">
     $(document).ready(function(){
         fetch_customer_data();
+
         function  fetch_customer_data(query='')
         {
+
             // alert("load data = " + query);
             $.ajax({
                 url:"{{ route('action') }}",
