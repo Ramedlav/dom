@@ -55,6 +55,11 @@ class PostController extends Controller
 
     public function editForm($id_post){
         $post = Post::find($id_post);
+
+        if(!$post){
+            return redirect()->to(route('home'));
+        }
+
         $photos = Post::find($id_post)->photos;
         if (Auth::user()->id != $post->user->id){
             return back()->withInput();
@@ -63,11 +68,11 @@ class PostController extends Controller
         }
     }
 
-    public function getTown(Request $request)
-    {
-        $towns = Town::where('province_id', $request->province)->get();
-        return (compact('towns'));
-    }
+//    public function getTown(Request $request)
+//    {
+//        $towns = Town::where('province_id', $request->province)->get();
+//        return (compact('towns'));
+//    }
 
     public function showAll()
     {
@@ -93,6 +98,11 @@ class PostController extends Controller
     public function view($id_post)
     {
         $post = Post::find($id_post);
+
+        if(!$post){
+            return redirect()->to(route('home'));
+        }
+
         $photos = Post::find($id_post)->photos;
         return view('post',compact('post'),compact('photos'));
     }
@@ -128,15 +138,6 @@ class PostController extends Controller
 
     public function create(PostRequest $request)
     {
-//        $validation = $request->validate([
-//           'title'=> 'required|min:5|max:50',
-//            'description'=> 'required|min:5',
-//           'index'=> 'required|max:7',
-//           'address'=> 'required|min:5',
-//            'images' => 'image|mimes:jpeg,jpg,bmp,png',
-//        ]);
-
-
 
         $post = [
             'user_id' => Auth::user()->id,
@@ -192,6 +193,11 @@ class PostController extends Controller
     public function edit(PostRequest $request, $id_post)
     {
         $post = Post::find($id_post);
+
+        if(!$post){
+            return redirect()->to(route('home'));
+        }
+
         $post->title = $request->title;
         $post->description = $request->description;
         $post->index = $request->index;
@@ -210,12 +216,6 @@ class PostController extends Controller
 	$post->update();
 
         return Redirect::route("showMy");
-    }
-
-    public function upload($id_post)
-    {
-        $post = Post::find($id_post);
-        dd($post);
     }
 
     public function delete($id_post)

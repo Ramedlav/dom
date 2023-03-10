@@ -22,7 +22,13 @@ class MessageController extends Controller
 
     public function ShowDialog($id_dialog){
         $dialog = Dialog::find($id_dialog);
+
+        if(!$dialog){
+            return redirect()->to(route('home'));
+        }
+
         $messages = $dialog->messages;
+
         if (Auth::user()->id != $dialog->user_id & Auth::user()->id != $dialog->sub_id){
             return back()->withInput();
         }else{
