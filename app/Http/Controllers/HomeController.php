@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function index()
@@ -43,8 +43,11 @@ class HomeController extends Controller
 
             $output = '';
             $query = $request->get('query');
-
+            // dd($query);
+            // $lat = $_GET['latitude'];
+            // $lng = $_GET['longitude'];
             if ($query !== '') {
+
                 $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->get();
             }else {
                 $posts = Post::orderBy('id','desc')->get();
