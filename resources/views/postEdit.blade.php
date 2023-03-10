@@ -44,10 +44,10 @@
                                 <textarea rows=10 type="text" name="description" placeholder="description" id="description" class="form-control description">{!! ($errors->all()) ? old('description'):$post->description !!}</textarea>
                             </div>
 
-                            <div class="form-group">
-                                <label for="index">{{ __('index') }}</label>
-                                <input type="text" name="index" placeholder="index" id="index" class="form-control" value="{{ ($errors->all()) ? old('index'):$post->index }}">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="index">{{ __('index') }}</label>--}}
+{{--                                <input type="text" name="index" placeholder="index" id="index" class="form-control" value="{{ ($errors->all()) ? old('index'):$post->index }}">--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="address">{{ __('address') }}</label>
@@ -56,7 +56,7 @@
                                        placeholder="address"
                                        id="address"
                                        class="form-control map-input"
-                                       value="{{ ($errors->all()) ? old('address'):$post->address }}">
+                                       value="">
                                 <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude }}" />
                                 <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
                             </div>
@@ -130,6 +130,14 @@
                         <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
                             <option value = "0">{{__('rent')}}</option>
                             <option value = "1">{{__('sale')}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="b2b">{{ __('status') }}</label>
+                        <select class="form-control" name="b2b" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
+                            <option value = "0">{{__('private')}}</option>
+                            <option value = "1">{{__('business to business')}}</option>
                         </select>
                     </div>
 

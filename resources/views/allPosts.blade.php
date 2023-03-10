@@ -168,7 +168,7 @@
                             <div class="row" >
 			<div class="col-12 col-sm-6" id="{{$post->id}}">
                                 <div class="post-title"><a href="post/{{$post->id}}">{{ $post->title }}</a></div>
-                                <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
+                                <div class="post-fulladdress"> {{ $post->address }}</div>
                                 <div class="">
                                     <div><label><b>{{__('price')}}:</b> </label> {{$post->price}} €.</div>
                                     <div><label><b>{{__('rooms')}}:</b> </label> {{$post->rooms}}</div>

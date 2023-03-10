@@ -27,23 +27,23 @@
                         @csrf
                             <div class="form-group">
                                 <label for="title">{{ __('title') }}</label>
-                                <input type="text" name="title" placeholder="title" id="title" class="form-control" value="{{ $post->title ?? old('title') }}">
+                                <input type="text" name="title" placeholder="{{__('title')}}" id="title" class="form-control" value="{{ $post->title ?? old('title') }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="price">{{ __('price') }}</label>
-                                <input type="number" name="price" placeholder="price" id="price" class="form-control" value="{{ $post->price ?? old('price') }}">
+                                <input type="number" name="price" placeholder="{{__('€')}}" id="price" class="form-control" value="{{ $post->price ?? old('price') }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="description">{{ __('description') }}</label>
-                                <textarea rows=10 type="text" name="description" placeholder="description" id="description" class="form-control description">{{ $post->description ?? old('description') }}</textarea>
+                                <textarea rows=10 type="text" name="description" placeholder="{{__('description')}}" id="description" class="form-control description">{{ $post->description ?? old('description') }}</textarea>
                             </div>
 
-                            <div class="form-group">
-                                <label for="index">{{ __('index') }}</label>
-                                <input type="text" name="index" placeholder="index" id="index" class="form-control" value="{{ $post->index ?? old('index') }}">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="index">{{ __('index') }}</label>--}}
+{{--                                <input type="text" name="index" placeholder="index" id="index" class="form-control" value="{{ $post->index ?? old('index') }}">--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="rooms">{{ __('number of rooms') }}</label>
@@ -63,7 +63,7 @@
 
                             <div class="form-group">
                                 <label for="square">{{ __('square м²') }}</label>
-                                <input type="number" name="square" placeholder="square" id="square" class="form-control" value="{{ $post->square ?? old('square') }}">
+                                <input type="number" name="square" placeholder="{{__('square')}}" id="square" class="form-control" value="{{ $post->square ?? old('square') }}">
                             </div>
 
                             <div class="form-group">
@@ -112,6 +112,13 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <select class="form-control" name="b2b" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
+                                    <option value = "0">{{__('private')}}</option>
+                                    <option value = "1">{{__('business to business')}}</option>
+                                </select>
+                            </div>
+
 
                             <div class="form-group">
 {{--                                <label for="images">images</label>--}}
@@ -125,7 +132,7 @@
                                        placeholder="address"
                                        id="address"
                                        class="form-control map-input"
-                                       value="{{ $post->address ?? old('address') }}">
+                                       value="">
                                 <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
                                 <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
                             </div>

@@ -17,9 +17,9 @@
                         и быть разных цветов светлосиний и светлозеленый
                         сообщения должны быть отсортированы по дате.
                         форма отправляет dialog_id и message--}}
-
                         <div>
-                        {{--                    это отдеьный диалог--}}
+
+                            {{--                    это отдеьный диалог--}}
                             @foreach($messages as $message)
                                 {{$message->user->name}} {{$message->message}} {{$message->created_at}}<br>
                             @endforeach
@@ -29,6 +29,7 @@
                             <input type="hidden" value="{{$message->dialog->id}}" name="dialog_id">
                             <textarea name="message" placeholder="{{__('write your message')}}"></textarea>
                             <button type="submit" class="btn progress-button">{{__('send')}}</button>
+                            <a class="btn next-button" href="{{ route('ShowDialogs') }}">{{ __('back') }}</a>
                         </form>
 
                 </div>

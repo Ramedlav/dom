@@ -79,6 +79,7 @@ function setLocationCoordinates(key, lat, lng) {
     const longitudeField = document.getElementById(key + "-" + "longitude");
     latitudeField.value = lat;
     longitudeField.value = lng;
+    // alert(lat+'  ,   '+lng);
 }
 
 

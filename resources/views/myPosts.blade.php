@@ -18,7 +18,7 @@
                         @foreach($posts as $post)
 			<div class="col-12 col-sm-6">
                                 <div class="post-title"><a href="{{route('show',['id_post' => $post->id])}}">{{ $post->title }}</a></div>
-                                <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
+                                <div class="post-fulladdress">{{ $post->address }}</div>
                                 <div class="post-description">{!! $post->description !!}</div>
 @php
 				$img='';

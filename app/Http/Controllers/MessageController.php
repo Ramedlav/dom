@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class MessageController extends Controller
 {
@@ -20,9 +21,20 @@ class MessageController extends Controller
     }
 
     public function ShowDialog($id_dialog){
+        $dialog = Dialog::find($id_dialog);
 
-        $messages = Dialog::find($id_dialog)->messages;
-        return view('message',compact('messages'));
+        if(!$dialog){
+            return redirect()->to(route('home'));
+        }
+
+        $messages = $dialog->messages;
+
+        if (Auth::user()->id != $dialog->user_id & Auth::user()->id != $dialog->sub_id){
+            return back()->withInput();
+        }else{
+            return view('message',compact('messages'));
+        }
+
     }
 
     public function SendMessage(Request $request){
