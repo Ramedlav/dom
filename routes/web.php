@@ -19,9 +19,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/action', [App\Http\Controllers\HomeController::class, 'action'])->name('action');
 // Route::get('/ads', [App\Http\Controllers\HomeController::class, 'getAds'])->name('getAds');
 
-Route::get('/try', function (){
-    return view('welcome2');
-});
 
 Route::get('/post/{id_post}',[PostController::class, 'view'])->name('show');
 Route::get('/post/allphotos/{id_post}',[PostController::class, 'PhotoAll'])->name('showphotos');

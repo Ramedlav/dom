@@ -56,7 +56,11 @@ class PostController extends Controller
     public function editForm($id_post){
         $post = Post::find($id_post);
         $photos = Post::find($id_post)->photos;
-        return view('postEdit',compact('post'),compact('photos'));
+        if (Auth::user()->id != $post->user->id){
+            return back()->withInput();
+        }else{
+            return view('postEdit',compact('post'),compact('photos'));
+        }
     }
 
     public function getTown(Request $request)
@@ -138,7 +142,7 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'index' => $request->input('index'),
+//            'index' => $request->input('index'),
             'address' => $request->input('address'),
             'rooms' => $request->input('rooms'),
             'square' => $request->input('square'),
@@ -149,6 +153,7 @@ class PostController extends Controller
             'garden' => $request->input('garden'),
             'price' => $request->input('price'),
             'sale' => $request->input('sale'),
+            'b2b' => $request->input('b2b'),
             'address_latitude' => $request->input('address_latitude'),
             'address_longitude' => $request->input('address_longitude'),
 

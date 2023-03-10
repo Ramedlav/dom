@@ -56,9 +56,17 @@
 		</div>
                     <div class="row">
 	                    <div class="post-title">{!! $post->title !!}</div>
-       	        	    <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
-       		            <div class="post-description">{!! $post->description !!}</div>
+                        <div class="">@if($post->b2b == 0){{__('private')}}@else {{__('business to business')}}@endif</div>
+                        <div class="">{!! $post->rent !!}</div>
+{{--                        <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>--}}
+                        <div class="post-description">{!! $post->description !!}</div>
+                        <div class="">{{__('garage')}}: @if($post->garage == 1){{__('with garage')}}@else{{__('without garage')}}@endif</div>
+                        <div class="">{{__('balcony')}}: @if($post->balcony == 1){{__('with balcony')}}@else{{__('without balcony')}}@endif</div>
+                        <div class="">{{__('terrace')}}: @if($post->terrace == 1){{__('with terrace')}}@else{{__('without terrace')}}@endif</div>
+                        <div class="">{{__('garden')}}: @if($post->garden == 1){{__('with garden')}}@else{{__('without garden')}}@endif</div>
 
+                        <div class="">{!! $post->user->name !!}</div>
+                        <div class="">{!! $post->user->phone !!}</div>
                         @if($post->user->id !== Auth::user()->id)
                             @include('messageButton');
                         @endif

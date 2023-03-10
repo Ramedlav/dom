@@ -7,8 +7,8 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="css-1kqh57f e5z15hn1 mt-5">
-                        Adresujemy marzenia
-                    <small>Znajdź dom, który Ci odpowiada</small>
+                        {{__('Make your choice')}}
+                    <small>{{__('Find your dream home')}}</small>
                 </h1>
             </div>
         </div>
@@ -19,6 +19,12 @@
                         <form action="{{ route('home_filters') }}" method="POST">
                         @csrf
                             <div class="row">
+                                <div>{{__('Private offers')}}</div>
+                                <div>{{__('Business offers')}}</div>
+                                <select>
+                                    <option>{{__('Rent')}}</option>
+                                    <option>{{__('Buy')}}</option>
+                                </select>
                                 <div class="col-sm-8">
                                 {{-- <input type="text" name="city" placeholder="{{ __('City, address, etc') }}" value="" class="form-control" id="input-city" /> --}}
                                     <div class="form-group">
@@ -159,7 +165,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center ">
-                <h2 class="form-title mt-5">Promowane oferty</h2>
+                <h2 class="form-title mt-5">{{__('Private offers')}}</h2>
+                <h2 class="form-title mt-5">{{__('Business offers')}}</h2>
                 <div class="card home-page-card py-2 my-2">
                     <div class="card-body p-0">
                         @if (session('status'))
