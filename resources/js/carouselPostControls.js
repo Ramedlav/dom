@@ -12,7 +12,7 @@ $(function () {
         var count = $(e.relatedTarget).parent().find('.carousel-item').length;
         $(e.relatedTarget).parent().find('.carousel-item').each(function (index, element) {
             if (element === e.relatedTarget) {
-                to = index;
+                to = index + 1;
             }
         });
 
@@ -33,4 +33,11 @@ $(document).ready(function(){
         $('body,html').animate({scrollTop: top}, 1100);
     });
 
+});
+
+$(document).ready(function() {
+    $('.css-1umupf3 .more-btn').on('click',function(){
+        $('.css-1umupf3 .content-text').toggleClass('css-1yc9uo8');
+        $('.chevron-btn').toggleClass('transform-chevron');
+    });
 });
