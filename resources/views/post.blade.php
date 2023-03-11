@@ -180,8 +180,7 @@
                                             </button>
                                             <button type="button"
                                                 data-bs-target="#carouselPostControls"
-                                                data-bs-slide-to="6" a
-                                                ria-label="Slide 7"
+                                                data-bs-slide-to="6" aria-label="Slide 7"
                                                 class="slide-img col-2">
                                                 <div class="image-gallery-thumbnail-inner">
                                                     <img src="/img/c-1.jpg" class=" d-block w-100" alt="...">
@@ -216,6 +215,9 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div>{{$post->user->name}}</div>
+                                <div>{{$post->user->phone}}</div>
+                                <div>{{$post->user->email}}</div>
                                 <div class="col-12">
                                     <div class="">
 
