@@ -3,9 +3,10 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.header-post')
 <section class="post-page">
     <div class="container">
-        <div class="row pt-5">
+        <div class="row">
             <div class="col-12">
                 <div class="css-1md6vpy mt-4">
                     <div class="1hbnbbd d-flex align-items-center ">
