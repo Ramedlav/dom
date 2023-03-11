@@ -459,7 +459,7 @@
                                         <button aria-expanded="true"
                                                 class="more-btn css-tth7py ">
                                                 <span class="css-13vjjlj e1oafw9z1">Pokaż mniej</span>
-                                                <div class="chevron-btn">
+                                                <div class="chevron-btn transform-chevron">
                                                     <svg aria-hidden="true"
                                                         focusable="false"
                                                         data-prefix="fas"
@@ -475,9 +475,9 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div>{{$post->user->name}}</div>
+                                {{-- <div>{{$post->user->name}}</div>
                                 <div>{{$post->user->phone}}</div>
-                                <div>{{$post->user->email}}</div>
+                                <div>{{$post->user->email}}</div> --}}
                                 <div class="col-12">
                                     <div class="">
                                         @foreach($post->photos as $photo)
@@ -493,7 +493,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                {{-- <div class="col-12">
                                     <span class="btn-group">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" role="img" viewBox="0 0 48 48"><path d="M38.5 32.25v-16.5a5 5 0 10-6.25-6.25h-16.5a5 5 0 10-6.25 6.25v16.5a5 5 0 106.25 6.25h16.5a5 5 0 106.25-6.25zm-6.25 3.25h-16.5a5 5 0 00-3.25-3.25v-16.5a5 5 0 003.25-3.25h16.5a5 5 0 003.25 3.25v16.5a5 5 0 00-3.25 3.25zM37 9a2 2 0 11-2 2 2 2 0 012-2zM11 9a2 2 0 11-2 2 2 2 0 012-2zm0 30a2 2 0 112-2 2 2 0 01-2 2zm26 0a2 2 0 112-2 2 2 0 01-2 2z"></path></svg>
                                     {{ $post->square }}{{ 'м²' }}
@@ -501,7 +501,7 @@
                                     {{ $post->bedrooms }}
                                     </span>
                                     <a href="{{route('showphotos',['id_post' => $post->id])}}">{{ __('All photos') }}</a>
-                                </div>
+                                </div> --}}
                                 <div class="col-12">
                                     {{-- <div class="post-title">{!! $post->title !!}</div>
                                        <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
@@ -511,8 +511,8 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-12 my-3">
+                                    <h2 class="css-uzob7">Map</h2>
                                     <div class="form-group">
-                                        {{-- <label for="address">{{ __('address') }}</label> --}}
                                         <input type="hidden"
                                                name="address"
                                                placeholder="address"
@@ -530,6 +530,61 @@
 
                                 </div>
 
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <div class=" css-1a9a3uz">
+                                    <div class="css-1dihcof d-flex">
+                                        <div class="css-16bxnyp">
+                                            <div class="css-1fr5j8f e68241g0">
+                                                <svg aria-hidden="true"
+                                                     focusable="false"
+                                                     data-prefix="far"
+                                                     data-icon="user"
+                                                     class="svg-inline--fa fa-user fa-w-14 fa-lg "
+                                                     role="img"
+                                                     xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 448 512">
+                                                     <path fill="currentColor" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span class="css-1yijy9r ezb2r8u5">{{$post->user->name}}</span>
+                                            <div class="css-1rl7r8w ezb2r8u2">
+                                                Oferta prywatna
+                                            </div>
+                                            <div class="css-1ci9lfd">
+                                                <div class="phoneNumber ezb2r8u3 css-is2nit e33agma3">
+                                                    <span class="css-lgcdco e33agma1">502</span>
+                                                    <button data-cy="phone-number.show-full-number-button" class="e33agma2 css-8ycw4 ekf916v1">Pokaż numer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-1wypg4o"
+                                            data-cy="alert-wrapper"
+                                            role="alert">
+                                            <div class="css-1o129hd d-flex">
+                                                <div class="css-ho7wdu">
+                                                    <svg aria-hidden="true"
+                                                            focusable="false"
+                                                            data-prefix="fas"
+                                                            data-icon="info-circle"
+                                                            class="svg-inline--fa fa-info-circle fa-w-16 fa-lg "
+                                                            role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 512 512"
+                                                            color="#3D8DEB">
+                                                            <path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>
+                                                    </svg>
+                                                </div>
+                                                <p class="css-41wyt7 ms-2">
+                                                    Kontaktowałaś(eś) się w sprawie tego ogłoszenia 2 dni temu
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
