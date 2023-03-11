@@ -191,6 +191,9 @@
                                         <h1  class="css-1sfzh0a">{{ $post->price }} zł</h1>
                                     </div>
                                 </div>
+                                <div>{{$post->user->name}}</div>
+                                <div>{{$post->user->phone}}</div>
+                                <div>{{$post->user->email}}</div>
                                 <div class="col-12">
                                     <div class="">
 
