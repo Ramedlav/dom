@@ -115,6 +115,11 @@
                                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                           <span class="visually-hidden">Next</span>
                                         </button>
+                                        <div class="image-gallery-index">
+                                            {{-- <span class="image-gallery-index-current">10</span>
+                                            <span class="image-gallery-index-separator"> / </span>
+                                            <span class="image-gallery-index-total">12</span> --}}
+                                        </div>
                                     </div>
                                     <div class="image-gallery-thumbnails-wrapper bottom">
                                         <div class="col-12 image-gallery-thumbnails d-flex">
@@ -185,10 +190,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-between my-3">
+                                <div class="col-12 my-3">
+                                    <div class="d-flex justify-content-between">
                                         <h1 class="css-1sfzh0a">{{ $post->title }}</h1>
                                         <h1  class="css-1sfzh0a">{{ $post->price }} zł</h1>
+                                    </div>
+                                    <div id="addressLink">
+                                        <a aria-label="Address"
+                                           href="#address-map-container"
+                                           class="css-171pgf6"
+                                           tabindex="0">
+                                           <svg aria-hidden="true"
+                                                focusable="false"
+                                                data-prefix="fas"
+                                                data-icon="map-marker-alt"
+                                                class="svg-inline--fa fa-map-marker-alt fa-w-12 "
+                                                role="img"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 384 512"
+                                                width="11"
+                                                height="14">
+                                                <path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
+                                            </svg>
+                                            {{ $post->address }}
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -217,13 +242,33 @@
                                     <a href="{{route('showphotos',['id_post' => $post->id])}}">{{ __('All photos') }}</a>
                                 </div>
                                 <div class="col-12">
-                                    <div class="post-title">{!! $post->title !!}</div>
+                                    {{-- <div class="post-title">{!! $post->title !!}</div>
                                        <div class="post-fulladdress">{{ $post->index }} {{ $post->address }}</div>
-                                       <div class="post-description">{!! $post->description !!}</div>
+                                       <div class="post-description">{!! $post->description !!}</div> --}}
                                     {{-- @if($post->user->id !== Auth::user()->id)
                                         @include('messageButton');
                                     @endif --}}
                                 </div>
+                                <div class="col-12 my-3">
+                                    <div class="form-group">
+                                        {{-- <label for="address">{{ __('address') }}</label> --}}
+                                        <input type="hidden"
+                                               name="address"
+                                               placeholder="address"
+                                               id="address"
+                                               class="form-control map-input"
+                                               value="">
+                                        <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude }}" />
+                                        <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
+                                    </div>
+
+
+                                    <div id="address-map-container" style="width:100%;height:300px; ">
+                                        <div style="width: 100%; height: 100%" id="address-map"></div>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
