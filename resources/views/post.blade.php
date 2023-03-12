@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.header-post')
+@include('post-parts.header-post')
 <section class="post-page">
     <div class="container">
         <div class="row">
@@ -56,141 +56,9 @@
 
                         <div class="row">
                             <div class="col-12 col-md-9">
-                                <div class="col-12">
-                                    <div id="carouselPostControls" class="carousel slide" data-bs-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-1.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-2.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-3.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-1.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
 
-                                            <div class="carousel-item">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-2.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-3.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <a target="_blank" href="#">
-                                                  <img src="/img/c-1.jpg" class="img-fluid d-block w-100" alt="...">
-                                                </a>
-                                            </div>
+                                @include('post-parts.carousel')
 
-                                            {{-- @foreach($post->photos as $photo)
-                                                @isset($photo->img)
-                                                    @if ($loop->first)
-                                                    <div class="carousel-item active">
-                                                        <a target="_blank" href="{{ asset('/storage/' . $photo->img) }}">
-                                                            <img class="img-fluid d-block w-100" src="{{ asset('/storage/' . $photo->img) }}">
-                                                        </a>
-                                                    </div>
-                                                    @endif
-                                                @endisset
-                                            @endforeach --}}
-                                        </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselPostControls" data-bs-slide="prev">
-                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                          <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselPostControls" data-bs-slide="next">
-                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                          <span class="visually-hidden">Next</span>
-                                        </button>
-                                        <div class="image-gallery-index">
-                                            {{-- <span class="image-gallery-index-current">10</span>
-                                            <span class="image-gallery-index-separator"> / </span>
-                                            <span class="image-gallery-index-total">12</span> --}}
-                                        </div>
-                                    </div>
-                                    <div class="image-gallery-thumbnails-wrapper bottom">
-                                        <div class="col-12 image-gallery-thumbnails d-flex">
-                                            <button type="button"
-                                                 data-bs-target="#carouselPostControls"
-                                                 data-bs-slide-to="0"
-                                                 class="active slide-img col-2 px-1"
-                                                 aria-current="true"
-                                                 aria-label="Slide 1">
-                                                 <div class="image-gallery-thumbnail-inner">
-                                                    <img src="/img/c-1.jpg" class=" d-block w-100" alt="...">
-                                                 </div>
-                                            </button>
-                                            <button type="button"
-                                                 data-bs-target="#carouselPostControls"
-                                                 data-bs-slide-to="1"
-                                                 aria-label="Slide 2"
-                                                 class="slide-img col-2 px-1">
-                                                 <div class="image-gallery-thumbnail-inner">
-                                                    <img src="/img/c-2.jpg" class=" d-block w-100" alt="...">
-                                                 </div>
-                                            </button>
-                                            <button type="button"
-                                                 data-bs-target="#carouselPostControls"
-                                                 data-bs-slide-to="2"
-                                                 aria-label="Slide 3"
-                                                 class="slide-img col-2 px-1">
-                                                 <div class="image-gallery-thumbnail-inner">
-                                                    <img src="/img/c-3.jpg" class=" d-block w-100" alt="...">
-                                                 </div>
-                                            </button>
-                                            <button type="button"
-                                                 data-bs-target="#carouselPostControls"
-                                                 data-bs-slide-to="3" a
-                                                 ria-label="Slide 4"
-                                                 class="slide-img col-2 px-1">
-                                                 <div class="image-gallery-thumbnail-inner">
-                                                    <img src="/img/c-1.jpg" class=" d-block w-100" alt="...">
-                                                 </div>
-                                            </button>
-                                            <button type="button"
-                                                data-bs-target="#carouselPostControls"
-                                                data-bs-slide-to="4"
-                                                aria-label="Slide 5"
-                                                class="slide-img col-2 px-1">
-                                                <div class="image-gallery-thumbnail-inner">
-                                                <img src="/img/c-2.jpg" class=" d-block w-100" alt="...">
-                                                </div>
-                                            </button>
-                                            <button type="button"
-                                                data-bs-target="#carouselPostControls"
-                                                data-bs-slide-to="5"
-                                                aria-label="Slide 6"
-                                                class="slide-img col-2 px-1">
-                                                <div class="image-gallery-thumbnail-inner">
-                                                    <img src="/img/c-3.jpg" class=" d-block w-100" alt="...">
-                                                </div>
-                                            </button>
-                                            <button type="button"
-                                                data-bs-target="#carouselPostControls"
-                                                data-bs-slide-to="6"
-                                                aria-label="Slide 7"
-                                                class="slide-img col-2 px-1">
-                                                <div class="image-gallery-thumbnail-inner">
-                                                    <img src="/img/c-1.jpg" class=" d-block w-100" alt="...">
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-12 my-4">
                                     <div class="d-flex justify-content-between">
                                         <h1 class="css-1sfzh0a">{{ $post->title }}</h1>
@@ -475,6 +343,59 @@
                                         </button>
                                     </div>
                                 </div>
+                                <div class="col-12 my-4 css-1umupf3">
+                                    <h2 class="css-uzob7">Informacje dodatkowe</h2>
+                                    <div class="css-1l1r91c">
+                                        <div class="css-f45csg">
+                                            <div class="css-1qzszy5 ms-0">
+                                                <div class="css-1h52dri">
+                                                    Ogrodzenie
+                                                </div>
+                                            </div>
+                                            <div class="css-1qzszy5 ms-0">
+                                                <div class="css-1wi2w6s">
+                                                    nie
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="css-f45csg">
+                                            <div class="css-1sqc82x">
+                                                <div class="css-1h52dri">
+                                                    Media
+                                                </div>
+                                            </div>
+                                            <div class="css-1sqc82x">
+                                                <div class="css-1wnyucs">
+                                                    brak informacji
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="css-f45csg">
+                                            <div class="css-1sqc82x">
+                                                <div class="css-1h52dri estckra7">
+                                                    Dojazd
+                                                </div>
+                                            </div>
+                                            <div class="css-1sqc82x">
+                                                <div class="css-1wnyucs">
+                                                    brak informacji
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="css-f45csg">
+                                            <div class="css-1sqc82x">
+                                                <div class="css-1h52dri">
+                                                    Okolica
+                                                </div>
+                                            </div>
+                                            <div class="css-1sqc82x">
+                                                <div class="css-1wnyucs">
+                                                    brak informacji
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 {{-- <div>{{$post->user->name}}</div>
                                 <div>{{$post->user->phone}}</div>
                                 <div>{{$post->user->email}}</div> --}}
@@ -523,15 +444,12 @@
                                         <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
                                     </div>
 
-
                                     <div id="address-map-container" style="width:100%;height:300px; ">
                                         <div style="width: 100%; height: 100%" id="address-map"></div>
                                     </div>
-
                                 </div>
-
                             </div>
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-3 px-1">
                                 <div class=" css-1a9a3uz">
                                     <div class="css-1dihcof d-flex">
                                         <div class="css-16bxnyp">
@@ -562,28 +480,104 @@
                                         </div>
                                     </div>
                                     <div class="css-1wypg4o"
-                                            data-cy="alert-wrapper"
-                                            role="alert">
-                                            <div class="css-1o129hd d-flex">
-                                                <div class="css-ho7wdu">
-                                                    <svg aria-hidden="true"
-                                                            focusable="false"
-                                                            data-prefix="fas"
-                                                            data-icon="info-circle"
-                                                            class="svg-inline--fa fa-info-circle fa-w-16 fa-lg "
-                                                            role="img"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 512 512"
-                                                            color="#3D8DEB">
-                                                            <path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>
-                                                    </svg>
-                                                </div>
-                                                <p class="css-41wyt7 ms-2">
-                                                    Kontaktowałaś(eś) się w sprawie tego ogłoszenia 2 dni temu
-                                                </p>
+                                        data-cy="alert-wrapper"
+                                        role="alert">
+                                        <div class="css-1o129hd d-flex">
+                                            <div class="css-ho7wdu">
+                                                <svg aria-hidden="true"
+                                                    focusable="false"
+                                                    data-prefix="fas"
+                                                    data-icon="info-circle"
+                                                    class="svg-inline--fa fa-info-circle fa-w-16 fa-lg "
+                                                    role="img"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 512 512"
+                                                    color="#3D8DEB">
+                                                    <path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>
+                                                </svg>
                                             </div>
+                                            <p class="css-41wyt7 ms-2">
+                                                Kontaktowałaś(eś) się w sprawie tego ogłoszenia 2 dni temu
+                                            </p>
                                         </div>
                                     </div>
+                                    <form name="" method="" class="pt-1">
+                                        <div class="css-26w93a form-group mt-3 mb-2">
+                                            <input aria-label="Name"
+                                                placeholder="Name"
+                                                maxlength="100"
+                                                type="text"
+                                                name="name"
+                                                class="css-1yk951a form-control">
+                                        </div>
+                                        <div class="css-26w93a form-group  mt-3 mb-2">
+                                            <input aria-label="Email"
+                                                placeholder="Email"
+                                                maxlength="100"
+                                                type="email"
+                                                name="email"
+                                                class="css-1yk951a form-control">
+                                        </div>
+                                        <div class="css-26w93a form-group  mt-3 mb-2">
+                                            <input aria-label="Numer telefonu"
+                                                  data-cy="phone-input.phone"
+                                                  inputmode="tel"
+                                                  maxlength="14"
+                                                  name="phone"
+                                                  placeholder="Numer telefonu"
+                                                  type="tel"
+                                                  class="css-1yk951a form-control"
+                                                  value="">
+                                        </div>
+                                        <div class="css-26w93a form-group  mt-3 mb-2">
+                                            <textarea rows="5"
+                                                   aria-label="Wiadomość"
+                                                   maxlength="2000"
+                                                   name="text"
+                                                   placeholder="Wpisz swoją wiadomość"
+                                                   class=" css-ajeaic w-100">
+                                            </textarea>
+                                            <div data-cy="contact-form.text-area-counter"
+                                                data-testid="text-area-counter"
+                                                class="css-1voeokp text-end">
+                                                124 / 2000
+                                            </div>
+                                            <div data-cy="contact-form.gdpr-note"
+                                               class=" css-1s2tzuy mb-3">
+                                               <button data-cy="see-gdpr-note-button"
+                                                      type="button"
+                                                      class="css-1nbnxnr">
+                                                      Administratorem Twoich danych osobowych jest Grupa OLX Sp. z o.o.&nbsp;
+                                                    <span class="css-v68mj6">
+                                                        więcej
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button data-cy="contact-form.submit-button"
+                                                class="css-1fejj4k"
+                                                type="submit">
+                                                Wyślij wiadomość
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="css-xw4fl9 e1ou4wzt0">
+                                    <button data-cy="ad-subscribe-button-sidebar.subscribe"
+                                          data-cy-subscribed="false"
+                                          class="css-wsz6ly"
+                                          type="button">
+                                          <svg aria-hidden="true"
+                                              focusable="false"
+                                              data-prefix="far"
+                                              data-icon="heart"
+                                              class="svg-inline--fa fa-heart fa-w-16 css-1oaeivz e51iazx0"
+                                              role="img"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              viewBox="0 0 512 512">
+                                              <path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path>
+                                           </svg>
+                                           Zapisz ogłoszenie
+                                     </button>
                                 </div>
                             </div>
                         </div>

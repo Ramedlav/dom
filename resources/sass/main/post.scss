@@ -528,6 +528,218 @@
     line-height: 1.5;
 }
 
+.css-26w93a.form-group {
+    color: rgb(33, 33, 33);
+}
+
+.css-1yk951a {
+    width: 100%;
+    height: 40px;
+    padding: 10px 12px;
+    transition: box-shadow 0.2s ease-in-out 0s;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(189, 189, 189);
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.css-ajeaic {
+    min-width: 200px;
+    margin: 0px 0px -4px;
+    transition: box-shadow 0.2s ease-in-out 0s;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    width: 100%;
+    height: 144px;
+    padding: 8px;
+    color: rgb(33, 33, 33);
+    resize: none;
+}
+
+.css-1yk951a {
+    width: 100%;
+    height: 40px;
+    padding: 10px 12px;
+    transition: box-shadow 0.2s ease-in-out 0s;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(189, 189, 189);
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.css-1s2tzuy {
+    margin-bottom: 8px;
+    font-size: 12px;
+    position: relative;
+}
+
+.css-1nbnxnr {
+    padding: 0px;
+    border: 0px;
+    color: rgb(117, 117, 117);
+    background: none;
+    font-size: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.css-v68mj6 {
+    color: rgb(33, 33, 33);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.css-1fejj4k {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    transition: background-color 0.15s ease-in-out 0s;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: rgb(0, 181, 75);
+    color: rgb(255, 255, 255);
+    grid-area: submit / submit / submit / submit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.css-xw4fl9 {
+    margin: 8px 0px 0px;
+    padding: 16px;
+    background-color: rgb(248, 248, 248);
+}
+
+.css-wsz6ly:hover {
+    border-color: rgb(35, 46, 63);
+    background-color: rgb(242, 243, 244);
+    color: rgb(35, 46, 63);
+}
+
+.css-wsz6ly {
+    display: inline-block;
+    transition: background-color 0.15s ease-in-out 0s;
+    border-style: solid;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 11px 15px;
+    border-width: 2px;
+    border-color: rgb(35, 46, 63);
+    background-color: rgb(255, 255, 255);
+    color: rgb(35, 46, 63);
+    width: 100%;
+}
+
+.post-img-item {
+    height: 450px;
+}
+
+.post-img-fluid {
+    height: 450px;
+    object-fit: cover;
+}
+
+.image-gallery-thumbnail-inner {
+    height: 70px;
+}
+
+.image-gallery-thumbnail-image {
+    height: 70px;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .post-img-item {
+        height: 300px;
+    }
+
+    .post-img-fluid {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .image-gallery-thumbnail-inner {
+        height: 35px;
+    }
+
+    .image-gallery-thumbnail-image {
+        height: 35px;
+        object-fit: cover;
+        opacity: 0.9;
+    }
+}
+
+.css-1l1r91c {
+    display: grid;
+    padding-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+    .css-1l1r91c {
+        gap: 0px 16px;
+        grid-template-columns: minmax(0px, 1fr);
+        padding-top: 0px;
+    }
+
+    .css-f45csg {
+        grid-template-columns: 250px 1fr;
+        height: auto;
+        white-space: normal;
+    }
+}
+
+.css-1l1r91c > div:first-of-type {
+    border-top: 1px solid rgb(224, 224, 224);
+}
+
+.css-f45csg {
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    padding: 8px 0px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    color: rgb(64, 64, 65);
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.css-1qzszy5 {
+    display: flex;
+    position: relative;
+    min-width: 0px;
+    opacity: 1;
+}
+
+.css-1sqc82x {
+    display: flex;
+    position: relative;
+    min-width: 0px;
+    opacity: 0.5;
+}
+
 
 
 

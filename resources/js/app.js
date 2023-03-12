@@ -2,4 +2,4 @@ require('./bootstrap');
 
 require('./maps');
 
-require('./carouselPostControls');
+require('./postPage');

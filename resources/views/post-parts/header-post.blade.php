@@ -5,8 +5,8 @@
               class="css-unc98a e176pl9r6">
               {{ $post->price }} zł
         </span>
-        <div class="css-70evgb e176pl9r5">
-            <span class="css-r5hahk e176pl9r3">
+        <div class="css-70evgb ">
+            <span class="css-r5hahk">
                 <svg aria-hidden="true"
                      focusable="false"
                      data-prefix="fas"
@@ -71,7 +71,7 @@
             </button>
             <button data-cy="ad-page-sticky-header-area-contact-modal"
                     type="button"
-                    class="css-831445 e11e36i3">
+                    class="css-831445">
                     Kontakt
             </button>
         </div>
