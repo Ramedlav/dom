@@ -35,7 +35,6 @@
                                                 id="address"
                                                 class="form-control map-input mb-2"
                                                 value="{{ $post->address ?? old('address') }}" >
-
                                         @foreach($posts as $post)
                                             <input type="hidden" name="address_latitude" id="address-latitude" value=" {{ $post->address_latitude }} " />
                                             <input type="hidden" name="address_longitude" id="address-longitude" value=" {{ $post->address_longitude }} " />

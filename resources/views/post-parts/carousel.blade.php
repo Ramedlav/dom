@@ -56,10 +56,14 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-        <div class="image-gallery-index">
-            {{-- <span class="image-gallery-index-current">10</span>
+        <div class="image-gallery-index d-flex">
+            <span class="image-gallery-index-current">1</span>
             <span class="image-gallery-index-separator"> / </span>
-            <span class="image-gallery-index-total">12</span> --}}
+            @foreach($post->photos as $photo)
+                @isset($photo->img)
+                    <span class="image-gallery-index-total">{{ $loop->count }}</span>
+                @endisset
+            @endforeach
         </div>
     </div>
     <div class="image-gallery-thumbnails-wrapper bottom">
