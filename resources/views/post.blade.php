@@ -8,41 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="css-1md6vpy mt-4">
-                    <div class="1hbnbbd d-flex align-items-center ">
-                        <a href="{{ url('/') }}" class="css-1dgzebp">
-                            <svg aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fas"
-                                data-icon="arrow-left"
-                                class="svg-inline--fa fa-arrow-left fa-w-14 "
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
-                            </svg>
-                            Wróć
-                        </a>
-                        <a href="#" class="css-1in5nid">
-                            ul. Serdeczna
-                            <div class="css-9c7r58 d-flex align-items-center">
-                                <svg aria-hidden="true"
-                                     focusable="false"
-                                     data-prefix="fas"
-                                     data-icon="chevron-right"
-                                     class="svg-inline--fa fa-chevron-right fa-w-10 css-1q4vxyr e1je57sb2"
-                                     role="img"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 320 512"
-                                     height="8"
-                                     width="5">
-                                     <path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path>
-                                </svg>
-                            </div>
-                        </a>
-                        <span class="css-oj2bc7">{{ $post->title }}</span>
-                    </div>
-                </div>
+                @include('post-parts.header-links')
             </div>
             <div class="col-md-12">
                 <div class="card post-card  mt-2">
@@ -62,7 +28,7 @@
                                 <div class="col-12 my-4">
                                     <div class="d-flex justify-content-between">
                                         <h1 class="css-1sfzh0a">{{ $post->title }}</h1>
-                                        <h1  class="css-1sfzh0a">{{ $post->price }} zł</h1>
+                                        <h1  class="css-1sfzh0a">{{ $post->price }}&nbsp;€</h1>
                                     </div>
                                     <div id="addressLink">
                                         <a aria-label="Address"
@@ -86,247 +52,20 @@
                                     </div>
                                 </div>
                                 <div class="col-12 my-4">
-                                    <h2 class="css-uzob7">Szczegóły ogłoszenia</h2>
-                                    <div class="d-md-flex flex-wraper">
-                                        <div class=" col-md-6 pe-md-3">
-                                            <div aria-label="Powierzchnia"
-                                                 role="region"
-                                                 class="css-1ccovha d-flex justify-content-between">
-                                                 <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZD0iTTYuNDMzIDBhMS4zMiAxLjMyIDAgMCAxIC4wNjYgMi42MzhsLS4wNjYuMDAxSDQuNTA1bDguODU1IDguODU1VjkuNTY3YTEuMzIgMS4zMiAwIDAgMSAyLjYzOC0uMDY2bC4wMDIuMDY2djMuMTM0YTMuMyAzLjMgMCAwIDEtMy4yMDcgMy4yOThsLS4wOTIuMDAxSDkuNTY3YTEuMzIgMS4zMiAwIDAgMS0uMDY2LTIuNjM4bC4wNjYtLjAwMSAxLjkyNy0uMDAxLTguODU1LTguODU1djEuOTI4YTEuMzIgMS4zMiAwIDAgMS0yLjYzNy4wNjZMMCA2LjQzM1YzLjI5OUEzLjMgMy4zIDAgMCAxIDMuMjA3LjAwMUwzLjI5OSAwaDMuMTM0eiIgZmlsbD0iIzgwODE4NCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
-                                                        alt=""
-                                                        class="css-gjii1j">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Powierzchnia
-                                                        </div>
-                                                    </div>
-                                                 </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        {{ $post->square }}{{ 'м²' }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Powierzchnia"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZD0iTTE2IDYuMzMzdjYuMzM0QTMuMzMzIDMuMzMzIDAgMCAxIDEyLjY2NyAxNkgzLjMzM0EzLjMzMyAzLjMzMyAwIDAgMSAwIDEyLjY2N1YzLjMzM0EzLjMzMyAzLjMzMyAwIDAgMSAzLjMzMyAwaDZ2Ni4zMzNIMTZ6TTEzLjMzMyA5aC00djQuMzM0aDMuMzM0Yy4zNjggMCAuNjY2LS4zLjY2Ni0uNjY3Vjl6TTIuNjY3IDEyLjY2N2MwIC4zNjguMjk4LjY2Ni42NjYuNjY2bDMuMzM0LjAwMS0uMDAxLTMuNjY4aC00djN6bTQtMTBIMy4zMzNhLjY2Ni42NjYgMCAwIDAtLjY2Ni42NjZsLS4wMDEgM2g0VjIuNjY3eiIgZmlsbD0iIzgwODE4NCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
-                                                            alt=""
-                                                            class="css-gjii1j estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Liczba pokoi
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        {{ $post->bedrooms }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Piętro"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJtMTAuMjE4IDEwLjcyMy0xLjcwNSAxLjcwOS0xLjgzNi0xLjczNWExLjI0NCAxLjI0NCAwIDAgMC0xLjcwOCAxLjgwOWwxLjgzNiAxLjczNGEyLjQ4NyAyLjQ4NyAwIDAgMCAzLjQ2OC0uMDVsMS43MDYtMS43MWExLjI0NCAxLjI0NCAwIDAgMC0xLjc2LTEuNzU2ek04LjUxMiAzLjUxN2wxLjY4MSAxLjc4OGExLjI0NCAxLjI0NCAwIDAgMCAxLjgxMS0xLjcwNGwtMS42OC0xLjc4N2EyLjQ4NyAyLjQ4NyAwIDAgMC0zLjUxNi0uMTA2bC0uMDU2LjA1My0xLjgxIDEuODEzYTEuMjQzIDEuMjQzIDAgMSAwIDEuNzYgMS43NTZsMS44MS0xLjgxMnpNMi4zMiA5LjE5MmgxLjI0NGExLjI0NCAxLjI0NCAwIDEgMCAwLTIuNDg3SDIuMzJhMS4yNDQgMS4yNDQgMCAwIDAgMCAyLjQ4N3oiIGZpbGw9IiM4MDgxODQiLz48cGF0aCBkPSJNNy45MTcgOS4xOTJIOS4xNmExLjI0NCAxLjI0NCAwIDEgMCAwLTIuNDg3SDcuOTE3YTEuMjQ0IDEuMjQ0IDAgMCAwIDAgMi40ODd6bTUuNTk2IDBoMS4yNDNhMS4yNDQgMS4yNDQgMCAxIDAgMC0yLjQ4N2gtMS4yNDNhMS4yNDQgMS4yNDQgMCAwIDAgMCAyLjQ4N3oiIGZpbGw9IiM0MDQwNDEiLz48cGF0aCBkPSJNNy45MTcgOS4xOTJIOS4xNmExLjI0NCAxLjI0NCAwIDEgMCAwLTIuNDg3SDcuOTE3YTEuMjQ0IDEuMjQ0IDAgMCAwIDAgMi40ODd6bTUuNTk2IDBoMS4yNDNhMS4yNDQgMS4yNDQgMCAxIDAgMC0yLjQ4N2gtMS4yNDNhMS4yNDQgMS4yNDQgMCAwIDAgMCAyLjQ4N3oiIGZpbGw9IiM4MDgxODQiLz48L2c+PC9zdmc+"
-                                                            alt=""
-                                                            class="css-gjii1j estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Piętro
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        parter/2
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Dostępne od"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjNDA0MDQxIiBkPSJNMTUuNDkgNS4xMzJIMXY5LjM1OUExLjUxIDEuNTEgMCAwIDAgMi41MSAxNmgxMS40N2ExLjUxIDEuNTEgMCAwIDAgMS41MS0xLjUxVjUuMTMzek03Ljk0NCA3LjU0N3Y0LjUyOEgzLjQxNVY3LjU0N3Y2LjAzOGg5LjY2VjcuNTQ3SDcuOTQzem0xLjUxLTUuMjgzSDcuMzRWMS4yMDhhMS4yMDggMS4yMDggMCAxIDAtMi40MTUgMHYxLjA1NkgyLjM1OGExLjIwOCAxLjIwOCAwIDAgMCAwIDIuNDE1aDEyLjA3NmExLjIwNyAxLjIwNyAwIDEgMCAwLTIuNDE1aC0yLjU2NlYxLjIwOGExLjIwOCAxLjIwOCAwIDEgMC0yLjQxNSAwdjEuMDU2eiIvPjwvZz48L3N2Zz4="
-                                                             alt=""
-                                                             class="css-16tfihv estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Dostępne od
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        <button data-cy="missing-info-button" class="css-lux9hg ekf916v1">Zapytaj</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Obsługa zdalna"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9IiM0MDQwNDEiIGZpbHRlcj0idXJsKCNhKSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTUuODM1IDcuOTE4QTcuOTE4IDcuOTE4IDAgMSAwIDAgNy45MThhMS4zMiAxLjMyIDAgMCAwIDIuNjQgMCA1LjI3OCA1LjI3OCAwIDEgMSAxMC41NTYgMCAxLjMyIDEuMzIgMCAwIDAgMi42NCAweiIvPjxwYXRoIGQ9Ik0xMS44NzcgNy41ODhhMy45NiAzLjk2IDAgMCAwLTcuOTE4IDAgMS4zMiAxLjMyIDAgMCAwIDIuNjQgMCAxLjMyIDEuMzIgMCAxIDEgMi42MzkgMCAxLjMyIDEuMzIgMCAxIDAgMi42MzkgMHoiLz48cGF0aCBkPSJNNi43NjMgOS43MzJ2NC45NDhhMS4zMiAxLjMyIDAgMCAwIDIuNjQgMFY5LjczMmExLjMyIDEuMzIgMCAwIDAtMi42NCAweiIvPjwvZz48L3N2Zz4="
-                                                             alt=""
-                                                             class="css-16tfihv estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Obsługa zdalna
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        <button data-cy="missing-info-button" class="css-lux9hg ekf916v1">Zapytaj</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 ps-md-3">
-                                            <div aria-label="Czynsz"
-                                                 role="region"
-                                                 class="css-1ccovha d-flex justify-content-between">
-                                                 <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOCAxMC4zMzNjMi45ODggMCA1LjU1OC0xLjAxNyA2Ljg0NC0yLjI0OEMxNS42MjQgNy4zMzkgMTYgNi40ODcgMTYgNS42NjdjMC0uODItLjM3Ni0xLjY3Mi0xLjE1Ni0yLjQxOUMxMy41NTggMi4wMTggMTAuOTg4IDEgOCAxIDUuMDEyIDEgMi40NDIgMi4wMTcgMS4xNTYgMy4yNDguMzc2IDMuOTk1IDAgNC44NDcgMCA1LjY2N2MwIC44Mi4zNzYgMS42NzIgMS4xNTYgMi40MThDMi40NDIgOS4zMTYgNS4wMTIgMTAuMzMzIDggMTAuMzMzem0wLTIuNjY2Yy0xLjg5NCAwLTMuNTgxLS40ODMtNC42MjEtMS4yMDNhMi42MDYgMi42MDYgMCAwIDEtLjUzNS0uNDcxYy0uMDkxLS4xMS0uMTc3LS4yMS0uMTc3LS4zMjYgMC0uMTE3LjA4Ni0uMjE3LjE3Ny0uMzI3LjEzOC0uMTY2LjMyLS4zMjIuNTM1LS40N0M0LjQxOSA0LjE1IDYuMTA2IDMuNjY3IDggMy42NjdjMS44OTQgMCAzLjU4MS40ODIgNC42MjEgMS4yMDMuMjE1LjE0OC4zOTcuMzA0LjUzNS40Ny4wOTEuMTEuMTc3LjIxLjE3Ny4zMjcgMCAuMTE2LS4wODYuMjE2LS4xNzcuMzI2LS4xMzguMTY3LS4zMi4zMjMtLjUzNS40Ny0xLjA0LjcyMS0yLjcyNyAxLjIwNC00LjYyMSAxLjIwNHpNLjA2IDEwLjYwMWMuMDI2LjcyOS4zODQgMS41NSAxLjEyNCAyLjI5MiAxLjI1NSAxLjI1NyAzLjc0NiAyLjM5IDYuNzcxIDIuMjg1IDIuNTY0LS4wOSA0LjUwNi0uNzA0IDUuNjktMS42MzEgMS4wMDctLjc4OSAxLjU1LTEuODAzIDEuNjEyLTIuOTg4bC0yLjY2Mi0uMTRjLS4wMy41NTctLjQxLjk2NS0uOTg1IDEuMjg1LS44ODcuNDkzLTIuMTY1Ljc1NC0zLjc0OC44MDktMS44NTIuMDY1LTMuNDQtLjQ2LTQuNDItMS4xODdhMi41NzYgMi41NzYgMCAwIDEtLjYwMy0uNTkzYy0uMDU1LS4wNzktLjExLS4xNDgtLjExMy0uMjI0bC0yLjY2NS4wOTN6IiBmaWxsPSIjNDA0MDQxIi8+PC9nPjwvc3ZnPg=="
-                                                             alt=""
-                                                             class="css-gjii1j estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Czynsz
-                                                        </div>
-                                                    </div>
-                                                 </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        400 zł/miesiąc
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Kaucja"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                        <div class="mr-3">
-                                                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTUgOC4yODZDMTUgNy41NzYgMTQuNDY3IDcgMTMuODA5IDdIMi4xOUMxLjUzMyA3IDEgNy41NzYgMSA4LjI4NnY2LjQyOEMxIDE1LjQyNCAxLjUzMyAxNiAyLjE5MSAxNkgxMy44MWMuNjU3IDAgMS4xOS0uNTc2IDEuMTktMS4yODZWOC4yODZ6TTEyLjYxNyA5LjU3djMuODZIMy4zODNWOS41N2g5LjIzNHpNMTMgNkE1IDUgMCAwIDAgMyA2aDIuMTA1YTIuODk1IDIuODk1IDAgMSAxIDUuNzkgMEgxM3oiIGZpbGw9IiM0MDQwNDEiLz48L2c+PC9zdmc+"
-                                                                 alt=""
-                                                                 class="css-gjii1j estckra6">
-                                                        </div>
-                                                        <div class="css-1qzszy5">
-                                                            <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                                Kaucja
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        2 500 zł
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Rodzaj zabudowy"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjNDA0MDQxIiBkPSJNLjAwMyAxMC4zMTljLS4wMTMuMTk5LjAyLjQwMy4xMDIuNmwuMDI4LjA2Yy0uMDg1LjE3NC0uMTMzLjM3LS4xMzMuNTc3djQuMjg5aDE2di00LjI4OWMwLS4yMDctLjA0OC0uNDAzLS4xMzMtLjU3N2ExLjMxOSAxLjMxOSAwIDAgMC0uNjgxLTEuNzk2TDcuOTEgNi4xNjdsLTUuMjcgMi4yNFYzLjY0aDMuOTU5di4zM2ExLjMyIDEuMzIgMCAwIDAgMi42MzkgMFYxSDB2OS4yMzdjMCAuMDI3LjAwMS4wNTUuMDAzLjA4MnptMi42MDguOTY4Yy4wMTkuMDg3LjAyOC4xNzcuMDI4LjI3djEuNjQ5aDEwLjcyMnYtMS42NWMwLS4wOS4wMDktLjE3Ny4wMjYtLjI2Mkw3LjkyNCA5LjAzIDIuNjEgMTEuMjg3eiIvPjwvZz48L3N2Zz4="
-                                                            alt=""
-                                                            class="css-gjii1j estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Rodzaj zabudowy
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        apartamentowiec
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Balkon / ogród / taras"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjNDA0MDQxIiBkPSJNNy44NzMgOC4wNzggNS4wMjEgMGwtNC4zIDEyLjE4NWgzLjEyN3YyLjY0MWExLjE3NCAxLjE3NCAwIDAgMCAyLjM0NyAwdi0yLjY0MUg3YTQuMTIyIDQuMTIyIDAgMCAwIDIuNzE3IDIuNjE3di4wMjRhMS4xNzQgMS4xNzQgMCAwIDAgMi4zNDggMHYtLjAyNGE0LjExIDQuMTEgMCAxIDAtNC4xOTItNi43MjR6bTMuMDE4IDEuMDI1YTEuNzYyIDEuNzYyIDAgMSAxLTEuNzYxIDEuNzYyYzAtLjk3My43OS0xLjc2MiAxLjc2MS0xLjc2MnptLTYuODUuNzM0Ljk4LTIuNzgzLjk4MiAyLjc4M0g0LjA0eiIvPjwvZz48L3N2Zz4="
-                                                             alt=""
-                                                             class="css-gjii1j estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Balkon / ogród / taras
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        balkon
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div aria-label="Stan wykończenia"
-                                                    role="region"
-                                                    class="css-1ccovha d-flex justify-content-between">
-                                                    <div class="d-flex">
-                                                    <div class="mr-3">
-                                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjNDA0MDQxIiBkPSJNNS44NTkgNy45MjIuMzI2IDEzLjQ1NGExLjExNiAxLjExNiAwIDAgMCAxLjU3NyAxLjU3N2w1LjUzMy01LjUzMyAxLjA0NiAxLjA0N2ExLjM5MyAxLjM5MyAwIDAgMCAxLjk3IDBsMi4xMTgtMi4xMThhMS42NzIgMS42NzIgMCAwIDAgMC0yLjM2NUw3LjUxIDEgMS4wODMgMy4xNDYgNS44NiA3LjkyMnptOC4yMzguMzQtMy42MTIgMy42MTJhMS4xMTYgMS4xMTYgMCAwIDAgMS41NzYgMS41NzdsMy42MTItMy42MTJhMS4xMTQgMS4xMTQgMCAxIDAtMS41NzYtMS41Nzd6TTEwLjYgNy4yNDQgOS40NjcgOC4zNzcgNS4yMSA0LjExOWwxLjY5OC0uNTY3TDEwLjYgNy4yNDR6Ii8+PC9nPjwvc3ZnPg=="
-                                                             alt=""
-                                                             class="css-gjii1j estckra6">
-                                                    </div>
-                                                    <div class="css-1qzszy5">
-                                                        <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                                                            Stan wykończenia
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                <div class="css-1qzszy5 estckra8">
-                                                    <div class="css-1wi2w6s estckra5">
-                                                        do zamieszkania
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h2 class="css-uzob7">{{__('Ad Details') }}</h2>
+                                    @include('post-parts.details')
                                 </div>
                                 <div class="col-12 my-4 css-1umupf3">
-                                    <h2 class="css-uzob7">Opis</h2>
+                                    <h2 class="css-uzob7">{{__('Description') }}</h2>
                                     <div class="css-1qoxjsu">
                                         <div class="content-container">
                                             <div class="content-text css-1yc9uo8">
-                                                <p>DO WYNAJĘCIA MIESZKANIE W NOWYM BUDOWNICTWIE, UMOWA MINIMUM 1 ROK</p>
-                                                <p>Lokalizacja: Oława, ul. Serdeczna<br> - Ilość pokoi: 2<br> - Metraż: 35 m2<br> - Piętro: Parter</p>
-                                                <p><br> W skład mieszkania wchodzi:<br> - Kuchnia : pełny sprzęt AGD (lodówka, piekarnik, płyta grzewcza, okap, zlew, zmywarka) oraz stół , krzesła.<br> - Salon ( szafka RTV + odbiornik telewizyjny, rozkładany wypoczynek)<br> - Pokój mały – szafa, rozkładany wypoczynek, stół<br> - Łazienka (wc, prysznic, umywalka, pralka, szafka)&nbsp;<br> - Korytarz (duża szafa wnękowa z lustrem)<br> - Balkon<br> <br> Lokalizacja: w pobliżu sklepy: Intermarche, Biedronka, Majster, szkoła, przedszkole, kościół.<br> Osiedle ciche, dobra komunikacja wylotowa na Wrocław.<br> <br> CENA NAJMU: 1900 zł&nbsp;<br> Czynsz administracyjny z zaliczkami na wodę i ogrzewanie: 400 zł<br> Opłata za prąd według zużycia: średnio 100 zł</p>
+                                                <p>  {{ $post->description }} </p>
                                             </div>
                                         </div>
                                         <button aria-expanded="true"
                                                 class="more-btn css-tth7py ">
-                                                <span class="css-13vjjlj e1oafw9z1">Pokaż mniej</span>
+                                                <span class="css-13vjjlj e1oafw9z1">{{__('Show more') }}</span>
                                                 <div class="chevron-btn transform-chevron">
                                                     <svg aria-hidden="true"
                                                         focusable="false"
@@ -344,57 +83,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12 my-4 css-1umupf3">
-                                    <h2 class="css-uzob7">Informacje dodatkowe</h2>
-                                    <div class="css-1l1r91c">
-                                        <div class="css-f45csg">
-                                            <div class="css-1qzszy5 ms-0">
-                                                <div class="css-1h52dri">
-                                                    Ogrodzenie
-                                                </div>
-                                            </div>
-                                            <div class="css-1qzszy5 ms-0">
-                                                <div class="css-1wi2w6s">
-                                                    nie
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="css-f45csg">
-                                            <div class="css-1sqc82x">
-                                                <div class="css-1h52dri">
-                                                    Media
-                                                </div>
-                                            </div>
-                                            <div class="css-1sqc82x">
-                                                <div class="css-1wnyucs">
-                                                    brak informacji
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="css-f45csg">
-                                            <div class="css-1sqc82x">
-                                                <div class="css-1h52dri estckra7">
-                                                    Dojazd
-                                                </div>
-                                            </div>
-                                            <div class="css-1sqc82x">
-                                                <div class="css-1wnyucs">
-                                                    brak informacji
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="css-f45csg">
-                                            <div class="css-1sqc82x">
-                                                <div class="css-1h52dri">
-                                                    Okolica
-                                                </div>
-                                            </div>
-                                            <div class="css-1sqc82x">
-                                                <div class="css-1wnyucs">
-                                                    brak informacji
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h2 class="css-uzob7">{{__('Additional Information') }}</h2>
+                                    @include('post-parts.ad-info')
                                 </div>
                                 {{-- <div>{{$post->user->name}}</div>
                                 <div>{{$post->user->phone}}</div>
@@ -430,9 +120,12 @@
                                     {{-- @if($post->user->id !== Auth::user()->id)
                                         @include('messageButton');
                                     @endif --}}
+                                    {{-- @if($post->user->id !== Auth::user()->id)
+                                        @include('messageButton');
+                                    @endif --}}
                                 </div>
                                 <div class="col-12 my-3">
-                                    <h2 class="css-uzob7">Map</h2>
+                                    <h2 class="css-uzob7">{{__('Map') }}</h2>
                                     <div class="form-group">
                                         <input type="hidden"
                                                name="address"
@@ -469,18 +162,18 @@
                                         <div class="ms-3">
                                             <span class="css-1yijy9r ezb2r8u5">{{$post->user->name}}</span>
                                             <div class="css-1rl7r8w ezb2r8u2">
-                                                Oferta prywatna
+                                               {{__('Private offer') }}
                                             </div>
                                             <div class="css-1ci9lfd">
-                                                <div class="phoneNumber ezb2r8u3 css-is2nit e33agma3">
-                                                    <span class="css-lgcdco e33agma1">502</span>
-                                                    <button data-cy="phone-number.show-full-number-button" class="e33agma2 css-8ycw4 ekf916v1">Pokaż numer</button>
+                                                <div class="phoneNumber css-is2nit d-flex">
+                                                    <span class="css-lgcdco me-2">{{$post->id}}</span>
+                                                    <button  class="css-8ycw4 px-0">{{__('show number') }}</button>
+                                                    <p class="css-8ycw4-number d-none mb-0" title="{{__('hide number') }}">{{$post->user->phone}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="css-1wypg4o"
-                                        data-cy="alert-wrapper"
                                         role="alert">
                                         <div class="css-1o129hd d-flex">
                                             <div class="css-ho7wdu">
@@ -497,11 +190,11 @@
                                                 </svg>
                                             </div>
                                             <p class="css-41wyt7 ms-2">
-                                                Kontaktowałaś(eś) się w sprawie tego ogłoszenia 2 dni temu
+                                                {{__('You were contacted about this ad') }} 2 {{__('days ago') }}
                                             </p>
                                         </div>
                                     </div>
-                                    <form name="" method="" class="pt-1">
+                                    <form name="" method="POST" class="pt-1">
                                         <div class="css-26w93a form-group mt-3 mb-2">
                                             <input aria-label="Name"
                                                 placeholder="Name"
@@ -524,19 +217,19 @@
                                                   inputmode="tel"
                                                   maxlength="14"
                                                   name="phone"
-                                                  placeholder="Numer telefonu"
+                                                  placeholder="Numer telefone"
                                                   type="tel"
                                                   class="css-1yk951a form-control"
                                                   value="">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
-                                            <textarea rows="5"
-                                                   aria-label="Wiadomość"
+                                            <textarea rows="6"
+                                                   aria-label=""
                                                    maxlength="2000"
                                                    name="text"
-                                                   placeholder="Wpisz swoją wiadomość"
-                                                   class=" css-ajeaic w-100">
-                                            </textarea>
+                                                   placeholder="{{__('This apartment for rent seems interesting to me.I would be happy to know more details before making an appointment.
+                                                    Regards.') }}"
+                                                   class=" css-ajeaic w-100"></textarea>
                                             <div data-cy="contact-form.text-area-counter"
                                                 data-testid="text-area-counter"
                                                 class="css-1voeokp text-end">
@@ -544,20 +237,36 @@
                                             </div>
                                             <div data-cy="contact-form.gdpr-note"
                                                class=" css-1s2tzuy mb-3">
-                                               <button data-cy="see-gdpr-note-button"
-                                                      type="button"
+                                               <button type="button"
                                                       class="css-1nbnxnr">
-                                                      Administratorem Twoich danych osobowych jest Grupa OLX Sp. z o.o.&nbsp;
-                                                    <span class="css-v68mj6">
-                                                        więcej
+                                                     {{__('The administrator of your personal data is Grupa OLX Sp. z o. o.') }}
+                                                    <span class="css-v68mj6 sp-more">
+                                                        {{__('more') }}
+                                                    </span>
+                                                    <span class="css-v68mj6 sp-close d-none">
+                                                        {{__('close') }}
                                                     </span>
                                                 </button>
+                                                <div role="alert" class="css-b884ca d-none">
+                                                    <p>Who will be the administrator of your data
+                                                        OLX Group Sp. z o. o. with its registered office in Poznań (61-872), at ul. Królowej Jadwigi 43, and in situations specified in the provisions on the protection of personal data - the advertiser. It can also become a Financial Expert when you order the Contact with an Expert Service.
+
+                                                        What will happen to your data
+                                                        We will process them for 30 days in order to send your inquiry to the advertiser.
+
+                                                        What happens if you tick I'm asking for an appointment with a Financial Expert
+                                                        After sending the form, we will process your data in order to perform the Contact with an Expert Service. As part of it, we share your data with a financial expert cooperating with us.
+
+                                                        What happens if you check I want to receive links to similar offers
+                                                        After sending the form, based on your consent, we will process the data you provide to send you offers that may be of interest to you.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <button data-cy="contact-form.submit-button"
                                                 class="css-1fejj4k"
                                                 type="submit">
-                                                Wyślij wiadomość
+                                                {{__('Send a message') }}
                                         </button>
                                     </form>
                                 </div>
@@ -576,7 +285,7 @@
                                               viewBox="0 0 512 512">
                                               <path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path>
                                            </svg>
-                                           Zapisz ogłoszenie
+                                         {{__('Save the ad') }}
                                      </button>
                                 </div>
                             </div>
