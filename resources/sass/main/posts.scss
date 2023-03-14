@@ -348,6 +348,11 @@ css-80g06k {
         font-size: 14px;
         text-align: left;
     }
+
+    .css-7snqpb {
+        padding-top: 32px;
+        font-size: 21px;
+    }
 }
 
 .css-153eqh1 {
@@ -447,3 +452,108 @@ css-80g06k {
     visibility: visible;
     opacity: 1;
   }
+
+  .css-7snqpb {
+    margin: 0px;
+    color: rgb(27, 35, 46);
+    line-height: 1.1;
+    padding: 16px 0px 24px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#carouselRecommendPost .carousel-item.post-img-item {
+    width: 100%;
+    height: 144px;
+}
+
+#carouselRecommendPost .carousel-item.post-img-item .post-img-fluid {
+    width: 100%;
+    height: 144px;
+    object-fit: cover;
+}
+
+#carouselRecommendPost .image-gallery-index {
+    top: 12px;
+    left: 12px;
+    padding: 4px 8px;
+    border-radius: 2px;
+    background-color: rgba(35, 46, 63, 0.19);
+    font-size: 12px;
+    line-height: calc(1.42857);
+    line-height: 1;
+    position: absolute;
+    z-index: 4;
+    color: #fff;
+}
+
+.css-1e6p6c {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 2px;
+    background-color: rgb(35, 46, 63);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    top: 12px;
+    right: 12px;
+}
+
+.css-1quvv2t {
+    display: flex;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    border: none;
+    outline: 0px;
+    background: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.css-1orssx9 {
+    padding: 12px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(33, 33, 33);
+    text-decoration: none;
+}
+
+.css-ulhqkn {
+    margin: 0px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.css-231uq5 {
+    color: rgb(117, 117, 117);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.css-bk9fzy {
+    font-size: 20px;
+}
+
+.css-8bnm8w {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.post-card a {
+    text-decoration: none;
+}
