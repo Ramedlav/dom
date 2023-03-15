@@ -153,5 +153,28 @@ body {
     text-overflow: ellipsis;
 }
 
+.home-form .nav {
+    --bs-nav-link-color: #fff;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+}
+
+.home-form .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: transparent;
+}
+
+.home-form .nav-link:hover, .nav-link:focus {
+    color: #c6c8cb;
+}
+
+.home-form .nav-tabs {
+    --bs-nav-tabs-border-color: transparent;
+}
+
+.nav-tabs .nav-link {
+    border-bottom-left-radius: var(--bs-nav-tabs-border-radius);
+    border-bottom-right-radius: var(--bs-nav-tabs-border-radius);
+}
+
 
 
