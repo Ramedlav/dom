@@ -20,36 +20,35 @@
                         @csrf
                             <div class="row">
                                 <div class="col-12 ">
-                                    <ul class="nav nav-tabs mb-3" role="tablist">
-                                        <li class="nav-item">
+                                    <div class="nav nav-tabs mb-3" role="tablist">
+
                                             <button class="nav-link active"
                                                data-bs-toggle="tab"
-                                               id="#private-filters"
-                                               data-bs-target="#home"
+                                               id="private-filters"
+                                               data-bs-target="#home-private-filters"
                                                type="button"
                                                role="tab"
                                                aria-controls="home"
                                                aria-selected="true">
                                                 {{__('Private offers')}}
                                             </button>
-                                        </li>
-                                        <li class="nav-item">
+
+
                                             <button class="nav-link"
                                                data-bs-toggle="tab"
-                                               id="#business-filters"
-                                               data-bs-target="#profile"
+                                               id="business-filters"
+                                               data-bs-target="#profile-business-filters"
                                                type="button"
                                                role="tab"
                                                aria-controls="Business offers"
                                                aria-selected="false">
                                                 {{__('Business offers')}}
                                             </button>
-                                        </li>
-                                    </ul>
+
+                                    </div>
                                     <div  class="tab-content">
                                         @include('home-parts.private-filters')
                                         @include('home-parts.business-filters')
-
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,9 @@
-<div class="tab-pane  fade show active" id="private-filters" role="tabpanel">
+<div class="tab-pane  fade show active"
+     id="home-private-filters"
+     role="tabpanel"
+     aria-labelledby="private-filters">
     <div class="d-sm-flex">
-        <div class="col-sm-8">
+        <div class="col-sm-8 pe-sm-4">
             <div class="form-group mb-2">
                 {{-- <label for="address">{{ __('address') }}</label> --}}
                 <input type="text"
