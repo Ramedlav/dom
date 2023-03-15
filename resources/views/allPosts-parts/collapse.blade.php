@@ -7,7 +7,7 @@
                         {{__('Browser notifications')}}
                     </h3>
                     <span class="css-1pnqrd4">
-                        <span role="button" class="css-12mkfdx tooltip">
+                        <span role="button" class="css-12mkfdx toooltip-collapse-p">
                             <svg aria-hidden="true"
                                     focusable="false"
                                     data-prefix="far"
@@ -60,7 +60,7 @@
                 </span>
 
                 <span class="css-1arsofx ms-1">
-                    <span class="css-12mkfdx tooltip" role="button">
+                    <span class="css-12mkfdx toooltip-collapse-p" role="button">
                         <svg aria-hidden="true"
                              focusable="false"
                              data-prefix="far"
