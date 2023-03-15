@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 pt-5">
@@ -21,7 +22,9 @@
                             <label for="tab-btn-2"><h4>incoming</h4></label>
 
                             <div id="content-1">
-{{--                                <h4>uotgoing</h4>--}}
+
+                               <h4>uotgoing</h4>
+
                                 @foreach($out as $out_dialog)
                                     <a href="{{route('ShowDialog',['dialog_id'=> $out_dialog->id])}}">{{__('open')}}</a><br>
                                     @foreach($out_dialog->messages as $outmessage)
@@ -33,7 +36,7 @@
                                 @endforeach
                             </div>
                             <div id="content-2">
-{{--                                <h4>incoming</h4>--}}
+                               <h4>incoming</h4>
                                 @foreach($dialogs as $dialog)
                                     <a href="{{route('ShowDialog',['dialog_id'=>$dialog->id])}}">{{__('open')}}</a><br>
                                     @foreach($dialog->messages as $message)
@@ -47,11 +50,10 @@
                                     <br> {{$dialog->post_id}}<br> {{$dialog->created_at}} <hr>
                                 @endforeach
                             </div>
-
                         </div>
 
 
-{{--                    тут будут диалоги пользователя--}}
+                   тут будут диалоги пользователя
 
 
                 </div>

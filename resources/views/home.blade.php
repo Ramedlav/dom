@@ -41,7 +41,7 @@
                                         @endforeach
 
                                     </div>
-                                    <div id="address-map-container" style="width:100%;height:200px; ">
+                                    <div id="address-map-container" style="width:100%;height:200px;" class="d-none">
                                         <div style="width: 100%; height: 100%" id="address-map"></div>
                                     </div>
                                 {{-- <div id="city-box"></div> --}}
@@ -173,7 +173,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         <div id="postsList"  class="d-flex flex-wrap">
                             {{-- @foreach($posts as $post)
                             <div class="form-card col-lg-6 col-xl-4 p-1">
@@ -203,7 +202,6 @@
                             </div>
                             @endforeach --}}
                         </div>
-
                     </div>
                     {{-- @if($posts->total() > $posts->count())
                         <br>
@@ -216,7 +214,6 @@
                 </div>
             </div>
         </div>
-        {{-- @include('layouts.copyright') --}}
     </div>
 </section>
 <script type="text/javascript">
