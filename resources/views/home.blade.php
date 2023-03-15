@@ -21,13 +21,10 @@
                             <div class="row">
                                 <div>{{__('Private offers')}}</div>
                                 <div>{{__('Business offers')}}</div>
-                                <select>
-                                    <option>{{__('Rent')}}</option>
-                                    <option>{{__('Buy')}}</option>
-                                </select>
+
                                 <div class="col-sm-8">
                                 {{-- <input type="text" name="city" placeholder="{{ __('City, address, etc') }}" value="" class="form-control" id="input-city" /> --}}
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                         {{-- <label for="address">{{ __('address') }}</label> --}}
                                         <input type="text"
                                                 name="address"
@@ -45,6 +42,13 @@
                                         <div style="width: 100%; height: 100%" id="address-map"></div>
                                     </div>
                                 {{-- <div id="city-box"></div> --}}
+                                    <div class="form-group">
+                                        <label for="to_price">status</label>
+                                        <select class="form-control">
+                                            <option selected=''>{{__('Rent')}}</option>
+                                            <option>{{__('Buy')}}</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-4">
