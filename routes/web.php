@@ -17,6 +17,10 @@ use App\Http\Controllers\MessageController;
 Route::get('/',   function (){ return redirect('/home'); });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/action', [App\Http\Controllers\HomeController::class, 'action'])->name('action');
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 // Route::get('/ads', [App\Http\Controllers\HomeController::class, 'getAds'])->name('getAds');
 
 
@@ -59,3 +63,13 @@ Route::get('/home/search', [App\Http\Controllers\HomeController::class, 'search'
 
 
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
