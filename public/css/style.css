@@ -95,7 +95,7 @@
     width: 100px;
     height: 40px;
     border: 1px solid #ffc107;
-    border-radius: 40px;
+    border-radius: 0.375rem;
     background-color: #ffc107;
     /*background: transparent;*/
     color: #fefefe;

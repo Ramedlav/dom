@@ -105,7 +105,7 @@
 
             <div class="collapse p-md-3" id="collapsePostsFilters">
                 <div class="card card-body card-filters-collapse">
-                    <div class="row">
+                    <div class="row d-flex justify-content-between">
                         <div class="col-12 col-sm-2">
                             <label>{{__('time on freebe')}}</label>
                             <fieldset>

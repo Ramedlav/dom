@@ -1,6 +1,6 @@
 
     $(document).ready(function(){
-        $("#carouselRecommendPost").on("click", function (event) {
+        $("#search-form-more-filters").on("click", function (event) {
             event.preventDefault();
             $('.chevron-btn').toggleClass("transform-chevron");
         });
@@ -28,5 +28,4 @@
             $('.image-gallery-index-total').text(count);
 
         });
-
     });

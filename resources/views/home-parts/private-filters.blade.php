@@ -125,16 +125,42 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="">search button</label>
-                <button  class="btn  btn-block w-100 next-button p-o" type="submit">
-                    <div class="d-flex justify-content-center">
-                        {{ __('Search') }}:&nbsp;
-                        <div id="result" class="">
-                        </div>
-                        <p class="mb-0">&nbsp;{{ __('posts') }}</p>
+                <label for=""> {{__('additional filters')}}</label>
+                <button id="search-form-more-filters"
+                        data-bs-toggle="collapse"
+                        class="d-flex form-control justify-content-between me-3"
+                        data-bs-target="#collapsePrivatePostsFilters"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="collapsePrivatePostsFilters">
+                    <font class="me-3" style="vertical-align: inherit;">
+                    {{__('Additional filters')}}
+                    </font>
+                    <div class="chevron-btn">
+                        <svg aria-hidden="true"
+                                focusable="false"
+                                data-prefix="fas"
+                                data-icon="chevron-down"
+                                class="svg-inline--fa fa-chevron-down fa-w-14 fa-xs "
+                                role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg>
                     </div>
                 </button>
             </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group mt-2">
+            <button  class="btn  btn-block w-100 next-button p-o" type="submit">
+                <div class="d-flex justify-content-center">
+                    {{ __('Search') }}:&nbsp;
+                    <div id="result" class="">
+                    </div>
+                    <p class="mb-0">&nbsp;{{ __('posts') }}</p>
+                </div>
+            </button>
         </div>
     </div>
 </div>
