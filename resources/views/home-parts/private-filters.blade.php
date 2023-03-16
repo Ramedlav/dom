@@ -105,13 +105,6 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group mb-2">
-                <select class="form-control">
-                    <option selected="">{{__('Rent')}}</option>
-                    <option>{{__('Buy')}}</option>
-                </select>
-            </div>
-            <div class="form-group mb-2">
-                <label for="city-km">distance</label>
                 <select name="filter_km" id="city-km" autocomplete="off" class="form-control">
                     <option selected="" value="0">+ 0 km</option>
                     <option value="1">+ 1 km</option>
@@ -122,6 +115,13 @@
                     <option value="30">+ 30 km</option>
                     <option value="50">+ 50 km</option>
                     <option value="100">+ 100 km</option>
+                </select>
+            </div>
+            <div class="form-group mb-2">
+                <label for="city-km">category</label>
+                <select class="form-control">
+                    <option selected="">{{__('Buy')}}</option>
+                    <option>{{__('Rent')}}</option>
                 </select>
             </div>
             <div class="form-group">
