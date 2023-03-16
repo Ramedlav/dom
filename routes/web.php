@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\GoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,5 +58,7 @@ Auth::routes([
 
 Route::get('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
