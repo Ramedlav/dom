@@ -25,25 +25,25 @@
                                         <div class="nav nav-tabs mb-3" role="tablist">
 
                                                 <button class="nav-link active"
-                                                data-bs-toggle="tab"
-                                                id="private-filters"
-                                                data-bs-target="#home-private-filters"
-                                                type="button"
-                                                role="tab"
-                                                aria-controls="home"
-                                                aria-selected="true">
+                                                    data-bs-toggle="tab"
+                                                    id="private-filters"
+                                                    data-bs-target="#home-private-filters"
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls="home"
+                                                    aria-selected="true">
                                                     {{__('Private offers')}}
                                                 </button>
 
 
                                                 <button class="nav-link"
-                                                data-bs-toggle="tab"
-                                                id="business-filters"
-                                                data-bs-target="#profile-business-filters"
-                                                type="button"
-                                                role="tab"
-                                                aria-controls="Business offers"
-                                                aria-selected="false">
+                                                    data-bs-toggle="tab"
+                                                    id="business-filters"
+                                                    data-bs-target="#profile-business-filters"
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls="Business offers"
+                                                    aria-selected="false">
                                                     {{__('Business offers')}}
                                                 </button>
 
@@ -64,7 +64,6 @@
     <section>
         <div class="container">
             <div class="row">
-
                 @include('home-parts.collapse.private')
                 {{-- @include('home-parts.collapse.business') --}}
                 <div class="col-12 text-center ">
