@@ -1,7 +1,7 @@
-import './bootstrap';
+require('./bootstrap');
 
-import Alpine from 'alpinejs';
+require('./maps');
 
-window.Alpine = Alpine;
+require('./postPage');
 
-Alpine.start();
+require('./posts');
