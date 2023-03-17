@@ -124,6 +124,22 @@ body {
     bottom: 10px;
 }
 
+.home-page-card .form-card .text-no-found {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
 .home-page-card {
     background: transparent;
     border: none;
