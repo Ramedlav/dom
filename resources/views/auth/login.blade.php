@@ -63,7 +63,7 @@
                                     </a>
                                 @endif
 
-                                <a href="{{ route('google.login') }}" class="btn btn-google btn-user btn-block">
+                                <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
                                 <i class="fab fa-google fa-fw"></i> Login with Google
                                 </a>
                             </div>

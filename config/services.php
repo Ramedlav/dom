@@ -33,11 +33,9 @@ return [
     'google' => [
 
         'client_id' => '380211348705-ensq4km5j9a8nft5ahomnuccsg0cbp2h.apps.googleusercontent.com',
-
         'client_secret' => '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',
-
         'redirect' => 'http://localhost:8000/auth/google/callback',
-//        'redirect' => 'http://localhost/dom/public/auth/google/callback',
+//        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
        // https://accounts.google.com/o/oauth2/auth?client_id={client_id}&response_type=token&redirect_uri={redirect_uri}&scope={scope}
 
     ],

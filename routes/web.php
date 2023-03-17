@@ -20,13 +20,18 @@ Route::get('/action', [App\Http\Controllers\HomeController::class, 'action'])->n
 // Route::get('/ads', [App\Http\Controllers\HomeController::class, 'getAds'])->name('getAds');
 
 // Google URL
-Route::prefix('google')->name('google.')->group( function(){
-    Route::get('login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
+//Route::prefix('google')->name('google.')->group( function(){
+//    Route::get('login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
 //    Route::any('callback', [App\Http\Controllers\GoogleController::class, 'callbackFromGoogle'])->name('callback');
-});
-//Route::get('auth/google/login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
+//});
+Route::get('auth/google/login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
 Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class, 'callbackFromGoogle'])->name('callback');;
+//Route::get('/auth/google', 'Auth\LoginController@redirectToProvider');
+//Route::get('/auth/google/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::get('auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle']);
+
+Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handleGoogleCallback']);
 
 Route::get('/post/{id_post}',[PostController::class, 'view'])->name('show');
 Route::get('/post/allphotos/{id_post}',[PostController::class, 'PhotoAll'])->name('showphotos');
