@@ -89,12 +89,7 @@ class HomeController extends Controller
             } else {
                 $output = '
                 <div class="form-card col-lg-6 col-xl-4 p-1">
-                    <a href="#" class="form-link text-center">
-                        <div>
-                            <img src="https://www.otodom.pl/wiadomosci/wp-content/uploads/2023/03/Agent-z-klientami-podpisującymi-umowę-780x470.jpg" class="img-fluid">
-                        </div>
-                       <span class="text-no-found">No Post Found</span>
-                    </a>
+                    <span>No Data Found</span>
                 </div>
                  ';
             }

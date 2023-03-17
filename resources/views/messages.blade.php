@@ -257,7 +257,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12  col-md-8 px-0">
-                                    <div class="card messages-card css-1ua02hb pt-0 pb-0">
+                                    <div class="card messages-card css-1ua02hb pt-0">
                                         <div class=" css-15ecjq0">
                                             <div class="css-r2eb4p">
                                                 <div class="css-1pdwz19">
@@ -331,7 +331,7 @@
                                                 <div class="css-164dfnt">
                                                     <div class="css-miqdd3">
                                                         <p class="css-zma87s er34gjf0">
-                                                          Содержание поста
+                                                            Ботинки женские зимние кожаные на меху.
                                                         </p>
                                                     </div>
                                                     <div class="css-1fulx0y">
@@ -345,16 +345,11 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="card-body">
-                                            @include('messages-parts.chat-field')
+                                        <div class="card-body p-0">
 
                                         </div>
-                                        <div class="card-footer p-0 border-0">
-                                            @include('messages-parts.chat-form')
-                                        </div>
-
-
                                     </div>
+
                                 </div>
                             </div>
                         </div>
