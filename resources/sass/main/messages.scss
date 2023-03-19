@@ -420,21 +420,26 @@ button {
     align-items: stretch;
     margin: auto;
     width: 100%;
-    // scroll-margin-top: 64px;
+    scroll-margin-top: 64px;
 }
 
-.card.messages-card .card-body {
-   overflow-y: auto;
-   overflow-x: clip;
+.card.messages-card {
+    max-width: min(1238px, 100vw - 64px);
+    height: calc(100vh - 58px);
+    min-height: 512px;
+    max-height: 1152px;
+    padding: 32px 0px;
+    background-color: rgb(242, 244, 245);
+    display: flex;
+    align-items: stretch;
+    margin: auto;
+    width: 100%;
+    scroll-margin-top: 64px;
 }
 
 .css-15ecjq0 {
     background-color: white;
     // margin: 0px -16px;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 
 .css-r2eb4p {
@@ -447,9 +452,6 @@ button {
     background-color: rgb(255, 255, 255);
     min-height: 56px;
     border-bottom: 1px solid rgb(216, 223, 224);
-    // position: sticky;
-    // top: 0px;
-    // left: 0px;
 }
 
 .css-1pdwz19 {
