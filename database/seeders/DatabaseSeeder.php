@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         if(env('APP_ENV', 'prod') === 'local'){
             $this->call(UserSeeder::class);
-
         }
+        $this->call(B2bSeeder::class);
     }
 }

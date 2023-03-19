@@ -31,6 +31,7 @@ class PostRequest extends FormRequest
             'images' => 'required',
             'price' => 'required',
             'square' => 'required',
+            'status_id' => 'required|exists:statuses,id',
 
         ];
     }

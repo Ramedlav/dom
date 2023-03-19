@@ -58,6 +58,9 @@ class HomeController extends Controller
 
                 foreach($posts as $post)
                 {
+                    if($post->status_id == 2){
+
+
                     $img = '';
                     foreach($post->photos as $photo){
                         if ($photo){
@@ -85,6 +88,7 @@ class HomeController extends Controller
                         </a>
                     </div>
                     ';
+                    }
                 }
             } else {
                 $output = '

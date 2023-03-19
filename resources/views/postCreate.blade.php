@@ -105,17 +105,21 @@
                                 <label for="garden">{{ __('garden') }}</label>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
-                                    <option value = "0">{{__('rent')}}</option>
                                     <option value = "1">{{__('sale')}}</option>
+                                    <option value = "0">{{__('rent')}}</option>
                                 </select>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
-                                <select class="form-control" name="b2b" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
-                                    <option value = "0">{{__('private')}}</option>
-                                    <option value = "1">{{__('business to business')}}</option>
+                                 <label for="b2b">{{ __('status') }}</label>
+                                <select class="form-control" name="status_id" id="b2b" value="{{ $post->status_id ?? old('status_id') }}">
+                                    @foreach ($statuses as $status)
+                                        <option value = "{{ $status->id }}">{{ $status->title }}</option>
+                                    @endforeach
+                                    {{-- <option value = "0">{{__('private')}}</option>
+                                    <option value = "1">{{__('business to business')}}</option> --}}
                                 </select>
                             </div>
 

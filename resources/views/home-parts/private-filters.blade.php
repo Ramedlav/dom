@@ -118,7 +118,7 @@
                 </select>
             </div>
             <div class="form-group mb-2">
-                <label for="city-km">category</label>
+                <label for="">{{__('sale') }}</label>
                 <select class="form-control">
                     <option selected="">{{__('Buy')}}</option>
                     <option>{{__('Rent')}}</option>

@@ -133,14 +133,17 @@
                         </select>
                     </div>
 
+
                     <div class="form-group">
                         <label for="b2b">{{ __('status') }}</label>
-                        <select class="form-control" name="b2b" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
-                            <option value = "0">{{__('private')}}</option>
-                            <option value = "1">{{__('business to business')}}</option>
-                        </select>
-                    </div>
-
+                       <select class="form-control" name="status_id" id="b2b" value="{{ $post->status_id ?? old('status_id') }}">
+                           @foreach ($statuses as $status)
+                               <option value = "{{ $status->id }}">{{ $status->title }}</option>
+                           @endforeach
+                           {{-- <option value = "0">{{__('private')}}</option>
+                           <option value = "1">{{__('business to business')}}</option> --}}
+                       </select>
+                   </div>
 				</div>
 				<div class="col-12 col-sm-6">
 		                    <div class="row" id="photo_gallery">
