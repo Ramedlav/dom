@@ -275,13 +275,15 @@
                                 </div>
                                 <div class="col-12  col-md-8 px-0">
                                     <div class="css-1ua02hb  p-0">
-                                        <div class="css-1pmjsyo d-none">
-                                            <img width="192"
-                                                 height="192"
-                                                src="/img/images/conversation.svg">
-                                                <p class="css-ubgkfc er34gjf0">
-                                                   {{__('Select a message to read it') }}
-                                                </p>
+                                        <div class=" card messages-card css-1ua02hb py-0 d-none">
+                                            <div  class="css-1pmjsyo">
+                                                <img width="192"
+                                                    height="192"
+                                                    src="/img/images/conversation.svg">
+                                                    <p  class="css-ubgkfc">
+                                                       {{__('Select a message to read it') }}
+                                                    </p>
+                                            </div>
                                         </div>
                                         <div class="card messages-card py-0 ">
                                                 <div class="card-header messages-card-header p-0">
