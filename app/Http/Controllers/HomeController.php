@@ -69,24 +69,24 @@ class HomeController extends Controller
                     }
 
                     $output .= '
-                    <div class="form-card col-lg-6 col-xl-4 p-1">
-                        <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
-                            <div>
-                                <img class="img-fluid" src="'.asset('/storage/' . $img).'">
+                        <div class="form-card col-lg-6 col-xl-4 p-1">
+                            <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
+                                <div>
+                                    <img class="img-fluid" src="'.asset('/storage/' . $img).'">
+                                </div>
+                            <div class="form-text text-start">
+                                    <div class="post-title">'
+                                        .$post->title.'
+                                    </div>
+                                    <div class="post-title">'
+                                        .$post->price.'&nbsp;zł
+                                    </div>
+                                    <div class="post-fulladdress">'
+                                        .$post->address.'
+                                </div>
                             </div>
-                           <div class="form-text text-start">
-                                <div class="post-title">'
-                                    .$post->title.'
-                                </div>
-                                <div class="post-title">'
-                                    .$post->price.'&nbsp;zł
-                                </div>
-                                <div class="post-fulladdress">'
-                                    .$post->address.'
-                             </div>
-                           </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     ';
                     }
                 }

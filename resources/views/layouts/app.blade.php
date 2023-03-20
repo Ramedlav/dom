@@ -23,6 +23,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
+    <link href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
@@ -42,11 +43,8 @@
         </main>
         @include('layouts.copyright')
     </div>
-
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&region=EN&language=en&libraries=places&callback=initialize" async defer></script>
-
-{{--    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&language=en&libraries=places&callback=initialize" async defer></script>--}}
-
     <script src="/js/mapInput.js"></script>
     @yield('custom_js')
 </body>

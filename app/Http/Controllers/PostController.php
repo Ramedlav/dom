@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Province;
 use App\Models\Town;
 use App\Models\Status;
-
+use App\Models\Sale;
 //use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -52,13 +52,15 @@ class PostController extends Controller
 
     public function createForm(){
         $statuses=Status::all();
-        // dd($statuses);
-        return view('postCreate', compact('statuses'));
+        $sales=Sale::all();
+        // dd($sales);
+        return view('postCreate', compact('statuses', 'sales'));
     }
 
     public function editForm($id_post){
         $post = Post::find($id_post);
         $statuses=Status::all();
+        $sales=Sale::all();
 
         if(!$post){
             return redirect()->to(route('home'));
@@ -68,7 +70,7 @@ class PostController extends Controller
         if (Auth::user()->id != $post->user->id){
             return back()->withInput();
         }else{
-            return view('postEdit',compact('post','photos','statuses'));
+            return view('postEdit',compact('post','photos','statuses',  'sales'));
         }
     }
 
@@ -161,7 +163,7 @@ class PostController extends Controller
             'terrace' => $request->input('terrace'),
             'garden' => $request->input('garden'),
             'price' => $request->input('price'),
-            // 'sale' => $request->input('sale'),
+            'sale_id' => $request->input('sale_id'),
             'status_id' => $request->input('status_id'),
             'address_latitude' => $request->input('address_latitude'),
             'address_longitude' => $request->input('address_longitude'),
@@ -218,6 +220,7 @@ class PostController extends Controller
         if($request->terrace){$post->terrace = $request->terrace;}else{$post->terrace = 0;}
         if($request->garden){$post->garden = $request->garden;}else{$post->garden = 0;}
         $post->price = $request->price;
+        $post->sale_id = $request->sale_id;
         $post->status_id = $request->status_id;
         $post->address_latitude = $request->address_latitude;
         $post->address_longitude = $request->address_longitude;

@@ -37,7 +37,10 @@
 
                             <div class="form-group">
                                 <label for="description">{{ __('description') }}</label>
-                                <textarea rows=10 type="text" name="description" placeholder="{{__('description')}}" id="description" class="form-control description">{{ $post->description ?? old('description') }}</textarea>
+                                <textarea rows=10
+                                          type="text"
+                                          name="description"
+                                          placeholder="{{__('description')}}" id="description" class="form-control description">{{ $post->description ?? old('description') }}</textarea>
                             </div>
 
 {{--                            <div class="form-group">--}}
@@ -105,12 +108,14 @@
                                 <label for="garden">{{ __('garden') }}</label>
                             </div>
 
-                            {{-- <div class="form-group">
-                                <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
-                                    <option value = "1">{{__('sale')}}</option>
-                                    <option value = "0">{{__('rent')}}</option>
+                            <div class="form-group">
+                                <label for="sale">{{ __('sale') }}</label>
+                                <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}">
+                                    @foreach ($sales as $sale)
+                                        <option value = "{{ $sale->id }}">{{ $sale->title }}</option>
+                                    @endforeach
                                 </select>
-                            </div> --}}
+                            </div>
 
                             <div class="form-group">
                                  <label for="b2b">{{ __('status') }}</label>
@@ -118,17 +123,18 @@
                                     @foreach ($statuses as $status)
                                         <option value = "{{ $status->id }}">{{ $status->title }}</option>
                                     @endforeach
-                                    {{-- <option value = "0">{{__('private')}}</option>
-                                    <option value = "1">{{__('business to business')}}</option> --}}
                                 </select>
                             </div>
 
 
                             <div class="form-group">
-{{--                                <label for="images">images</label>--}}
-                                <input multiple="multiple" type="file" name="images[]" id="images" class="form-control">
+                               <label for="images">images</label>
+                                <input multiple="multiple"
+                                       type="file"
+                                       name="images[]"
+                                       id="images"
+                                       class="form-control">
                             </div>
-
                             <div class="form-group">
                                 <label for="address">{{ __('address') }}</label>
                                 <input type="text"

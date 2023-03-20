@@ -52,7 +52,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-body p-0">
+                                        <div class="card-body left-message-card p-0">
                                             <div class="tabs css-1382m1k">
                                                     <input type="radio"
                                                             name="tab-btn"
@@ -284,8 +284,10 @@
                                                 </p>
                                         </div>
                                         <div class="card messages-card py-0 ">
+                                                <div class="card-header messages-card-header p-0">
                                                     @include('messages-parts.chat-field-header')
-                                                <div class="card-body">
+                                                </div>
+                                                <div class="card-body card-field-massages">
                                                     @include('messages-parts.chat-field')
                                                 </div>
                                                 <div class="card-footer p-0 border-0">
@@ -293,7 +295,6 @@
                                                 </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

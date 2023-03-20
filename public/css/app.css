@@ -12727,21 +12727,6 @@ button {
   height: calc(100vh - 58px);
   min-height: 512px;
   max-height: 1152px;
-  padding: 32px 0px 1px 0px;
-  background-color: rgb(242, 244, 245);
-  display: flex;
-  align-items: stretch;
-  margin: auto;
-  width: 100%;
-  scroll-margin-top: 64px;
-}
-
-.card.messages-card {
-  max-width: min(1238px, 100vw - 64px);
-  height: calc(100vh - 58px);
-  min-height: 512px;
-  max-height: 1152px;
-  padding: 32px 0px;
   background-color: rgb(242, 244, 245);
   display: flex;
   align-items: stretch;
@@ -12752,6 +12737,13 @@ button {
 
 .css-15ecjq0 {
   background-color: white;
+}
+
+.messages-card-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .css-r2eb4p {
@@ -13342,19 +13334,31 @@ button {
   background-color: rgb(250, 251, 251);
 }
 
-.card.messages-card .card-body::-webkit-scrollbar-track {
+.card.messages-card .card-body.left-message-card,
+.card.messages-card .card-body.card-field-massages {
+  overflow-y: auto;
+}
+
+.card.messages-card .card-body.left-message-card {
+  overflow-x: clip;
+}
+
+.card.messages-card .card-body.left-message-card::-webkit-scrollbar-track,
+.card.messages-card .card-body.card-field-massages::-webkit-scrollbar-track {
   border: 1px solid transparent;
   background-color: rgb(250, 251, 251);
   border-radius: 0px;
 }
 
-.card.messages-card .card-body::-webkit-scrollbar {
-  width: 7px;
+.card.messages-card .card-body.left-message-card::-webkit-scrollbar,
+.card.messages-card .card-body.card-field-massages::-webkit-scrollbar {
+  width: 5px;
   background-color: transparent;
   border-radius: 0px;
 }
 
-.card.messages-card .card-body::-webkit-scrollbar-thumb {
+.card.messages-card .card-body.left-message-card::-webkit-scrollbar-thumb,
+.card.messages-card .card-body.card-field-massages::-webkit-scrollbar-thumb {
   background-color: rgb(216, 223, 224);
   border-radius: 0px;
 }
