@@ -50,7 +50,7 @@
                                         </div>
                                         <div  class="tab-content">
                                             @include('home-parts.private-filters')
-                                            @include('home-parts.business-filters')
+{{--                                            @include('home-parts.business-filters') --}}
                                         </div>
                                     </div>
                                 </div>
@@ -167,6 +167,21 @@
                 fetch_customer_data(query);
         });
     });
+ function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+	$('#address-latitude').val(latitude);
+	$('#address-longitude').val(longitude);
+  }
+  function error() {
+	$('#address-latitude').val(52.3675734);
+	$('#address-longitude').val(4.9041389);
+  }
+  if (!navigator.geolocation) {
+    console.log('Geolocation не поддерживается вашим браузером');
+  } else {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
 </script>
 @endsection
 

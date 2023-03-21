@@ -283,18 +283,33 @@ class PostController extends Controller
 
     public function home_filters(Request $request)
     {
-    $query = $request->get('query');
-     $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->paginate(3);
-    //   dd($posts);
-	//  $city = $request->city;
-    //     $posts = Post::where('price','>=',$request->from_price)->where('price','<=',$request->to_price)
-	// 	            ->when($city, function ($query) use ($city) {
+	$query = $request->get('query');
+	$lat = $request->address_latitude;
+	$lng = $request->address_longitude;
+	$km = ($request->filter_km)?$request->filter_km:1;
+	$from_price = $request->from_price;
+	$to_price = ($request->to_price)?$request->to_price:1000000;
+	$rooms = ($request->rooms)?$request->rooms:0;
+	$square = ($request->square)?$request->square:0;
+	$bedrooms = ($request->bedrooms)?$request->bedrooms:0;
+	$garage = ($request->garage)?1:0;
+	$balcony = ($request->balcony)?1:0;
+	$terrace = ($request->terrace)?1:0;
+	$garden = ($request->garden)?1:0;
 
-    //                     return $query->where('index','like', '%'.$city.'%')
-	// 			->orWhere('address','like', '%'.$city.'%');
-    //                 })
-	// 	->paginate(100);
-        return view('filterPosts', compact('posts'));
+	$posts = Post::whereRaw("(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)")
+		->whereRaw("price BETWEEN $from_price AND $to_price")
+		->whereRaw("(rooms = $rooms OR $rooms = 0)")
+		->whereRaw("(square >= $square)")
+		->whereRaw("((bedrooms = $bedrooms) OR ($bedrooms = 5 AND bedrooms > 5) OR $bedrooms = 0)")
+		->whereRaw("(garage = $garage OR $garage = 0)")
+		->whereRaw("(balcony = $balcony OR $balcony = 0)")
+		->whereRaw("(terrace = $terrace OR $terrace = 0)")
+		->whereRaw("(garden = $garden OR $garden = 0)")
+		->whereRaw("(is_published = 1)")
+		->paginate(10);
+
+        return view('allPosts', compact('posts'));
     }
 
     public function filterPosts(Request $request)
