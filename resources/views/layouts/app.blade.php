@@ -14,11 +14,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script type="text/javascript" src="{{ asset('css/jquery/jquery-2.1.1.min.js') }}"></script>
-    <script src="{{ asset('summernote/summernote.js') }}"></script>
-    <script src="{{ asset('summernote/lang/summernote-en-GB.js') }}"></script>
+    {{-- <script src="{{ asset('summernote/summernote.js') }}"></script>
+    <script src="{{ asset('summernote/lang/summernote-en-GB.js') }}"></script> --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -27,8 +26,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('summernote/summernote.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('summernote/summernote.css') }}" rel="stylesheet" /> --}}
 
 {{--    <link href="{{ asset('chosen/chosen.min.css') }}" rel="stylesheet">--}}
     <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" rel="stylesheet">
@@ -43,9 +42,11 @@
         </main>
         @include('layouts.copyright')
     </div>
+
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&region=EN&language=en&libraries=places&callback=initialize" async defer></script>
     <script src="/js/mapInput.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @yield('custom_js')
 </body>
 </html>
