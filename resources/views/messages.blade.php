@@ -275,7 +275,7 @@
                                 </div>
                                 <div class="col-12  col-md-8 px-0">
                                     <div class="css-1ua02hb  p-0">
-                                        <div class=" card messages-card css-1ua02hb py-0 d-none">
+                                        <div class=" card messages-card css-1ua02hb py-0  d-none">
                                             <div  class="css-1pmjsyo">
                                                 <img width="192"
                                                     height="192"
@@ -285,7 +285,7 @@
                                                     </p>
                                             </div>
                                         </div>
-                                        <div class="card messages-card py-0 ">
+                                        <div class="card messages-card py-0">
                                                 <div class="card-header messages-card-header p-0">
                                                     @include('messages-parts.chat-field-header')
                                                 </div>

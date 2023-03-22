@@ -22,7 +22,7 @@
                             @csrf --}}
                                 <div class="row">
                                     <div class="col-12 ">
-                                        <div class="nav nav-tabs mb-3" role="tablist">
+                                        {{-- <div class="nav nav-tabs mb-3" role="tablist">
 
                                                 <button class="nav-link active"
                                                     data-bs-toggle="tab"
@@ -47,11 +47,11 @@
                                                     {{__('Business offers')}}
                                                 </button>
 
-                                        </div>
-                                        <div  class="tab-content">
+                                        </div> --}}
+                                        {{-- <div  class="tab-content"> --}}
                                             @include('home-parts.private-filters')
-                                            @include('home-parts.business-filters')
-                                        </div>
+                                            {{-- @include('home-parts.business-filters') --}}
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                             {{-- </form> --}}
@@ -69,7 +69,7 @@
                 <div class="col-12 text-center">
 
                     <div id="privatePosts" class="private-posts">
-                        <h2 class="form-title mt-5">{{__('Private offers')}}</h2>
+                        <h2 class="form-title mt-5">{{__('Offers')}}</h2>
                         <div class="card home-page-card py-2 my-2">
                             <div class="card-body p-0">
                                 @if (session('status'))
@@ -117,7 +117,7 @@
                             @endif --}}
                         </div>
                     </div>
-                    <div id="businessPosts" class="business-posts d-none">
+                    {{-- <div id="businessPosts" class="business-posts d-none">
                         <h2 class="form-title mt-5">{{__('Business offers')}}</h2>
                         <div class="card home-page-card py-2 my-2">
                             <div class="card-body p-0">
@@ -132,7 +132,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
