@@ -56,9 +56,9 @@
                                        placeholder="address"
                                        id="address"
                                        class="form-control map-input"
-                                       value="{{$post->address ?? old('address') }}">
-                                <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude ?? old('address_latitude') }}" />
-                                <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude ?? old('address_longitude')}}" />
+                                       value="{{ $post->address }}">
+                                <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude }}" />
+                                <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
                             </div>
 
 
@@ -127,28 +127,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="sale">{{ __('sale') }}</label>
-                        <select class="form-control" name="sale_id" id="sale" value="{{ old('sale_id', $post->sale_id) }}">
-                            @foreach ($sales as $sale)
-                                <option value = "{{ $sale->id }}"
-                                    @if($sale->id == $post->sale_id) selected @endif>
-                                    {{ $sale->title }}
-                                </option>
-                            @endforeach
+                        <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
+                            <option value = "0">{{__('rent')}}</option>
+                            <option value = "1">{{__('sale')}}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="b2b">{{ __('status') }}</label>
-                       <select class="form-control" name="status_id" id="b2b" value="{{ $post->status_id ?? old('status_id') }}">
-                           @foreach ($statuses as $status)
-                               <option value = "{{ $status->id }}"
-                                @if($status->id == $post->status_id) selected @endif>
-                                {{ $status->title }}
-                            </option>
-                           @endforeach
-                       </select>
-                   </div>
+                        <select class="form-control" name="b2b" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
+                            <option value = "0">{{__('private')}}</option>
+                            <option value = "1">{{__('business to business')}}</option>
+                        </select>
+                    </div>
+
 				</div>
 				<div class="col-12 col-sm-6">
 		                    <div class="row" id="photo_gallery">
