@@ -68,6 +68,20 @@
                         </div>
                     </li>
                 @endguest
+		<li class="nav-item dropdown">
+                        <a id="langDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <div>
+                                <img class="img-thumbnail1" src="{{ asset('/storage/flags/' . App()->getLocale().'.png' ) }}">
+                            </div>
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+				<a class="dropdown-item" href="{{ route('locale', 'en') }}"><img src="{{ asset('/storage/flags/en.png' ) }}"> English</a>
+				<a class="dropdown-item" href="{{ route('locale', 'pl') }}"><img src="{{ asset('/storage/flags/pl.png' ) }}"> Polska</a>
+				<a class="dropdown-item" href="{{ route('locale', 'nl') }}"><img src="{{ asset('/storage/flags/nl.png' ) }}"> Nederlands</a>
+				<a class="dropdown-item" href="{{ route('locale', 'ua') }}"><img src="{{ asset('/storage/flags/ua.png' ) }}"> Українська</a>
+                        </div>
+		</li>
             </ul>
         </div>
     </div>
