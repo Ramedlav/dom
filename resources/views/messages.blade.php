@@ -16,7 +16,7 @@
                             @endif
                             <div class="row">
                                 <h2 class="css-1q56cn px-3">{{__('Dialogs') }}</h2>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-lg-4 px-0 px-md-3">
                                     <div class="card messages-card pt-0">
                                         <div class="card-header css-1qi2050">
                                             <div class="css-1c5er82">
@@ -273,8 +273,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12  col-md-8 px-0">
-                                    <div class="css-1ua02hb  p-0">
+                                <div class="col-12  col-lg-8 px-0 px-md-3">
+                                    <div class="css-1ua02hb  p-0 ml-0 ml-md-3">
                                         <div class=" card messages-card css-1ua02hb py-0  d-none">
                                             <div  class="css-1pmjsyo">
                                                 <img width="192"

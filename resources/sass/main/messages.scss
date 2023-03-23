@@ -223,6 +223,14 @@
 .css-1cwveox {
     position: relative;
     border-top: 1px solid rgb(216, 223, 224);
+    background-color: rgb(233, 252, 251);
+    margin: 0px -32px;
+    padding: 0px 16px;
+}
+
+.css-1o8agjl {
+    margin: 0px -32px;
+    padding: 0px 16px;
 }
 
 @media screen and (min-width: 992px){
@@ -524,14 +532,15 @@ button {
     flex-grow: 1;
     flex-basis: 0px;
     -webkit-box-pack: end;
-    justify-content: flex-end;
-    margin-left: 16px;
+    justify-content: space-between;
+    margin-left: 0px;
     margin-right: -4px;
 }
 
 .css-11f3fck {
     display: flex;
     flex-direction: row;
+    margin-left: -6px;
 }
 
 .css-1j2m7z7 {
@@ -679,7 +688,8 @@ button {
 
 .css-13thiek {
     min-width: 10%;
-    max-width: calc(100% - 72px);
+    // max-width: calc(100% - 72px);
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
@@ -692,8 +702,21 @@ button {
         max-width: 70%;
     }
 
+    .css-13thiek {
+        max-width: calc(100% - 72px);
+    }
+
+    .css-1ub42cm {
+        max-width: calc(100% - 72px);
+    }
+
     .css-1ub42cm {
         max-width: 70%;
+    }
+
+    .css-17zqm6 {
+        justify-content: flex-end;
+        margin-left: 16px;
     }
 }
 
@@ -703,7 +726,7 @@ button {
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
-    align-self: flex-start;
+    justify-content: space-between;
     overflow: hidden;
     width: 100%;
 }
@@ -760,7 +783,8 @@ button {
 
 .css-1ub42cm {
     min-width: 10%;
-    max-width: calc(100% - 72px);
+    // max-width: calc(100% - 72px);
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
@@ -1043,13 +1067,13 @@ button {
 .css-1ua02hb {
     -webkit-box-flex: 1;
     flex-grow: 1;
-    margin-left: 12px;
+    // margin-left: 12px;
     min-width: 320px;
     display: flex;
     flex-direction: column;
     -webkit-box-align: stretch;
     align-items: stretch;
-    background-color: rgb(242, 244, 245);
+    // background-color: rgb(242, 244, 245);
     padding: 0px 0px;
     position: relative;
 }
@@ -1094,6 +1118,25 @@ button {
 .card.messages-card .card-body.card-field-massages::-webkit-scrollbar-thumb {
     background-color: rgb(216, 223, 224);
     border-radius: 0px;
+}
+
+.css-6q6hwe::after {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left: 8px;
+    top: 6px;
+    background-image: url(/img/images/user.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    position: relative;
+}
+
+@media screen and (max-width: 768px){
+    .card.messages-card {
+        max-width: min(1238px, 100vw - 32px);
+    }
 }
 
 

@@ -1,24 +1,27 @@
 <div class=" p-0 css-15ecjq0 ">
     <div class="css-r2eb4p">
-        <div class="css-1pdwz19">
-            <div class="css-14wbffc">
-                <div class="css-6q6hwe">
-                    <img src="" class="css-zm0vdp d-none">
+        <div class="css-1pdwz19 d-flex flex-wrap">
+            <div class="d-flex me-4 me-lg-0 my-3 my-lg-0">
+                <div class="css-14wbffc">
+                    <div class="css-6q6hwe">
+                        <img src="" class="css-zm0vdp d-none">
+                    </div>
+                </div>
+
+                <div class="css-3rns13">
+                    <div class="css-1povu0j">
+                        <span data-testid="username" data-cy="conversation-user-details-username" class="css-1ryldw8 er34gjf0">
+                            Валентина
+                        </span>
+                    </div>
+                    <p data-cy="conversation-user-details-last-seen" class="css-ekdwwt er34gjf0">
+                        <span class="css-1t0qnkx">
+                            Онлайн в 16:07
+                        </span>
+                    </p>
                 </div>
             </div>
 
-            <div class="css-3rns13">
-                <div class="css-1povu0j">
-                    <span data-testid="username" data-cy="conversation-user-details-username" class="css-1ryldw8 er34gjf0">
-                        Валентина
-                    </span>
-                </div>
-                <p data-cy="conversation-user-details-last-seen" class="css-ekdwwt er34gjf0">
-                    <span class="css-1t0qnkx">
-                        Онлайн в 16:07
-                    </span>
-                </p>
-            </div>
             <div class="css-17zqm6">
                 <div  class="css-11f3fck">
                     <span >

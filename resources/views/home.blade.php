@@ -77,7 +77,7 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <div id="postsList"  class="d-flex flex-wrap">
+                                <div id="postsList"  class="d-flex flex-md-wrap">
                                     {{-- @foreach($posts as $post)
                                     <div class="form-card col-lg-6 col-xl-4 p-1">
                                         <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">

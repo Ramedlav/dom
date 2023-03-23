@@ -79,12 +79,6 @@ body {
     object-fit: contain;
 }
 
-// .main-footer {
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-// }
 
 .main-wrapper {
     min-height: calc(100vh - 222px);
@@ -301,6 +295,16 @@ body {
     border-color: transparent;
     background-color: #1FCE65;
     color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    #postsList {
+        overflow-x: auto;
+    }
+
+    .home-page-card .form-card {
+        min-width: 281px;
+    }
 }
 
 
