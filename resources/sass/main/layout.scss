@@ -201,3 +201,113 @@ body {
 
 
 
+@media (min-width: 991px) {
+    .css-1d7m8bx {
+        padding-left: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .css-4h0vko {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: auto;
+        max-width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        border-radius: 50%;
+    }
+
+    .css-1y934yh {
+        display: block;
+    }
+
+    .css-1cu9ndh {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 1160px) {
+    .css-1d7m8bx {
+        padding-left: 8px;
+    }
+
+    .css-4h0vko {
+        display: inline-block;
+        min-width: 160px;
+        max-width: none;
+        height: auto;
+        margin-left: 0;
+        border-radius: 4px;
+    }
+
+    .css-1y934yh {
+        display: block;
+    }
+
+    .css-1cu9ndh {
+        display: none;
+    }
+
+    .css-1y934yh {
+        display: block;
+    }
+
+    .css-1cu9ndh {
+        display: none;
+    }
+}
+
+.css-4h0vko {
+    display: inline-block;
+    width: auto;
+    padding: 12px 16px;
+    -webkit-transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: #00B54B;
+    color: #ffffff;
+    width: 100%;
+    min-width: 160px;
+    border-color: transparent;
+    background-color: #00B54B;
+    color: #ffffff;
+}
+
+.css-4h0vko:hover {
+    border-color: transparent;
+    background-color: #1FCE65;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+

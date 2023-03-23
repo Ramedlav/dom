@@ -8,7 +8,8 @@
             {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt=""> --}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
+            {{-- <i class="navbar-toggler-icon"></i> --}}
+            <i class="fas fa-bars" style="color:#fff; font-size:28px; border:none"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -95,6 +96,15 @@
                         </div>
 
 		        </li>
+                <li class="css-1d7m8bx my-3 my-md-0">
+                    <a href="{{ route('createCreateForm') }}" class="css-4h0vko d-flex align-items-center">
+                        <div class="css-1y934yh">
+                            <p class="m-0" style="vertical-align: inherit;" >
+                               {{__('To add a post') }}
+                            </p>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
