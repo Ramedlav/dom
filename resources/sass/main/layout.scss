@@ -176,5 +176,28 @@ body {
     border-bottom-right-radius: var(--bs-nav-tabs-border-radius);
 }
 
+.chevron-field {
+    position: relative;
+}
+
+.chevron-icon {
+    position: absolute;
+    top: 8px;
+    right: 13px;
+}
+
+.no-found-img {
+    position: relative;
+}
+
+.no-found-img span {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+}
+
 
 

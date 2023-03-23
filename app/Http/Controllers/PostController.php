@@ -51,16 +51,16 @@ class PostController extends Controller
     }
 
     public function createForm(){
-//        $statuses=Status::all();
-//        $sales=Sale::all();
-        // dd($sales);
-        return view('postCreate');
+       $statuses=Status::all();
+       $sales=Sale::all();
+        // dd($statuses);
+        return view('postCreate', compact('statuses', 'sales'));
     }
 
     public function editForm($id_post){
         $post = Post::find($id_post);
-//        $statuses=Status::all();
-//        $sales=Sale::all();
+        $statuses=Status::all();
+        $sales=Sale::all();
 
         if(!$post){
             return redirect()->to(route('home'));
@@ -70,7 +70,7 @@ class PostController extends Controller
         if (Auth::user()->id != $post->user->id){
             return back()->withInput();
         }else{
-            return view('postEdit',compact('post','photos'));
+            return view('postEdit',compact('post','photos', 'statuses', 'sales'));
         }
     }
 

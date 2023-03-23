@@ -93,7 +93,10 @@ class HomeController extends Controller
             } else {
                 $output = '
                 <div class="form-card col-lg-6 col-xl-4 p-1">
-                    <span>No Data Found</span>
+                    <div class="no-found-img">
+                        <img class="img-fluid" src="/img/images/agent.jpg">
+                        <span>No Data Found</span>
+                    </div>
                 </div>
                  ';
             }

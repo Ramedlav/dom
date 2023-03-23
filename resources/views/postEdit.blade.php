@@ -135,7 +135,7 @@
 
                     <div class="form-group">
                         <label for="b2b">{{ __('status') }}</label>
-                        <select class="form-control" name="b2b" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
+                        <select class="form-control" name="" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
                             <option value = "0">{{__('private')}}</option>
                             <option value = "1">{{__('business to business')}}</option>
                         </select>
