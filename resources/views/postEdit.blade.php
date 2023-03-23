@@ -127,17 +127,30 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" name="sale" id="sale" value="{{ $post->sale ?? old('sale') }}">
-                            <option value = "0">{{__('rent')}}</option>
-                            <option value = "1">{{__('sale')}}</option>
+                        <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}">
+                            @foreach($sales as $sale)
+                                <option value="{{ $sale->id }}"
+                                    @if($sale->id == $post->sale_id) selected @endif>
+                                    {{ $sale->title }}
+                                </option>
+                            @endforeach
+                            {{-- <option value = "0">{{__('rent')}}</option>
+                            <option value = "1">{{__('sale')}}</option> --}}
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="b2b">{{ __('status') }}</label>
-                        <select class="form-control" name="" id="b2b" value="{{ $post->b2b ?? old('b2b') }}">
-                            <option value = "0">{{__('private')}}</option>
-                            <option value = "1">{{__('business to business')}}</option>
+                        <select class="form-control" name="status_id" id="b2b" value="{{ $post->status_id ?? old('status_id') }}">
+                            @foreach($statuses as $status)
+                                <option value="{{ $status->id }}"
+                                    @if($status->id == $post->status_id) selected @endif>
+                                    {{ $status->title }}
+                                </option>
+                            @endforeach
+
+                            {{-- <option value = "0">{{__('private')}}</option>
+                            <option value = "1">{{__('business to business')}}</option> --}}
                         </select>
                     </div>
 
