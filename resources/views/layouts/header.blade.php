@@ -68,7 +68,7 @@
                         </div>
                     </li>
                 @endguest
-		        <li class="nav-item dropdown">
+		        <li class="nav-item dropdown d-flex align-items-center">
                         <a id="langDropdown"
                            class="nav-link dropdown-toggle d-flex align-items-center"
                            href="#"
