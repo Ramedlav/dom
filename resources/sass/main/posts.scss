@@ -17,7 +17,7 @@
     display: flex;
     -webkit-box-pack: inherit;
     justify-content: inherit;
-    width: 1160px;
+    width: 100%;
     margin: 0px auto;
 }
 
@@ -39,7 +39,7 @@
     background-color: rgb(0, 181, 75);
     color: rgb(255, 255, 255);
     min-width: fit-content;
-    margin-bottom: 24px;
+    margin-right: 24px;
     margin-left: auto;
 }
 
@@ -609,4 +609,61 @@ css-80g06k {
 
 .post-card a {
     text-decoration: none;
+}
+
+@media (max-width: 991px){
+    .all-posts-page .posts-card {
+        height: auto;
+    }
+
+    #carouselRecommendPost .carousel-item.post-img-item {
+        width: 100%;
+        height: 208px;
+    }
+
+    #carouselRecommendPost .carousel-item.post-img-item .post-img-fluid {
+        width: 100%;
+        height: 208px;
+    }
+
+    .css-1pnqrd4 {
+        color: rgb(189, 189, 189);
+    }
+
+    .css-153eqh1 {
+        width: auto;
+        max-width: 280px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 768px){
+    .all-posts-page .img-thumbnail-block {
+        height: 208px;
+        width: 100%;
+    }
+
+    .all-posts-page .img-thumbnail {
+        width: 100%;
+        height: 208px;
+    }
+
+    .all-posts-page .posts-card {
+        height: auto;
+    }
+
+    #carouselRecommendPost .carousel-item.post-img-item {
+        width: 100%;
+        height: 160px;
+    }
+
+    #carouselRecommendPost .carousel-item.post-img-item .post-img-fluid {
+        width: 100%;
+        height: 160px;
+    }
+
 }

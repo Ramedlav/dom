@@ -21,14 +21,15 @@
                                 </div>
                             @endif
                             <div class="row">
-                                <div class="col-12 col-md-9">
+                                <div class="col-12 col-lg-9">
                                     <h2 class="css-1q56cn">{{__('All announcements') }}</h2>
                                     @include('allPosts-parts.post-card')
                                     <div class="float-end">
-                                        {{ $posts->links() }}
+                                        {{ $posts->onEachSide(1)->links() }}
                                     </div>
+
                                 </div>
-                                <div class="col-12 col-md-3 px-0">
+                                <div class="col-12 col-lg-3 px-lg-0 pb-3">
                                     <h2 class="css-7snqpb e5g86pi2">{{__('Recommended investment') }}</h2>
                                     @include('allPosts-parts.reccomend-card')
                                 </div>
