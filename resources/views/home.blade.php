@@ -185,9 +185,7 @@
 </script>
 @endsection
 
-@section('custom_js')
 
-@endsection
 
     {{-- <div class="row">
         <div class="col-12"> --}}
