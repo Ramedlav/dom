@@ -29,3 +29,19 @@
 
         });
     });
+
+    $(document).ready(function() {
+        $('#private-filters').on('click',function(){
+            $('.business-posts').toggleClass('d-none');
+            $('.private-posts').toggleClass('d-none');
+        });
+
+        $('#business-filters').on('click',function(){
+            $('.business-posts').toggleClass('d-none');
+            $('.private-posts').toggleClass('d-none');
+        });
+
+    });
+
+
+

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MessageController;
 /*
@@ -13,6 +14,11 @@ use App\Http\Controllers\MessageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
 
 Route::get('/',   function (){ return redirect('/home'); });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -115,7 +115,7 @@
                                             {{__('Description')}}:
                                         </p>
                                         <p class="css-1ywqe0q">
-                                            {{ $post->description }}
+                                            {!! $post->description !!}
                                         </p>
                                     </div>
                                 </div>

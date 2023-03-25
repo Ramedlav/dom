@@ -16,8 +16,8 @@ class MessageController extends Controller
         $user_id = Auth::user()->id;
         $dialogs = User::find($user_id)->dialogs;
         $out = Dialog::where('sub_id',$user_id)->get();
-//        dd($out);
-        return view('messages',compact('dialogs'),compact('out'));
+      //dd($out);
+        return view('messages',compact('dialogs', 'out'));
     }
 
     public function ShowDialog($id_dialog){

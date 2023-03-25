@@ -8,7 +8,8 @@
             {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt=""> --}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
+            {{-- <i class="navbar-toggler-icon"></i> --}}
+            <i class="fas fa-bars" style="color:#fff; font-size:28px; border:none"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,7 +51,6 @@
                             </div>
 
                         </a>
-
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
@@ -68,6 +68,43 @@
                         </div>
                     </li>
                 @endguest
+		        <li class="nav-item dropdown d-flex align-items-center">
+                        <a id="langDropdown"
+                           class="nav-link dropdown-toggle d-flex align-items-center"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false" v-pre>
+                            <div>
+                                {{-- <img class="img-thumbnail1" src="{{ asset('/storage/flags/' . App()->getLocale().'.png' ) }}"> --}}
+                                <span class="fi fi-{{ App()->getLocale() }} fis"></span>
+                            </div>
+
+                        </a>
+                        {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <a class="dropdown-item" href="{{ route('locale', 'en') }}"><img src="{{ asset('/storage/flags/en.png' ) }}"> English</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><img src="{{ asset('/storage/flags/pl.png' ) }}"> Polska</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><img src="{{ asset('/storage/flags/nl.png' ) }}"> Nederlands</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><img src="{{ asset('/storage/flags/ua.png' ) }}"> Українська</a>
+                        </div> --}}
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis"></span> English</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis"></span> Polska</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><span class="fi fi-nl fis"></span> Nederlands</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><span class="fi fi-ua fis"></span> Українська</a>
+                        </div>
+
+		        </li>
+                <li class="css-1d7m8bx my-3 my-md-0">
+                    <a href="{{ route('createCreateForm') }}" class="css-4h0vko d-flex align-items-center">
+                        <div class="css-1y934yh">
+                            <p class="m-0" style="vertical-align: inherit;" >
+                               {{__('To add a post') }}
+                            </p>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

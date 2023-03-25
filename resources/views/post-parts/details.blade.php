@@ -1,3 +1,20 @@
+@php
+	$fc = json_decode($finish_conditions,true);
+	$finish=[]; $finish[0] = '';
+	foreach($fc as $c) $finish[$c['id']] = $c['title'];
+	$fc = json_decode($constructions,true);
+	$construction=[]; $construction[0] = '';
+	foreach($fc as $c) $construction[$c['id']] = $c['title'];
+	$fc = json_decode($floors,true);
+	$floor=[]; $floor[0] = '';
+	foreach($fc as $c) $floor[$c['id']] = $c['title'];
+	$bgt=[];
+	if ($post->balkony) $bgt[]="balkony";
+	if ($post->garden) $bgt[]="garden";
+	if ($post->terrace) $bgt[]="terrace";
+	$bgt=implode(',',$bgt);
+@endphp
+
 <div class="d-md-flex flex-wraper">
     <div class=" col-md-6 pe-md-3">
         <div aria-label="Square"
@@ -59,7 +76,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    parter/2
+                    {{ $floor[$post->floor] }}
                 </div>
             </div>
         </div>
@@ -80,7 +97,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    <button data-cy="missing-info-button" class="css-lux9hg ekf916v1">{{__('ask')}}</button>
+                    <button data-cy="missing-info-button" class="css-lux9hg ekf916v1">{{ $post->available_date }}</button>
                 </div>
             </div>
         </div>
@@ -126,7 +143,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    100 &nbsp;€/month
+                    {{ $post->rent_price }} &nbsp;€/month
                 </div>
             </div>
         </div>
@@ -168,7 +185,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    house
+                    {{ $construction[$post->type_construction] }}
                 </div>
             </div>
         </div>
@@ -189,7 +206,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    balkon
+                    {{ $bgt }}
                 </div>
             </div>
         </div>
@@ -203,14 +220,13 @@
                 </div>
                 <div class="css-1qzszy5">
                     <div data-cy="table-label-content" class="css-1h52dri estckra7">
-                        {{__('Stan wykończenia') }}
+                        {{__('Finish condition') }}
                     </div>
                 </div>
                 </div>
-
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    live
+                    {{ $finish[$post->finish_condition] }}
                 </div>
             </div>
         </div>

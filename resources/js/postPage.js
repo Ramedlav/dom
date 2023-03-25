@@ -23,7 +23,6 @@ $(function () {
         //     info += '<span class="image-gallery-index-total">' + count +'</span>';
         // $('.image-gallery-index').html(info);
     });
-
 });
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Announcements;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -28,8 +29,9 @@ class HomeController extends Controller
         // $posts = Post::query()->limit(3)->get();
         // $posts = $post->getPostsBySearch($request)->paginate(6);
         $posts = Post::all();
+	$announcements=Announcements::all();
 // dd($posts);
-        return view('home', compact('posts'));
+        return view('home', compact('posts', 'announcements'));
     }
 
     public function action(Request $request, Post $posts)
@@ -58,6 +60,8 @@ class HomeController extends Controller
 
                 foreach($posts as $post)
                 {
+
+
                     $img = '';
                     foreach($post->photos as $photo){
                         if ($photo){
@@ -66,30 +70,33 @@ class HomeController extends Controller
                     }
 
                     $output .= '
-                    <div class="form-card col-lg-6 col-xl-4 p-1">
-                        <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
-                            <div>
-                                <img class="img-fluid" src="'.asset('/storage/' . $img).'">
+                        <div class="form-card col-lg-6 col-xl-4 p-1">
+                            <a href="'.route('show',['id_post' => $post->id]).'" class="form-link" title="show '.$post->title.'">
+                                <div>
+                                    <img class="img-fluid" src="'.asset('/storage/' . $img).'">
+                                </div>
+                            <div class="form-text text-start">
+                                    <div class="post-title">'
+                                        .$post->title.'
+                                    </div>
+                                    <div class="post-title">'
+                                        .$post->price.'&nbsp;€
+                                    </div>
+                                    <div class="post-fulladdress">'
+                                        .$post->address.'
+                                </div>
                             </div>
-                           <div class="form-text text-start">
-                                <div class="post-title">'
-                                    .$post->title.'
-                                </div>
-                                <div class="post-title">'
-                                    .$post->price.'&nbsp;zł
-                                </div>
-                                <div class="post-fulladdress">'
-                                    .$post->address.'
-                             </div>
-                           </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     ';
                 }
             } else {
                 $output = '
                 <div class="form-card col-lg-6 col-xl-4 p-1">
-                    <span>No Data Found</span>
+                    <div class="no-found-img">
+                        <img class="img-fluid" src="/img/images/agent.jpg">
+                        <span>No Data Found</span>
+                    </div>
                 </div>
                  ';
             }

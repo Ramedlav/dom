@@ -2,6 +2,7 @@
 
 @section('content')
 @php /** @var \App\Models\Post $post */ @endphp
+@php /** @var \App\Models\Announcements $announcements */ @endphp
 <form action="{{ route('home_filters') }}" method="POST">
     @csrf
     <section class="py-5 home-page">
@@ -22,7 +23,7 @@
                             @csrf --}}
                                 <div class="row">
                                     <div class="col-12 ">
-                                        <div class="nav nav-tabs mb-3" role="tablist">
+                                        {{-- <div class="nav nav-tabs mb-3" role="tablist">
 
                                                 <button class="nav-link active"
                                                     data-bs-toggle="tab"
@@ -47,11 +48,11 @@
                                                     {{__('Business offers')}}
                                                 </button>
 
-                                        </div>
-                                        <div  class="tab-content">
+                                        </div> --}}
+                                        {{-- <div  class="tab-content"> --}}
                                             @include('home-parts.private-filters')
-                                            @include('home-parts.business-filters')
-                                        </div>
+                                            {{-- @include('home-parts.business-filters') --}}
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                             {{-- </form> --}}
@@ -66,55 +67,73 @@
             <div class="row">
                 @include('home-parts.collapse.private')
                 {{-- @include('home-parts.collapse.business') --}}
-                <div class="col-12 text-center ">
-                    <h2 class="form-title mt-5">{{__('Private offers')}}</h2>
-                    <h2 class="form-title mt-5">{{__('Business offers')}}</h2>
-                    <div class="card home-page-card py-2 my-2">
-                        <div class="card-body p-0">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-                            <div id="postsList"  class="d-flex flex-wrap">
-                                {{-- @foreach($posts as $post)
-                                <div class="form-card col-lg-6 col-xl-4 p-1">
-                                    <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">
-                                        @php $img=''; @endphp
-                                        @foreach($post->photos as $photo)
-                                            @if ($loop->first)
-                                                @php
-                                                $img = $photo->img;
-                                                @endphp
-                                            @endif
-                                        @endforeach
-                                        <img class="img-fluid" src="{{ asset('/storage/' . $img) }}">
-                                        <div class="form-text text-start">
-                                            <div class="post-title">
-                                                {{ $post->title }}
-                                            </div>
-                                            <div class="post-title">
-                                            {{ $post->price }}&nbsp;zł
-                                            </div>
-                                            <div class="post-fulladdress">
-                                            {{ $post->address }}
-                                            </div>
-                                        </div>
+                <div class="col-12 text-center">
 
-                                    </a>
+                    <div id="privatePosts" class="private-posts">
+                        <h2 class="form-title mt-5">{{__('Offers')}}</h2>
+                        <div class="card home-page-card py-2 my-2">
+                            <div class="card-body p-0">
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                <div id="postsList"  class="d-flex flex-md-wrap">
+                                    {{-- @foreach($posts as $post)
+                                    <div class="form-card col-lg-6 col-xl-4 p-1">
+                                        <a href="{{route('show',['id_post' => $post->id])}}" class="form-link" title="show {{ $post->title }}">
+                                            @php $img=''; @endphp
+                                            @foreach($post->photos as $photo)
+                                                @if ($loop->first)
+                                                    @php
+                                                    $img = $photo->img;
+                                                    @endphp
+                                                @endif
+                                            @endforeach
+                                            <img class="img-fluid" src="{{ asset('/storage/' . $img) }}">
+                                            <div class="form-text text-start">
+                                                <div class="post-title">
+                                                    {{ $post->title }}
+                                                </div>
+                                                <div class="post-title">
+                                                {{ $post->price }}&nbsp;€
+                                                </div>
+                                                <div class="post-fulladdress">
+                                                {{ $post->address }}
+                                                </div>
+                                            </div>
+
+                                        </a>
+                                    </div>
+                                    @endforeach --}}
                                 </div>
-                                @endforeach --}}
                             </div>
+                            {{-- @if($posts->total() > $posts->count())
+                                <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                        {{ $posts->onEachSide(1)->links() }}
+                                    </div>
+                                </div>
+                            @endif --}}
                         </div>
-                        {{-- @if($posts->total() > $posts->count())
-                            <br>
-                            <div class="row justify-content-center">
-                                <div class="col-md-12 d-flex justify-content-center">
-                                    {{ $posts->onEachSide(1)->links() }}
+                    </div>
+                    {{-- <div id="businessPosts" class="business-posts d-none">
+                        <h2 class="form-title mt-5">{{__('Business offers')}}</h2>
+                        <div class="card home-page-card py-2 my-2">
+                            <div class="card-body p-0">
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                <div id="postsList"  class="d-flex flex-wrap">
+
                                 </div>
                             </div>
-                        @endif --}}
-                    </div>
+
+                        </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -149,6 +168,21 @@
                 fetch_customer_data(query);
         });
     });
+ function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+	$('#address-latitude').val(latitude);
+	$('#address-longitude').val(longitude);
+  }
+  function error() {
+	$('#address-latitude').val(52.3675734);
+	$('#address-longitude').val(4.9041389);
+  }
+  if (!navigator.geolocation) {
+    console.log('Geolocation не поддерживается вашим браузером');
+  } else {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
 </script>
 @endsection
 

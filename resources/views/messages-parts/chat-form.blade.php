@@ -11,7 +11,8 @@
         </button>
     </div>
     <div  class="css-t0lbh8">
-        <form class="css-1tqh4ox">
+        <form action="{{ route('SendMessage')}}" method="POST" class="css-1tqh4ox">
+            @csrf
             <div class="css-ygggrs">
                 <div class="css-ocljxl">
                     <div class="css-g4yxqq">
@@ -55,17 +56,18 @@
                         </fieldset>
                     </div>
                     <textarea rows="1"
-                              name="message.text"
+                              name="content"
                               placeholder="{{__('Write a notification...')}}"
                               class="css-1kjjac5"
                               style="margin-right: -16px;"></textarea>
                     <div class="css-qxaskb">
+                        <input type="hidden" name="user">
                         <button aria-hidden="true"
                                 disabled=""
                                 aria-label="Submit message"
                                 type="submit"
-                                {{-- class="css-2zsnaw" --}}
-                                class="css-9x8rrm"
+                                class="css-2zsnaw"
+                                {{-- class="css-9x8rrm" --}}
                                 style="cursor: pointer;">
                                 <svg width="1em"
                                      height="1em"
@@ -82,3 +84,8 @@
         </form>
     </div>
 <div>
+
+
+
+
+{{-- class="css-9x8rrm" --}}
