@@ -46,6 +46,8 @@ class AddColumsToPostsTable extends Migration
             $table->unsignedSmallInteger('separate_kitchen')->nullable()->after('garden');
             $table->unsignedSmallInteger('two_level')->nullable()->after('garden');
             $table->unsignedSmallInteger('room_utilitarian')->nullable()->after('garden');
+            $table->unsignedSmallInteger('type_announcement')->nullable()->after('title');
+            $table->unsignedSmallInteger('rent_price')->nullable()->after('price');
             //
         });
     }

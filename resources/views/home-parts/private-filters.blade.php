@@ -6,16 +6,11 @@
         <div class="col-sm-6 pe-sm-2">
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
-                <select class="form-control">
-                    <option selected="">{{__('Apartments')}}</option>
-                    <option>{{__('Studio apartments')}}</option>
-                    <option>{{__('Houses')}}</option>
-                    <option>{{__('Investments')}}</option>
-                    <option>{{__('Rooms')}}</option>
-                    <option>{{__('Commercial premises')}}</option>
-                    <option>{{__('Halls and warehouses')}}</option>
-                    <option>{{__('Garages')}}</option>
-                </select>
+                <select class="form-control" name="type_announcement">
+	                @foreach($announcements as $announcement)
+				<option>{{ __("$announcement->title") }}</option>
+	                @endforeach
+		</select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"
                             focusable="false"
@@ -36,10 +31,15 @@
                         id="address"
                         class="form-control map-input mb-2"
                         value="{{ $post->address ?? old('address') }}" >
+{{--
                 @foreach($posts as $post)
                     <input type="hidden" name="address_latitude" id="address-latitude" value=" {{ $post->address_latitude }} " />
                     <input type="hidden" name="address_longitude" id="address-longitude" value=" {{ $post->address_longitude }} " />
                 @endforeach
+--}}
+                    <input type="hidden" name="address_latitude" id="address-latitude" value="" />
+                    <input type="hidden" name="address_longitude" id="address-longitude" value="" />
+
                 <div class="chevron-icon">
                     <svg aria-hidden="true"
                             focusable="false"
@@ -163,9 +163,9 @@
         <div class="col-sm-6 ps-sm-2">
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
-                <select class="form-control">
-                    <option selected="">{{__('Buy')}}</option>
-                    <option>{{__('Rent')}}</option>
+                <select class="form-control" name="sale">
+                    <option value="1" selected="">{{__('Buy')}}</option>
+                    <option value="2">{{__('Rent')}}</option>
                 </select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"

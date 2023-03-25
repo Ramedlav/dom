@@ -9,6 +9,13 @@ use App\Models\Province;
 use App\Models\Town;
 use App\Models\Status;
 use App\Models\Sale;
+use App\Models\Floor;
+use App\Models\Material;
+use App\Models\Construction;
+use App\Models\Windows;
+use App\Models\Heating;
+use App\Models\Finish_condition;
+use App\Models\Announcements;
 //use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -51,16 +58,30 @@ class PostController extends Controller
     }
 
     public function createForm(){
-       $statuses=Status::all();
-       $sales=Sale::all();
+	$statuses=Status::all();
+	$sales=Sale::all();
+	$constructions = Construction::all();
+	$floors=Floor::all();
+	$materials=Material::all();
+	$windows=Windows::all();
+	$heatings=Heating::all();
+	$finish_conditions=Finish_condition::all();
+	$announcements=Announcements::all();
         // dd($statuses);
-        return view('postCreate', compact('statuses', 'sales'));
+        return view('postCreate', compact('statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
     }
 
     public function editForm($id_post){
         $post = Post::find($id_post);
         $statuses=Status::all();
         $sales=Sale::all();
+	$constructions = Construction::all();
+	$floors=Floor::all();
+	$materials=Material::all();
+	$windows=Windows::all();
+	$heatings=Heating::all();
+	$finish_conditions=Finish_condition::all();
+	$announcements=Announcements::all();
 
         if(!$post){
             return redirect()->to(route('home'));
@@ -70,7 +91,7 @@ class PostController extends Controller
         if (Auth::user()->id != $post->user->id){
             return back()->withInput();
         }else{
-            return view('postEdit',compact('post','photos', 'statuses', 'sales'));
+            return view('postEdit',compact('post','photos', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
         }
     }
 
@@ -112,7 +133,10 @@ class PostController extends Controller
         }
 
         $photos = Post::find($id_post)->photos;
-        return view('post',compact('post'),compact('photos'));
+	$constructions = Construction::all();
+	$finish_conditions=Finish_condition::all();
+	$floors=Floor::all();
+        return view('post',compact('post', 'photos', 'finish_conditions', 'constructions', 'floors'));
     }
 
     public function PhotoAll($id_post)
@@ -152,37 +176,58 @@ class PostController extends Controller
         $post = [
             'user_id' => Auth::user()->id,
             'title' => $request->input('title'),
+            'type_announcement' => $request->input('type_announcement'),
             'description' => $request->input('description'),
-//            'index' => $request->input('index'),
             'address' => $request->input('address'),
             'rooms' => $request->input('rooms'),
             'square' => $request->input('square'),
             'bedrooms' => $request->input('bedrooms'),
-            'garage' => $request->input('garage'),
-            'balcony' => $request->input('balcony'),
-            'terrace' => $request->input('terrace'),
-            'garden' => $request->input('garden'),
+            'garage' => (empty($request->input('garage')))?0:$request->input('garage'),
+            'balcony' => (empty($request->input('balcony')))?0:$request->input('balcony'),
+            'terrace' => (empty($request->input('terrace')))?0:$request->input('terrace'),
+            'garden' => (empty($request->input('garden')))?0:$request->input('garden'),
+            'room_utilitarian' => (empty($request->input('room_utilitarian')))?0:$request->input('room_utilitarian'),
+            'two_level' => (empty($request->input('two_level')))?0:$request->input('two_level'),
+            'separate_kitchen' => (empty($request->input('separate_kitchen')))?0:$request->input('separate_kitchen'),
+            'only_for_non_smokers' => (empty($request->input('only_for_non_smokers')))?0:$request->input('only_for_non_smokers'),
+            'air_conditioning' => (empty($request->input('air_conditioning')))?0:$request->input('air_conditioning'),
+            'elevator' => (empty($request->input('elevator')))?0:$request->input('elevator'),
+            'basement' => (empty($request->input('basement')))?0:$request->input('basement'),
+            'furniture' => (empty($request->input('furniture')))?0:$request->input('furniture'),
+            'washing_machine' => (empty($request->input('washing_machine')))?0:$request->input('washing_machine'),
+            'dishwasher' => (empty($request->input('dishwasher')))?0:$request->input('dishwasher'),
+            'refrigerator' => (empty($request->input('refrigerator')))?0:$request->input('refrigerator'),
+            'stove' => (empty($request->input('stove')))?0:$request->input('stove'),
+            'oven' => (empty($request->input('oven')))?0:$request->input('oven'),
+            'tv_set' => (empty($request->input('tv_set')))?0:$request->input('tv_set'),
+            'anti_burglary_blinds' => (empty($request->input('anti_burglary_blinds')))?0:$request->input('anti_burglary_blinds'),
+            'anti_burglar_doors_windows' => (empty($request->input('anti_burglary_door')))?0:$request->input('anti_burglary_door'),
+            'intercom_videophone' => (empty($request->input('intercom_videophone')))?0:$request->input('intercom_videophone'),
+            'monitoring_protection' => (empty($request->input('monitoring_protection')))?0:$request->input('monitoring_protection'),
+            'alarm_system' => (empty($request->input('alarm_system')))?0:$request->input('alarm_system'),
+            'closed_area' => (empty($request->input('closed_area')))?0:$request->input('closed_area'),
+            'internet' => (empty($request->input('internet')))?0:$request->input('internet'),
+            'cable_tv' => (empty($request->input('cable_tv')))?0:$request->input('cable_tv'),
+            'telephone' => (empty($request->input('telephone')))?0:$request->input('telephone'),
+            'finish_condition' => $request->input('finish_condition'),
+            'year_construction' => $request->input('year_construction'),
+            'available_date' => $request->input('available_date'),
+            'heating' => $request->input('heating'),
+            'windows' => $request->input('windows'),
+            'material' => $request->input('material'),
+            'floors' => $request->input('floors'),
+            'floor' => $request->input('floor'),
+            'type_construction' => $request->input('construction'),
             'price' => $request->input('price'),
+            'rent_price' => $request->input('rent_price'),
             'sale_id' => $request->input('sale_id'),
             'status_id' => $request->input('status_id'),
+            'movie_link' => $request->input('movie_link'),
+            'wirtual_link' => $request->input('wirtual_link'),
             'address_latitude' => $request->input('address_latitude'),
             'address_longitude' => $request->input('address_longitude'),
 
         ];
-
-        if(empty($post['garage'])){
-            $post['garage'] = 0;
-        }
-        if(empty($post['balcony'])){
-            $post['balcony'] = 0;
-        }
-        if(empty($post['terrace'])){
-            $post['terrace'] = 0;
-        }
-        if(empty($post['garden'])){
-            $post['garden'] = 0;
-        }
-
 
         $model = Post::create($post);
 
@@ -224,6 +269,43 @@ class PostController extends Controller
         $post->status_id = $request->status_id;
         $post->address_latitude = $request->address_latitude;
         $post->address_longitude = $request->address_longitude;
+
+        $post->type_announcement = $request->input('type_announcement');
+        $post->room_utilitarian = (empty($request->input('room_utilitarian')))?0:$request->input('room_utilitarian');
+        $post->two_level = (empty($request->input('two_level')))?0:$request->input('two_level');
+        $post->separate_kitchen = (empty($request->input('separate_kitchen')))?0:$request->input('separate_kitchen');
+        $post->only_for_non_smokers = (empty($request->input('only_for_non_smokers')))?0:$request->input('only_for_non_smokers');
+        $post->air_conditioning = (empty($request->input('air_conditioning')))?0:$request->input('air_conditioning');
+        $post->elevator = (empty($request->input('elevator')))?0:$request->input('elevator');
+        $post->basement = (empty($request->input('basement')))?0:$request->input('basement');
+        $post->furniture = (empty($request->input('furniture')))?0:$request->input('furniture');
+        $post->washing_machine = (empty($request->input('washing_machine')))?0:$request->input('washing_machine');
+        $post->dishwasher = (empty($request->input('dishwasher')))?0:$request->input('dishwasher');
+        $post->refrigerator = (empty($request->input('refrigerator')))?0:$request->input('refrigerator');
+        $post->stove = (empty($request->input('stove')))?0:$request->input('stove');
+        $post->oven = (empty($request->input('oven')))?0:$request->input('oven');
+        $post->tv_set = (empty($request->input('tv_set')))?0:$request->input('tv_set');
+        $post->anti_burglary_blinds = (empty($request->input('anti_burglary_blinds')))?0:$request->input('anti_burglary_blinds');
+        $post->anti_burglar_doors_windows = (empty($request->input('anti_burglary_door')))?0:$request->input('anti_burglary_door');
+        $post->intercom_videophone = (empty($request->input('intercom_videophone')))?0:$request->input('intercom_videophone');
+        $post->monitoring_protection = (empty($request->input('monitoring_protection')))?0:$request->input('monitoring_protection');
+        $post->alarm_system = (empty($request->input('alarm_system')))?0:$request->input('alarm_system');
+        $post->closed_area = (empty($request->input('closed_area')))?0:$request->input('closed_area');
+        $post->internet = (empty($request->input('internet')))?0:$request->input('internet');
+        $post->cable_tv = (empty($request->input('cable_tv')))?0:$request->input('cable_tv');
+        $post->telephone = (empty($request->input('telephone')))?0:$request->input('telephone');
+        $post->finish_condition = $request->input('finish_condition');
+        $post->year_construction = $request->input('year_construction');
+        $post->available_date = $request->input('available_date');
+        $post->heating = $request->input('heating');
+        $post->windows = $request->input('windows');
+        $post->material = $request->input('material');
+        $post->floors = $request->input('floors');
+        $post->floor = $request->input('floor');
+        $post->type_construction = $request->input('construction');
+        $post->rent_price = $request->input('rent_price');
+        $post->movie_link = $request->input('movie_link');
+        $post->wirtual_link = $request->input('wirtual_link');
 
 	$post->update();
 
