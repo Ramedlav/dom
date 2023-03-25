@@ -29,9 +29,9 @@ Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class
 //Route::get('/auth/google', 'Auth\LoginController@redirectToProvider');
 //Route::get('/auth/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle']);
+Route::get('/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle']);
 
-Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handleGoogleCallback']);
+Route::get('/google/callback', [App\Http\Controllers\GoogleController::class, 'handleGoogleCallback']);
 
 Route::get('/post/{id_post}',[PostController::class, 'view'])->name('show');
 Route::get('/post/allphotos/{id_post}',[PostController::class, 'PhotoAll'])->name('showphotos');
