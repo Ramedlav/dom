@@ -4,7 +4,7 @@
 @section('content')
 
 <section class="all-posts-page">
-    <form class=" w-100" action="{{route('filters')}}" method="post">
+    <form class=" w-100" action="{{route('home_filters')}}" method="post">
         @csrf
         @include('allPosts-parts.header-all-posts')
         @include('allPosts-parts.collapse')

@@ -104,10 +104,17 @@ class PostController extends Controller
     public function showAll()
 
     {
-
-//        $posts = Post::All();
+	$statuses=Status::all();
+	$sales=Sale::all();
+	$constructions = Construction::all();
+	$floors=Floor::all();
+	$materials=Material::all();
+	$windows=Windows::all();
+	$heatings=Heating::all();
+	$finish_conditions=Finish_condition::all();
+	$announcements=Announcements::all();
 	$posts = Post::paginate(10);
-        return view('allPosts',compact('posts'));
+        return view('allPosts',compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
     }
 
     public function index()
@@ -368,7 +375,7 @@ class PostController extends Controller
 	$lat = $request->address_latitude;
 	$lng = $request->address_longitude;
 	$km = ($request->filter_km)?$request->filter_km:1;
-	$from_price = $request->from_price;
+	$from_price = ($request->from_price)?$request->from_price:0;
 	$to_price = ($request->to_price)?$request->to_price:1000000;
 	$rooms = ($request->rooms)?$request->rooms:0;
 	$square = ($request->square)?$request->square:0;
@@ -377,8 +384,8 @@ class PostController extends Controller
 	$balcony = ($request->balcony)?1:0;
 	$terrace = ($request->terrace)?1:0;
 	$garden = ($request->garden)?1:0;
-	$type_announcement = $request->input('type_announcement');
-	$sale = $request->input('sale');
+	$type_announcement = ($request->input('type_announcement'))?$request->input('type_announcement'):0;
+	$sale = ($request->input('sale'))?$request->input('sale'):0;
         $room_utilitarian = (empty($request->input('room_utilitarian')))?0:$request->input('room_utilitarian');
         $two_level = (empty($request->input('two_level')))?0:$request->input('two_level');
         $separate_kitchen = (empty($request->input('separate_kitchen')))?0:$request->input('separate_kitchen');
@@ -411,7 +418,8 @@ class PostController extends Controller
         $floor = $request->input('floor');
         $type_construction = $request->input('construction');
 
-	$posts = Post::whereRaw("(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)")
+	$lat_lng = (empty($lat))?"(1 = 1)":"(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)";
+	$posts = Post::whereRaw("$lat_lng")
 		->whereRaw("price BETWEEN $from_price AND $to_price")
 		->whereRaw("(rooms = $rooms OR $rooms = 0)")
 		->whereRaw("(square >= $square)")
@@ -420,8 +428,8 @@ class PostController extends Controller
 		->whereRaw("(balcony = $balcony OR $balcony = 0)")
 		->whereRaw("(terrace = $terrace OR $terrace = 0)")
 		->whereRaw("(garden = $garden OR $garden = 0)")
-		->whereRaw("(type_announcement = $type_announcement)")
-		->whereRaw("(sale_id = $sale)")
+		->whereRaw("(type_announcement = $type_announcement OR $type_announcement = 0)")
+		->whereRaw("(sale_id = $sale OR $sale = 0)")
 		->whereRaw("(type_construction = $type_construction OR $type_construction = 0)")
 		->whereRaw("(room_utilitarian = $room_utilitarian OR $room_utilitarian = 0)")
 		->whereRaw("(two_level = $two_level OR $two_level = 0)")
@@ -456,7 +464,17 @@ class PostController extends Controller
 		->whereRaw("(is_published = 1)")
 		->paginate(10);
 
-        return view('allPosts', compact('posts'));
+	$statuses=Status::all();
+	$sales=Sale::all();
+	$constructions = Construction::all();
+	$floors=Floor::all();
+	$materials=Material::all();
+	$windows=Windows::all();
+	$heatings=Heating::all();
+	$finish_conditions=Finish_condition::all();
+	$announcements=Announcements::all();
+
+        return view('allPosts', compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements', 'request'));
     }
 
     public function filterPosts(Request $request)

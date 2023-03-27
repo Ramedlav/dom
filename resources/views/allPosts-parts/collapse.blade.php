@@ -106,142 +106,294 @@
             <div class="collapse p-md-3" id="collapsePostsFilters">
                 <div class="card card-body card-filters-collapse">
                     <div class="row d-flex justify-content-between">
-                        <div class="col-12 col-sm-2">
-                            <label>{{__('time on freebe')}}</label>
-                            <fieldset>
-                                <div>
-                                    <input type="radio" id="all_days" name="days" value="" checked>
-                                    <label for="all_days">{{__('show all')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="today" name="days" value="today" >
-                                    <label for="today">{{__('today')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="3_day" name="days" value="3">
-                                    <label for="3_day">{{__('3 days ago')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="5_day" name="days" value="5">
-                                    <label for="5_day">{{__('5 days ago')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="10_day" name="days" value="10">
-                                    <label for="10_day">{{__('10 days ago')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="30_day" name="days" value="30">
-                                    <label for="30_day">{{__('30 days ago')}}</label>
-                                </div>
-                            </fieldset>
-                        </div>
+{{--
+            <div class="col-12 col-sm-2">
+                <label>{{__('time on freebe')}}</label>
+                <fieldset>
+                    <div>
+                        <input type="radio" id="all_days" name="days" value="" checked>
+                        <label for="all_days">{{__('show all')}}</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="today" name="days" value="today" >
+                        <label for="today">{{__('today')}}</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="3_day" name="days" value="3">
+                        <label for="3_day">{{__('3 days ago')}}</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="5_day" name="days" value="5">
+                        <label for="5_day">{{__('5 days ago')}}</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="10_day" name="days" value="10">
+                        <label for="10_day">{{__('10 days ago')}}</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="30_day" name="days" value="30">
+                        <label for="30_day">{{__('30 days ago')}}</label>
+                    </div>
+                </fieldset>
+            </div>
+--}}
+			<div class="row pt-2">
+                    <div class="form-group col-sm-4">
+                        <label for="rooms">{{ __('number of rooms') }}</label>
+                        <select name="rooms" id="rooms" class="form-control">
+                            <option value="0" {{ (($request->rooms ?? old('rooms'))==0?"selected":"") }}>{{ __('show all') }}</option>
+                            <option value="1" {{ (($request->rooms ?? old('rooms'))==1?"selected":"") }}>1</option>
+                            <option value="2" {{ (($request->rooms ?? old('rooms'))==2?"selected":"") }}>2</option>
+                            <option value="3" {{ (($request->rooms ?? old('rooms'))==3?"selected":"") }}>3</option>
+                            <option value="4" {{ (($request->rooms ?? old('rooms'))==4?"selected":"") }}>4</option>
+                            <option value="5" {{ (($request->rooms ?? old('rooms'))==5?"selected":"") }}>5</option>
+                            <option value="6" {{ (($request->rooms ?? old('rooms'))==6?"selected":"") }}>6</option>
+                            <option value="7" {{ (($request->rooms ?? old('rooms'))==7?"selected":"") }}>7</option>
+                            <option value="8" {{ (($request->rooms ?? old('rooms'))==8?"selected":"") }}>8</option>
+                            <option value="9" {{ (($request->rooms ?? old('rooms'))==9?"selected":"") }}>9</option>
+                            <option value="10" {{ (($request->rooms ?? old('rooms'))==10?"selected":"") }}>10</option>
+                        </select>
+                    </div>
 
-                        <div class="col-12 col-sm-2">
-                            <label>{{__('number of rooms')}}</label>
-                            <fieldset>
-                                <div>
-                                    <input type="radio" id="all_rooms" name="rooms" value="" checked>
-                                    <label for="all_rooms">{{__('show all')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="1_rooms" name="rooms" value="1" >
-                                    <label for="1_rooms">{{__('1 room')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="2_rooms" name="rooms" value="2">
-                                    <label for="2_rooms">{{__('2 rooms')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="3_rooms" name="rooms" value="3">
-                                    <label for="3_rooms">{{__('3 rooms')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="4_rooms" name="rooms" value="4">
-                                    <label for="4_rooms">{{__('4 rooms')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="5_rooms" name="rooms" value="5">
-                                    <label for="5_rooms">{{__('5 rooms')}}</label>
-                                </div>
-                            </fieldset>
-                        </div>
+                    <div class="form-group col-sm-4">
+                        <label for="rooms">{{ __('square') }}</label>
+                        <select name="square" id="square" class="form-control">
+                            <option value="0" {{ (($request->square ?? old('square'))==0?"selected":"") }}>{{ __('show all') }}</option>
+                            <option value="50" {{ (($request->square ?? old('square'))==50?"selected":"") }}>{{__('50 м² and more')}}</option>
+                            <option value="75" {{ (($request->square ?? old('square'))==75?"selected":"") }}>{{__('75 м² and more')}}</option>
+                            <option value="100" {{ (($request->square ?? old('square'))==100?"selected":"") }}>{{__('100 м² and more')}}</option>
+                            <option value="150" {{ (($request->square ?? old('square'))==150?"selected":"") }}>{{__('150 м² and more')}}</option>
+                            <option value="200" {{ (($request->square ?? old('square'))==200?"selected":"") }}>{{__('200 м² and more')}}</option>
+                        </select>
+                    </div>
 
+                    <div class="form-group col-sm-4">
+                        <label for="bedrooms">{{ __('number of bedrooms') }}</label>
+                        <select name="bedrooms" id="bedrooms" class="form-control" value="{{ $request->bedrooms ?? old('bedrooms') }}">
+                            <option value="0" {{ (($request->bedrooms ?? old('bedrooms'))==0?"selected":"") }}>{{ __('show all') }}</option>
+                            <option value="1" {{ (($request->bedrooms ?? old('bedrooms'))==1?"selected":"") }}>1</option>
+                            <option value="2" {{ (($request->bedrooms ?? old('bedrooms'))==2?"selected":"") }}>2</option>
+                            <option value="3" {{ (($request->bedrooms ?? old('bedrooms'))==3?"selected":"") }}>3</option>
+                            <option value="4" {{ (($request->bedrooms ?? old('bedrooms'))==4?"selected":"") }}>4</option>
+                            <option value="5" {{ (($request->bedrooms ?? old('bedrooms'))==5?"selected":"") }}>5</option>
+                            <option value="6" {{ (($request->bedrooms ?? old('bedrooms'))==6?"selected":"") }}>6</option>
+                            <option value="7" {{ (($request->bedrooms ?? old('bedrooms'))==7?"selected":"") }}>7</option>
+                            <option value="8" {{ (($request->bedrooms ?? old('bedrooms'))==8?"selected":"") }}>8</option>
+                            <option value="9" {{ (($request->bedrooms ?? old('bedrooms'))==9?"selected":"") }}>9</option>
+                            <option value="10" {{ (($request->bedrooms ?? old('bedrooms'))==10?"selected":"") }}>10</option>
+                        </select>
+                    </div>
+			</div>
 
-                        <div class="col-12 col-sm-2">
-                            <label>{{__('square')}}</label>
-                            <fieldset>
-                                <div>
-                                    <input type="radio" id="all_square" name="square" value="" checked>
-                                    <label for="all_square">{{__('show all')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="50_m" name="square" value="50" >
-                                    <label for="50_m">{{__('50 м² and more')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="75_m" name="square" value="75">
-                                    <label for="75_m">{{__('75 м² and more')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="100_m" name="square" value="100">
-                                    <label for="100_m">{{__('100 м² and more')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="150_m" name="square" value="150">
-                                    <label for="150_m">{{__('150 м² and more')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="200_m" name="square" value="200">
-                                    <label for="200_m">{{__('200 м² and more')}}</label>
-                                </div>
-                            </fieldset>
-                        </div>
+			<div class="row pt-2">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label">{{ __('Type of construction') }}</label>
+						<select class="form-control" name="construction">
+							<option value="0">{{ __('show all') }}</option>
+			                                    @foreach($constructions as $construction)
+			                                        <option {{ (($request->construction ?? old('construction'))==$construction->id?"selected":"") }} value="{{ $construction->id }}">{{ __("$construction->title") }}</option>
+			                                    @endforeach
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Floor') }}</label>
+						<select class="form-control" name="floor">
+							<option value="0">{{ __('show all') }}</option>
+			                                    @foreach($floors as $floor)
+			                                        <option {{ (($request->floor ?? old('floor'))==$floor->id?"selected":"") }} value="{{ $floor->id }}">{{ __("$floor->title") }}</option>
+			                                    @endforeach
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Number of floors') }}</label>
+						<input type="text" class="form-control" name="floors" value="{{ $request->floors ?? old('floors') }}">
+					</div>
+				</div>
+			</div>
+			<div class="row pt-2">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Building material') }}</label>
+						<select class="form-control" name="material">
+							<option value="0">{{ __('show all') }}</option>
+			                                    @foreach($materials as $material)
+			                                        <option {{ (($request->material ?? old('material'))==$material->id?"selected":"") }} value="{{ $material->id }}">{{ __("$material->title") }}</option>
+			                                    @endforeach
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Windows') }}</label>
+						<select class="form-control" name="windows">
+							<option value="0">{{ __('show all') }}</option>
+			                                    @foreach($windows as $window)
+			                                        <option {{ (($request->windows ?? old('windows'))==$window->id?"selected":"") }} value="{{ $window->id }}">{{ __("$window->title") }}</option>
+			                                    @endforeach
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Heating') }}</label>
+						<select class="form-control" name="heating">
+							<option value="0">{{ __('show all') }}</option>
+			                                    @foreach($heatings as $heating)
+			                                        <option {{ (($request->heating ?? old('heating'))==$heating->id?"selected":"") }} value="{{ $heating->id }}">{{ __("$heating->title") }}</option>
+			                                    @endforeach
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row pt-2">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Year of construction') }}</label>
+						<input type="text" class="form-control" name="year_construction" value="{{ $request->year_construction ?? old('year_construction') }}">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label ">{{ __('Finish condition') }}</label>
+						<select class="form-control" name="finish_condition">
+							<option value="0">{{ __('show all') }}</option>
+			                                    @foreach($finish_conditions as $finish_condition)
+			                                        <option {{ (($request->finish_condition ?? old('finish_condition'))==$finish_condition->id?"selected":"") }} value="{{ $finish_condition->id }}">{{ __("$finish_condition->title") }}</option>
+			                                    @endforeach
+						</select>
+					</div>
+				</div>
+			</div>
 
-                        <div class="col-12 col-sm-2">
-                            <label>{{__('number of bedrooms')}}</label>
-                            <fieldset>
-                                <div>
-                                    <input type="radio" id="all_bedrooms" name="bedrooms" value="" checked>
-                                    <label for="all_bedrooms">{{__('show all')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="1_bedrooms" name="bedrooms" value="1" >
-                                    <label for="1_bedrooms">{{__('1 bedroom')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="2_bedrooms" name="bedrooms" value="2">
-                                    <label for="2_bedrooms">{{__('2 bedrooms')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="3_rooms" name="bedrooms" value="3">
-                                    <label for="3_bedrooms">{{__('3 bedrooms')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="4_bedrooms" name="bedrooms" value="4">
-                                    <label for="4_bedrooms">{{__('4 bedrooms')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="5_bedrooms" name="bedrooms" value="5">
-                                    <label for="5_bedrooms">{{__('5 and more bedrooms')}}</label>
-                                </div>
-                            </fieldset>
-                        </div>
+			<div class="form-group form-group-checkboxes">
+				<h4 class="pt-2">{{ __('Media') }}</h4><hr>
+				<div class="row ">
+					<div class="col-sm-4">
+						<label><input name="internet" type="checkbox" {{ (($request->internet ?? old('internet'))==1?"checked":"") }} value="1"> {{ __('internet') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="cable_tv" type="checkbox" {{ (($request->cable_tv ?? old('cable_tv'))==1?"checked":"") }} value="1"> {{ __('cable TV') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="telephone" type="checkbox" {{ (($request->telephone ?? old('telephone'))==1?"checked":"") }} value="1"> {{ __('telephone') }}</label>
+					</div>
+				</div>			
+			</div>
 
-                        <div class="col-12 col-sm-2">
-                            <input type="checkbox" id="garage" name="garage" >
-                            <label for="garage">{{__('garage')}}</label>
-                            <hr/>
-                            <div class="form-control">
-                                <label>{{__('free space')}}</label><br/>
-                                <input type="checkbox" id="balcony" name="balcony" >
-                                <label for="balcony">{{__('balcony')}}</label><br/>
-                                <input type="checkbox" id="terrace" name="terrace" >
-                                <label for="terrace">{{__('terrace')}}</label><br/>
-                                <input type="checkbox" id="garden" name="garden" >
-                                <label for="garden">{{__('garden')}}</label><br/>
+			<div class="form-group form-group-checkboxes">
+				<h4 class="pt-2">{{ __('Security') }}</h4><hr>
+				<div class="row">
+					<div class="col-sm-4">
+						<label><input name="anti_burglary_blinds" type="checkbox" {{ (($request->anti_burglary_blinds ?? old('anti_burglary_blinds'))==1?"checked":"") }} value="1"> {{ __('anti-burglary blinds') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="anti_burglary_door" type="checkbox" {{ (($request->anti_burglary_door ?? old('anti_burglary_door'))==1?"checked":"") }} value="1"> {{ __('anti-burglary doors / windows') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="intercom_videophone" type="checkbox" {{ (($request->intercom_videophone ?? old('intercom_videophone'))==1?"checked":"") }} value="1"> {{ __('intercom / videophone') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="monitoring_protection" type="checkbox" {{ (($request->monitoring_protection ?? old('monitoring_protection'))==1?"checked":"") }} value="1"> {{ __('monitoring / protection') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="alarm_system" type="checkbox" {{ (($request->alarm_system ?? old('alarm_system'))==1?"checked":"") }} value="1"> {{ __('alarm system') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<label><input name="closed_area" type="checkbox" {{ (($request->closed_area ?? old('closed_area'))==1?"checked":"") }} value="1"> {{ __('closed area') }}</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group form-group-checkboxes">
+			<h4 class="pt-2">{{ __('Equipment') }}</h4><hr>
+				<div class="row ">
+					<div class="col-sm-4">
+						<input name="furniture" type="checkbox" {{ (($request->furniture ?? old('furniture'))==1?"checked":"") }} id="checkbox-equipment_types-furniture" value="1">
+						<label for="checkbox-equipment_types-furniture">{{ __('furniture') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<input name="washing_machine" type="checkbox" {{ (($request->washing_machine ?? old('washing_machine'))==1?"checked":"") }} id="checkbox-equipment_types-washing_machine" value="1">
+						<label for="checkbox-equipment_types-washing_machine">{{ __('washing machine') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<input name="dishwasher" type="checkbox" {{ (($request->dishwasher ?? old('dishwasher'))==1?"checked":"") }} id="checkbox-equipment_types-dishwasher" value="1">
+						<label for="checkbox-equipment_types-dishwasher">{{ __('dishwasher') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<input name="refrigerator" type="checkbox" {{ (($request->refrigerator ?? old('refrigerator'))==1?"checked":"") }} id="checkbox-equipment_types-fridge" value="1">
+						<label for="checkbox-equipment_types-fridge">{{ __('refrigerator') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<input name="stove" type="checkbox" {{ (($request->stove ?? old('stove'))==1?"checked":"") }} id="checkbox-equipment_types-stove" value="1">
+						<label for="checkbox-equipment_types-stove">{{ __('stove') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<input name="oven" type="checkbox" {{ (($request->oven ?? old('oven'))==1?"checked":"") }} id="checkbox-equipment_types-oven" value="1">
+						<label for="checkbox-equipment_types-oven">{{ __('oven') }}</label>
+					</div>
+					<div class="col-sm-4">
+						<input name="tv_set" type="checkbox" {{ (($request->tv_set ?? old('tv_set'))==1?"checked":"") }} id="checkbox-equipment_types-tv" value="1">
+						<label for="checkbox-equipment_types-tv">{{ __('TV set') }}</label>
+					</div>
+				</div>
+			</div>
+	
+			<div class="form-group form-group-checkboxes">
+			<h4 class="pt-2">{{ __('Additional information') }}</h4><hr>
+				<div class="row ">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="garage" name="garage" {{ (($request->garage ?? old('garage'))==1?"checked":"") }} value="1">
+                                <label for="garage">{{ __('garage') }}</label>
                             </div>
-                        </div>
-                        {{-- <button type="submit" class="btn btn-primary">{{__('Apply')}}</button> --}}
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="balcony" name="balcony" {{ (($request->balcony ?? old('balcony'))==1?"checked":"") }} value="1">
+                                <label for="balcony">{{ __('balcony') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="terrace" name="terrace" {{ (($request->terrace ?? old('terrace'))==1?"checked":"") }} value="1">
+                                <label for="terrace">{{ __('terrace') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="garden" name="garden" {{ (($request->garden ?? old('garden'))==1?"checked":"") }} value="1">
+                                <label for="garden">{{ __('garden') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="room_utilitarian" name="room_utilitarian" {{ (($request->room_utilitarian ?? old('room_utilitarian'))==1?"checked":"") }} value="1">
+                                <label for="room_utilitarian">{{ __('room utilitarian') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="two_level" name="two_level" {{ (($request->two_level ?? old('two_level'))==1?"checked":"") }} value="1">
+                                <label for="two_level">{{ __('two level') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="separate_kitchen" name="separate_kitchen" {{ (($request->separate_kitchen ?? old('separate_kitchen'))==1?"checked":"") }} value="1">
+                                <label for="separate_kitchen">{{ __('separate kitchen') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="only_for_non_smokers" name="only_for_non_smokers" {{ (($request->only_for_non_smokers ?? old('only_for_non_smokers'))==1?"checked":"") }} value="1">
+                                <label for="only_for_non_smokers">{{ __('only for non smokers') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="air_conditioning" name="air_conditioning" {{ (($request->air_conditioning ?? old('air_conditioning'))==1?"checked":"") }} value="1">
+                                <label for="air_conditioning">{{ __('air conditioning') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="elevator" name="elevator" {{ (($request->elevator ?? old('elevator'))==1?"checked":"") }} value="1">
+                                <label for="elevator">{{ __('elevator') }}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="basement" name="basement" {{ (($request->basement ?? old('basement'))==1?"checked":"") }} value="1">
+                                <label for="basement">{{ __('basement') }}</label>
+                            </div>
+				</div>
+			</div>
+
+                        <button type="submit" class="btn btn-primary">{{__('Apply')}}</button>
                     </div>
                 </div>
             </div>
