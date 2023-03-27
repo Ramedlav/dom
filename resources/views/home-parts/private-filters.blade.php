@@ -8,7 +8,7 @@
                 {{-- <label for="">{{__('sale') }}</label> --}}
                 <select class="form-control" name="type_announcement">
 	                @foreach($announcements as $announcement)
-				<option>{{ __("$announcement->title") }}</option>
+				<option value="{{ $announcement->id }}">{{ __("$announcement->title") }}</option>
 	                @endforeach
 		</select>
                 <div class="chevron-icon">
@@ -164,8 +164,9 @@
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
                 <select class="form-control" name="sale">
-                    <option value="1" selected="">{{__('Buy')}}</option>
-                    <option value="2">{{__('Rent')}}</option>
+	                @foreach($sales as $sale)
+				<option value="{{ $sale->id }}">{{ __("$sale->title") }}</option>
+	                @endforeach
                 </select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"

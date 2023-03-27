@@ -55,7 +55,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{ $post->bedrooms }}
+                    {{ $post->rooms }}
                 </div>
             </div>
         </div>

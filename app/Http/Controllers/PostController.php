@@ -269,7 +269,6 @@ class PostController extends Controller
         $post->status_id = $request->status_id;
         $post->address_latitude = $request->address_latitude;
         $post->address_longitude = $request->address_longitude;
-
         $post->type_announcement = $request->input('type_announcement');
         $post->room_utilitarian = (empty($request->input('room_utilitarian')))?0:$request->input('room_utilitarian');
         $post->two_level = (empty($request->input('two_level')))?0:$request->input('two_level');
@@ -378,6 +377,39 @@ class PostController extends Controller
 	$balcony = ($request->balcony)?1:0;
 	$terrace = ($request->terrace)?1:0;
 	$garden = ($request->garden)?1:0;
+	$type_announcement = $request->input('type_announcement');
+	$sale = $request->input('sale');
+        $room_utilitarian = (empty($request->input('room_utilitarian')))?0:$request->input('room_utilitarian');
+        $two_level = (empty($request->input('two_level')))?0:$request->input('two_level');
+        $separate_kitchen = (empty($request->input('separate_kitchen')))?0:$request->input('separate_kitchen');
+        $only_for_non_smokers = (empty($request->input('only_for_non_smokers')))?0:$request->input('only_for_non_smokers');
+        $air_conditioning = (empty($request->input('air_conditioning')))?0:$request->input('air_conditioning');
+        $elevator = (empty($request->input('elevator')))?0:$request->input('elevator');
+        $basement = (empty($request->input('basement')))?0:$request->input('basement');
+        $furniture = (empty($request->input('furniture')))?0:$request->input('furniture');
+        $washing_machine = (empty($request->input('washing_machine')))?0:$request->input('washing_machine');
+        $dishwasher = (empty($request->input('dishwasher')))?0:$request->input('dishwasher');
+        $refrigerator = (empty($request->input('refrigerator')))?0:$request->input('refrigerator');
+        $stove = (empty($request->input('stove')))?0:$request->input('stove');
+        $oven = (empty($request->input('oven')))?0:$request->input('oven');
+        $tv_set = (empty($request->input('tv_set')))?0:$request->input('tv_set');
+        $anti_burglary_blinds = (empty($request->input('anti_burglary_blinds')))?0:$request->input('anti_burglary_blinds');
+        $anti_burglar_doors_windows = (empty($request->input('anti_burglary_door')))?0:$request->input('anti_burglary_door');
+        $intercom_videophone = (empty($request->input('intercom_videophone')))?0:$request->input('intercom_videophone');
+        $monitoring_protection = (empty($request->input('monitoring_protection')))?0:$request->input('monitoring_protection');
+        $alarm_system = (empty($request->input('alarm_system')))?0:$request->input('alarm_system');
+        $closed_area = (empty($request->input('closed_area')))?0:$request->input('closed_area');
+        $internet = (empty($request->input('internet')))?0:$request->input('internet');
+        $cable_tv = (empty($request->input('cable_tv')))?0:$request->input('cable_tv');
+        $telephone = (empty($request->input('telephone')))?0:$request->input('telephone');
+        $finish_condition = $request->input('finish_condition');
+        $year_construction = (empty($request->input('year_construction')))?0:$request->input('year_construction');
+        $heating = $request->input('heating');
+        $windows = $request->input('windows');
+        $material = $request->input('material');
+        $floors = (empty($request->input('floors')))?0:$request->input('floors');
+        $floor = $request->input('floor');
+        $type_construction = $request->input('construction');
 
 	$posts = Post::whereRaw("(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)")
 		->whereRaw("price BETWEEN $from_price AND $to_price")
@@ -388,6 +420,39 @@ class PostController extends Controller
 		->whereRaw("(balcony = $balcony OR $balcony = 0)")
 		->whereRaw("(terrace = $terrace OR $terrace = 0)")
 		->whereRaw("(garden = $garden OR $garden = 0)")
+		->whereRaw("(type_announcement = $type_announcement)")
+		->whereRaw("(sale_id = $sale)")
+		->whereRaw("(type_construction = $type_construction OR $type_construction = 0)")
+		->whereRaw("(room_utilitarian = $room_utilitarian OR $room_utilitarian = 0)")
+		->whereRaw("(two_level = $two_level OR $two_level = 0)")
+		->whereRaw("(separate_kitchen = $separate_kitchen OR $separate_kitchen = 0)")
+		->whereRaw("(only_for_non_smokers = $only_for_non_smokers OR $only_for_non_smokers = 0)")
+		->whereRaw("(air_conditioning = $air_conditioning OR $air_conditioning = 0)")
+		->whereRaw("(elevator = $elevator OR $elevator = 0)")
+		->whereRaw("(basement = $basement OR $basement = 0)")
+		->whereRaw("(furniture = $furniture OR $furniture = 0)")
+		->whereRaw("(washing_machine = $washing_machine OR $washing_machine = 0)")
+		->whereRaw("(dishwasher = $dishwasher OR $dishwasher = 0)")
+		->whereRaw("(refrigerator = $refrigerator OR $refrigerator = 0)")
+		->whereRaw("(stove = $stove OR $stove = 0)")
+		->whereRaw("(oven = $oven OR $oven = 0)")
+		->whereRaw("(tv_set = $tv_set OR $tv_set = 0)")
+		->whereRaw("(anti_burglary_blinds = $anti_burglary_blinds OR $anti_burglary_blinds = 0)")
+		->whereRaw("(anti_burglar_doors_windows = $anti_burglar_doors_windows OR $anti_burglar_doors_windows = 0)")
+		->whereRaw("(intercom_videophone = $intercom_videophone OR $intercom_videophone = 0)")
+		->whereRaw("(monitoring_protection = $monitoring_protection OR $monitoring_protection = 0)")
+		->whereRaw("(alarm_system = $alarm_system OR $alarm_system = 0)")
+		->whereRaw("(closed_area = $closed_area OR $closed_area = 0)")
+		->whereRaw("(internet = $internet OR $internet = 0)")
+		->whereRaw("(cable_tv = $cable_tv OR $cable_tv = 0)")
+		->whereRaw("(telephone = $telephone OR $telephone = 0)")
+		->whereRaw("(finish_condition = $finish_condition OR $finish_condition = 0)")
+		->whereRaw("(year_construction = $year_construction OR $year_construction = 0)")
+		->whereRaw("(heating = $heating OR $heating = 0)")
+		->whereRaw("(windows = $windows OR $windows = 0)")
+		->whereRaw("(material = $material OR $material = 0)")
+		->whereRaw("(floors = $floors OR $floors = 0)")
+		->whereRaw("(floor = $floor OR $floor = 0)")
 		->whereRaw("(is_published = 1)")
 		->paginate(10);
 
