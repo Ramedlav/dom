@@ -1,16 +1,37 @@
 <nav class="navbar navbar-expand-md navbar-light  main-header py-0">
-    <div class="container h-100">
+    <div class="container h-100 d-flex">
         <a class="navbar-brand" href="{{ url('/') }}">
             <div  width="153" height="35" class="text-white">
                 LOGO
             </div>
-
             {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt=""> --}}
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            {{-- <i class="navbar-toggler-icon"></i> --}}
-            <i class="fas fa-bars" style="color:#fff; font-size:28px; border:none"></i>
-        </button>
+
+        <div class=" d-flex ">
+            <div class="d-md-none me-3">
+                <a href="{{ route('createCreateForm') }}" class="css-4h0vko css-4h0vko-mobile d-flex align-items-center  ml-auto" title="">
+                    <div class="css-1y934yh">
+                        <svg aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="plus"
+                        class="svg-inline--fa fa-plus fa-w-14 css-1cu9ndh e11128qw2"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path>
+                  </svg>
+
+                    </div>
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                {{-- <i class="navbar-toggler-icon"></i> --}}
+                <i class="fas fa-bars" style="color:#fff; font-size:28px; border:none"></i>
+            </button>
+        </div>
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
@@ -96,7 +117,7 @@
                         </div>
 
 		        </li>
-                <li class="css-1d7m8bx my-3 my-md-0">
+                <li class="css-1d7m8bx my-3 my-md-0 d-none d-md-block">
                     <a href="{{ route('createCreateForm') }}" class="css-4h0vko d-flex align-items-center">
                         <div class="css-1y934yh">
                             <p class="m-0" style="vertical-align: inherit;" >

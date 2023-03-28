@@ -110,7 +110,7 @@
                                     </span>
                                 </div>
                                 <div class="css-l89gvb pt-1">
-                                    <div class="css-s5xdrg">
+                                    <div class="css-1ywqe0q">
                                         <p class="css-1ywqe0q">
                                             {{__('Description')}}:
                                         </p>

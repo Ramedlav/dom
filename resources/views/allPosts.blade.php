@@ -233,7 +233,7 @@
 {{--        });--}}
 {{--    });--}}
 {{--</script>--}}
-<style>
+{{-- <style>
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -262,4 +262,4 @@ input[class="read-more"]:checked + .xpandable-block {
   cursor: pointer;
 }
 
-</style>
+</style> --}}

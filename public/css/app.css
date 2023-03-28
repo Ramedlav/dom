@@ -11085,6 +11085,10 @@ h2.form-title, .form-title.h2 {
   color: #ffffff;
 }
 
+.css-4h0vko.css-4h0vko-mobile {
+  min-width: 10px;
+}
+
 .css-4h0vko:hover {
   border-color: transparent;
   background-color: #1FCE65;
@@ -13670,6 +13674,7 @@ button {
   position: absolute;
   bottom: 12px;
   right: 13px;
+  width: 11px;
 }
 
 .form-adding .uploader-descrambler {
