@@ -37,15 +37,11 @@ class HomeController extends Controller
 
         if($request->ajax())
         {
-        // $lat = $_GET['address_latitude'];
-        // dd($lat);
-        // $lng = $_GET['longitude'];
+
 
             $output = '';
             $query = $request->get('query');
-            // dd($query);
-            // $lat = $_GET['latitude'];
-            // $lng = $_GET['longitude'];
+
             if ($query !== '') {
 
                 $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->get();
@@ -58,8 +54,6 @@ class HomeController extends Controller
 
                 foreach($posts as $post)
                 {
-
-
                     $img = '';
                     foreach($post->photos as $photo){
                         if ($photo){
