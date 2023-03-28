@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Status;
+use App\Models\Sale;
+use App\Models\Floor;
+use App\Models\Material;
+use App\Models\Construction;
+use App\Models\Windows;
+use App\Models\Heating;
+use App\Models\Finish_condition;
+use App\Models\Announcements;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -28,8 +37,17 @@ class HomeController extends Controller
         // $posts = Post::query()->limit(3)->get();
         // $posts = $post->getPostsBySearch($request)->paginate(6);
         $posts = Post::all();
+	$announcements=Announcements::all();
+	$sales=Sale::all();
+        $statuses=Status::all();
+	$constructions = Construction::all();
+	$floors=Floor::all();
+	$materials=Material::all();
+	$windows=Windows::all();
+	$heatings=Heating::all();
+	$finish_conditions=Finish_condition::all();
 // dd($posts);
-        return view('home', compact('posts'));
+        return view('home', compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
     }
 
     public function action(Request $request, Post $posts)
@@ -72,7 +90,7 @@ class HomeController extends Controller
                                         .$post->title.'
                                     </div>
                                     <div class="post-title">'
-                                        .$post->price.'&nbsp;zł
+                                        .$post->price.'&nbsp;€
                                     </div>
                                     <div class="post-fulladdress">'
                                         .$post->address.'

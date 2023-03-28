@@ -2,6 +2,7 @@
 
 @section('content')
 @php /** @var \App\Models\Post $post */ @endphp
+@php /** @var \App\Models\Announcements $announcements */ @endphp
 <form action="{{ route('home_filters') }}" method="POST">
     @csrf
     <section class="py-5 home-page">
@@ -95,7 +96,7 @@
                                                     {{ $post->title }}
                                                 </div>
                                                 <div class="post-title">
-                                                {{ $post->price }}&nbsp;zł
+                                                {{ $post->price }}&nbsp;€
                                                 </div>
                                                 <div class="post-fulladdress">
                                                 {{ $post->address }}
@@ -185,7 +186,9 @@
 </script>
 @endsection
 
+@section('custom_js')
 
+@endsection
 
     {{-- <div class="row">
         <div class="col-12"> --}}

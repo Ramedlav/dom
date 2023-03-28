@@ -60,7 +60,7 @@
                                     <div class="css-1qoxjsu">
                                         <div class="content-container">
                                             <div class="content-text css-1yc9uo8">
-                                                <p>  {{ $post->description }} </p>
+                                                <p>  {!! $post->description !!} </p>
                                             </div>
                                         </div>
                                         <button aria-expanded="true"
