@@ -14,6 +14,7 @@ use App\Models\Windows;
 use App\Models\Heating;
 use App\Models\Finish_condition;
 use App\Models\Announcements;
+use App\Models\Wishlist;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -55,11 +56,15 @@ class HomeController extends Controller
 
         if($request->ajax())
         {
-
+        // $lat = $_GET['address_latitude'];
+        // dd($lat);
+        // $lng = $_GET['longitude'];
 
             $output = '';
             $query = $request->get('query');
-
+            // dd($query);
+            // $lat = $_GET['latitude'];
+            // $lng = $_GET['longitude'];
             if ($query !== '') {
 
                 $posts = Post::where('address','LIKE','%'.$query.'%')->orderBy('id','desc')->get();
@@ -72,6 +77,8 @@ class HomeController extends Controller
 
                 foreach($posts as $post)
                 {
+
+
                     $img = '';
                     foreach($post->photos as $photo){
                         if ($photo){

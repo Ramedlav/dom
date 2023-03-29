@@ -71,6 +71,8 @@ Auth::routes([
     Route::get('/post/create/form',[PostController::class, 'createForm'])->name('createCreateForm')->middleware('auth'),
     Route::post('/post/edit/{id_post}',[PostController::class, 'edit'])->name('edit')->middleware('auth'),
     Route::get('/post/edit/form/{id_post}',[PostController::class, 'editForm'])->name('editEditForm')->middleware('auth'),
+    Route::post('/setWishlist',[PostController::class, 'setWishlist'])->name('setWishlist')->middleware('auth'),
+    Route::get('/wishlist',[PostController::class, 'getWishlist'])->name('wishlist')->middleware('auth'),
     ]);
 
 
