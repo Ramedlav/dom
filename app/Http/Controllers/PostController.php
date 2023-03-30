@@ -16,12 +16,14 @@ use App\Models\Windows;
 use App\Models\Heating;
 use App\Models\Finish_condition;
 use App\Models\Announcements;
+use App\Models\Wishlist;
 //use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -114,7 +116,12 @@ class PostController extends Controller
 	$finish_conditions=Finish_condition::all();
 	$announcements=Announcements::all();
 	$posts = Post::paginate(10);
-        return view('allPosts',compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
+	$wishlists = [];
+	if (Auth::check()) { 
+		$user_id = Auth::user()->id;
+		$wishlists = User::find($user_id)->wishlists;
+	}
+        return view('allPosts',compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements', 'wishlists'));
     }
 
     public function index()
@@ -409,16 +416,16 @@ class PostController extends Controller
         $internet = (empty($request->input('internet')))?0:$request->input('internet');
         $cable_tv = (empty($request->input('cable_tv')))?0:$request->input('cable_tv');
         $telephone = (empty($request->input('telephone')))?0:$request->input('telephone');
-        $finish_condition = $request->input('finish_condition');
+        $finish_condition = (empty($request->input('finish_condition')))?0:$request->input('finish_condition');
         $year_construction = (empty($request->input('year_construction')))?0:$request->input('year_construction');
-        $heating = $request->input('heating');
-        $windows = $request->input('windows');
-        $material = $request->input('material');
+        $heating = (empty($request->input('heating')))?0:$request->input('heating');
+        $windows = (empty($request->input('windows')))?0:$request->input('windows');
+        $material = (empty($request->input('material')))?0:$request->input('material');
         $floors = (empty($request->input('floors')))?0:$request->input('floors');
-        $floor = $request->input('floor');
-        $type_construction = $request->input('construction');
+        $floor = (empty($request->input('floor')))?0:$request->input('floor');
+        $type_construction = (empty($request->input('construction')))?0:$request->input('construction');
 
-	$lat_lng = (empty($lat))?"(1 = 1)":"(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)";
+	$lat_lng = (empty($lat) || ($request->address == ""))?"(1 = 1)":"(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)";
 	$posts = Post::whereRaw("$lat_lng")
 		->whereRaw("price BETWEEN $from_price AND $to_price")
 		->whereRaw("(rooms = $rooms OR $rooms = 0)")
@@ -473,8 +480,12 @@ class PostController extends Controller
 	$heatings=Heating::all();
 	$finish_conditions=Finish_condition::all();
 	$announcements=Announcements::all();
-
-        return view('allPosts', compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements', 'request'));
+	$wishlists = [];
+	if (Auth::check()) { 
+		$user_id = Auth::user()->id;
+		$wishlists = User::find($user_id)->wishlists;
+	}
+        return view('allPosts', compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements', 'request', 'wishlists'));
     }
 
     public function filterPosts(Request $request)
@@ -516,4 +527,17 @@ class PostController extends Controller
         return view('gridPosts', compact('posts'));
     }
 
+    public function setWishlist(Request $request)
+    {
+	Wishlist::where('post_id',$request->post_id)->where('user_id',Auth::user()->id)->delete();
+	if ($request->add_del == 1) Wishlist::create(['user_id' => Auth::user()->id,'post_id' => $request->post_id]);
+    }
+
+    public function getWishlist(Request $request)
+    {
+	$user_id = Auth::user()->id;
+	$wishlists=Wishlist::where('user_id',Auth::user()->id)->get();
+	$posts=Post::whereRaw("exists(select * from wishlists where wishlists.user_id = $user_id and posts.id = wishlists.post_id)")->paginate(10);
+        return view('Wishlists', compact('posts','wishlists'));
+    }
 }

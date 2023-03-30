@@ -108,6 +108,7 @@
                             <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All posts') }}</a>
                             <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My posts') }}</a>
                             <a class="dropdown-item" href="{{ route('ShowDialogs') }}">{{ __('My dialogs') }}</a>
+                            <a class="dropdown-item" href="{{ route('wishlist') }}">{{ __('A wish list') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

@@ -60,6 +60,11 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
     public function logo()
     {
         return $this->hasOne(Logo::class);

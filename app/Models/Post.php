@@ -32,4 +32,9 @@ class Post extends Model
         return $builder;
     }
 
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
 }
