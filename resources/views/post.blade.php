@@ -239,7 +239,7 @@
                                                class=" css-1s2tzuy mb-3">
                                                <button type="button"
                                                       class="css-1nbnxnr">
-                                                     {{__('The administrator of your personal data is Grupa OLX Sp. z o. o.') }}
+                                                     {{__('The administrator of your personal data is ...') }}
                                                     <span class="css-v68mj6 sp-more">
                                                         {{__('more') }}
                                                     </span>
@@ -249,7 +249,7 @@
                                                 </button>
                                                 <div role="alert" class="css-b884ca d-none">
                                                     <p>Who will be the administrator of your data
-                                                        OLX Group Sp. z o. o. with its registered office in Poznań (61-872), at ul. Królowej Jadwigi 43, and in situations specified in the provisions on the protection of personal data - the advertiser. It can also become a Financial Expert when you order the Contact with an Expert Service.
+                                                        ... with its registered office in Poznań (61-872), at ul. Królowej Jadwigi 43, and in situations specified in the provisions on the protection of personal data - the advertiser. It can also become a Financial Expert when you order the Contact with an Expert Service.
 
                                                         What will happen to your data
                                                         We will process them for 30 days in order to send your inquiry to the advertiser.

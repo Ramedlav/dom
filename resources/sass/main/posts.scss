@@ -317,6 +317,23 @@
     cursor: pointer;
 }
 
+.css-lkfu9 {
+    display: flex;
+    position: relative;
+    grid-area: icon / icon / icon / icon;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    border: none;
+    outline: 0px;
+    background: none;
+    color: rgb(0, 181, 75);
+    font-size: 18px;
+    cursor: pointer;
+}
+
 css-80g06k {
     margin: 0;
     padding: 8px 0;
@@ -407,7 +424,7 @@ css-80g06k {
     margin: 0;
     color: #1b232e;
     line-height: 1.1;
-    padding: 16px 0 24px 0;
+    padding: 24px 0 24px 0;
     font-size: 22px;
     font-weight: 700;
 }

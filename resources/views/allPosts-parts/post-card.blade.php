@@ -44,7 +44,7 @@
                                         <button type="button"
                                                 data-cy="listing-subscribe-button.subscribe"
                                                 data-cy-subscribed="false"
-                                                class="css-qczclw"
+                                                class="{{ $post->is_saved ? 'css-lkfu9' : 'css-qczclw' }}"
                                                 aria-label="Dodaj do ulubionych">
                                                 <svg aria-hidden="true"
                                                     focusable="false"

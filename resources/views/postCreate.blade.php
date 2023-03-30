@@ -172,7 +172,11 @@
                                     <div class="col-12 d-md-flex py-3">
                                         <div class="col-md-8 pe-md-3">
                                             <div class="form-group">
-                                                <input multiple="multiple" type="file" name="images[]" id="images" class="form-control">
+                                                <input multiple="multiple"
+                                                       type="file"
+                                                       name="images[]"
+                                                       id="images"
+                                                       class="form-control">
                                             </div>
                                             <div style="position:relative" class="d-none">
                                                 <input   type="hidden" name="" id="images" class="form-control">
@@ -637,7 +641,7 @@
                                     </div>
                                     <div class="col-12 py-5 d-flex justify-content-center">
                                         <button type="submit"
-                                                class="btn btn-default">{{ __('Add') }}</button>
+                                                class="btn btn-default ">{{ __('Add') }}</button>
                                     </div>
                                 </div>
                             </form>

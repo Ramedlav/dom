@@ -23,14 +23,17 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('summernote/summernote.css') }}" rel="stylesheet" /> --}}
-
 {{--    <link href="{{ asset('chosen/chosen.min.css') }}" rel="stylesheet">--}}
+ <!-- include summernote css/js-->
+
     <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" rel="stylesheet">
         <!-- PROGRAMM FOLDER PATH FOR AJAX-->
         <input type="hidden" id="program_folder" name="program_folder" value="{{ asset('') }}">
@@ -44,7 +47,8 @@
         @include('layouts.copyright')
     </div>
 
-    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+    {{-- <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&region=EN&language=en&libraries=places&callback=initialize" async defer></script>
     <script src="/js/mapInput.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
