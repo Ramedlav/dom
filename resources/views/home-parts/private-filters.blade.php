@@ -7,11 +7,11 @@
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
                 <select class="form-control" name="type_announcement">
-                            <option value="0">{{ __('choose') }}</option>
-	                @foreach($announcements as $announcement)
-				<option value="{{ $announcement->id }}">{{ __("$announcement->title") }}</option>
-	                @endforeach
-		</select>
+                        <option value="0">{{ __('choose') }}</option>
+                    @foreach($announcements as $announcement)
+                        <option value="{{ $announcement->id }}">{{ __("$announcement->title") }}</option>
+                    @endforeach
+                </select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"
                             focusable="false"
