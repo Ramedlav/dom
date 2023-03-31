@@ -54,9 +54,12 @@
             </a>
         </div>
         <div class="css-tdao1u e176pl9r0">
-            <button data-cy="ad-subscribe-button.subscribe"
+	@if (Auth::check()) 
+	@if (!in_array($post->id, $wl))
+            <button data-cy="ad-subscribe-button.subscribe" id="button_header_set_wishlist"
                     data-cy-subscribed="false"
-                    class="css-oeu2h ekf916v1">
+                    class="css-oeu2h ekf916v1"
+		    onclick="setWishlist({{ $post->id }})">
                     <svg aria-hidden="true"
                          focusable="false"
                          data-prefix="far"
@@ -69,6 +72,8 @@
                     </svg>
                     {{__('Save') }}
             </button>
+	@endif
+	@endif
             <button data-cy="ad-page-sticky-header-area-contact-modal"
                     type="button"
                     class="css-831445">

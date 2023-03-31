@@ -26,6 +26,8 @@
     {{-- <link href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/toastr/toastr.css') }}">
+    <script src="{{ asset('plugins/toastr/toastr.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
