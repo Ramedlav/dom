@@ -150,7 +150,12 @@ class PostController extends Controller
 	$constructions = Construction::all();
 	$finish_conditions=Finish_condition::all();
 	$floors=Floor::all();
-        return view('post',compact('post', 'photos', 'finish_conditions', 'constructions', 'floors'));
+	$wishlists = [];
+	if (Auth::check()) { 
+		$user_id = Auth::user()->id;
+		$wishlists = User::find($user_id)->wishlists;
+	}
+        return view('post',compact('post', 'photos', 'finish_conditions', 'constructions', 'floors', 'wishlists'));
     }
 
     public function PhotoAll($id_post)
