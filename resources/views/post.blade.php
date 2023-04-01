@@ -3,6 +3,11 @@
 @extends('layouts.app')
 
 @section('content')
+@php
+	$wl = [];
+	if (Auth::check()) foreach($wishlists as $wishlist) $wl[] = $wishlist->post_id;
+@endphp
+
 @include('post-parts.header-post')
 <section class="post-page">
     <div class="container">
@@ -201,7 +206,8 @@
                                                 maxlength="100"
                                                 type="text"
                                                 name="name"
-                                                class="css-1yk951a form-control">
+                                                class="css-1yk951a form-control"
+						value="{{ (Auth::check())?$post->user->name:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Email"
@@ -209,7 +215,8 @@
                                                 maxlength="100"
                                                 type="email"
                                                 name="email"
-                                                class="css-1yk951a form-control">
+                                                class="css-1yk951a form-control"
+						value="{{ (Auth::check())?$post->user->email:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Numer telefonu"
@@ -220,17 +227,18 @@
                                                   placeholder="Numer telefone"
                                                   type="tel"
                                                   class="css-1yk951a form-control"
-                                                  value="">
+						  value="{{ (Auth::check())?$post->user->telephone:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <textarea rows="6"
                                                    aria-label=""
                                                    maxlength="2000"
                                                    name="text"
+						   onkeyup="counter_area(this)"
                                                    placeholder="{{__('This apartment for rent seems interesting to me.I would be happy to know more details before making an appointment.
                                                     Regards.') }}"
                                                    class=" css-ajeaic w-100"></textarea>
-                                            <div data-cy="contact-form.text-area-counter"
+                                            <div data-cy="contact-form.text-area-counter" id="text_area_counter"
                                                 data-testid="text-area-counter"
                                                 class="css-1voeokp text-end">
                                                 124 / 2000
@@ -270,11 +278,14 @@
                                         </button>
                                     </form>
                                 </div>
+				@if (Auth::check()) 
+				@if (!in_array($post->id, $wl))
                                 <div class="css-xw4fl9 e1ou4wzt0">
                                     <button data-cy="ad-subscribe-button-sidebar.subscribe"
                                           data-cy-subscribed="false"
                                           class="css-wsz6ly"
-                                          type="button">
+                                          type="button"
+					  onclick="setWishlist({{ $post->id }})">
                                           <svg aria-hidden="true"
                                               focusable="false"
                                               data-prefix="far"
@@ -288,6 +299,8 @@
                                          {{__('Save the ad') }}
                                      </button>
                                 </div>
+				@endif
+				@endif
                             </div>
                         </div>
                     </div>
@@ -298,3 +311,32 @@
 </section>
 
 @endsection
+<script>
+function setWishlist(post_id) {
+	var form_data = new FormData();
+	form_data.append('post_id', post_id);
+	form_data.append('add_del', 1);
+            $.ajax({
+                url:"{{ route('setWishlist') }}",
+                method: 'post',
+                data:form_data,
+		headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	        processData: false,
+	        contentType: false,
+                success:function(data)
+                {
+			$('#button_set_wishlist').addClass('d-none');
+			$('#button_header_set_wishlist').addClass('d-none');
+			toastr.success('', "{{ __('Post add to wish list') }}");
+                },
+                error: function(data){
+		            console.log(data);
+                }
+            });
+
+};
+function counter_area(elem) {
+	var count=$(elem).val().length;
+	$('#text_area_counter').html(count+' / 2000');
+}
+</script>

@@ -169,9 +169,11 @@ function setWishlist(events, post_id, add_del) {
 			if (add_del == 1) {
 				$('#subscribed_'+post_id).removeClass('d-none');
 				$('#unsubscribed_'+post_id).addClass('d-none');
+				toastr.success('', "{{ __('Post add to wish list') }}");
 			} else {
 				$('#unsubscribed_'+post_id).removeClass('d-none');
 				$('#subscribed_'+post_id).addClass('d-none');
+				toastr.success('', "{{ __('Post del from wish list') }}");
 			}
                 },
                 error: function(data){
