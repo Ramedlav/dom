@@ -6,8 +6,9 @@
     <div class="container py-2 d-flex align-items-center">
         <h2 class="css-1q56cn me-3">{{__('Edit post') }}</h2>
         <div>
-            <button class=" btn-primary next-button" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
+            <button class=" btn-primary next-button px-3" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
        </div>
+
     </div>
     <div class="bg-all-posts">
         <div class="container">
@@ -32,7 +33,8 @@
 
                                 <form action="{{ route('edit', $post->id) }}"
                                       method="post"
-                                      enctype="multipart/form-data">
+                                      enctype="multipart/form-data"
+                                      class="form-adding">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -249,16 +251,17 @@
                                             {{__('Location') }}
                                         </h4>
                                     </div>
+
                                     <div class="col-12 py-3">
                                         <div class="">
-                                            <div class="form-group">
+                                            <div class="form-group chevron-field">
                                                 <label for="address" class="control-label control-label-req">{{ __('address') }}</label>
                                                 <input type="text"
-                                                name="address"
-                                                placeholder="address"
-                                                id="address"
-                                                class="form-control map-input mb-3"
-                                                value="{{ $post->address }}">
+                                                       name="address"
+                                                       placeholder="address"
+                                                       id="address"
+                                                       class="form-control map-input mb-3"
+                                                       value="{{ $post->address }}">
                                                 <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude }}" />
                                                 <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
                                                 <div class="chevron-icon-lev">
@@ -279,6 +282,7 @@
                                             <div style="width: 100%; height: 100%" id="address-map"></div>
                                         </div>
                                     </div>
+
                                     <div class="col-12 pt-4">
                                         <h4 class="legend">
                                             {{__('Detailed information') }}

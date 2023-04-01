@@ -261,7 +261,7 @@
                                     </div>
                                     <div class="col-12 py-3">
                                         <div class="">
-                                            <div class="form-group">
+                                            <div class="form-group chevron-field">
                                                 <label for="address" class="control-label control-label-req">{{ __('address') }}</label>
                                                 <input type="text"
                                                        name="address"

@@ -92,10 +92,10 @@
 .next-button {
     display: block;
     margin: 0 auto;
-    width: 100px;
+    min-width: 100px;
     height: 40px;
     border: 1px solid #ffc107;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: #ffc107;
     /*background: transparent;*/
     color: #fefefe;
