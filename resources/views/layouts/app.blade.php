@@ -53,6 +53,11 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&region=EN&language=en&libraries=places&callback=initialize" async defer></script>
     <script src="/js/mapInput.js"></script>
+    <script>
+        Fancybox.bind('[data-fancybox="gallery"]', {
+        // Your custom options
+        });
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     @yield('custom_js')
 </body>

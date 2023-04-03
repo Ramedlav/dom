@@ -23,6 +23,7 @@
     "dependencies": {
         "express": "^4.18.2",
         "flag-icons": "^6.6.6",
+        "lightgallery": "^2.7.1",
         "redis": "^4.6.5",
         "redis-server": "^1.2.2",
         "slick-carousel": "^1.8.1",

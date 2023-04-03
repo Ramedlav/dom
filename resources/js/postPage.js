@@ -23,7 +23,13 @@ $(function () {
         //     info += '<span class="image-gallery-index-total">' + count +'</span>';
         // $('.image-gallery-index').html(info);
     });
+
+
 });
+
+Fancybox.bind('[data-fancybox="gallery"]', {
+    // Your custom options
+  });
 
 
 $(document).ready(function(){

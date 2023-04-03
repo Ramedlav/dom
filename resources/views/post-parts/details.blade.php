@@ -186,8 +186,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{ $construction[$post->type_construction] }}
-
+                    {{-- {{ $construction[$post->type_construction] }} --}}
                 </div>
             </div>
         </div>
@@ -228,7 +227,7 @@
                 </div>
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{ $finish[$post->finish_condition] }}
+                    {{-- {{ $finish[$post->finish_condition] }} --}}
                 </div>
             </div>
         </div>

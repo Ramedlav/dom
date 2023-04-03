@@ -278,7 +278,7 @@
                                         </button>
                                     </form>
                                 </div>
-				@if (Auth::check()) 
+				@if (Auth::check())
 				@if (!in_array($post->id, $wl))
                                 <div class="css-xw4fl9 e1ou4wzt0">
                                     <button data-cy="ad-subscribe-button-sidebar.subscribe"
@@ -340,3 +340,4 @@ function counter_area(elem) {
 	$('#text_area_counter').html(count+' / 2000');
 }
 </script>
+
