@@ -7,32 +7,7 @@
             {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt=""> --}}
         </a>
 
-        <div class=" d-flex align-items-center">
-            <div class=" d-md-none me-4">
-                <div class="nav-item dropdown d-flex align-items-center">
-                    <a id="langDropdown"
-                       class="nav-link dropdown-toggle  d-flex align-items-center "
-                       href="#"
-                       role="button"
-                       data-bs-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false" v-pre>
-                        <div>
-                            {{-- <img class="img-thumbnail1" src="{{ asset('/storage/flags/' . App()->getLocale().'.png' ) }}"> --}}
-                            <span class="fi fi-{{ App()->getLocale() }} fis"></span>
-                        </div>
-
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end " aria-labelledby="langDropdown">
-                        <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis"></span> English</a>
-                        <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis"></span> Polska</a>
-                        <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><span class="fi fi-nl fis"></span> Nederlands</a>
-                        <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><span class="fi fi-ua fis"></span> Українська</a>
-                    </div>
-
-                </div>
-            </div>
-
+        <div class=" d-flex ">
             <div class="d-md-none me-3">
                 <a href="{{ route('createCreateForm') }}" class="css-4h0vko css-4h0vko-mobile d-flex align-items-center  ml-auto" title="">
                     <div class="css-1y934yh">
@@ -104,20 +79,21 @@
                               {{ __('Logout') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('home') }}">{{ __('Home') }}</a>
-                            <a class="dropdown-item" href="{{ route('createCreateForm') }}">{{ __('New post') }}</a>
-                            <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All posts') }}</a>
-                            <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My posts') }}</a>
+                            <a class="dropdown-item" href="{{ route('createCreateForm') }}">{{ __('New announcement') }}</a>
+                            <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All announcements') }}</a>
+                            <a class="dropdown-item" href="{{ route('showMy') }}">{{ __('My announcements') }}</a>
                             <a class="dropdown-item" href="{{ route('ShowDialogs') }}">{{ __('My dialogs') }}</a>
-                            <a class="dropdown-item" href="{{ route('wishlist') }}">{{ __('A wish list') }}</a>
+                            <a class="dropdown-item" href="{{ route('wishlist') }}">{{ __('My favorites') }}</a>
+                            <a class="dropdown-item" href="{{ route('savedsearch') }}">{{ __('My saved search') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>
                     </li>
                 @endguest
-		        <li class="nav-item dropdown d-md-flex align-items-center">
+		        <li class="nav-item dropdown d-flex align-items-center">
                         <a id="langDropdown"
-                           class="nav-link dropdown-toggle d-none d-md-flex align-items-center "
+                           class="nav-link dropdown-toggle d-flex align-items-center"
                            href="#"
                            role="button"
                            data-bs-toggle="dropdown"
@@ -135,7 +111,7 @@
                             <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><img src="{{ asset('/storage/flags/nl.png' ) }}"> Nederlands</a>
                             <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><img src="{{ asset('/storage/flags/ua.png' ) }}"> Українська</a>
                         </div> --}}
-                        <div class="dropdown-menu dropdown-menu-end " aria-labelledby="langDropdown">
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
                             <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis"></span> English</a>
                             <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis"></span> Polska</a>
                             <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><span class="fi fi-nl fis"></span> Nederlands</a>

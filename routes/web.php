@@ -71,8 +71,15 @@ Auth::routes([
     Route::get('/post/create/form',[PostController::class, 'createForm'])->name('createCreateForm')->middleware('auth'),
     Route::post('/post/edit/{id_post}',[PostController::class, 'edit'])->name('edit')->middleware('auth'),
     Route::get('/post/edit/form/{id_post}',[PostController::class, 'editForm'])->name('editEditForm')->middleware('auth'),
+    Route::post('/edit/updatephoto/',[PostController::class, 'updatePhoto'])->middleware('auth'),
+    Route::post('/edit/addphotos/',[PostController::class, 'addPhotos'])->middleware('auth'),
+    Route::post('/edit/deletephoto/',[PostController::class, 'deletePhoto'])->middleware('auth'),
     Route::post('/setWishlist',[PostController::class, 'setWishlist'])->name('setWishlist')->middleware('auth'),
     Route::get('/wishlist',[PostController::class, 'getWishlist'])->name('wishlist')->middleware('auth'),
+    Route::post('/setSavedSearch',[PostController::class, 'setSavedSearch'])->name('setSavedSearch')->middleware('auth'),
+    Route::post('/delSavedSearch',[PostController::class, 'delSavedSearch'])->name('delSavedSearch')->middleware('auth'),
+    Route::get('/SavedSearch',[PostController::class, 'SavedSearch'])->name('savedsearch')->middleware('auth'),
+    Route::post('/setEmailNotify',[PostController::class, 'setEmailNotify'])->name('setEmailNotify')->middleware('auth'),
     ]);
 
 

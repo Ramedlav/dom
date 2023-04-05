@@ -38,8 +38,10 @@
                 </a>
             </div> --}}
 
+	    @php $count_photo=0; @endphp
             @foreach($post->photos as $photo)
                 @isset($photo->img)
+		    @php $count_photo++; @endphp
                     <div class="carousel-item post-img-item {{$loop->first ? 'active' : ''}}">
                         <a target="_blank" data-fancybox="gallery" href="{{ asset('/storage/' . $photo->img) }}">
                             <img class="img-fluid post-img-fluid  d-block w-100" src="{{ asset('/storage/' . $photo->img) }}">
@@ -59,11 +61,14 @@
         <div class="image-gallery-index d-flex">
             <span class="image-gallery-index-current">1</span>
             <span class="image-gallery-index-separator"> / </span>
+            <span class="image-gallery-index-total">{{ $count_photo }}</span>
+{{--
             @foreach($post->photos as $photo)
                 @isset($photo->img)
                     <span class="image-gallery-index-total">{{ $loop->count }}</span>
                 @endisset
             @endforeach
+--}}
         </div>
     </div>
     <div class="image-gallery-thumbnails-wrapper bottom">

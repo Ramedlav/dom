@@ -40,8 +40,9 @@ class PostController extends Controller
 		$photo->update();
 	}
         $photos = Post::find($photo->post_id)->photos;
+	$post = Post::find($photo->post_id);
 
-        return view('postEditGallery',compact('photos'));
+        return view('postEditGallery',compact('photos','post'));
     }
 
     public function addPhotos(Request $request){
@@ -55,8 +56,16 @@ class PostController extends Controller
             	]);
 	}
         $photos = Post::find($request->post_id)->photos;
+	$post = Post::find($request->post_id);
 
-        return view('postEditGallery',compact('photos'));
+        return view('postEditGallery',compact('photos', 'post'));
+    }
+
+    public function deletePhoto(Request $request){
+	$photo = Photo::find($request->photo_id)->delete();
+        $photos = Post::find($request->post_id)->photos;
+	$post = Post::find($request->post_id);
+        return view('postEditGallery',compact('photos','post'));
     }
 
     public function createForm(){
@@ -115,7 +124,7 @@ class PostController extends Controller
 	$heatings=Heating::all();
 	$finish_conditions=Finish_condition::all();
 	$announcements=Announcements::all();
-	$posts = Post::paginate(10);
+	$posts = Post::where('status_id',1)->paginate(10);
 	$wishlists = [];
 	if (Auth::check()) { 
 		$user_id = Auth::user()->id;
@@ -134,7 +143,7 @@ class PostController extends Controller
 
     public function myPosts(){
         $user_id = Auth::user()->id;
-        $posts = User::find($user_id)->posts;
+        $posts = User::find($user_id)->posts->where('status_id',1);
         return view('myPosts',compact('posts'));
     }
 
@@ -162,9 +171,6 @@ class PostController extends Controller
     {
         $post = Post::find($id_post);
         $photos = Post::find($id_post)->photos;
-
-
-
         return view('allPhotos',compact('post'),compact('photos'));
     }
 
@@ -333,7 +339,9 @@ class PostController extends Controller
     public function delete($id_post)
     {
         $post = Post::find($id_post);
-        dd($post);
+        $post->status_id=0;
+	$post->update();
+        return Redirect::route("showMy");
     }
 
     public function filters(Request $request)
@@ -544,5 +552,65 @@ class PostController extends Controller
 	$wishlists=Wishlist::where('user_id',Auth::user()->id)->get();
 	$posts=Post::whereRaw("exists(select * from wishlists where wishlists.user_id = $user_id and posts.id = wishlists.post_id)")->paginate(10);
         return view('Wishlists', compact('posts','wishlists'));
+    }
+
+    public function setSavedSearch(Request $request)
+    {
+	Auth::user()->saved_search=$request->filter;
+	Auth::user()->update();
+    }
+
+    public function SavedSearch(Request $request)
+    {
+	$info_search = json_decode(Auth::user()->saved_search, true);
+	$detail_search = array ();
+	if (!empty($info_search["type_announcement"])) $detail_search[] = Announcements::find($info_search["type_announcement"])->title;
+	if (!empty($info_search["sale"])) $detail_search[] = Sale::find($info_search["sale"])->title;
+	if (!empty($info_search["construction"])) $detail_search[] = Construction::find($info_search["construction"])->title;
+	if (!empty($info_search["floor"])) $detail_search[] = Floor::find($info_search["floor"])->title;
+	if (!empty($info_search["material"])) $detail_search[] = Material::find($info_search["material"])->title;
+	if (!empty($info_search["windows"])) $detail_search[] = Windows::find($info_search["windows"])->title;
+	if (!empty($info_search["finish_condition"])) $detail_search[] = Finish_condition::find($info_search["finish_condition"])->title;
+	if (!empty($info_search["heating"])) $detail_search[] = Heating::find($info_search["heating"])->title;
+	if (!empty($info_search["internet"])) $detail_search[] = "internet";
+	if (!empty($info_search["cable_tv"])) $detail_search[] = "cable TV";
+	if (!empty($info_search["telephone"])) $detail_search[] = "telephone";
+	if (!empty($info_search["anti_burglary_blinds"])) $detail_search[] = "anti-burglary blinds";
+	if (!empty($info_search["anti_burglary_door"])) $detail_search[] = "anti-burglary doors / windows";
+	if (!empty($info_search["intercom_videophone"])) $detail_search[] = "intercom / videophone";
+	if (!empty($info_search["monitoring_protection"])) $detail_search[] = "monitoring / protection";
+	if (!empty($info_search["alarm_system"])) $detail_search[] = "alarm system";
+	if (!empty($info_search["closed_area"])) $detail_search[] = "closed area";
+	if (!empty($info_search["furniture"])) $detail_search[] = "furniture";
+	if (!empty($info_search["washing_machine"])) $detail_search[] = "washing machine";
+	if (!empty($info_search["dishwasher"])) $detail_search[] = "dishwasher";
+	if (!empty($info_search["refrigerator"])) $detail_search[] = "refrigerator";
+	if (!empty($info_search["stove"])) $detail_search[] = "stove";
+	if (!empty($info_search["oven"])) $detail_search[] = "oven";
+	if (!empty($info_search["tv_set"])) $detail_search[] = "TV set";
+	if (!empty($info_search["garage"])) $detail_search[] = "with garage";
+	if (!empty($info_search["balcony"])) $detail_search[] = "with balcony";
+	if (!empty($info_search["terrace"])) $detail_search[] = "with terrace";
+	if (!empty($info_search["garden"])) $detail_search[] = "with garden";
+	if (!empty($info_search["room_utilitarian"])) $detail_search[] = "room utilitarian";
+	if (!empty($info_search["two_level"])) $detail_search[] = "two level";
+	if (!empty($info_search["separate_kitchen"])) $detail_search[] = "separate kitchen";
+	if (!empty($info_search["only_for_non_smokers"])) $detail_search[] = "only for non smokers";
+	if (!empty($info_search["air_conditioning"])) $detail_search[] = "air conditioning";
+	if (!empty($info_search["elevator"])) $detail_search[] = "elevator";
+	if (!empty($info_search["basement"])) $detail_search[] = "basement";
+
+        return view('Savedsearch', compact('info_search', 'detail_search'));
+    }
+
+    public function setEmailNotify(Request $request)
+    {
+	Auth::user()->email_notify = $request->email_notify;
+	Auth::user()->update();
+    }
+    public function delSavedSearch(Request $request)
+    {
+	Auth::user()->saved_search = '';
+	Auth::user()->update();
     }
 }

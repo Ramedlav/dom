@@ -69,8 +69,7 @@
                                            title="Edit post">
                                           <img src="/img/icons/edit-square-outline.svg">
                                         </a>
-                                        <form method="POST" action="">
-                                            @method('DELETE')
+                                        <form method="POST" action="/post/delete/{{$post->id}}">
                                             @csrf
                                             <button type="submit"
                                                     class="css-qczclw"
@@ -134,7 +133,7 @@
                                             {{__('Description')}}:
                                         </p>
                                         <p class="css-1ywqe0q">
-                                            {{ $post->description }}
+                                            {!! $post->description !!}
                                         </p>
                                     </div>
                                 </div>

@@ -7,11 +7,11 @@
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
                 <select class="form-control" name="type_announcement">
-                        <option value="0">{{ __('choose') }}</option>
-                    @foreach($announcements as $announcement)
-                        <option value="{{ $announcement->id }}">{{ __("$announcement->title") }}</option>
-                    @endforeach
-                </select>
+                            <option value="0">{{ __('choose') }}</option>
+	                @foreach($announcements as $announcement)
+				<option value="{{ $announcement->id }}">{{ __("$announcement->title") }}</option>
+	                @endforeach
+		</select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"
                             focusable="false"
@@ -32,27 +32,8 @@
                         id="address"
                         class="form-control map-input mb-2"
                         value="{{ $post->address ?? old('address') }}" >
-{{--
-                @foreach($posts as $post)
-                    <input type="hidden" name="address_latitude" id="address-latitude" value=" {{ $post->address_latitude }} " />
-                    <input type="hidden" name="address_longitude" id="address-longitude" value=" {{ $post->address_longitude }} " />
-                @endforeach
---}}
                     <input type="hidden" name="address_latitude" id="address-latitude" value="" />
                     <input type="hidden" name="address_longitude" id="address-longitude" value="" />
-
-                <div class="chevron-icon">
-                    <svg aria-hidden="true"
-                            focusable="false"
-                            data-prefix="fas"
-                            data-icon="chevron-down"
-                            class="svg-inline--fa fa-chevron-down fa-w-14 fa-xs "
-                            role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512">
-                            <path fill="#292929" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
-                    </svg>
-                </div>
-
             </div>
             <div id="address-map-container" style="width:100%;height:200px;" class="d-none">
                 <div style="width: 100%; height: 100%" id="address-map"></div>

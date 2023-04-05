@@ -46,7 +46,7 @@
         <div class="col-12">
             <p class="small no-margin text-center sm-pull-reset p-2">
                 <span class="hint-text">Copyright &copy; 2023 </span>
-                <span class="font-montserrat">{{__('freebe') }}</span>.
+                <span class="font-montserrat">{{ config('app.name', 'PLACE') }}</span>.
                 <span class="hint-text">{{ __('All right reserved') }}</span>
             </p>
         </div>

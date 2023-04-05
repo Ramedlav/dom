@@ -199,7 +199,9 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <form name="" method="POST" class="pt-1">
+                                    <form action="{{ route('CreatePostDialog') }}" method="POST" class="pt-1">
+					@csrf
+	                                <input type="hidden" value="{{$post->id}}" name="post_id">
                                         <div class="css-26w93a form-group mt-3 mb-2">
                                             <input aria-label="Name"
                                                 placeholder="Name"
@@ -278,7 +280,7 @@
                                         </button>
                                     </form>
                                 </div>
-				@if (Auth::check())
+				@if (Auth::check()) 
 				@if (!in_array($post->id, $wl))
                                 <div class="css-xw4fl9 e1ou4wzt0">
                                     <button data-cy="ad-subscribe-button-sidebar.subscribe"
@@ -340,4 +342,3 @@ function counter_area(elem) {
 	$('#text_area_counter').html(count+' / 2000');
 }
 </script>
-

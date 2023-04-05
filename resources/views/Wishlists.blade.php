@@ -17,7 +17,7 @@
                             @endif
                             <div class="row">
                                 <div class="col-12 col-lg-12">
-                                    <h2 class="css-1q56cn">{{__('A wish list') }}</h2>
+                                    <h2 class="css-1q56cn">{{__('My favorites') }}</h2>
                                     @include('allPosts-parts.post-card')
                                     <div class="float-end">
                                         {{ $posts->onEachSide(1)->links() }}

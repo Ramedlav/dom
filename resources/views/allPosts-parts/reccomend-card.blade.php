@@ -39,7 +39,7 @@
                                 <div class="css-8bnm8w ">
                                     <span class="css-gajpfb">
                                         <font style="vertical-align: inherit;">
-                                            {{$post->user->name}}
+                                            {{$post->User->name}}
                                         </font>
                                     </span>
                                 </div>

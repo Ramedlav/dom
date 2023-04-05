@@ -6,8 +6,8 @@
     <div class="container py-2 d-flex align-items-center">
         <h2 class="css-1q56cn me-3">{{__('Edit post') }}</h2>
         <div>
-            <button class=" btn-primary next-button px-3" onclick="{{ route('showMy') }}">{{ __('Back') }}</button>
-       </div>
+            <button class="btn btn-warning next-button px-3" onclick="javascript:window.history.back();">{{ __('Back') }}</button>
+	</div>
 
     </div>
     <div class="bg-all-posts">
@@ -94,7 +94,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 d-sm-flex ">
-                                        <div class="col-sm-6 pe-sm-3 py-3">
+                                        <div class="col-sm-6 pe-sm-3 py-3 d-none">
                                             <div class="form-group chevron-field">
                                                 <label for="b2b" class="control-label control-label-req mb-1">{{ __('status') }}</label>
                                                 <select class="form-control" name="status_id" id="b2b" value="{{ $post->status_id ?? old('status_id') }}">
@@ -110,7 +110,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 ps-sm-3 py-3">
+                                    </div>
+                                    <div class="col-12 d-sm-flex">
+                                        <div class="col-sm-4 pe-sm-3 py-3">
                                             <div class="form-group chevron-field">
                                                 <label for="price" class="control-label control-label-req mb-1">{{ __('category') }}</label>
                                                 <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}">
@@ -126,9 +128,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 d-sm-flex">
-                                        <div class="col-sm-6 pe-sm-3 py-3">
+                                        <div class="col-sm-4 px-sm-3 py-3">
                                             <div class="form-group chevron-field">
                                                 <label for="price" class="control-label control-label-req mb-1">{{ __('price') }}</label>
                                                 <input type="number"
@@ -139,7 +139,7 @@
                                                        value="{{ $post->price ?? old('price') }}">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 ps-sm-3 py-3">
+                                        <div class="col-sm-4 ps-sm-3 py-3">
                                             <div class="form-group chevron-field">
                                                 <label for="rent_price" class="control-label control-label-req mb-1">
                                                     {{ __('rent price') }}
@@ -219,6 +219,7 @@
                                                        type="text"
                                                        name="movie_link"
                                                        id="movie_link"
+						       placeholder="{{ __('paste link') }}"
                                                        class="form-control"
                                                        value="{{ $post->movie_link ?? old('movie_link') }}">
                                             </div>
@@ -240,6 +241,7 @@
                                                 <input title="{{ __('If you have a link to a page with a virtual tour promoting your property, we will also place it on the page of your advertisement in Place.') }}"
                                                        type="text"
                                                        name="wirtual_link"
+						       placeholder="{{ __('paste link') }}"
                                                        id="wirtual_link"
                                                        class="form-control"
                                                        value="{{ $post->wirtual_link ?? old('wirtual_link') }}">
@@ -264,18 +266,6 @@
                                                        value="{{ $post->address }}">
                                                 <input type="hidden" name="address_latitude" id="address-latitude" value="{{ $post->address_latitude }}" />
                                                 <input type="hidden" name="address_longitude" id="address-longitude" value="{{ $post->address_longitude }}" />
-                                                <div class="chevron-icon-lev">
-                                                    <svg aria-hidden="true"
-                                                        focusable="false"
-                                                        data-prefix="fas"
-                                                        data-icon="chevron-down"
-                                                        class="svg-inline--fa fa-chevron-down fa-w-14 fa-xs "
-                                                        role="img"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 448 512">
-                                                        <path fill="#292929" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
-                                                    </svg>
-                                                </div>
                                             </div>
                                         </div>
                                         <div id="address-map-container" style="width:100%;height:300px; ">
@@ -624,7 +614,7 @@
                                     </div>
                                     <div class="col-12 py-5 d-flex justify-content-center">
                                         <button type="submit"
-                                                class="btn btn-default ">{{ __('Save') }}</button>
+                                                class="btn btn-default progress-button">{{ __('Save') }}</button>
                                         {{-- <button type="submit" class="btn btn-success progress-button">{{ __('Save') }}</button>        --}}
                                     </div>
                                 </div>

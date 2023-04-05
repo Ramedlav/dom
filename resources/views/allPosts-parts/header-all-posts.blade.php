@@ -3,7 +3,6 @@
 <div class="css-a2j764">
     <div class="css-91cl9w d-flex align-items-center">
         <p class="mb-0 d-none d-lg-block">
-            Квартиры в аренду: Какой то район
         </p>
         <button class=" css-1p7cuko d-flex ms-0 ms-sm-auto" type="button">
             <svg aria-hidden="true"
@@ -25,6 +24,8 @@
                 {{__('The map')}}
             </font>
         </button>
+	@if (Auth::check())
+	@if (!Auth::user()->saved_search)
         <button  class="css-1319u8e" type="submit">
             <svg aria-hidden="true"
                 focusable="false"
@@ -44,5 +45,7 @@
                 {{__('Save')}}
             </font>
         </button>
+	@endif
+	@endif
     </div>
 </div>

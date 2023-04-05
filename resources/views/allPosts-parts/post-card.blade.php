@@ -7,6 +7,7 @@
                     <div class="col-12 d-md-flex" id="{{$post->id}}">
                         @php
                         $img='';
+			if (Auth::check()) $user_id = Auth::user()->id; else $user_id = 0;
                         @endphp
                         @foreach($post->photos as $photo)
                             @if ($loop->first)
@@ -42,19 +43,20 @@
                                     </h3>
                                     <div>
 					@php
+					if ($user_id != $post->user->id) {
 					if (Auth::check()) {
 					$wl = [];
 					foreach($wishlists as $wishlist) $wl[] = $wishlist->post_id;
 					@endphp
-					<button type="button" data-cy="listing-subscribe-button.subscribe"
-						data-cy-subscribed="true"
-						class="css-lkfu9 edz7dq0 {{ (in_array($post->id, $wl))?'':'d-none' }}"
+					<button type="button" data-cy="listing-subscribe-button.subscribe" 
+						data-cy-subscribed="true" 
+						class="css-lkfu9 edz7dq0 {{ (in_array($post->id, $wl))?'':'d-none' }}" 
 						onclick="setWishlist(event,{{ $post->id }}, 0);"
 						id="subscribed_{{$post->id}}"
-						aria-label="Dodaj do ulubionych">
-						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-							class="svg-inline--fa fa-heart fa-w-16 fa-lg css-am3ws4 edz7dq2"
-							role="img" xmlns="http://www.w3.org/2000/svg"
+						aria-label="{{__('Add to favorites') }}">
+						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" 
+							class="svg-inline--fa fa-heart fa-w-16 fa-lg css-am3ws4 edz7dq2" 
+							role="img" xmlns="http://www.w3.org/2000/svg" 
 							viewBox="0 0 512 512" width="24" height="24">
 							<path fill="green" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
 						</svg>
@@ -65,7 +67,7 @@
                                                 class="css-qczclw {{ (!in_array($post->id, $wl))?'':'d-none' }}"
 						onclick="setWishlist(event,{{ $post->id }}, 1);"
 						id="unsubscribed_{{$post->id}}"
-                                                aria-label="Dodaj do ulubionych">
+                                                aria-label="{{__('Add to favorites') }}">
                                                 <svg aria-hidden="true"
                                                     focusable="false"
                                                     data-prefix="far"
@@ -80,6 +82,7 @@
                                                 </svg>
                                         </button>
 					@php
+					}
 					}
 					@endphp
                                     </div>
@@ -169,10 +172,14 @@ function setWishlist(events, post_id, add_del) {
 			if (add_del == 1) {
 				$('#subscribed_'+post_id).removeClass('d-none');
 				$('#unsubscribed_'+post_id).addClass('d-none');
+				$('#reccomend_subscribed_'+post_id).removeClass('d-none');
+				$('#reccomend_unsubscribed_'+post_id).addClass('d-none');
 				toastr.success('', "{{ __('Post add to wish list') }}");
 			} else {
 				$('#unsubscribed_'+post_id).removeClass('d-none');
 				$('#subscribed_'+post_id).addClass('d-none');
+				$('#reccomend_unsubscribed_'+post_id).removeClass('d-none');
+				$('#reccomend_subscribed_'+post_id).addClass('d-none');
 				toastr.success('', "{{ __('Post del from wish list') }}");
 			}
                 },

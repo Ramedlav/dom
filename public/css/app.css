@@ -12051,6 +12051,10 @@ input:checked + .slider:before {
   background: rgba(149, 143, 143, 0.1490196078);
 }
 
+.bg-login {
+  background: rgba(149, 143, 143, 0.1490196078);
+}
+
 .all-posts-page .card.post-card {
   border: none;
   background: transparent;

@@ -70,7 +70,7 @@
 .progress-button {
     display: block;
     margin: 0 auto;
-    width: 100px;
+    min-width: 100px;
     height: 40px;
     border: 1px solid #228B22;
     border-radius: 40px;
@@ -95,7 +95,7 @@
     min-width: 100px;
     height: 40px;
     border: 1px solid #ffc107;
-    border-radius: 3px;
+    border-radius: 40px;
     background-color: #ffc107;
     /*background: transparent;*/
     color: #fefefe;
@@ -115,8 +115,7 @@
 .delete-button {
     display: block;
     margin: 0 auto;
-    padding: 0;
-    width: 100px;
+    min-width: 100px;
     height: 40px;
     border: 1px solid #a52834;
     border-radius: 40px;
