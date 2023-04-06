@@ -209,7 +209,7 @@
                                                 type="text"
                                                 name="name"
                                                 class="css-1yk951a form-control"
-						value="{{ (Auth::check())?$post->user->name:'' }}">
+						value="{{ (Auth::check())?Auth::user()->name:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Email"
@@ -218,7 +218,7 @@
                                                 type="email"
                                                 name="email"
                                                 class="css-1yk951a form-control"
-						value="{{ (Auth::check())?$post->user->email:'' }}">
+						value="{{ (Auth::check())?Auth::user()->email:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Numer telefonu"
@@ -229,13 +229,13 @@
                                                   placeholder="Numer telefone"
                                                   type="tel"
                                                   class="css-1yk951a form-control"
-						  value="{{ (Auth::check())?$post->user->telephone:'' }}">
+						  value="{{ (Auth::check())?Auth::user()->telephone:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <textarea rows="6"
                                                    aria-label=""
                                                    maxlength="2000"
-                                                   name="text"
+                                                   name="message"
 						   onkeyup="counter_area(this)"
                                                    placeholder="{{__('This apartment for rent seems interesting to me.I would be happy to know more details before making an appointment.
                                                     Regards.') }}"

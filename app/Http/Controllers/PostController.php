@@ -124,7 +124,7 @@ class PostController extends Controller
 	$heatings=Heating::all();
 	$finish_conditions=Finish_condition::all();
 	$announcements=Announcements::all();
-	$posts = Post::where('status_id',1)->paginate(10);
+	$posts = Post::where('status_id',1)->where('user_id','<>',Auth::user()->id)->paginate(10);
 	$wishlists = [];
 	if (Auth::check()) { 
 		$user_id = Auth::user()->id;
@@ -482,6 +482,7 @@ class PostController extends Controller
 		->whereRaw("(floors = $floors OR $floors = 0)")
 		->whereRaw("(floor = $floor OR $floor = 0)")
 		->whereRaw("(is_published = 1)")
+		->where('user_id','<>',Auth::user()->id)
 		->paginate(10);
 
 	$statuses=Status::all();

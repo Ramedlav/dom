@@ -74,7 +74,7 @@ class HomeController extends Controller
 
             $total_row = $posts->count();
             if($total_row > 0){
-
+		$n = 0;
                 foreach($posts as $post)
                 {
 
@@ -106,6 +106,8 @@ class HomeController extends Controller
                             </a>
                         </div>
                     ';
+			$n++;
+			if ($n == 9) break;
                 }
             } else {
                 $output = '
