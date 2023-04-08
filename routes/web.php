@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\FaceBookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,14 +31,18 @@ Route::get('/action', [App\Http\Controllers\HomeController::class, 'action'])->n
 //    Route::get('login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
 //    Route::any('callback', [App\Http\Controllers\GoogleController::class, 'callbackFromGoogle'])->name('callback');
 //});
-Route::get('auth/google/login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
+Route::get('auth/google/login', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('login');
 Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class, 'callbackFromGoogle'])->name('callback');;
 //Route::get('/auth/google', 'Auth\LoginController@redirectToProvider');
 //Route::get('/auth/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle']);
-
+Route::get('auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle']);
 Route::get('/google/callback', [App\Http\Controllers\GoogleController::class, 'handleGoogleCallback']);
+// Facebook Login URL
+Route::prefix('facebook')->name('facebook.')->group( function(){
+    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
 
 Route::get('/post/{id_post}',[PostController::class, 'view'])->name('show');
 Route::get('/post/allphotos/{id_post}',[PostController::class, 'PhotoAll'])->name('showphotos');

@@ -391,6 +391,8 @@ class PostController extends Controller
 
     public function home_filters(Request $request)
     {
+	if (Auth::check()) { $user_id = Auth::user()->id; } else { $user_id = 0; }
+
 	$query = $request->get('query');
 	$lat = $request->address_latitude;
 	$lng = $request->address_longitude;
@@ -482,7 +484,7 @@ class PostController extends Controller
 		->whereRaw("(floors = $floors OR $floors = 0)")
 		->whereRaw("(floor = $floor OR $floor = 0)")
 		->whereRaw("(is_published = 1)")
-		->where('user_id','<>',Auth::user()->id)
+		->where('user_id','<>',$user_id)
 		->paginate(10);
 
 	$statuses=Status::all();
@@ -614,4 +616,6 @@ class PostController extends Controller
 	Auth::user()->saved_search = '';
 	Auth::user()->update();
     }
+
+
 }

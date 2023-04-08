@@ -59,6 +59,7 @@ class HomeController extends Controller
         // $lat = $_GET['address_latitude'];
         // dd($lat);
         // $lng = $_GET['longitude'];
+//	if (Auth::check()) { $user_id = Auth::user()->id; } else { $user_id = 0; }
 
             $output = '';
             $query = $request->get('query');
@@ -77,7 +78,7 @@ class HomeController extends Controller
 		$n = 0;
                 foreach($posts as $post)
                 {
-
+//                    if ($post->user_id == $user_id) continue;
 
                     $img = '';
                     foreach($post->photos as $photo){
