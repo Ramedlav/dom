@@ -57,7 +57,7 @@
                 @else
                     <li class="nav-item dropdown">
 
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center notification" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <div>
                                 <svg aria-hidden="true"
                                         focusable="false"
@@ -69,6 +69,7 @@
                                         <path fill="currentColor" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
                                 </svg>
                                 {{ Auth::user()->name }}
+				<span class="badge" id="count_notify">0</span>
                             </div>
 
                         </a>
@@ -132,3 +133,53 @@
         </div>
     </div>
 </nav>
+@if (Auth::check())
+<script>
+setInterval(getNotify, 30000);
+getNotify();
+function getNotify() {
+	Data = new FormData();
+	Data.append('user_id', {{  Auth::user()->id }});
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('getNotify') }}',
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+		$('#count_notify').text(data);
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+</script>
+<style>
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  padding: 5px 8px;
+  clip-path: circle(50%);
+  background: red;
+  color: white;
+}
+</style>
+@endif

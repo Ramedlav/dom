@@ -96,5 +96,8 @@ class MessageController extends Controller
 
     }
 
-
+    public function getNotify(Request $request){
+	$count = Message::where('read',0)->where('user_id', $request->user_id)->count();
+	echo $count;
+    }
 }

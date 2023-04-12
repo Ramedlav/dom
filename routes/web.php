@@ -85,6 +85,7 @@ Auth::routes([
     Route::post('/delSavedSearch',[PostController::class, 'delSavedSearch'])->name('delSavedSearch')->middleware('auth'),
     Route::get('/SavedSearch',[PostController::class, 'SavedSearch'])->name('savedsearch')->middleware('auth'),
     Route::post('/setEmailNotify',[PostController::class, 'setEmailNotify'])->name('setEmailNotify')->middleware('auth'),
+    Route::post('/getNotify',[MessageController::class, 'getNotify'])->name('getNotify')->middleware('auth'),
     ]);
 
 
