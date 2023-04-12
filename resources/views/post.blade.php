@@ -281,7 +281,7 @@
                                     </form>
                                 </div>
 				@if (Auth::check()) 
-				@if (!in_array($post->id, $wl))
+				@if (!in_array($post->id, $wl) && $post->user_id != Auth::user()->id)
                                 <div class="css-xw4fl9 e1ou4wzt0">
                                     <button data-cy="ad-subscribe-button-sidebar.subscribe"
                                           data-cy-subscribed="false"

@@ -6,9 +6,11 @@ use App\Models\Dialog;
 use App\Models\Message;
 use App\Models\Post;
 use App\Models\User;
+use App\Mail\messageDialog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -65,6 +67,9 @@ class MessageController extends Controller
 
         $post = Post::find($request->post_id);
         $user_id = $post->user_id;
+	$user = User::find($user_id);
+	$user_email = $user->email;
+	$user_name  = $user->name;
         $dialog = [
             'user_id' => $user_id,
             'sub_id' => Auth::user()->id,
@@ -82,6 +87,11 @@ class MessageController extends Controller
         ];
 
         Message::create($message);
+	$name = $request->name;
+	$email = $request->email;
+	$phone = $request->phone;
+	$ms = $request->message;
+	Mail::to($user_email)->send(new messageDialog($user_name, $name, $email, $phone, $ms, $post, $model->id));
         return redirect()->to(route('ShowDialog',['dialog_id'=>$model->id]));
 
     }

@@ -50,14 +50,15 @@ class GoogleController extends Controller
             $user = Socialite::driver('google')->user();
 
 
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
 
 
             if ($finduser) {
 
 
                 Auth::login($finduser);
-
+                $finduser->google_id=$user->id;
+		$finduser->update();
 
                 return redirect()->intended('home');
 
@@ -80,7 +81,7 @@ class GoogleController extends Controller
                 Auth::login($newUser);
 
 
-                return redirect()->intended('dashboard');
+                return redirect()->intended('home');
 
             }
 
