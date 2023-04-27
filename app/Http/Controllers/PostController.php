@@ -616,6 +616,4 @@ class PostController extends Controller
 	Auth::user()->saved_search = '';
 	Auth::user()->update();
     }
-
-
 }

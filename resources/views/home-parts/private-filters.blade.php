@@ -7,10 +7,10 @@
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
                 <select class="form-control" name="type_announcement">
-                            <option value="0">{{ __('choose') }}</option>
 	                @foreach($announcements as $announcement)
 				<option value="{{ $announcement->id }}">{{ __("$announcement->title") }}</option>
 	                @endforeach
+                            <option value="0">{{ __('show all') }}</option>
 		</select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"
@@ -146,10 +146,10 @@
             <div class="form-group mb-2 chevron-field">
                 {{-- <label for="">{{__('sale') }}</label> --}}
                 <select class="form-control" name="sale">
-                            <option value="0">{{ __('choose') }}</option>
 	                @foreach($sales as $sale)
 				<option value="{{ $sale->id }}">{{ __("$sale->title") }}</option>
 	                @endforeach
+                            <option value="0">{{ __('show all') }}</option>
                 </select>
                 <div class="chevron-icon">
                     <svg aria-hidden="true"

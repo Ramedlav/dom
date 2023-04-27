@@ -204,12 +204,12 @@
 	                                <input type="hidden" value="{{$post->id}}" name="post_id">
                                         <div class="css-26w93a form-group mt-3 mb-2">
                                             <input aria-label="Name"
-                                                placeholder="Name"
+                                                placeholder="{{ __('Name') }}"
                                                 maxlength="100"
                                                 type="text"
                                                 name="name"
                                                 class="css-1yk951a form-control"
-						value="{{ (Auth::check())?Auth::user()->name:'' }}">
+						value="{{ (Auth::check())?Auth::user()->name:'' }}" required>
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Email"
@@ -218,7 +218,7 @@
                                                 type="email"
                                                 name="email"
                                                 class="css-1yk951a form-control"
-						value="{{ (Auth::check())?Auth::user()->email:'' }}">
+						value="{{ (Auth::check())?Auth::user()->email:'' }}" required>
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Numer telefonu"
@@ -226,10 +226,10 @@
                                                   inputmode="tel"
                                                   maxlength="14"
                                                   name="phone"
-                                                  placeholder="Numer telefone"
+                                                  placeholder="{{ __('Number telephone') }}"
                                                   type="tel"
                                                   class="css-1yk951a form-control"
-						  value="{{ (Auth::check())?Auth::user()->telephone:'' }}">
+						  value="{{ (Auth::check())?Auth::user()->telephone:'' }}" required>
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <textarea rows="6"
@@ -239,11 +239,11 @@
 						   onkeyup="counter_area(this)"
                                                    placeholder="{{__('This apartment for rent seems interesting to me.I would be happy to know more details before making an appointment.
                                                     Regards.') }}"
-                                                   class=" css-ajeaic w-100"></textarea>
+                                                   class=" css-ajeaic w-100" required></textarea>
                                             <div data-cy="contact-form.text-area-counter" id="text_area_counter"
                                                 data-testid="text-area-counter"
                                                 class="css-1voeokp text-end">
-                                                124 / 2000
+                                                0 / 2000
                                             </div>
                                             <div data-cy="contact-form.gdpr-note"
                                                class=" css-1s2tzuy mb-3">

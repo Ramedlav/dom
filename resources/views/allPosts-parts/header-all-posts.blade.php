@@ -24,7 +24,7 @@
                 {{__('The map')}}
             </font>
         </button>
-	@if (Auth::check())
+        @auth
 	@if (!Auth::user()->saved_search)
         <button  class="css-1319u8e" type="submit">
             <svg aria-hidden="true"
@@ -46,6 +46,6 @@
             </font>
         </button>
 	@endif
-	@endif
+        @endauth
     </div>
 </div>

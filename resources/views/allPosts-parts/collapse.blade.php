@@ -41,7 +41,7 @@
                 </div>
 --}}
                 <span class="css-coptwa ms-md-auto ps-3 ps-sm-0">
-	@if (Auth::check())
+        @auth
 		@if (!Auth::user()->saved_search)
                     <span class="d-flex align-items-center">
                         <button  class="css-1319u8e" type="button" onclick="setSavedFilter()">
@@ -81,7 +81,7 @@
                         </span>
                     </span>
 		@endif
-		@endif
+        @endauth
                 </span>
 
                 <button id="search-form-more-filters"
