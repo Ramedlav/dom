@@ -57,6 +57,7 @@
                                             </label>
                                             <input type="text"
                                                    name="title"
+						   maxlength="50"
                                                    placeholder="{{__('title')}}"
                                                    id="title"
                                                    class="form-control"
@@ -110,7 +111,7 @@
                                         <div class="col-sm-4 pe-sm-4 py-3">
                                             <div class="form-group chevron-field">
                                                 <label for="price" class="control-label control-label-req mb-1">{{ __('category') }}</label>
-                                                <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}">
+                                                <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}" onchange="ShowHidePrices()">
                                                     @foreach($sales as $sale)
                                                         <option value="{{ $sale->id }}">
                                                             {{ $sale->title }}
@@ -151,6 +152,7 @@
                                         <h4 class="legend">
                                             {{__('Add multimedia') }}
                                         </h4>
+{{--
                                         <p>
                                             <em>
                                                 <strong>
@@ -171,6 +173,7 @@
                                                 </font>
                                             </em>
                                         </p>
+--}}
                                     </div>
                                     <div class="col-12 d-md-flex py-3">
                                         <div class="col-md-8 pe-md-3">
@@ -179,7 +182,8 @@
                                                        type="file"
                                                        name="images[]"
                                                        id="images"
-                                                       class="form-control">
+                                                       class="form-control"
+							accept=".jpg,.jpeg,.png">
                                             </div>
                                             <div style="position:relative" class="d-none">
                                                 <input   type="hidden" name="" id="images" class="form-control">
@@ -201,7 +205,7 @@
                                                 <p><font style="vertical-align: inherit;">{{__('The first photo will be displayed as the main photo of the object.') }}</font></p>
                                                 <p><font style="vertical-align: inherit;">{{__('You can change the order of the photos by dragging the thumbnails with the mouse button pressed.') }}</font></p>
                                                 <p><font style="vertical-align: inherit;">{{__('Ideal image dimensions are 830x500 pixels.') }} </font>
-                                                    <a href="#"><font style="vertical-align: inherit;">{{__('Find out more') }}</font>
+{{--                                                    <a href="#"><font style="vertical-align: inherit;">{{__('Find out more') }}</font> --}}
                                                     </a>
                                                     <font style="vertical-align: inherit;">
                                                          {{__('.')}}
@@ -274,8 +278,8 @@
                                                        id="address"
                                                        class="form-control map-input mb-3"
                                                        value="">
-                                                <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
-                                                <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
+                                                <input type="hidden" name="address_latitude" id="address-latitude" value="52.3675734" />
+                                                <input type="hidden" name="address_longitude" id="address-longitude" value="4.9041389" />
                                             </div>
                                         </div>
                                         <div id="address-map-container" style="width:100%;height:300px; ">
@@ -292,6 +296,7 @@
                                             <div class="form-group">
                                                 <label for="description" class="control-label control-label-req">{{ __('description') }}</label>
                                                 <textarea rows='8'
+	                                                  maxlength="5000"
                                                           type="text"
                                                           name="description"
                                                           placeholder="{{__('description')}}"
@@ -398,10 +403,10 @@
                                                 <label class="control-label " class="control-label">
                                                     {{ __('Number of floors') }}
                                                 </label>
-                                                <input type="text"
+                                                <input type="number" min="1"
                                                     class="form-control"
                                                     name="floors"
-                                                    value="{{ $post->floors ?? old('floors') }}">
+                                                    value="{{ 1 ?? old('floors') }}">
                                             </div>
                                         </div>
                                     </div>
@@ -662,6 +667,32 @@ function ready(){
             ['table', ['table']],
         ]
     });
+	$('#sale').change();
 };
 
+ function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+	$('#address-latitude').val(latitude);
+	$('#address-longitude').val(longitude);
+  }
+  function error() {
+	$('#address-latitude').val(52.3675734);
+	$('#address-longitude').val(4.9041389);
+  }
+  if (!navigator.geolocation) {
+    console.log('Geolocation не поддерживается вашим браузером');
+  } else {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+function ShowHidePrices() {
+	if ($('#sale').val() == 1) {
+		$('#rent_price').attr('disabled','disabled');
+		$('#price').removeAttr('disabled');
+	} else {
+		$('#price').attr('disabled','disabled');
+		$('#rent_price').removeAttr('disabled');
+	}
+}
 </script>

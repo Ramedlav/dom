@@ -62,6 +62,7 @@
                                             </label>
                                             <input type="text"
                                                    name="title"
+						   maxlength="50"
                                                    placeholder="{{__('title')}}"
                                                    id="title"
                                                    class="form-control"
@@ -115,7 +116,7 @@
                                         <div class="col-sm-4 pe-sm-3 py-3">
                                             <div class="form-group chevron-field">
                                                 <label for="price" class="control-label control-label-req mb-1">{{ __('category') }}</label>
-                                                <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}">
+                                                <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}" onchange="ShowHidePrices()">
                                                     @foreach($sales as $sale)
                                                         <option value="{{ $sale->id }}"
                                                             @if($sale->id == $post->sale_id) selected @endif>
@@ -157,6 +158,7 @@
                                         <h4 class="legend">
                                             {{__('Update multimedia') }}
                                         </h4>
+{{--
                                         <p>
                                             <em>
                                                 <strong>
@@ -177,6 +179,7 @@
                                                 </font>
                                             </em>
                                         </p>
+--}}
                                     </div>
                                     <div class="col-12 d-md-flex py-3">
                                         <div class="col-md-8 pe-md-3">
@@ -191,11 +194,13 @@
                                                 <p><font style="vertical-align: inherit;">{{__('The first photo will be displayed as the main photo of the object.') }}</font></p>
                                                 <p><font style="vertical-align: inherit;">{{__('You can change the order of the photos by dragging the thumbnails with the mouse button pressed.') }}</font></p>
                                                 <p><font style="vertical-align: inherit;">{{__('Ideal image dimensions are 830x500 pixels.') }} </font>
+{{--
                                                     <a href="#"><font style="vertical-align: inherit;">{{__('Find out more') }}</font>
                                                     </a>
                                                     <font style="vertical-align: inherit;">
                                                          {{__('.')}}
                                                     </font>
+--}}
                                                 </p>
                                             </div>
                                         </div>
@@ -284,6 +289,7 @@
                                                 <label for="description" class="control-label control-label-req">{{ __('description') }}</label>
                                                 <textarea rows='8'
                                                           type="text"
+	                                                  maxlength="5000"
                                                           name="description"
                                                           placeholder="{{__('description')}}"
                                                           id="description"
@@ -390,7 +396,7 @@
                                                 <label class="control-label " class="control-label">
                                                     {{ __('Number of floors') }}
                                                 </label>
-                                                <input type="text"
+                                                <input type="number" min="1"
                                                      class="form-control"
                                                      name="floors"
                                                      value="{{ $post->floors ?? old('floors') }}">
@@ -641,6 +647,7 @@ function ready(){
             ['table', ['table']],
         ]
     });
+	$('#sale').change();
 };
 
 function updatePhoto(photo_id) {
@@ -689,6 +696,15 @@ function addPhotos(post_id) {
 		console.log(data);
             }
         });
+}
+function ShowHidePrices() {
+	if ($('#sale').val() == 1) {
+		$('#rent_price').attr('disabled','disabled');
+		$('#price').removeAttr('disabled');
+	} else {
+		$('#price').attr('disabled','disabled');
+		$('#rent_price').removeAttr('disabled');
+	}
 }
 </script>
 <style>

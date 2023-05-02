@@ -18,12 +18,12 @@
 						</a>
 					</div>
 				</a>
-				<input name="file-{{ $photo->id }}[]" type="file" id="photo-file-{{ $photo->id }}" class="input input__file" onchange="updatePhoto({{ $photo->id }})">
+				<input name="file-{{ $photo->id }}[]" type="file" id="photo-file-{{ $photo->id }}" class="input input__file" onchange="updatePhoto({{ $photo->id }})" accept=".jpg,.jpeg,.png">
 			</div>
                         @endisset
                     @endforeach
 			<div class="text-center" style="margin: 15px 0;">
-			   <input name="file" type="file" id="photos-file" class=" input input__file" multiple onchange="addPhotos({{ $post->id }})">
+			   <input name="file" type="file" id="photos-file" class=" input input__file" multiple onchange="addPhotos({{ $post->id }})" accept=".jpg,.jpeg,.png">
 			   <label for="photos-file">
 			      <span class="input__file-button-text btn btn-success progress-button">{{ __('Add photos') }}</span>
 			   </label>
