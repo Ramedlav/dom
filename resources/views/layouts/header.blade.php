@@ -2,9 +2,9 @@
     <div class="container h-100 d-flex">
         <a class="navbar-brand" href="{{ url('/') }}">
             <div  width="153" height="35" class="text-white">
-                LOGO
+                <img src="https://freebe.space/img/homepage/image3.jpeg" width="153" height="35" alt="">
             </div>
-            {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="35" alt=""> --}}
+            {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="40" alt=""> --}}
         </a>
 
         <div class=" d-flex ">
