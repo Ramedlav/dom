@@ -24,7 +24,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         <div class="row">
                             <div class="col-12 col-md-9">
 
@@ -178,6 +177,7 @@
                                             </div>
                                         </div>
                                     </div>
+{{--
                                     <div class="css-1wypg4o"
                                         role="alert">
                                         <div class="css-1o129hd d-flex">
@@ -199,17 +199,29 @@
                                             </p>
                                         </div>
                                     </div>
+--}}
                                     <form action="{{ route('CreatePostDialog') }}" method="POST" class="pt-1">
 					@csrf
 	                                <input type="hidden" value="{{$post->id}}" name="post_id">
+{{--
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                     <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+                            @endif
+--}}
                                         <div class="css-26w93a form-group mt-3 mb-2">
                                             <input aria-label="Name"
                                                 placeholder="{{ __('Name') }}"
                                                 maxlength="100"
                                                 type="text"
                                                 name="name"
-                                                class="css-1yk951a form-control"
-						value="{{ (Auth::check())?Auth::user()->name:'' }}" required>
+                                                class="css-1yk951a form-control @error('name') is-invalid @enderror"
+						value="{{ (Auth::check())?Auth::user()->name:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Email"
@@ -217,8 +229,8 @@
                                                 maxlength="100"
                                                 type="email"
                                                 name="email"
-                                                class="css-1yk951a form-control"
-						value="{{ (Auth::check())?Auth::user()->email:'' }}" required>
+                                                class="css-1yk951a form-control @error('email') is-invalid @enderror"
+						value="{{ (Auth::check())?Auth::user()->email:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Numer telefonu"
@@ -229,7 +241,7 @@
                                                   placeholder="{{ __('Number telephone') }}"
                                                   type="tel"
                                                   class="css-1yk951a form-control"
-						  value="{{ (Auth::check())?Auth::user()->telephone:'' }}" required>
+						  value="{{ (Auth::check())?Auth::user()->telephone:'' }}">
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <textarea rows="6"
@@ -237,14 +249,19 @@
                                                    maxlength="2000"
                                                    name="message"
 						   onkeyup="counter_area(this)"
-                                                   placeholder="{{__('This apartment for rent seems interesting to me.I would be happy to know more details before making an appointment.
-                                                    Regards.') }}"
-                                                   class=" css-ajeaic w-100" required></textarea>
+                                                   class=" css-ajeaic w-100 @error('message') is-invalid @enderror"></textarea>
                                             <div data-cy="contact-form.text-area-counter" id="text_area_counter"
                                                 data-testid="text-area-counter"
                                                 class="css-1voeokp text-end">
                                                 0 / 2000
                                             </div>
+                            @if($errors->has('message'))
+                                <div class="alert alert-danger">
+                                     {{$errors->first('message')}}
+                                </div>
+                            @endif
+
+{{--
                                             <div data-cy="contact-form.gdpr-note"
                                                class=" css-1s2tzuy mb-3">
                                                <button type="button"
@@ -272,6 +289,7 @@
                                                     </p>
                                                 </div>
                                             </div>
+--}}
                                         </div>
                                         <button data-cy="contact-form.submit-button"
                                                 class="css-1fejj4k"

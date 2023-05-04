@@ -845,5 +845,9 @@
 "wooden":"дерев'яний",
 "aluminum":"алюміній",
 "Update photo": "Оновити фото",
-"Delete photo": "Видалити фото"
+"Delete photo": "Видалити фото",
+"Enter a title that will contain a unique feature of your property and may be of interest to searchers (e.g. \"after renovation\", \"close to the park\", etc.)": "Введіть назву, яка буде містити унікальну особливість вашої нерухомості та може зацікавити шукачів (наприклад, «після ремонту», «біля парку» тощо)",
+"If you have added a video promoting your property to YouTube, we will also place it on the page of your advertisement in Freebe.Place.":"Якщо ви додали на YouTube відео, яке рекламує вашу власність, ми також розмістимо його на сторінці вашої реклами у Freebe.Place.",
+"If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.":"Якщо у вас є посилання на сайт віртуального туру, який рекламує вашу нерухомість, ми також розмістимо його на вашій сторінці списку Freebe.Place."
+
 }

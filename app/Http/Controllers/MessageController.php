@@ -64,7 +64,7 @@ class MessageController extends Controller
         }
     }
 
-    public function CreatePostDialog(Request $request){
+    public function CreatePostDialog(DialogRequest $request){
 
         $post = Post::find($request->post_id);
         $user_id = $post->user_id;

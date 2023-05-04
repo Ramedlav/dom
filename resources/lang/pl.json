@@ -845,5 +845,9 @@
 "wooden":"drewniany",
 "aluminum":"aluminium",
 "Update photo": "Zaktualizuj zdjęcie",
-"Delete photo": "Usuń zdjęcie"
+"Delete photo": "Usuń zdjęcie",
+"Enter a title that will contain a unique feature of your property and may be of interest to searchers (e.g. \"after renovation\", \"close to the park\", etc.)": "Podaj tytuł, który będzie zawierał unikalną cechę Twojej nieruchomości i może zainteresować poszukujących (np. \"po remoncie\", \"blisko parku\" itd.)",
+"If you have added a video promoting your property to YouTube, we will also place it on the page of your advertisement in Freebe.Place.":"Jeśli dodałeś film promujący Twój obiekt na YouTube, umieścimy go również na stronie Twojego ogłoszenia w Freebe.Place.",
+"If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.":"Jeśli posiadasz link do strony z wirtualną wycieczką promującą Twój akt, umieścimy go również na stronie Twojej rejestracji w Freebe.Place."
+
 }

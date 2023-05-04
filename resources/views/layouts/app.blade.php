@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="https://freebe.space/img/homepage/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="https://freebe.space/img/homepage/favicon_white.ico">
     <!--- Awesomes Fonts --->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"
     integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h"

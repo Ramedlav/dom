@@ -50,7 +50,7 @@
                                                     <span role="button" class="css-12mkfdx tooltip">
                                                         <img src="/img/icons/question-circle.svg">
                                                         <span class="tooltiptext">
-                                                            {{__('Any text...') }}
+                                                            {{__('Enter a title that will contain a unique feature of your property and may be of interest to searchers (e.g. "after renovation", "close to the park", etc.)') }}
                                                          </span>
                                                     </span>
                                                 </span>
@@ -68,7 +68,7 @@
                                         <div class="form-group chevron-field">
                                             <label class="control-label d-flex align-items-center mb-1">
                                                 {{ __('Type of announcement') }}
-                                                <span class="css-1pnqrd4 ms-1 d-none d-sm-block">
+                                                <span class="css-1pnqrd4 ms-1 d-none">
                                                     <span role="button" class="css-12mkfdx tooltip">
                                                         <img src="/img/icons/question-circle.svg">
                                                         <span class="tooltiptext">
@@ -111,10 +111,10 @@
                                         <div class="col-sm-4 pe-sm-4 py-3">
                                             <div class="form-group chevron-field">
                                                 <label for="price" class="control-label control-label-req mb-1">{{ __('category') }}</label>
-                                                <select class="form-control" name="sale_id" id="sale" value="{{ $post->sale_id ?? old('sale_id') }}" onchange="ShowHidePrices()">
+                                                <select class="form-control" name="sale_id" id="sale" onchange="ShowHidePrices()">
                                                     @foreach($sales as $sale)
-                                                        <option value="{{ $sale->id }}">
-                                                            {{ $sale->title }}
+                                                        <option {{ (($post->sale_id ?? old('sale_id'))==$sale->id?"selected":"") }} value="{{ $sale->id }}">
+                                                            {{ __("$sale->title") }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -224,13 +224,12 @@
                                                             <span role="button" class="css-12mkfdx tooltip">
                                                                 <img src="/img/icons/question-circle.svg">
                                                                 <span class="tooltiptext">
-                                                                    {{__('Any text...') }}
+                                                                    {{__('If you have added a video promoting your property to YouTube, we will also place it on the page of your advertisement in Freebe.Place.') }}
                                                                 </span>
                                                             </span>
                                                         </span>
                                                 </label>
-                                                <input title="{{ __('If you have added a video promoting your property to YouTube, we will also place it on the page of your advertisement in Place.') }}"
-                                                       type="text"
+                                                <input type="text"
                                                        name="movie_link"
                                                        id="movie_link"
                                                        class="form-control"
@@ -248,12 +247,12 @@
                                                             <span role="button" class="css-12mkfdx tooltip">
                                                                 <img src="/img/icons/question-circle.svg">
                                                                 <span class="tooltiptext">
-                                                                    {{__('Any text...') }}
+                                                                    {{__('If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.') }}
                                                                 </span>
                                                             </span>
                                                         </span>
                                                 </label>
-                                                <input title="{{ __('If you have a link to a page with a virtual tour promoting your property, we will also place it on the page of your advertisement in Place.') }}"
+                                                <input 
                                                        type="text"
                                                        name="wirtual_link"
                                                        id="wirtual_link"
