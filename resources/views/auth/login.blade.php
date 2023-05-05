@@ -5,7 +5,9 @@
     <div class="row justify-content-center bg-all-posts">
         <div class="col-md-8 pt-5">
             <div class="card mt-5">
-                <div class="card-header">{{ __('Login') }}</div>
+		<div class="container py-2 d-flex align-items-center">
+			<h2 class="css-1q56cn me-3">{{__('Login') }}</h2>
+		</div>
 
                 <div class="card-body bg-login">
                     <form method="POST" action="{{ route('login') }}">
@@ -47,21 +49,20 @@
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary progress-button">
+                                    {{ __('Login') }}
+                                </button>
 			    </div>
                             <div class="col-md-8 offset-md-4">
                                 <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">

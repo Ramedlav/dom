@@ -10837,7 +10837,8 @@ body {
   width: 100%;
   min-height: 60px;
   border-bottom: 1px #e0e0e0 solid;
-  background-color: #464b53;
+/*  background-color: #464b53; */
+  background-color: #000000;
   background-repeat: no-repeat;
   -webkit-background-position: center top;
   background-position: center top;
@@ -10869,7 +10870,7 @@ body {
 
 .home-page {
   position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 70%) 0% 0%, url(https://freebe.space/img/homepage/home-page.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 70%) 0% 0%, url(https://freebe.space/img/homepage/home-page.jpg) no-repeat;
   background-size: cover;
   color: #ffffff;
 }

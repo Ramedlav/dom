@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FaceBookController;
+use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\MapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +59,10 @@ Route::post('/filterPosts/',[PostController::class, 'filterPosts'])->name('filte
 Route::get('/filterPosts/',[PostController::class, 'filterPosts'])->name('filterPosts');
 
 Auth::routes([
+    Route::get('/profile/',[MyProfileController::class, 'show'])->name('profile')->middleware('auth'),
+    Route::post('/profile/',[MyProfileController::class, 'save'])->name('saveprofile')->middleware('auth'),
+    Route::get('/map/',[MapController::class, 'show'])->name('showmap')->middleware('auth'),
+
     Route::get('/myposts/',[PostController::class, 'myPosts'])->name('showMy')->middleware('auth'),
 
     Route::post('/dialog/create/',[MessageController::class, 'CreatePostDialog'])->name('CreatePostDialog')->middleware('auth'),
@@ -71,7 +77,7 @@ Auth::routes([
     Route::get('/post/update/{id_post}',[PostController::class, 'upload'])->middleware('auth'),
     Route::post('/filters/',[PostController::class, 'filters'])->name('filters'),
     Route::get('/filters/',[PostController::class, 'filters']),
-    Route::get('/post/delete/{id_post}',[PostController::class, 'delete'])->middleware('auth'),
+    Route::post('/post/delete/{id_post}',[PostController::class, 'delete'])->middleware('auth'),
     Route::post('/post/create',[PostController::class, 'create'])->name('create')->middleware('auth'),
     Route::get('/post/create/form',[PostController::class, 'createForm'])->name('createCreateForm')->middleware('auth'),
     Route::post('/post/edit/{id_post}',[PostController::class, 'edit'])->name('edit')->middleware('auth'),

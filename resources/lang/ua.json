@@ -445,7 +445,7 @@
 "My dialogs":"Мої діалоги",
 "My favorites":"Мої улюблені",
 "My saved search":"Мій збережений пошук",
-"To add a post":"Щоб додати пост",
+"To add a post":"Додати пост",
 "Dialog":"Діалог",
 "write your message":"напишіть своє повідомлення",
 "send":"відправити",
@@ -592,7 +592,7 @@
 "description":"опис",
 "description":"опис",
 "number of rooms":"кількість кімнат",
-"square м²":"квадратний м²",
+"square м²":"м²",
 "square":"Майдан",
 "number of bedrooms":"кількість спалень",
 "Type of construction":"Тип конструкції",
@@ -682,7 +682,7 @@
 "description":"опис",
 "description":"опис",
 "number of rooms":"кількість кімнат",
-"square м²":"квадратний м²",
+"square м²":"м²",
 "number of bedrooms":"кількість спалень",
 "Type of construction":"Тип конструкції",
 "Floor":"Поверх",
@@ -850,5 +850,6 @@
 "If you have added a video promoting your property to YouTube, we will also place it on the page of your advertisement in Freebe.Place.":"Якщо ви додали на YouTube відео, яке рекламує вашу власність, ми також розмістимо його на сторінці вашої реклами у Freebe.Place.",
 "If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.":"Якщо у вас є посилання на сайт віртуального туру, який рекламує вашу нерухомість, ми також розмістимо його на вашій сторінці списку Freebe.Place.",
 "Login with Google":"Увійдіть через Google",
-"Login with Facebook":"Увійдіть через Facebook"
+"Login with Facebook":"Увійдіть через Facebook",
+"My profile": "Мій профіль"
 }

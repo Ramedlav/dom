@@ -2,7 +2,7 @@
     <div class="container h-100 d-flex">
         <a class="navbar-brand" href="{{ url('/') }}">
             <div  width="153" height="35" class="text-white">
-                <img src="https://freebe.space/img/homepage/image3.jpeg" width="153" height="35" alt="">
+                <img src="https://freebe.space/img/homepage/logo.jpg" width="103" height="35" alt="">
             </div>
             {{-- <img src="https://statics.otodom.pl/fp_statics/images/logo/otodom_logo_2021_white.svg" width="153" height="40" alt=""> --}}
         </a>
@@ -74,11 +74,7 @@
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                            </a>
+                            <a class="dropdown-item" href="{{ route('profile') }}">{{ __('My profile') }}</a>
                             <a class="dropdown-item" href="{{ route('home') }}">{{ __('Home') }}</a>
                             <a class="dropdown-item" href="{{ route('createCreateForm') }}">{{ __('New announcement') }}</a>
                             <a class="dropdown-item" href="{{ route('showAll') }}">{{ __('All announcements') }}</a>
@@ -86,6 +82,12 @@
                             <a class="dropdown-item" href="{{ route('ShowDialogs') }}">{{ __('My dialogs') }}</a>
                             <a class="dropdown-item" href="{{ route('wishlist') }}">{{ __('My favorites') }}</a>
                             <a class="dropdown-item" href="{{ route('savedsearch') }}">{{ __('My saved search') }}</a>
+			    <hr>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                            </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -106,12 +108,6 @@
                             </div>
 
                         </a>
-                        {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                            <a class="dropdown-item" href="{{ route('locale', 'en') }}"><img src="{{ asset('/storage/flags/en.png' ) }}"> English</a>
-                            <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><img src="{{ asset('/storage/flags/pl.png' ) }}"> Polska</a>
-                            <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><img src="{{ asset('/storage/flags/nl.png' ) }}"> Nederlands</a>
-                            <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><img src="{{ asset('/storage/flags/ua.png' ) }}"> Українська</a>
-                        </div> --}}
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
                             <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis"></span> English</a>
                             <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis"></span> Polska</a>
@@ -120,7 +116,7 @@
                         </div>
 
 		        </li>
-                <li class="css-1d7m8bx my-3 my-md-0 d-none d-md-block">
+                <li class="css-1d7m8bx my-3 my-md-0 d-none d-md-block align-items-center d-flex">
                     <a href="{{ route('createCreateForm') }}" class="css-4h0vko d-flex align-items-center">
                         <div class="css-1y934yh">
                             <p class="m-0" style="vertical-align: inherit;" >

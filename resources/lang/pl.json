@@ -592,7 +592,7 @@
 "description":"opis",
 "description":"opis",
 "number of rooms":"Liczba pokoi",
-"square м²":"kwadrat m²",
+"square м²":"m²",
 "square":"kwadrat",
 "number of bedrooms":"Liczba sypialni",
 "Type of construction":"Rodzaj konstrukcji",
@@ -682,7 +682,7 @@
 "description":"opis",
 "description":"opis",
 "number of rooms":"Liczba pokoi",
-"square м²":"kwadrat m²",
+"square м²":"m²",
 "number of bedrooms":"Liczba sypialni",
 "Type of construction":"Rodzaj konstrukcji",
 "Floor":"Podłoga",
@@ -850,7 +850,8 @@
 "If you have added a video promoting your property to YouTube, we will also place it on the page of your advertisement in Freebe.Place.":"Jeśli dodałeś film promujący Twój obiekt na YouTube, umieścimy go również na stronie Twojego ogłoszenia w Freebe.Place.",
 "If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.":"Jeśli posiadasz link do strony z wirtualną wycieczką promującą Twój akt, umieścimy go również na stronie Twojej rejestracji w Freebe.Place.",
 "Login with Google":"Zaloguj się przez Google",
-"Login with Facebook":"Zaloguj się przez Facebook"
+"Login with Facebook":"Zaloguj się przez Facebook",
+"My profile": "Mój profil"
 
 
 }

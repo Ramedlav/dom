@@ -191,8 +191,8 @@
                                         <label for="garden">{{__('garden')}}</label><br/>
                                     </div>
                                 </div>
-
-                                <button type="submit" class="btn btn-primary">{{__('Apply')}}</button>
+				<br>
+                                <button type="submit" class="btn btn-primary my-2">{{__('Apply')}}</button>
                             </div>
                         </form>
                     </div>
