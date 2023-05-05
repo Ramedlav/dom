@@ -82,6 +82,16 @@
                             </div>
                         </div>
                     </form>
+
+                            <div class="col-md-8 offset-md-4">
+                                <a href="{{ url('auth/google') }}" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> {{ __('Login with Google') }}
+                                </a>
+				<a href="{{ route('facebook.login') }}" class="btn btn-facebook btn-user btn-block">
+				<i class="fab fa-facebook-f fa-fw"></i> {{ __('Login with Facebook') }}
+				</a>
+                            </div>
+
                 </div>
             </div>
         </div>

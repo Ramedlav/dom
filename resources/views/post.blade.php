@@ -222,6 +222,11 @@
                                                 name="name"
                                                 class="css-1yk951a form-control @error('name') is-invalid @enderror"
 						value="{{ (Auth::check())?Auth::user()->name:'' }}">
+                            @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                            @enderror
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Email"
@@ -231,6 +236,11 @@
                                                 name="email"
                                                 class="css-1yk951a form-control @error('email') is-invalid @enderror"
 						value="{{ (Auth::check())?Auth::user()->email:'' }}">
+                            @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                            @enderror
                                         </div>
                                         <div class="css-26w93a form-group  mt-3 mb-2">
                                             <input aria-label="Numer telefonu"
@@ -256,9 +266,9 @@
                                                 0 / 2000
                                             </div>
                             @if($errors->has('message'))
-                                <div class="alert alert-danger">
-                                     {{$errors->first('message')}}
-                                </div>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{$errors->first('message')}}</strong>
+                                    </span>
                             @endif
 
 {{--
