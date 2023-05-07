@@ -42,7 +42,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
-                @guest
+		@guest
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -54,7 +54,7 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
-                @else
+		@else
                     <li class="nav-item dropdown">
 
                         <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center notification" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -82,6 +82,9 @@
                             <a class="dropdown-item" href="{{ route('ShowDialogs') }}">{{ __('My dialogs') }}</a>
                             <a class="dropdown-item" href="{{ route('wishlist') }}">{{ __('My favorites') }}</a>
                             <a class="dropdown-item" href="{{ route('savedsearch') }}">{{ __('My saved search') }}</a>
+			    @if (Auth::user()->role_id == 1)
+                            	<a class="dropdown-item" href="{{ route('users') }}">{{ __('Users') }}</a>
+			    @endif
 			    <hr>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

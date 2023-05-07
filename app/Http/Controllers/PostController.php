@@ -99,7 +99,7 @@ class PostController extends Controller
         }
 
         $photos = Post::find($id_post)->photos;
-        if (Auth::user()->id != $post->user->id){
+        if (Auth::user()->id != $post->user->id && Auth::user()->role_id != 1){
             return back()->withInput();
         }else{
             return view('postEdit',compact('post','photos', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
@@ -143,7 +143,8 @@ class PostController extends Controller
 
     public function myPosts(){
         $user_id = Auth::user()->id;
-        $posts = User::find($user_id)->posts->where('status_id',1);
+	$posts = Post::where('status_id',1)->where('user_id','=',Auth::user()->id)->paginate(10);
+//        $posts = User::find($user_id)->posts->where('status_id',1)->paginate(10);
         return view('myPosts',compact('posts'));
     }
 
@@ -188,8 +189,8 @@ class PostController extends Controller
             'is_published'=> '0',
         ]);
         }
-        return Redirect::route("showMy");
-
+	if (Auth::user()->role_id == 1) return Redirect::route("showAll");
+        else return Redirect::route("showMy");
     }
 
 
@@ -333,7 +334,8 @@ class PostController extends Controller
 
 	$post->update();
 
-        return Redirect::route("showMy");
+	if (Auth::user()->role_id == 1) return Redirect::route("showAll");
+        else return Redirect::route("showMy");
     }
 
     public function delete($id_post)
@@ -341,7 +343,8 @@ class PostController extends Controller
         $post = Post::find($id_post);
         $post->status_id=0;
 	$post->update();
-        return Redirect::route("showMy");
+	if (Auth::user()->role_id == 1) return Redirect::route("showAll");
+        else return Redirect::route("showMy");
     }
 
     public function filters(Request $request)

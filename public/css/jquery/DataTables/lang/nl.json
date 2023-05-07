@@ -1,0 +1,16 @@
+{
+     "emptyTable": "Geen gegevens beschikbaar in tabel",
+     "info": "Toont _START_ tot _END_ van _TOTAL_ inzendingen",
+     "infoEmpty": "Toon 0 tot 0 van 0 ingangen",
+     "infoFiltered": "(gefilterd uit _MAX_ totale items)",
+     "lengthMenu": "Toon _MENU_ ingangen",
+     "loadingRecords": "Bezig met laden...",
+     "zeroRecords": "Geen overeenkomende records gevonden",
+     "search": "zoeken:",
+     "paginate": {
+        "first": "Eerste",
+        "previous": "Laatste",
+        "next": "Volgende",
+        "last": "Vorige"
+     }
+}

@@ -7,6 +7,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +60,11 @@ Route::post('/filterPosts/',[PostController::class, 'filterPosts'])->name('filte
 Route::get('/filterPosts/',[PostController::class, 'filterPosts'])->name('filterPosts');
 
 Auth::routes([
+    Route::get('/users/',[UserController::class, 'show'])->name('users')->middleware('auth'),
+    Route::post('/users/listusers',[UserController::class, 'listusers'])->name('listusers')->middleware('auth'),
+    Route::get('/users/edit/{id_user}',[UserController::class, 'edituser'])->name('editEditUser')->middleware('auth'),
+    Route::post('/saveuser/',[UserController::class, 'save'])->name('saveuser')->middleware('auth'),
+
     Route::get('/profile/',[MyProfileController::class, 'show'])->name('profile')->middleware('auth'),
     Route::post('/profile/',[MyProfileController::class, 'save'])->name('saveprofile')->middleware('auth'),
     Route::get('/map/',[MapController::class, 'show'])->name('showmap')->middleware('auth'),

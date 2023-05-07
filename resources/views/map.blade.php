@@ -49,6 +49,7 @@ window.onload = function() {
             center: {lat: latitude, lng: longitude},
             zoom: 13
         });
+	var markericon='img/marker_house.png';
 <?php
   foreach ($posts as $post) {
 ?>
@@ -56,6 +57,7 @@ window.onload = function() {
         marker = new google.maps.Marker({
             position: position,
             map: map,
+	    icon: markericon,
             title: '<?php echo $post->title ?>'+String.fromCharCode(13)+'<?php echo $post->address ?>'
         });
 	marker.addListener('click', function() {

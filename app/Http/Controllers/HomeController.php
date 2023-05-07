@@ -49,6 +49,13 @@ class HomeController extends Controller
 	$heatings=Heating::all();
 	$finish_conditions=Finish_condition::all();
 // dd($posts);
+	if (Auth::check()) {
+	if (Auth::user()->status_id == 2) {
+	    Auth::logout();
+//	    $request->session()->invalidate();
+//	    $request->session()->regenerateToken();
+	}
+	}
         return view('home', compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements'));
     }
 

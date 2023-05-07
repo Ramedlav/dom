@@ -851,7 +851,12 @@
 "If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.":"Jeśli posiadasz link do strony z wirtualną wycieczką promującą Twój akt, umieścimy go również na stronie Twojej rejestracji w Freebe.Place.",
 "Login with Google":"Zaloguj się przez Google",
 "Login with Facebook":"Zaloguj się przez Facebook",
-"My profile": "Mój profil"
-
-
+"My profile": "Mój profil",
+"Role": "Rola",
+"Status": "Status",
+"Administrator": "Administrator",
+"User": "Użytkownik",
+"Users": "Użytkownicy",
+"Enabled": "Włączony",
+"Disabled": "Wyłączony"
 }

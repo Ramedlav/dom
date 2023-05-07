@@ -20,9 +20,13 @@
                                 </div>
                             @endif
                             <div class="row">
-                                <div class="col-12 col-lg-9">
+                                <div class="col-12 col-lg-12">
                                     <h2 class="css-1q56cn">{{__('My announcements') }}</h2>
                                     @include('myPosts-parts.post-card')
+                                    <div class="float-end">
+                                        {{ $posts->onEachSide(1)->links() }}
+                                    </div>
+
                                     {{-- <div class="float-end">
                                         {{ $posts->links() }}
                                     </div> --}}

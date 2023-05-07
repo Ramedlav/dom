@@ -31,6 +31,7 @@
     <script src="{{ asset('plugins/toastr/toastr.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery/DataTables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/all.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('summernote/summernote.css') }}" rel="stylesheet" /> --}}
@@ -43,17 +44,19 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.header')
-        <main class="main-wrapper pb-4">
-            @yield('content')
-        </main>
-        @include('layouts.copyright')
+		        @include('layouts.header')
+		        <main class="main-wrapper pb-4">
+		            @yield('content')
+		        </main>
+		        @include('layouts.copyright')
     </div>
 
     {{-- <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&region=EN&language=en&libraries=places&callback=initialize" async defer></script>
     <script src="/js/mapInput.js"></script>
+    <script src="{{ asset('css/jquery/DataTables/js/jquery.dataTables.min.js') }}"></script>
+
     <script>
         Fancybox.bind('[data-fancybox="gallery"]', {
         // Your custom options

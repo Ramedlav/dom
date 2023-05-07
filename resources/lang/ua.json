@@ -851,5 +851,13 @@
 "If you have a link to a virtual tour site promoting your property, we will also place it on your Freebe.Place listing page.":"Якщо у вас є посилання на сайт віртуального туру, який рекламує вашу нерухомість, ми також розмістимо його на вашій сторінці списку Freebe.Place.",
 "Login with Google":"Увійдіть через Google",
 "Login with Facebook":"Увійдіть через Facebook",
-"My profile": "Мій профіль"
+"My profile": "Мій профіль",
+"Role": "Роль",
+"Status": "Статус",
+"Administrator": "Адміністратор",
+"User": "Користувач",
+"Users": "Користувачі",
+"Enabled": "Увімкнено",
+"Disabled": "Вимкнено"
+
 }
