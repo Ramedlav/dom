@@ -13118,7 +13118,7 @@ button {
   padding-right: 16px;
   flex: 0 1 auto;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column; 
   overflow-y: auto;
   scroll-behavior: smooth;
 }

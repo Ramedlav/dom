@@ -1,3 +1,4 @@
+@if (!empty($dialog))
 <div class=" p-0 css-15ecjq0 ">
     <div class="css-r2eb4p">
         <div class="css-1pdwz19 d-flex flex-wrap">
@@ -11,7 +12,7 @@
                 <div class="css-3rns13">
                     <div class="css-1povu0j">
                         <span data-testid="username" data-cy="conversation-user-details-username" class="css-1ryldw8 er34gjf0">
-                            Валентина
+                            {{ $user->name }}
                         </span>
                     </div>
                     <p data-cy="conversation-user-details-last-seen" class="css-ekdwwt er34gjf0">
@@ -67,24 +68,36 @@
             </div>
         </div>
     </div>
-    <a  href="#" class="css-aogond">
-        <div class="css-tdboqd">
-            <img src="#" class="css-ac32pf">
+                        @php
+                        $img='photo/agent.jpg';
+                        @endphp
+                        @foreach($post->photos as $photo)
+                            @if ($loop->first)
+                                @php
+                                    $img = $photo->img;
+                                @endphp
+                            @endif
+                        @endforeach
+
+    <a  href="post/{{$post->id }}" class="css-aogond">
+        <div class="css-tdboqd_1">
+            <img src="{{ asset('/storage/' . $img) }}" class="css-ac32pf" width="70px">
         </div>
         <div class="css-164dfnt">
             <div class="css-miqdd3">
                 <p class="css-zma87s er34gjf0">
-                  Содержание поста
+                  {{ $post->title }}
                 </p>
             </div>
             <div class="css-1fulx0y">
                 <p class="css-opmpga er34gjf0">
-                    1250 грн.
+                    {{ $post->address }}
                 </p>
                 <p class="css-o2pjpx er34gjf0">
-                    ID: 778556826
+                    ID: <span id="post_id">{{ $post->id }}</span>
                 </p>
             </div>
         </div>
     </a>
 </div>
+@endif

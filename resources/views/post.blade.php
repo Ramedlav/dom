@@ -203,6 +203,7 @@
                                     <form action="{{ route('CreatePostDialog') }}" method="POST" class="pt-1">
 					@csrf
 	                                <input type="hidden" value="{{$post->id}}" name="post_id">
+	                                <input type="hidden" value="{{$post->user_id}}" name="sub_id">
 {{--
                             @if($errors->any())
                                 <div class="alert alert-danger">

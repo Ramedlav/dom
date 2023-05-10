@@ -98,6 +98,8 @@ Auth::routes([
     Route::get('/SavedSearch',[PostController::class, 'SavedSearch'])->name('savedsearch')->middleware('auth'),
     Route::post('/setEmailNotify',[PostController::class, 'setEmailNotify'])->name('setEmailNotify')->middleware('auth'),
     Route::post('/getNotify',[MessageController::class, 'getNotify'])->name('getNotify')->middleware('auth'),
+    Route::post('/getChatMessages',[MessageController::class, 'getChatMessages'])->name('getChatMessages')->middleware('auth'),
+    Route::post('/setChatMessages',[MessageController::class, 'setChatMessages'])->name('setChatMessages')->middleware('auth'),
     ]);
 
 

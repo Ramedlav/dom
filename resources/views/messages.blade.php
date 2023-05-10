@@ -54,13 +54,14 @@
                                         </div>
                                         <div class="card-body left-message-card p-0">
                                             <div class="tabs css-1382m1k">
+
                                                     <input type="radio"
                                                             name="tab-btn"
                                                             id="tab-btn-1"
                                                             value=""
                                                             checked
-                                                            class="message-checkbox">
-                                                    <label for="tab-btn-1" class=" me-3">
+                                                            class="message-checkbox d-none">
+                                                    <label for="tab-btn-1" class=" me-3 d-none">
                                                         <h4 class="mb-0">uotgoing</h4>
                                                     </label>
 
@@ -68,10 +69,12 @@
                                                             name="tab-btn"
                                                             id="tab-btn-2"
                                                             value=""
-                                                            class="message-checkbox">
-                                                    <label for="tab-btn-2" class=""><h4 class="mb-0">incoming</h4></label>
+                                                            class="message-checkbox d-none">
+                                                    <label for="tab-btn-2" class=" d-none"><h4 class="mb-0">incoming</h4></label>
+
 
                                                 <div id="content-1" class="mt-2 pb-0 tab-message-contant">
+{{--
                                                     <p class="css-19tty9x">
                                                        {{__('Unread') }}
                                                     </p>
@@ -95,133 +98,10 @@
                                                     <p class="css-19tty9x er34gjf0">
                                                         {{__('Read') }}
                                                     </p>
-                                                    <ul class="css-1ks0ui5">
-                                                        <div class="css-1cwveox">
-                                                            <a class="css-1b3tih6" href="#">
-                                                                <div class="css-14wbffc">
-                                                                    <div class="css-6q6hwe">
-                                                                        <img src="" class="css-zm0vdp d-none">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="css-1v35hpt">
-                                                                    <div class="css-miqdd3">
-                                                                        <p class="css-8sr34w er34gjf0">
-                                                                            Валентина
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="css-miqdd3">
-                                                                        <p class="css-1ne2gb9 er34gjf0">
-                                                                            Ботинки женские зимние кожаные на меху.
-                                                                        </p>
-                                                                    </div>
-                                                                    <p class="css-h2zp4w ">
-                                                                        Дякую. Великі.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="css-17jarbz">
-                                                                    <p class="css-1gdtsar">
-                                                                        18.01
-                                                                    </p>
-                                                                    <button class="css-35mg35">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                             viewBox="0 0 20 20" style="height: 20px; width: 20px;">
-                                                                             <g fill="none" fill-rule="evenodd">
-                                                                                <path d="M0 0h20v20H0z"></path>
-                                                                                <path fill="#7F9799" d="M13.889 1.667c1.121 0 2.038.874 2.107 1.977l.004.134V17.5l-6.333-3.167L3.333 17.5V3.778c0-1.121.874-2.038 1.978-2.107l.133-.004h8.445zm0 1.583H5.444a.528.528 0 00-.522.45l-.005.078v11.16l4.75-2.375 4.75 2.375V3.778a.528.528 0 00-.45-.522l-.078-.006z"></path>
-                                                                            </g>
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="css-1o8agjl">
-                                                            <a class="css-1b3tih6" href="#">
-                                                                <div class="css-14wbffc">
-                                                                    <div class="css-6q6hwe">
-                                                                        <img src="" class="css-zm0vdp d-none">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="css-1v35hpt">
-                                                                    <div class="css-miqdd3">
-                                                                        <p class="css-8sr34w er34gjf0">
-                                                                            Валентина
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="css-miqdd3">
-                                                                        <p class="css-1ne2gb9 er34gjf0">
-                                                                            Ботинки женские зимние кожаные на меху.
-                                                                        </p>
-                                                                    </div>
-                                                                    <p class="css-h2zp4w ">
-                                                                        Дякую. Великі.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="css-17jarbz">
-                                                                    <p class="css-1gdtsar">
-                                                                        18.01
-                                                                    </p>
-                                                                    <button class="css-35mg35">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                             viewBox="0 0 20 20" style="height: 20px; width: 20px;">
-                                                                             <g fill="none" fill-rule="evenodd">
-                                                                                <path d="M0 0h20v20H0z"></path>
-                                                                                <path fill="#7F9799" d="M13.889 1.667c1.121 0 2.038.874 2.107 1.977l.004.134V17.5l-6.333-3.167L3.333 17.5V3.778c0-1.121.874-2.038 1.978-2.107l.133-.004h8.445zm0 1.583H5.444a.528.528 0 00-.522.45l-.005.078v11.16l4.75-2.375 4.75 2.375V3.778a.528.528 0 00-.45-.522l-.078-.006z"></path>
-                                                                            </g>
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="css-1o8agjl">
-                                                            <a class="css-1b3tih6" href="#">
-                                                                <div class="css-14wbffc">
-                                                                    <div class="css-6q6hwe">
-                                                                        <img src="" class="css-zm0vdp d-none">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="css-1v35hpt">
-                                                                    <div class="css-miqdd3">
-                                                                        <p class="css-8sr34w er34gjf0">
-                                                                            Валентина
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="css-miqdd3">
-                                                                        <p class="css-1ne2gb9 er34gjf0">
-                                                                            Ботинки женские зимние кожаные на меху.
-                                                                        </p>
-                                                                    </div>
-                                                                    <p class="css-h2zp4w ">
-                                                                        Дякую. Великі.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="css-17jarbz">
-                                                                    <p class="css-1gdtsar">
-                                                                        18.01
-                                                                    </p>
-                                                                    <button class="css-35mg35">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                             viewBox="0 0 20 20" style="height: 20px; width: 20px;">
-                                                                             <g fill="none" fill-rule="evenodd">
-                                                                                <path d="M0 0h20v20H0z"></path>
-                                                                                <path fill="#7F9799" d="M13.889 1.667c1.121 0 2.038.874 2.107 1.977l.004.134V17.5l-6.333-3.167L3.333 17.5V3.778c0-1.121.874-2.038 1.978-2.107l.133-.004h8.445zm0 1.583H5.444a.528.528 0 00-.522.45l-.005.078v11.16l4.75-2.375 4.75 2.375V3.778a.528.528 0 00-.45-.522l-.078-.006z"></path>
-                                                                            </g>
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </ul>
-
-
-                                                    @foreach($out as $out_dialog)
-                                                        <a href="{{route('ShowDialog',['dialog_id'=> $out_dialog->id])}}">{{__('open')}}</a><br>
-                                                        @foreach($out_dialog->messages as $outmessage)
-                                                            @if($outmessage->user->id == Auth::user()->id)
-                                                                <div class="me" style="text-align:right; background-color: #98FB99;">@else<div class="you" style="text-align:left; background-color:#87CEFA;">
-                                                            @endif
-                                                            {{$outmessage->user->name}}: {{$outmessage->message}} - {{$outmessage->created_at}}<br></div>
-                                                        @endforeach
-                                                    @endforeach
+--}}
+						<div id="chat_users">
+	                                                    @include('messages-parts.chat-users')
+						</div>
                                                 </div>
                                                 <div id="content-2" class="mt-2 pb-0 tab-message-contant">
                                                     <div class="d-none">
@@ -286,15 +166,15 @@
                                             </div>
                                         </div>
                                         <div class="card messages-card py-0">
-                                                <div class="card-header messages-card-header p-0">
+                                                <div class="card-header messages-card-header p-0" id="chat_header">
                                                     @include('messages-parts.chat-field-header')
                                                 </div>
-                                                <div class="card-body card-field-massages">
+                                                <div class="card-body card-field-massages" id="chat_messages">
                                                     @include('messages-parts.chat-field')
                                                 </div>
                                                 <div class="card-footer p-0 border-0">
                                                     @include('messages-parts.chat-form')
-                                                </div>
+						</div>
                                         </div>
                                     </div>
                                 </div>
@@ -309,6 +189,62 @@
 
 </section>
 @endsection
+
+<script>
+function getChatMessages(dialog_id) {
+	Data = new FormData();
+	Data.append('dialog_id', dialog_id);
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getChatMessages') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+		$('#chat_header').html(data.header);
+		$('#chat_messages').html(data.content);
+		$('#chat_footer').removeClass('d-none');
+		getNotify();
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+
+function setChatMessages() {
+	post_id = $('#post_id').text();
+	user_id = $('#dialog_user_id').val();
+	sub_id = $('#dialog_sub_id').val();
+	Data = new FormData();
+	Data.append('post_id', post_id);
+	Data.append('message', $('#content_message').val());
+	Data.append('user_id', user_id);
+	Data.append('sub_id', sub_id);
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('setChatMessages') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+		$('#chat_header').html(data.header);
+		$('#chat_messages').html(data.content);
+		$('#chat_users').html(data.users);
+		$('#content_message').val('');
+console.log(data.users);
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+
+</script>
 
 
 {{-- <div class="container">

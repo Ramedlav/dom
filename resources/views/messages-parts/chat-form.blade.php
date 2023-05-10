@@ -1,4 +1,4 @@
-<div class=" css-15ck3pw">
+<div class="d-none css-15ck3pw" id="chat_footer">
     <div class="css-ofyax4">
         <button class="css-25032o">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@
             @csrf
             <div class="css-ygggrs">
                 <div class="css-ocljxl">
-                    <div class="css-g4yxqq">
+                    <div class="css-g4yxqq d-none">
                         <fieldset aria-hidden="false" class="css-n8ph6a">
                             <div class="css-1povu0j">
                                 <label class="css-1nvys81" for="image-upload">
@@ -57,23 +57,24 @@
                     </div>
                     <textarea rows="1"
                               name="content"
+			      id="content_message"
                               placeholder="{{__('Write a notification...')}}"
                               class="css-1kjjac5"
                               style="margin-right: -16px;"></textarea>
                     <div class="css-qxaskb">
                         <input type="hidden" name="user">
-                        <button aria-hidden="true"
-                                disabled=""
+                        <button 
+                                
                                 aria-label="Submit message"
-                                type="submit"
-                                class="css-2zsnaw"
-                                {{-- class="css-9x8rrm" --}}
+                                type="button"
+                                class="css-9x8rrm"
+				onclick="setChatMessages()"
+                                {{-- class="css-2zsnaw" --}}
                                 style="cursor: pointer;">
-                                <svg width="1em"
-                                     height="1em"
+                                <svg width="24px"
+                                     height="24px"
                                      viewBox="0 0 24 24"
                                      xmlns="http://www.w3.org/2000/svg"
-                                     aria-hidden="true"
                                      class="css-15wjrqi">
                                      <path d="m2 3 3.287 8.998L2 20.995l20-8.997L2 3zm3.61 3.883 10.225 4.6H7.292l-1.682-4.6zm1.682 5.63h8.543l-10.225 4.6 1.682-4.6z" fill="currentColor" fill-rule="evenodd"></path>
                                  </svg>
@@ -84,7 +85,6 @@
         </form>
     </div>
 <div>
-
 
 
 
