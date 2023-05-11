@@ -5,7 +5,6 @@
 <ul class="css-1wq2uf9">
 @php $date = ''; @endphp
 @foreach($dialog->messages as $message)
-	@if (Auth::user()->id == $message->user_id)
     <li class="css-zt18dv">
 	@if ($date != date('Ymd', strtotime($message->updated_at)))
         <header class="css-rib2pn">
@@ -13,6 +12,7 @@
         </header>
 	@php $date=date('Ymd', strtotime($message->updated_at)); @endphp
 	@endif
+	@if (Auth::user()->id == $message->user_id)
         <div class="css-1ub42cm">
             <div class="css-vxyeac">
                 <div class="css-eehlqd">
@@ -44,15 +44,7 @@
                 </p>
             </div>
         </div>
-    </li>
 	@else
-    <li class="css-zt18dv">
-	@if ($date != date('Ymd', strtotime($message->updated_at)))
-        <header class="css-rib2pn">
-            {{ date('d.m.Y', strtotime($message->updated_at)) }}
-        </header>
-	@php $date=date('Ymd', strtotime($message->updated_at)); @endphp
-	@endif
         <div class="css-13thiek">
             <div class="css-h4z0cl">
                 <div class="css-16vxik6">
@@ -71,8 +63,8 @@
                 </p>
             </div>
         </div>
-    </li>
 	@endif
+    </li>
 @endforeach
 </ul>
 @endif

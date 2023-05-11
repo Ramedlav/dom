@@ -16,7 +16,7 @@
                             @endif
                             <div class="row">
                                 <h2 class="css-1q56cn px-3">{{__('Dialogs') }}</h2>
-                                <div class="col-12 col-lg-4 px-0 px-md-3">
+                                <div class="col-12 col-lg-4 px-0 px-md-3" id="chat_users_list">
                                     <div class="card messages-card pt-0">
                                         <div class="card-header css-1qi2050">
                                             <div class="css-1c5er82">
@@ -153,7 +153,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12  col-lg-8 px-0 px-md-3">
+                                <div class="col-12  col-lg-8 px-0 px-md-3 d-none d-sm-block" id="chat_messages_div">
                                     <div class="css-1ua02hb  p-0 ml-0 ml-md-3">
                                         <div class=" card messages-card css-1ua02hb py-0  d-none">
                                             <div  class="css-1pmjsyo">
@@ -191,9 +191,39 @@
 @endsection
 
 <script>
+window.onresize = start;
+function start(){
+	if (document.documentElement.clientWidth < 500) {
+		$('#chat_messages_div').addClass('d-none');
+		$('#chat_users_list').removeClass('d-none');
+	} else {
+		$('#chat_messages_div').removeClass('d-none');
+		$('#chat_users_list').removeClass('d-none');
+	}
+}
+
+function chat_messages_back() {
+	$('#chat_messages_div').addClass('d-none');
+	$('#chat_users_list').removeClass('d-none');
+}
+
 setInterval(checkChatMessages, 10000);
 
 function getChatMessages(dialog_id) {
+//	$('#chat_header').html('');
+//	$('#chat_messages').html('');
+//	$('#chat_users').html('');
+
+	if ($('#chat_messages_div').is(':hidden')) {
+		$('#chat_messages_div').removeClass('d-none');
+		$('#chat_users_list').addClass('d-none');
+	}
+/*
+ else {
+		$('#chat_messages_div').addClass('d-none');
+		$('#chat_users_list').removeClass('d-none');
+	}
+*/
 	Data = new FormData();
 	Data.append('dialog_id', dialog_id);
         var path = $('#program_folder').val();
