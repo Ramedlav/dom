@@ -19,7 +19,16 @@ class MessageController extends Controller
         $user_id = Auth::user()->id;
         $dialogs =  Dialog::where('user_id',$user_id)->orderBy('updated_at','desc'); // User::find($user_id)->dialogs->orderBy('created_at'.'desc');
         $out = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();
-      //dd($out);
+
+	$dialog_messages=array();
+	foreach ($out as $dialog) foreach($dialog->messages as $message) if ($message->user_id <> $user_id && $message->read == 0) {
+		if (!isset($dialog_messages[$dialog->id])) $dialog_messages[$dialog->id]=0;
+		$dialog_messages[$dialog->id]+=1;
+	}
+	foreach ($out as $dialog) {
+		$dialog->count=0;
+		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
+	}
         return view('messages',compact('dialogs', 'out'));
     }
 
@@ -101,23 +110,33 @@ class MessageController extends Controller
         $dialogs = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();
 	$count=0;
 	foreach ($dialogs as $dialog) foreach($dialog->messages as $message) if ($message->user_id <> $user_id && $message->read == 0) $count+=1;
-//	$count = Message::where('read',0)->where('user_id', $request->user_id)->count();
+	User::where('id',$user_id)->update(['updated_at'=>now()]);
 	echo $count;
     }
 
     public function getChatMessages(Request $request){
         $user_id = Auth::user()->id;
+	Message::where('dialog_id',$request->dialog_id)->where('user_id','<>',Auth::user()->id)->update(['read'=>1]);
+        $dialogs = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();
+	$dialog_messages=array();
+	foreach ($dialogs as $dialog) foreach($dialog->messages as $message) if ($message->user_id <> $user_id && $message->read == 0) {
+		if (!isset($dialog_messages[$dialog->id])) $dialog_messages[$dialog->id]=0;
+		$dialog_messages[$dialog->id]+=1;
+	}
+
         $out = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();
+	foreach ($out as $dialog) {
+		$dialog->count=0;
+		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
+	}
         $dialog = Dialog::find($request->dialog_id);
 	$post = Post::find($dialog->post_id);
 	if (Auth::user()->id == $dialog->user_id) $user = Auth::user()->find($dialog->sub_id);
 	else $user = Auth::user()->find($dialog->user_id);
-	$messages=$dialog->messages;
-	Message::where('dialog_id',$dialog->id)->where('user_id','<>',Auth::user()->id)->update(['read'=>1]);
 
 	$header=view('messages-parts.chat-field-header', compact('dialog', 'post', 'user'))->render();
 	$content=view('messages-parts.chat-field', compact('dialog', 'post', 'user'))->render();
-	$users=view('messages-parts.chat-users', compact('out'))->render();
+	$users=view('messages-parts.chat-users', compact('out','user'))->render();
         return response()->json([
             'header' => $header,
             'content' => $content, 
@@ -152,5 +171,26 @@ class MessageController extends Controller
 
 	$request->dialog_id = $model->id;
 	return $this->getChatMessages($request);
+    }
+
+    public function checkChatMessages(Request $request){
+        $user_id = Auth::user()->id;
+        $dialogs = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();
+	$dialog_messages=array();
+	foreach ($dialogs as $dialog) foreach($dialog->messages as $message) if ($message->user_id <> $user_id && $message->read == 0) {
+		if (!isset($dialog_messages[$dialog->id])) $dialog_messages[$dialog->id]=0;
+		$dialog_messages[$dialog->id]+=1;
+	}
+
+        $out = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();
+	foreach ($out as $dialog) {
+		$dialog->count=0;
+		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
+	}
+	$users=view('messages-parts.chat-users', compact('out'))->render();
+        return response()->json([
+            'users' => $users, 
+            ]);
+
     }
 }

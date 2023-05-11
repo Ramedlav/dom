@@ -67,6 +67,9 @@ Auth::routes([
 
     Route::get('/profile/',[MyProfileController::class, 'show'])->name('profile')->middleware('auth'),
     Route::post('/profile/',[MyProfileController::class, 'save'])->name('saveprofile')->middleware('auth'),
+    Route::post('/updateuserphoto/',[MyProfileController::class, 'updatePhoto'])->middleware('auth'),
+    Route::post('/deleteuserphoto/',[MyProfileController::class, 'deletePhoto'])->middleware('auth'),
+
     Route::get('/map/',[MapController::class, 'show'])->name('showmap')->middleware('auth'),
 
     Route::get('/myposts/',[PostController::class, 'myPosts'])->name('showMy')->middleware('auth'),
@@ -100,6 +103,7 @@ Auth::routes([
     Route::post('/getNotify',[MessageController::class, 'getNotify'])->name('getNotify')->middleware('auth'),
     Route::post('/getChatMessages',[MessageController::class, 'getChatMessages'])->name('getChatMessages')->middleware('auth'),
     Route::post('/setChatMessages',[MessageController::class, 'setChatMessages'])->name('setChatMessages')->middleware('auth'),
+    Route::post('/checkChatMessages',[MessageController::class, 'checkChatMessages'])->name('checkChatMessages')->middleware('auth'),
     ]);
 
 

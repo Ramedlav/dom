@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -25,6 +24,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'google_id',
+	'saved_search',
     ];
 
     /**
@@ -35,6 +35,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -44,6 +46,18 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+   /** 
+     * Аксессоры для добавления в массив модели.
+     *
+     * @var array
+     */
+
+    protected $appends = [
+
+        'profile_photo_url',
+
     ];
 
     public function posts(){
@@ -68,5 +82,14 @@ class User extends Authenticatable
     public function logo()
     {
         return $this->hasOne(Logo::class);
+    }
+
+
+    public function onLine($user_id)
+    {
+	$user=User::find($user_id);
+	$up = strtotime($user->updated_at);
+	$minutes = floor(abs(strtotime(now())-$up)/60);
+	return ($minutes < 2);
     }
 }

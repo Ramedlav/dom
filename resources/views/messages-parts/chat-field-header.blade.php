@@ -5,7 +5,7 @@
             <div class="d-flex me-4 me-lg-0 my-3 my-lg-0">
                 <div class="css-14wbffc">
                     <div class="css-6q6hwe">
-                        <img src="" class="css-zm0vdp d-none">
+                        <img src="{{ asset('/storage/usersphoto') }}/{{$user->id}}.jpg" class="css-zm0vdp">
                     </div>
                 </div>
 
@@ -17,7 +17,11 @@
                     </div>
                     <p data-cy="conversation-user-details-last-seen" class="css-ekdwwt er34gjf0">
                         <span class="css-1t0qnkx">
-                            Онлайн в 16:07
+				@if (Auth::user()->onLine($user->id))
+					{{ __('Online') }}
+				@else
+					{{ __('Offline') }}  {{ date('d.m.Y H:i', strtotime($user->updated_at)) }}
+				@endif
                         </span>
                     </p>
                 </div>

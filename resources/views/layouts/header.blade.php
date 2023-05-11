@@ -8,7 +8,7 @@
         </a>
 
         <div class=" d-flex ">
-            <div class="d-md-none me-3">
+            <div class="d-md-none me-1 btn-group">
                 <a href="{{ route('createCreateForm') }}" class="css-4h0vko css-4h0vko-mobile d-flex align-items-center  ml-auto" title="">
                     <div class="css-1y934yh">
                         <svg aria-hidden="true"
@@ -24,6 +24,30 @@
 
                     </div>
                 </a>
+                <div class="css-4h0vko2 css-4h0vko2-mobile">
+		        <li class="nav-item dropdown d-flex align-items-center">
+                        <a id="langDropdown2"
+                           class="nav-link dropdown-toggle d-flex align-items-center"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false" v-pre>
+                            <div>
+                                {{-- <img class="img-thumbnail1" src="{{ asset('/storage/flags/' . App()->getLocale().'.png' ) }}"> --}}
+                                <span class="fi fi-{{ App()->getLocale() }} fis"></span>
+                            </div>
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown2">
+                            <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis"></span> English</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis"></span> Polska</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><span class="fi fi-nl fis"></span> Nederlands</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><span class="fi fi-ua fis"></span> Українська</a>
+                        </div>
+
+		        </li>
+                 </div>
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -97,7 +121,7 @@
                         </div>
                     </li>
                 @endguest
-		        <li class="nav-item dropdown d-flex align-items-center">
+		        <li class="nav-item dropdown d-flex align-items-center  d-none d-sm-block">
                         <a id="langDropdown"
                            class="nav-link dropdown-toggle d-flex align-items-center"
                            href="#"

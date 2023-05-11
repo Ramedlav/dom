@@ -36,6 +36,8 @@ class FaceBookController extends Controller
                     'facebook_id' => $user->getId(),
                     'password' => Hash::make($user->getName().'@'.$user->getId())
                 ]);
+		$user_id=$newUser->id;
+		copy(public_path()."/storage/usersphoto/0.jpg", public_path()."/storage/usersphoto/$user_id.jpg");
        		Auth::loginUsingId($newUser->id);
 /*
 

@@ -140,3 +140,58 @@
   border-color: #454d55;
 }
 
+.notification-container {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.notification-container__text {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  color: #fff;
+  background-color: #808080;
+  border-radius: 22px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
+}
+.sphere {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 5%;
+  position: relative;
+  display: inline-block;
+  margin: 5%;
+}
+.sphere::after {
+  background-color: rgba(255, 255, 255, 0.3);
+  content: '';
+  height: 45%;
+  width: 12%;
+  position: absolute;
+  top: 4%;
+  left: 15%;
+  border-radius: 50%;
+  transform: rotate(40deg);
+}

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\UsersRequest;
 
 class UserController extends Controller
 {
@@ -45,7 +45,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function save(ProfileRequest $request)
+    public function save(UsersRequest $request)
     {
         $user = User::find($request->user_id);
 	$user->name=$request->name;

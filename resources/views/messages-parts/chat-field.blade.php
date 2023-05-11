@@ -1,4 +1,5 @@
 @if (!empty($dialog))
+<input type="hidden" id="dialog_id" value="{{ $dialog->id }}">
 <input type="hidden" id="dialog_user_id" value="{{ $dialog->user_id }}">
 <input type="hidden" id="dialog_sub_id" value="{{ $dialog->sub_id }}">
 <ul class="css-1wq2uf9">

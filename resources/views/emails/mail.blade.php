@@ -7,4 +7,4 @@
 {{ __('Email: ') }} {{ $email }} <br>
 {{ __('Phone: ') }} {{ $phone }} <br>
 {{ __('Message: ') }} {{ $new_message }}<br>
-{{ __('URL: ') }} {{ route('ShowDialog',['dialog_id'=>$dialog_id]) }}<br>
+{{ __('URL: ') }} {{ route('ShowDialogs') }}<br>

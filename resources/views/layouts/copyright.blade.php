@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12 col-sm-3">
             <div>
-                <img src="https://freebe.space/img/homepage/image2.jpeg" alt="" width="100%">
+                <img src="https://freebe.space/img/homepage/image4.jpg" alt="" width="100%">
             </div>
 	</div>
             <div class="col-12 col-sm-3 ">
@@ -35,8 +35,8 @@
 	<div class="row">
         <div class="col-12">
             <p class="small no-margin text-center sm-pull-reset p-2">
-                <span class="hint-text">Copyright &copy; 2023 </span>
-                <span class="font-montserrat">{{ config('app.name', 'PLACE') }}</span>.
+                <span class="hint-text">Copyright &copy; <?php echo (date("Y") != 2023)?"2023-":""; ?>2023 </span>
+                <span class="font-montserrat">{{ config('app.name', 'FreeBeSpace') }}</span>.
                 <span class="hint-text">{{ __('All right reserved') }}</span>
             </p>
         </div>

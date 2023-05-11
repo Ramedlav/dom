@@ -191,6 +191,8 @@
 @endsection
 
 <script>
+setInterval(checkChatMessages, 10000);
+
 function getChatMessages(dialog_id) {
 	Data = new FormData();
 	Data.append('dialog_id', dialog_id);
@@ -205,6 +207,7 @@ function getChatMessages(dialog_id) {
             success: function(data){
 		$('#chat_header').html(data.header);
 		$('#chat_messages').html(data.content);
+		$('#chat_users').html(data.users);
 		$('#chat_footer').removeClass('d-none');
 		getNotify();
             },
@@ -236,7 +239,6 @@ function setChatMessages() {
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
 		$('#content_message').val('');
-console.log(data.users);
             },
             error: function(data){
 		console.log(data);
@@ -244,6 +246,35 @@ console.log(data.users);
         });
 }
 
+function checkChatMessages() {
+	Data = new FormData();
+	Data.append('dialog_id', 0);
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('checkChatMessages') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+//		$('#chat_header').html(data.header);
+//		$('#chat_messages').html(data.content);
+//		$('#chat_footer').removeClass('d-none');
+		if ($('#chat_users').html() != data.users){
+			$('#chat_users').html(data.users);
+			getNotify();
+			if (!$('#chat_footer').hasClass('d-none')) {
+				dialog_id=$('#dialog_id').val();
+				getChatMessages(dialog_id);
+			}
+		}
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
 </script>
 
 

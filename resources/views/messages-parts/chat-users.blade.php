@@ -4,8 +4,21 @@
                                                             <a class="css-1b3tih6" href="#" onclick="getChatMessages({{ $out_dialog->id }})">
                                                                 <div class="css-14wbffc">
                                                                     <div class="css-6q6hwe">
-                                                                        <img src="" class="css-zm0vdp d-none">
+							@if (Auth::user()->id == $out_dialog->user_id)
+                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->sub_id}}.jpg" class="css-zm0vdp d-none2">
+							@else
+                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->user_id}}.jpg" class="css-zm0vdp d-none2">
+							@endif
                                                                     </div>
+							@if (Auth::user()->id == $out_dialog->user_id)
+								@if (Auth::user()->onLine($out_dialog->sub_id))
+                                                                    <div class="css-6q6hwe-after"></div>
+								@endif
+							@else
+								@if (Auth::user()->onLine($out_dialog->user_id))
+                                                                    <div class="css-6q6hwe-after"></div>
+								@endif
+							@endif
                                                                 </div>
                                                         @foreach($out_dialog->messages as $outmessage)
 							@if ($loop->last)
@@ -35,7 +48,13 @@
 	                                                                        {{ date('d.m.Y',strtotime($outmessage->created_at)) }}
 									@endif
                                                                     </p>
-                                                                    <button class="css-35mg35">
+								@if ($out_dialog->count > 0)
+									<div class="notification-container">
+									  <span class="notification-container__text">{{ $out_dialog->count }}</span>
+									</div>
+								@endif
+
+                                                                    <button class="css-35mg35 d-none">
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                              viewBox="0 0 20 20" style="height: 20px; width: 20px;">
                                                                              <g fill="none" fill-rule="evenodd">
