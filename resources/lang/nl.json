@@ -445,7 +445,7 @@
 "My dialogs":"Mijn dialogen",
 "My favorites":"Mijn favorieten",
 "My saved search":"Mijn opgeslagen zoekopdracht",
-"To add a post":"Om een bericht toe te voegen",
+"To add a post":"Bericht toevoegen",
 "Dialog":"Dialoogvenster",
 "write your message":"schrijf je bericht",
 "send":"versturen",
@@ -858,7 +858,7 @@
 "User": "Gebruiker",
 "Users": "Gebruikers",
 "Enabled": "Ingeschakeld",
-"Disabled": "Gehandicapt"
-
-
+"Disabled": "Gehandicapt",
+"min price": "minimale prijs",
+"max price": "maximale prijs"
 }

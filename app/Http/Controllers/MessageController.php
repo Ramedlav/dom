@@ -27,6 +27,13 @@ class MessageController extends Controller
 	}
 	foreach ($out as $dialog) {
 		$dialog->count=0;
+                $img='photo/agent.jpg';
+		$post=Post::find($dialog->post_id);
+                foreach($post->photos as $photo) {
+			if ($img == 'photo/agent.jpg') $img = $photo->img;
+                 }
+		$dialog->img=$img;
+		$dialog->address=$post->address;
 		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
 	}
         return view('messages',compact('dialogs', 'out'));
@@ -102,7 +109,8 @@ class MessageController extends Controller
 	$phone = $request->phone;
 	$ms = $request->message;
 	Mail::to($user_email)->send(new messageDialog($user_name, $name, $email, $phone, $ms, $post, $model->id));
-        return redirect()->to(route('ShowDialog',['dialog_id'=>$model->id]));
+        return redirect()->back();
+//to(route('ShowDialogs'));
     }
 
     public function getNotify(Request $request){
@@ -128,6 +136,13 @@ class MessageController extends Controller
 	foreach ($out as $dialog) {
 		$dialog->count=0;
 		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
+                $img='photo/agent.jpg';
+		$post=Post::find($dialog->post_id);
+                foreach($post->photos as $photo) {
+			if ($img == 'photo/agent.jpg') $img = $photo->img;
+                 }
+		$dialog->img=$img;
+		$dialog->address=$post->address;
 	}
         $dialog = Dialog::find($request->dialog_id);
 	$post = Post::find($dialog->post_id);
@@ -186,6 +201,13 @@ class MessageController extends Controller
 	foreach ($out as $dialog) {
 		$dialog->count=0;
 		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
+                $img='photo/agent.jpg';
+		$post=Post::find($dialog->post_id);
+                foreach($post->photos as $photo) {
+			if ($img == 'photo/agent.jpg') $img = $photo->img;
+                 }
+		$dialog->img=$img;
+		$dialog->address=$post->address;
 	}
 	$users=view('messages-parts.chat-users', compact('out'))->render();
         return response()->json([

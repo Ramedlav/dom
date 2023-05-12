@@ -68,6 +68,21 @@
                                                         @endforeach
 
                                                             </a>
+	<div>
+	    <a  href="post/{{$out_dialog->post_id }}" class="css-aogond">
+        <div class="css-tdboqd_1">
+            <img src="{{ asset('/storage/' . $out_dialog->img) }}" class="css-ac32pf" width="70px">
+        </div>
+        <div class="css-164dfnt">
+            <div class="css-1fulx0y">
+                <p class="css-opmpga er34gjf0">
+                    {{ $out_dialog->address }}
+                </p>
+            </div>
+        </div>
+	</a>
+        </div>
+
                                                         </div>
                                                     @endforeach
 						    </ul>

@@ -445,7 +445,7 @@
 "My dialogs":"Moje dialogi",
 "My favorites":"Moje ulubione",
 "My saved search":"Moje zapisane wyszukiwanie",
-"To add a post":"Aby dodać post",
+"To add a post":"Dodaj wpis",
 "Dialog":"Dialog",
 "write your message":"napisz wiadomość",
 "send":"wysłać",
@@ -858,5 +858,8 @@
 "User": "Użytkownik",
 "Users": "Użytkownicy",
 "Enabled": "Włączony",
-"Disabled": "Wyłączony"
+"Disabled": "Wyłączony",
+"min price": "minimalna cena",
+"max price": "maksymalna cena"
+
 }

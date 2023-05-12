@@ -193,6 +193,7 @@
 <script>
 window.onresize = start;
 function start(){
+return;
 	if (document.documentElement.clientWidth < 500) {
 		$('#chat_messages_div').addClass('d-none');
 		$('#chat_users_list').removeClass('d-none');
@@ -247,7 +248,35 @@ function getChatMessages(dialog_id) {
         });
 }
 
+function getChatMessages2(dialog_id) {
+	Data = new FormData();
+	Data.append('dialog_id', dialog_id);
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getChatMessages') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+		if (dialog_id == $('#dialog_id').val()) {
+			$('#chat_header').html(data.header);
+			$('#chat_messages').html(data.content);
+		}
+		$('#chat_users').html(data.users);
+		$('#chat_footer').removeClass('d-none');
+		getNotify();
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+
 function setChatMessages() {
+	if ($('#content_message').val() == '') return;
+	$('#content_message').val('');
 	post_id = $('#post_id').text();
 	user_id = $('#dialog_user_id').val();
 	sub_id = $('#dialog_sub_id').val();
@@ -296,7 +325,7 @@ function checkChatMessages() {
 			getNotify();
 			if (!$('#chat_footer').hasClass('d-none')) {
 				dialog_id=$('#dialog_id').val();
-				getChatMessages(dialog_id);
+				getChatMessages2(dialog_id);
 			}
 		}
             },
