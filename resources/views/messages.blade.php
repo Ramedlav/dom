@@ -276,7 +276,6 @@ function getChatMessages2(dialog_id) {
 
 function setChatMessages() {
 	if ($('#content_message').val() == '') return;
-	$('#content_message').val('');
 	post_id = $('#post_id').text();
 	user_id = $('#dialog_user_id').val();
 	sub_id = $('#dialog_sub_id').val();
@@ -285,6 +284,7 @@ function setChatMessages() {
 	Data.append('message', $('#content_message').val());
 	Data.append('user_id', user_id);
 	Data.append('sub_id', sub_id);
+	$('#content_message').val('');
         var path = $('#program_folder').val();
         $.ajax({
             type: 'POST',
