@@ -15,7 +15,7 @@
             @csrf
             <div class="css-ygggrs">
                 <div class="css-ocljxl">
-                    <div class="css-g4yxqq d-none">
+                    <div class="css-g4yxqq">
                         <fieldset aria-hidden="false" class="css-n8ph6a">
                             <div class="css-1povu0j">
                                 <label class="css-1nvys81" for="image-upload">
@@ -30,10 +30,12 @@
                                     </span>
                                     <input type="file"
                                            id="image-upload"
-                                           multiple=""
-                                           accept=".jpg, .jpeg, .png"
+					   multiple 
+					   onchange="setChatImages()"
+                                           accept="image/*"
                                            class="css-v3axa2">
                                 </label>
+{{--
                                 <label class="css-1nvys81" for="documents-upload">
                                     <span title="{{__('attach a file')}}">
                                         <div class="css-1i2rxeu">
@@ -52,6 +54,7 @@
                                            accept=".jpg, .jpeg, .png"
                                            class="css-v3axa2">
                                 </label>
+--}}
                             </div>
                         </fieldset>
                     </div>

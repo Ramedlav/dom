@@ -183,7 +183,7 @@
                                                        name="images[]"
                                                        id="images"
                                                        class="form-control"
-							accept=".jpg,.jpeg,.png">
+							accept="image/*">
                                             </div>
                                             <div style="position:relative" class="d-none">
                                                 <input   type="hidden" name="" id="images" class="form-control">

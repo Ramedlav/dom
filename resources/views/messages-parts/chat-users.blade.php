@@ -34,7 +34,11 @@
                                                                     </div>
                                                                     <div class="css-miqdd3">
                                                                         <p class="css-1ne2gb9 er34gjf0">
-                                                                            {{ $outmessage->message }}
+									@if (substr($outmessage->message,0,7) == '[image]')
+							                        {{ __('image') }}
+									@else
+							                        {{ $outmessage->message }}
+									@endif
                                                                         </p>
                                                                     </div>
                                                                 </div>

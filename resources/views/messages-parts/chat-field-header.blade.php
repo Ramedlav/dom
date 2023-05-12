@@ -108,11 +108,9 @@
                 <p class="css-opmpga er34gjf0">
                     {{ $post->address }}
                 </p>
-{{--
-                <p class="css-o2pjpx er34gjf0">
+                <p class="css-o2pjpx er34gjf0 d-none">
                     ID: <span id="post_id">{{ $post->id }}</span>
                 </p>
---}}
             </div>
         </div>
     </a>

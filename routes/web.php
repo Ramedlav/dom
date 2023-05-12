@@ -106,6 +106,7 @@ Auth::routes([
     Route::post('/getChatMessages',[MessageController::class, 'getChatMessages'])->name('getChatMessages')->middleware('auth'),
     Route::post('/setChatMessages',[MessageController::class, 'setChatMessages'])->name('setChatMessages')->middleware('auth'),
     Route::post('/checkChatMessages',[MessageController::class, 'checkChatMessages'])->name('checkChatMessages')->middleware('auth'),
+    Route::post('/setChatImages',[MessageController::class, 'setChatImages'])->name('setChatImages')->middleware('auth'),
     ]);
 
 

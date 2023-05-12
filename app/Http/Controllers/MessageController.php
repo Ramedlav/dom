@@ -188,6 +188,38 @@ class MessageController extends Controller
 	return $this->getChatMessages($request);
     }
 
+    public function setChatImages(Request $request){
+        $post = Post::find($request->post_id);
+        $user_id = $request->user_id;
+	$sub_id = $request->sub_id;
+        $model = Dialog::where('post_id', $request->post_id)->where('user_id', $user_id)->where('sub_id', $sub_id)->first();
+	if (!$model) {
+	        $dialog = [
+			'user_id' => $user_id,
+			'sub_id' => $sub_id,
+			'post_id' => $request->post_id,
+		];
+		$model = Dialog::create($dialog);
+	}
+
+        foreach ($request->file as $image){
+	        $filename = md5(time().$image->getClientOriginalName()).".".$image->getClientOriginalExtension();
+		$image->move(public_path().'/storage/dialogs', $filename);
+	        $filename = 'dialogs/'.$filename;
+	        $message = [
+	            'read' => 0,
+	            'dialog_id' => $model->id,
+	            'user_id' =>  Auth::user()->id,
+	            'message' => '[image]'.$filename,
+        	];
+		Message::create($message);
+	}
+	Dialog::where('id',$model->id)->update(['updated_at'=>now()]);
+
+	$request->dialog_id = $model->id;
+	return $this->getChatMessages($request);
+    }
+
     public function checkChatMessages(Request $request){
         $user_id = Auth::user()->id;
         $dialogs = Dialog::where('sub_id',$user_id)->orWhere('user_id',$user_id)->orderBy('updated_at','desc')->get();

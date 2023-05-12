@@ -334,6 +334,39 @@ function checkChatMessages() {
             }
         });
 }
+
+function setChatImages() {
+	post_id = $('#post_id').text();
+	user_id = $('#dialog_user_id').val();
+	sub_id = $('#dialog_sub_id').val();
+	Data = new FormData();
+	Data.append('post_id', post_id);
+	Data.append('message', $('#content_message').val());
+	Data.append('user_id', user_id);
+	Data.append('sub_id', sub_id);
+	$.each($("#image-upload")[0].files,function(key, file){
+		Data.append('file[]',file);
+	});
+        var path = $('#program_folder').val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('setChatImages') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+		$('#chat_header').html(data.header);
+		$('#chat_messages').html(data.content);
+		$('#chat_users').html(data.users);
+		$('#content_message').val('');
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+
 </script>
 
 

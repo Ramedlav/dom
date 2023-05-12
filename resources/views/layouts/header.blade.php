@@ -121,7 +121,7 @@
                         </div>
                     </li>
                 @endguest
-		        <li class="nav-item dropdown d-flex align-items-center  d-none d-sm-block">
+		        <li class="nav-item dropdown d-flex align-items-center  d-none d-sm-block css-4h0vko2 css-4h0vko2-mobile ms-2">
                         <a id="langDropdown"
                            class="nav-link dropdown-toggle d-flex align-items-center"
                            href="#"

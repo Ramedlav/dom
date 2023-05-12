@@ -18,7 +18,11 @@
                 <div class="css-eehlqd">
                     <div class="css-19jk2fi">
                         <span class="css-1s6fcle">
+			@if (substr($message->message,0,7) == '[image]')
+	                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">
+			@else
                             {{ $message->message }}
+			@endif
                         </span>
 			@if ($message->read == 0) @php $gray="_gray"; @endphp @else @php $gray=""; @endphp @endif
                         <div class="css-1r88efg">
@@ -50,7 +54,13 @@
                 <div class="css-16vxik6">
                     <div class="css-19jk2fi">
                         <span class="css-1s6fcle">
+			@if (substr($message->message,0,7) == '[image]')
+			<div class="text-end">
+	                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">
+			</div>
+			@else
                             {{ $message->message }}
+			@endif
                         </span>
                     </div>
                     <div class="css-1j5stzj">
