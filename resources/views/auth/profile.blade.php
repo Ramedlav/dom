@@ -79,7 +79,7 @@
 			</div>
 			<div class="col-md-4 mb-3 text-center thumb form-group">
 				<a href="#">
-					<img class="img-fluid" src="{{ asset('/storage/usersphoto') }}/{{$user->id}}.jpg" onclick="clickUpdatePhoto(event, {{ $user->id }});">
+					<img class="img-fluid" src="{{ asset('/storage/usersphoto') }}/{{$user->id}}{{$user->logo}}" onclick="clickUpdatePhoto(event, {{ $user->id }});">
 					<div class="css-1quvv2t-mp">
 						<a class="css-qczclw edit-link-icon me-2 mt-0"
 							href="#"
@@ -95,7 +95,7 @@
 						</a>
 					</div>
 				</a>
-				<input name="file-{{ $user->id }}[]" type="file" id="photo-file-{{ $user->id }}" class="input input__file" onchange="updatePhoto({{ $user->id }})" accept=".jpg">
+				<input name="file-{{ $user->id }}[]" type="file" id="photo-file-{{ $user->id }}" class="input input__file" onchange="updatePhoto({{ $user->id }})" accept="image/*">
 			</div>
 			</div>
 

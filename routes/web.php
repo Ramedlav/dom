@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PostController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
+    if (Auth::check()) { Auth::user()->lang = $locale; Auth::user()->update(); }
     return redirect()->back();
 })->name('locale');
 

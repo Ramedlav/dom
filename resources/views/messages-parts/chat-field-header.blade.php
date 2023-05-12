@@ -16,7 +16,7 @@
             <div class="d-flex me-4 me-lg-0 my-3 my-lg-0">
                 <div class="css-14wbffc">
                     <div class="css-6q6hwe">
-                        <img src="{{ asset('/storage/usersphoto') }}/{{$user->id}}.jpg" class="css-zm0vdp">
+                        <img src="{{ asset('/storage/usersphoto') }}/{{$user->id}}{{$user->logo}}" class="css-zm0vdp">
                     </div>
                 </div>
 

@@ -5,9 +5,9 @@
                                                                 <div class="css-14wbffc">
                                                                     <div class="css-6q6hwe">
 							@if (Auth::user()->id == $out_dialog->user_id)
-                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->sub_id}}.jpg" class="css-zm0vdp d-none2">
+                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->sub_id}}{{ Auth::user()->find($out_dialog->sub_id)->logo }}" class="css-zm0vdp d-none2">
 							@else
-                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->user_id}}.jpg" class="css-zm0vdp d-none2">
+                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->user_id}}{{ Auth::user()->find($out_dialog->user_id)->logo }}" class="css-zm0vdp d-none2">
 							@endif
                                                                     </div>
 							@if (Auth::user()->id == $out_dialog->user_id)

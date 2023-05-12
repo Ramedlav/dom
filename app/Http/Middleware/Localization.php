@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class Localization
 {
@@ -18,6 +19,9 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
+	if (Auth::check()) {
+	    Session::put('locale', Auth::user()->lang);
+	}
         if (Session::has('locale')) {
             App::setLocale(Session::get('locale'));
         }
