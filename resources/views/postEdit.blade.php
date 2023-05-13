@@ -265,7 +265,7 @@
                                                 <label for="address" class="control-label control-label-req">{{ __('address') }}</label>
                                                 <input type="text"
                                                        name="address"
-                                                       placeholder="address"
+                                                       placeholder="{{ __('address') }}"
                                                        id="address"
                                                        class="form-control map-input mb-3"
                                                        value="{{ $post->address }}">

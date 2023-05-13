@@ -33,7 +33,7 @@
                            data-bs-toggle="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false" v-pre>
-                            <div>
+                            <div class="v-avatar">
                                 {{-- <img class="img-thumbnail1" src="{{ asset('/storage/flags/' . App()->getLocale().'.png' ) }}"> --}}
                                 <span class="fi fi-{{ App()->getLocale() }} fis"></span>
                             </div>
@@ -129,17 +129,17 @@
                            data-bs-toggle="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false" v-pre>
-                            <div>
+                            <div class="v-avatar">
                                 {{-- <img class="img-thumbnail1" src="{{ asset('/storage/flags/' . App()->getLocale().'.png' ) }}"> --}}
                                 <span class="fi fi-{{ App()->getLocale() }} fis"></span>
                             </div>
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                            <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis"></span> English</a>
-                            <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis"></span> Polska</a>
-                            <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><span class="fi fi-nl fis"></span> Nederlands</a>
-                            <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><span class="fi fi-ua fis"></span> Українська</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'gb') }}"><span class="fi fi-gb fis v-avatar1"></span> English</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'pl') }}"><span class="fi fi-pl fis v-avatar1"></span> Polska</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'nl') }}"><span class="fi fi-nl fis v-avatar1"></span> Nederlands</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'ua') }}"><span class="fi fi-ua fis v-avatar1"></span> Українська</a>
                         </div>
 
 		        </li>
@@ -206,3 +206,16 @@ function getNotify() {
 }
 </style>
 @endif
+<style>
+.v-avatar {
+    align-items: center;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+</style>

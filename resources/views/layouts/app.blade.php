@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://freebe.space/img/homepage/favicon_white.ico">
     <!--- Awesomes Fonts --->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"

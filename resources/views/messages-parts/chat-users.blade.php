@@ -4,32 +4,19 @@
                                                             <a class="css-1b3tih6" href="#" onclick="getChatMessages({{ $out_dialog->id }})">
                                                                 <div class="css-14wbffc">
                                                                     <div class="css-6q6hwe">
-							@if (Auth::user()->id == $out_dialog->user_id)
-                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->sub_id}}{{ Auth::user()->find($out_dialog->sub_id)->logo }}" class="css-zm0vdp d-none2">
-							@else
-                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->user_id}}{{ Auth::user()->find($out_dialog->user_id)->logo }}" class="css-zm0vdp d-none2">
-							@endif
+                                                                        <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->avatar }}" class="css-zm0vdp">
                                                                     </div>
-							@if (Auth::user()->id == $out_dialog->user_id)
-								@if (Auth::user()->onLine($out_dialog->sub_id))
+							@if ($out_dialog->online)
                                                                     <div class="css-6q6hwe-after"></div>
-								@endif
-							@else
-								@if (Auth::user()->onLine($out_dialog->user_id))
-                                                                    <div class="css-6q6hwe-after"></div>
-								@endif
 							@endif
+
                                                                 </div>
                                                         @foreach($out_dialog->messages as $outmessage)
 							@if ($loop->last)
                                                                 <div class="css-1v35hpt">
                                                                     <div class="css-miqdd3">
                                                                         <p class="css-8sr34w er34gjf0">
-									@if (Auth::user()->id == $out_dialog->user_id)
-										{{ Auth::user()->find($out_dialog->sub_id)->name }}
-									@else
-										{{ Auth::user()->find($out_dialog->user_id)->name }}
-									@endif
+										{{ $out_dialog->user_name }}
                                                                         </p>
                                                                     </div>
                                                                     <div class="css-miqdd3">
@@ -72,20 +59,20 @@
                                                         @endforeach
 
                                                             </a>
-	<div>
-	    <a  href="post/{{$out_dialog->post_id }}" class="css-aogond">
-        <div class="css-tdboqd_1">
-            <img src="{{ asset('/storage/' . $out_dialog->img) }}" class="css-ac32pf" width="70px">
-        </div>
-        <div class="css-164dfnt">
-            <div class="css-1fulx0y">
-                <p class="css-opmpga er34gjf0">
-                    {{ $out_dialog->address }}
-                </p>
-            </div>
-        </div>
-	</a>
-        </div>
+							<div>
+							    <a  href="post/{{$out_dialog->post_id }}" class="css-aogond">
+							        <div class="css-tdboqd_1">
+							            <img src="{{ asset('/storage/' . $out_dialog->img) }}" class="css-ac32pf" width="70px">
+							        </div>
+							        <div class="css-164dfnt">
+							        <div class="css-1fulx0y">
+							                <p class="css-opmpga er34gjf0">
+							                    {{ $out_dialog->address }}
+							                </p>
+						                </div>
+							        </div>
+							    </a>
+						        </div>
 
                                                         </div>
                                                     @endforeach

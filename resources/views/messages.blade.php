@@ -2,6 +2,8 @@
 @extends('layouts.app')
 
 @section('content')
+<input type="hidden" value="{{ $all_count }}" id="all_count">
+<input type="hidden" value="{{ $state_users }}" id="state_users">
 <section class="all-posts-page">
     <div class="bg-all-posts">
         <div class="container py-4">
@@ -211,10 +213,6 @@ function chat_messages_back() {
 setInterval(checkChatMessages, 10000);
 
 function getChatMessages(dialog_id) {
-//	$('#chat_header').html('');
-//	$('#chat_messages').html('');
-//	$('#chat_users').html('');
-
 	if ($('#chat_messages_div').is(':hidden')) {
 		$('#chat_messages_div').removeClass('d-none');
 		$('#chat_users_list').addClass('d-none');
@@ -240,6 +238,7 @@ function getChatMessages(dialog_id) {
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
 		$('#chat_footer').removeClass('d-none');
+		$('#chat_messages').scrollTop($('#chat_messages').height());
 		getNotify();
             },
             error: function(data){
@@ -298,6 +297,7 @@ function setChatMessages() {
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
 		$('#content_message').val('');
+		$('#chat_messages').scrollTop($('#chat_messages').prop('scrollHeight'));
             },
             error: function(data){
 		console.log(data);
@@ -320,7 +320,9 @@ function checkChatMessages() {
 //		$('#chat_header').html(data.header);
 //		$('#chat_messages').html(data.content);
 //		$('#chat_footer').removeClass('d-none');
-		if ($('#chat_users').html() != data.users){
+		if (($('#all_count').val() != data.all_count) || ($('#state_users').val() != data.state_users)){
+			$('#all_count').val(data.all_count);
+			$('#state_users').val(data.state_users);
 			$('#chat_users').html(data.users);
 			getNotify();
 			if (!$('#chat_footer').hasClass('d-none')) {
@@ -359,6 +361,7 @@ function setChatImages() {
 		$('#chat_header').html(data.header);
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
+		$('#chat_messages').scrollTop($('#chat_messages').prop('scrollHeight'));
 		$('#content_message').val('');
             },
             error: function(data){
@@ -419,11 +422,6 @@ function setChatImages() {
                                 @endforeach
                             </div>
                         </div>
-
-
-                   тут будут диалоги пользователя
-
-
                 </div>
             </div>
         </div>
