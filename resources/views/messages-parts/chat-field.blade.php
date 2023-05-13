@@ -35,6 +35,7 @@
                                  <path fill="currentColor" fill-rule="evenodd" d="m21.586 5-1.271 1.3-9.316 9.53-1.585-1.622 6.315-6.461L17 6.447V5h-1.415l-1.27 1.3L5 15.83l-1.315-1.345-1.271-1.3H1v1.446l1.27 1.3L4.293 18h1.414L8 15.655 10.293 18h1.414L21.729 7.747 23 6.447V5z"></path>
                             </svg>
                         </div>
+{{--
 					<div class="">
 						<a class="css-qczclw-chat edit-link-icon mb-1"
 							href="#"
@@ -49,6 +50,7 @@
 							<img src="/img/icons/delete-outline.svg" width="15px" height="15px">
 						</a>
 					</div>
+--}}
                     </div>
                     <div class="css-1flzrap">
                     </div>
@@ -67,7 +69,7 @@
             <div class="css-h4z0cl">
                 <div class="css-16vxik6">
                     <div class="css-19jk2fi">
-                        <span class="css-1s6fcle">
+                        <span class="css-1s6fcle" onclick="clickOnMessage(event, {{ $message->id }});">
 			@if (substr($message->message,0,7) == '[image]')
 			<div class="text-end">
 	                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">

@@ -238,7 +238,10 @@ function getChatMessages(dialog_id) {
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
 		$('#chat_footer').removeClass('d-none');
-		$('#chat_messages').scrollTop($('#chat_messages').height());
+		$(document).ready(function() {
+			var block = document.getElementById("chat_messages");
+			block.scrollTop = 99999;
+		});
 		getNotify();
             },
             error: function(data){
@@ -297,7 +300,10 @@ function setChatMessages() {
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
 		$('#content_message').val('');
-		$('#chat_messages').scrollTop($('#chat_messages').prop('scrollHeight'));
+		$(document).ready(function() {
+			var block = document.getElementById("chat_messages");
+			block.scrollTop = 99999;
+		});
             },
             error: function(data){
 		console.log(data);
@@ -317,9 +323,6 @@ function checkChatMessages() {
 	    processData: false,
 	    contentType: false,
             success: function(data){
-//		$('#chat_header').html(data.header);
-//		$('#chat_messages').html(data.content);
-//		$('#chat_footer').removeClass('d-none');
 		if (($('#all_count').val() != data.all_count) || ($('#state_users').val() != data.state_users)){
 			$('#all_count').val(data.all_count);
 			$('#state_users').val(data.state_users);
@@ -361,7 +364,8 @@ function setChatImages() {
 		$('#chat_header').html(data.header);
 		$('#chat_messages').html(data.content);
 		$('#chat_users').html(data.users);
-		$('#chat_messages').scrollTop($('#chat_messages').prop('scrollHeight'));
+		var block = document.getElementById("chat_messages");
+		block.scrollTop = 99999;
 		$('#content_message').val('');
             },
             error: function(data){

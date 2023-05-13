@@ -1,7 +1,7 @@
                                                     <ul class="css-1ks0ui5">
                                                     @foreach($out as $out_dialog)
                                                         <div class="css-1o8agjl">
-                                                            <a class="css-1b3tih6" href="#" onclick="getChatMessages({{ $out_dialog->id }})">
+                                                            <a class="css-1b3tih6" href="javascript:void(0)" onclick="getChatMessages({{ $out_dialog->id }})">
                                                                 <div class="css-14wbffc">
                                                                     <div class="css-6q6hwe">
                                                                         <img src="{{ asset('/storage/usersphoto') }}/{{$out_dialog->avatar }}" class="css-zm0vdp">
