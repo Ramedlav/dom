@@ -19,7 +19,13 @@
                     <div class="css-19jk2fi">
                         <span class="css-1s6fcle">
 			@if (substr($message->message,0,7) == '[image]')
-	                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">
+				<div class="carousel slide" data-bs-ride="carousel">
+				        <div class="carousel-inner">
+				                <a target="_blank" href="{{ asset('/storage') }}/{{substr($message->message,7)}}" data-fancybox="gallery">
+				                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">
+						</a>
+					</div>
+				</div>	
 			@else
                             {{ $message->message }}
 			@endif
@@ -71,9 +77,13 @@
                     <div class="css-19jk2fi">
                         <span class="css-1s6fcle" onclick="clickOnMessage(event, {{ $message->id }});">
 			@if (substr($message->message,0,7) == '[image]')
-			<div class="text-end">
-	                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">
-			</div>
+				<div class="carousel slide" data-bs-ride="carousel">
+				        <div class="carousel-inner">
+				                <a target="_blank" href="{{ asset('/storage') }}/{{substr($message->message,7)}}" data-fancybox="gallery">
+				                        <img src="{{ asset('/storage') }}/{{substr($message->message,7)}}" class="img-fluid" width="100px" height="70px">
+						</a>
+					</div>
+				</div>	
 			@else
                             {{ $message->message }}
 			@endif
