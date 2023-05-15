@@ -40,23 +40,13 @@
                                  class="css-16hg7x2{{$gray}}">
                                  <path fill="currentColor" fill-rule="evenodd" d="m21.586 5-1.271 1.3-9.316 9.53-1.585-1.622 6.315-6.461L17 6.447V5h-1.415l-1.27 1.3L5 15.83l-1.315-1.345-1.271-1.3H1v1.446l1.27 1.3L4.293 18h1.414L8 15.655 10.293 18h1.414L21.729 7.747 23 6.447V5z"></path>
                             </svg>
+				<a class="css-qczclw_ delete-link-icon"
+					href="javascript:void(0)"
+					onclick="deleteMessage({{ $message->id }})"
+					title="{{ __('Delete') }}">
+					<img src="/img/icons/delete-outline.svg" width="20px" height="20px">
+				</a>
                         </div>
-{{--
-					<div class="">
-						<a class="css-qczclw-chat edit-link-icon mb-1"
-							href="#"
-							onclick=""
-							title="<?php echo e(__('Edit')); ?>">
-							<img src="/img/icons/edit-square-outline.svg" width="15px" height="15px">
-						</a>
-						<a class="css-qczclw_ delete-link-icon"
-							href="#"
-							onclick=""
-							title="<?php echo e(__('Delete')); ?>">
-							<img src="/img/icons/delete-outline.svg" width="15px" height="15px">
-						</a>
-					</div>
---}}
                     </div>
                     <div class="css-1flzrap">
                     </div>

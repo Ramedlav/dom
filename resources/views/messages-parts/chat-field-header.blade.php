@@ -38,9 +38,9 @@
                 </div>
             </div>
 
-            <div class="css-17zqm6 d-none">
+            <div class="css-17zqm6">
                 <div  class="css-11f3fck">
-                    <span >
+                    <span class="d-none">
                         <div class="css-1j2m7z7" title="{{__('Save') }}">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 20 20"
@@ -52,7 +52,7 @@
                             </svg>
                         </div>
                     </span>
-                    <span>
+                    <span class="d-none">
                         <div  class="css-1j2m7z7" title="{{__('Block') }}">
                             <svg width="24"
                                 height="24"
@@ -63,7 +63,7 @@
                             </svg>
                         </div>
                     </span>
-                    <span>
+                    <span class="d-none">
                         <div class="css-1j2m7z7" title="{{__('Complain') }}">
                             <svg width="24"
                                  height="24"
@@ -75,8 +75,12 @@
                         </div>
                     </span>
                     <span>
-                        <div class="css-1j2m7z7" title="{{__('Add to cart') }}">
-                            <img src="/img/icons/delete-outline.svg">
+                        <div class="css-1j2m7z7" title="{{__('Clear dialog') }}">
+				<a class="css-qczclw_ delete-link-icon"
+					href="javascript:void(0)"
+					onclick="ClearDialog({{ $dialog->id }})">
+					<img src="/img/icons/delete-outline.svg">
+				</a>
                         </div>
                     </span>
                 </div>

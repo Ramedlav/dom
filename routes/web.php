@@ -107,6 +107,8 @@ Auth::routes([
     Route::post('/setChatMessages',[MessageController::class, 'setChatMessages'])->name('setChatMessages')->middleware('auth'),
     Route::post('/checkChatMessages',[MessageController::class, 'checkChatMessages'])->name('checkChatMessages')->middleware('auth'),
     Route::post('/setChatImages',[MessageController::class, 'setChatImages'])->name('setChatImages')->middleware('auth'),
+    Route::post('/clearDialog',[MessageController::class, 'clearDialog'])->name('clearDialog')->middleware('auth'),
+    Route::post('/deleteMessage',[MessageController::class, 'deleteMessage'])->name('deleteMessage')->middleware('auth'),
     ]);
 
 

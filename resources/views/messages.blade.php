@@ -20,7 +20,7 @@
                                 <h2 class="css-1q56cn px-3">{{__('Dialogs') }}</h2>
                                 <div class="col-12 col-lg-4 px-0 px-md-3" id="chat_users_list">
                                     <div class="card messages-card pt-0">
-                                        <div class="card-header css-1qi2050">
+                                        <div class="card-header css-1qi2050 d-none">
                                             <div class="css-1c5er82">
                                                 <div class="css-1c5er82">
                                                     <a type="button"
@@ -56,7 +56,12 @@
                                         </div>
                                         <div class="card-body left-message-card p-0">
                                             <div class="tabs css-1382m1k">
-
+						<input type="search" id="text_search"
+							class="form-control"
+							onkeyup="searchDialog();"
+							style="padding: 5px 2px 5px 25px;
+							background: url('/img/icons/search.png') no-repeat scroll 0 50%;
+							">
                                                     <input type="radio"
                                                             name="tab-btn"
                                                             id="tab-btn-1"
@@ -191,7 +196,16 @@
 
 </section>
 @endsection
-
+<style>
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+</style>
 <script>
 window.onresize = start;
 function start(){
@@ -208,6 +222,7 @@ return;
 function chat_messages_back() {
 	$('#chat_messages_div').addClass('d-none');
 	$('#chat_users_list').removeClass('d-none');
+	$('#dialog_id').val(0);
 }
 
 setInterval(checkChatMessages, 10000);
@@ -225,6 +240,7 @@ function getChatMessages(dialog_id) {
 */
 	Data = new FormData();
 	Data.append('dialog_id', dialog_id);
+	Data.append('text_search', $('#text_search').val());
         var path = $('#program_folder').val();
         $.ajax({
             type: 'POST',
@@ -253,6 +269,7 @@ function getChatMessages(dialog_id) {
 function getChatMessages2(dialog_id) {
 	Data = new FormData();
 	Data.append('dialog_id', dialog_id);
+	Data.append('text_search', $('#text_search').val());
         var path = $('#program_folder').val();
         $.ajax({
             type: 'POST',
@@ -286,6 +303,7 @@ function setChatMessages() {
 	Data.append('message', $('#content_message').val());
 	Data.append('user_id', user_id);
 	Data.append('sub_id', sub_id);
+	Data.append('text_search', $('#text_search').val());
 	$('#content_message').val('');
         var path = $('#program_folder').val();
         $.ajax({
@@ -314,6 +332,7 @@ function setChatMessages() {
 function checkChatMessages() {
 	Data = new FormData();
 	Data.append('dialog_id', 0);
+	Data.append('text_search', $('#text_search').val());
         var path = $('#program_folder').val();
         $.ajax({
             type: 'POST',
@@ -349,6 +368,7 @@ function setChatImages() {
 	Data.append('message', $('#content_message').val());
 	Data.append('user_id', user_id);
 	Data.append('sub_id', sub_id);
+	Data.append('text_search', $('#text_search').val());
 	$.each($("#image-upload")[0].files,function(key, file){
 		Data.append('file[]',file);
 	});
@@ -374,6 +394,58 @@ function setChatImages() {
         });
 }
 
+function ClearDialog(dialog_id) {
+	Data = new FormData();
+	Data.append('dialog_id', dialog_id);
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('clearDialog') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+		location.reload();
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+
+function deleteMessage(id) {
+	Data = new FormData();
+	Data.append('id', id);
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('deleteMessage') }}",
+            data: Data,
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+	    processData: false,
+	    contentType: false,
+            success: function(data){
+			dialog_id=$('#dialog_id').val();
+			getChatMessages2(dialog_id);
+            },
+            error: function(data){
+		console.log(data);
+            }
+        });
+}
+
+function searchDialog() {
+	var text_search=$('#text_search').val();
+	text_search=text_search.toLowerCase();
+	$('.address-search').each(function(){
+		p = $(this).find('p').text().trim();
+		dialog=$(this).attr('dialog');
+		if (p.toLowerCase().indexOf(text_search) == -1)
+			$('#'+dialog).addClass('d-none');
+		else
+			$('#'+dialog).removeClass('d-none');
+	});
+
+}
 </script>
 
 

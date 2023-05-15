@@ -21,15 +21,15 @@ class MessageController extends Controller
 	$dialog_messages=array();
 	$all_count=0;
 	$state_users='';
-	foreach ($out as $dialog) foreach($dialog->messages as $message) {
-		if ($message->user_id <> $user_id && $message->read == 0) {
-			if (!isset($dialog_messages[$dialog->id])) $dialog_messages[$dialog->id]=0;
-			$dialog_messages[$dialog->id]+=1;
+	foreach ($out as $dialog) {
+		$dialog_messages[$dialog->id]=0;
+		foreach($dialog->messages as $message) {
+			if ($message->user_id <> $user_id && $message->read == 0) $dialog_messages[$dialog->id]+=1;
+			$all_count+=1;
+			if ($message->read == 0) $all_count+=1;
 		}
-		$all_count+=1;
 	}
 	foreach ($out as $dialog) {
-		$dialog->count=0;
                 $img='photo/agent.jpg';
 		$post=Post::find($dialog->post_id);
                 foreach($post->photos as $photo) {
@@ -37,8 +37,8 @@ class MessageController extends Controller
                  }
 		$dialog->img=$img;
 		$dialog->address=$post->address;
-		if (isset($dialog_messages[$dialog->id])) $dialog->count=$dialog_messages[$dialog->id];
-		$all_count+=$dialog->count;
+		$dialog->count=$dialog_messages[$dialog->id];
+//		$all_count+=$dialog->count;
 		if (Auth::user()->id == $dialog->user_id) {
 			$dialog->online=(Auth::user()->onLine($dialog->sub_id));
 			$dialog->avatar=$dialog->sub_id.Auth::user()->find($dialog->sub_id)->logo;
@@ -62,7 +62,8 @@ class MessageController extends Controller
 	$out = $users["out"];
 	$all_count = $users["all_count"];
 	$state_users = $users["state_users"];
-        return view('messages',compact('dialogs', 'out', 'all_count', 'state_users'));
+	$text_search="";
+        return view('messages',compact('dialogs', 'out', 'all_count', 'state_users', 'text_search'));
     }
 
     public function ShowDialog($id_dialog){
@@ -161,16 +162,17 @@ class MessageController extends Controller
 	$post = Post::find($dialog->post_id);
 	if (Auth::user()->id == $dialog->user_id) $user = Auth::user()->find($dialog->sub_id);
 	else $user = Auth::user()->find($dialog->user_id);
+	$text_search=$request->text_search;
 
 	$header=view('messages-parts.chat-field-header', compact('dialog', 'post', 'user'))->render();
 	$content=view('messages-parts.chat-field', compact('dialog', 'post', 'user'))->render();
-	$users=view('messages-parts.chat-users', compact('out','user'))->render();
+	$users=view('messages-parts.chat-users', compact('out', 'text_search'))->render();
         return response()->json([
             'header' => $header,
             'content' => $content, 
             'users' => $users,
 	    'all_count' => $all_count,	 
-	    'state_users' => $state_users,
+	    'state_users' => $state_users
             ]);
 
     }
@@ -242,7 +244,8 @@ class MessageController extends Controller
 	$out = $users["out"];
 	$all_count = $users["all_count"];
 	$state_users = $users["state_users"];
-	$users=view('messages-parts.chat-users', compact('out'))->render();
+	$text_search=$request->text_search;
+	$users=view('messages-parts.chat-users', compact('out', 'text_search'))->render();
         return response()->json([
             'users' => $users, 
 	    'all_count' => $all_count,
@@ -250,4 +253,27 @@ class MessageController extends Controller
             ]);
 
     }
+
+   public function clearDialog(Request $request) {
+	$id = $request->dialog_id;
+	$messages=Message::where('dialog_id', $id)->get();
+	foreach($messages as $message) {
+		if(substr($message->message,0,7) == '[image]') {
+			$filename=substr($message->message,7);
+			unlink(public_path().'/storage/'.$filename);
+		}
+	}
+	Message::where('dialog_id', $id)->delete();
+	Dialog::where('id', $id)->delete();
+   }
+
+   public function deleteMessage(Request $request) {
+	$id = $request->id;
+	$message=Message::where('id', $id)->first()->message;
+	if(substr($message,0,7) == '[image]') {
+		$filename=substr($message,7);
+		unlink(public_path().'/storage/'.$filename);
+	}
+	Message::where('id', $id)->delete();
+   }
 }
