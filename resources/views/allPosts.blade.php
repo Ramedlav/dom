@@ -21,6 +21,7 @@
                                 </div>
                             @endif
                             <div class="row">
+				@if (Auth::check())
                                 <div class="col-12 col-lg-{{ (Auth::user()->role_id != 1)?9:12 }}">
                                     <h2 class="css-1q56cn">{{__('All announcements') }}</h2>
 				    @if (Auth::user()->role_id == 1)
@@ -31,7 +32,6 @@
                                     <div class="float-end">
                                         {{ $posts->onEachSide(1)->links() }}
                                     </div>
-
                                 </div>
 				@if (Auth::user()->role_id != 1)
 	                                <div class="col-12 col-lg-3 px-lg-0 pb-3">
@@ -39,6 +39,21 @@
        	        	                     @include('allPosts-parts.reccomend-card')
        		                         </div>
 				@endif
+				@else
+                                <div class="col-12 col-lg-9">
+                                    <h2 class="css-1q56cn">{{__('All announcements') }}</h2>
+					@include('allPosts-parts.post-card')
+                                    <div class="float-end">
+                                        {{ $posts->onEachSide(1)->links() }}
+                                    </div>
+                                </div>
+	                                <div class="col-12 col-lg-3 px-lg-0 pb-3">
+       	                	             <h2 class="css-7snqpb e5g86pi2">{{__('Recommended investment') }}</h2>
+       	        	                     @include('allPosts-parts.reccomend-card')
+       		                         </div>
+
+				@endif
+				
                             </div>
                         </div>
                     </div>

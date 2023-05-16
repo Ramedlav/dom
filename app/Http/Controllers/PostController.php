@@ -124,12 +124,13 @@ class PostController extends Controller
 	$heatings=Heating::all();
 	$finish_conditions=Finish_condition::all();
 	$announcements=Announcements::all();
-	$posts = Post::where('status_id',1)->where('user_id','<>',Auth::user()->id)->paginate(10);
 	$wishlists = [];
 	if (Auth::check()) { 
 		$user_id = Auth::user()->id;
 		$wishlists = User::find($user_id)->wishlists;
+		$posts = Post::where('status_id',1)->where('user_id','<>',$user_id)->paginate(10);
 	}
+	else 	$posts = Post::where('status_id',1)->paginate(10);
         return view('allPosts',compact('posts', 'statuses', 'sales', 'constructions', 'floors', 'windows', 'materials', 'heatings', 'finish_conditions', 'announcements', 'wishlists'));
     }
 
@@ -189,7 +190,7 @@ class PostController extends Controller
             'is_published'=> '0',
         ]);
         }
-	if (Auth::user()->role_id == 1) return Redirect::route("showAll");
+	if (Auth::user()->id != $post->user->id) return Redirect::route("showAll");
         else return Redirect::route("showMy");
     }
 
@@ -334,7 +335,7 @@ class PostController extends Controller
 
 	$post->update();
 
-	if (Auth::user()->role_id == 1) return Redirect::route("showAll");
+	if (Auth::user()->id != $post->user->id) return Redirect::route("showAll");
         else return Redirect::route("showMy");
     }
 
@@ -343,7 +344,7 @@ class PostController extends Controller
         $post = Post::find($id_post);
         $post->status_id=0;
 	$post->update();
-	if (Auth::user()->role_id == 1) return Redirect::route("showAll");
+	if (Auth::user()->id != $post->user->id) return Redirect::route("showAll");
         else return Redirect::route("showMy");
     }
 
