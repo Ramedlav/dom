@@ -365,7 +365,7 @@
                                                 </label>
                                                 <select class="form-control" name="construction">
                                                     @foreach($constructions as $construction)
-                                                        <option {{ (($post->construction ?? old('construction'))==$construction->id?"selected":"") }}
+                                                        <option {{ (($post->type_construction ?? old('construction'))==$construction->id?"selected":"") }}
                                                             value="{{ $construction->id }}">
                                                             {{ __("$construction->title") }}
                                                         </option>

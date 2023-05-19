@@ -3,7 +3,11 @@
         <span aria-label="Cena"
               data-cy="adPageStickyHeaderPrice"
               class="css-unc98a e176pl9r6">
-              {{ $post->price }} &nbsp;€
+					@if ($post->sale_id == 1)
+                                        {{ $post->price }}&nbsp;€,
+					@else
+                                        {{ $post->rent_price }}&nbsp;{{__('€ / month')}}
+					@endif
         </span>
         <div class="css-70evgb ">
             <span class="css-r5hahk">

@@ -87,7 +87,11 @@
                                 </p>
                                 <div class="css-153eqh1">
                                     <span class="css-s8wpzb">
+					@if ($post->sale_id == 1)
                                         {{ $post->price }}&nbsp;€,
+					@else
+                                        {{ $post->rent_price }}&nbsp;{{__('€ / month')}}
+					@endif
                                     </span>
                                     <span class="css-s8wpzb">
                                         {{$post->rooms}}&nbsp;{{__('rooms')}},
@@ -102,7 +106,7 @@
                                         @if($post->garage === 1)
                                             &nbsp;{{__('with garage')}},
                                         @else
-                                            &nbsp;{{__('without garden')}},
+                                            &nbsp;{{__('without garage')}},
                                         @endif
                                     </span>
                                     <span class="css-1em65uo">

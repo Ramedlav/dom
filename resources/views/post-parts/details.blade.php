@@ -2,16 +2,18 @@
 	$fc = json_decode($finish_conditions,true);
 	$finish=[]; $finish[0] = '';
 	foreach($fc as $c) $finish[$c['id']] = $c['title'];
+	$finish_title = $finish[$post->finish_condition];
 	$fc = json_decode($constructions,true);
 	$construction=[]; $construction[0] = '';
 	foreach($fc as $c) $construction[$c['id']] = $c['title'];
+	$construction_title=$construction[$post->type_construction];
 	$fc = json_decode($floors,true);
 	$floor=[]; $floor[0] = '';
 	foreach($fc as $c) $floor[$c['id']] = $c['title'];
 	$bgt=[];
-	if ($post->balkony) $bgt[]="balkony";
-	if ($post->garden) $bgt[]="garden";
-	if ($post->terrace) $bgt[]="terrace";
+	if ($post->balkony) $bgt[]=__("balkony");
+	if ($post->garden) $bgt[]=__("garden");
+	if ($post->terrace) $bgt[]=__("terrace");
 	$bgt=implode(',',$bgt);
 @endphp
 
@@ -128,7 +130,7 @@
     </div>
     <div class="col-md-6 ps-md-3">
         <div aria-label="Rent"
-             class="css-1ccovha d-flex justify-content-between">
+             class="css-1ccovha d-flex justify-content-between {{ ($post->sale_id == 1)?'d-none':'' }}">
              <div class="d-flex">
                 <div class="mr-3">
                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOCAxMC4zMzNjMi45ODggMCA1LjU1OC0xLjAxNyA2Ljg0NC0yLjI0OEMxNS42MjQgNy4zMzkgMTYgNi40ODcgMTYgNS42NjdjMC0uODItLjM3Ni0xLjY3Mi0xLjE1Ni0yLjQxOUMxMy41NTggMi4wMTggMTAuOTg4IDEgOCAxIDUuMDEyIDEgMi40NDIgMi4wMTcgMS4xNTYgMy4yNDguMzc2IDMuOTk1IDAgNC44NDcgMCA1LjY2N2MwIC44Mi4zNzYgMS42NzIgMS4xNTYgMi40MThDMi40NDIgOS4zMTYgNS4wMTIgMTAuMzMzIDggMTAuMzMzem0wLTIuNjY2Yy0xLjg5NCAwLTMuNTgxLS40ODMtNC42MjEtMS4yMDNhMi42MDYgMi42MDYgMCAwIDEtLjUzNS0uNDcxYy0uMDkxLS4xMS0uMTc3LS4yMS0uMTc3LS4zMjYgMC0uMTE3LjA4Ni0uMjE3LjE3Ny0uMzI3LjEzOC0uMTY2LjMyLS4zMjIuNTM1LS40N0M0LjQxOSA0LjE1IDYuMTA2IDMuNjY3IDggMy42NjdjMS44OTQgMCAzLjU4MS40ODIgNC42MjEgMS4yMDMuMjE1LjE0OC4zOTcuMzA0LjUzNS40Ny4wOTEuMTEuMTc3LjIxLjE3Ny4zMjcgMCAuMTE2LS4wODYuMjE2LS4xNzcuMzI2LS4xMzguMTY3LS4zMi4zMjMtLjUzNS40Ny0xLjA0LjcyMS0yLjcyNyAxLjIwNC00LjYyMSAxLjIwNHpNLjA2IDEwLjYwMWMuMDI2LjcyOS4zODQgMS41NSAxLjEyNCAyLjI5MiAxLjI1NSAxLjI1NyAzLjc0NiAyLjM5IDYuNzcxIDIuMjg1IDIuNTY0LS4wOSA0LjUwNi0uNzA0IDUuNjktMS42MzEgMS4wMDctLjc4OSAxLjU1LTEuODAzIDEuNjEyLTIuOTg4bC0yLjY2Mi0uMTRjLS4wMy41NTctLjQxLjk2NS0uOTg1IDEuMjg1LS44ODcuNDkzLTIuMTY1Ljc1NC0zLjc0OC44MDktMS44NTIuMDY1LTMuNDQtLjQ2LTQuNDItMS4xODdhMi41NzYgMi41NzYgMCAwIDEtLjYwMy0uNTkzYy0uMDU1LS4wNzktLjExLS4xNDgtLjExMy0uMjI0bC0yLjY2NS4wOTN6IiBmaWxsPSIjNDA0MDQxIi8+PC9nPjwvc3ZnPg=="
@@ -144,12 +146,12 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{ $post->rent_price }} &nbsp;€/month
+                    {{ $post->rent_price }} &nbsp;{{__('€ / month')}}
                 </div>
             </div>
         </div>
         <div aria-label="Price"
-                class="css-1ccovha d-flex justify-content-between">
+                class="css-1ccovha d-flex justify-content-between {{ ($post->sale_id == 2)?'d-none':'' }}">
                 <div class="d-flex">
                     <div class="mr-3">
                         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGRlZnM+PGZpbHRlciBpZD0iYSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJhdXRvIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdmFsdWVzPSIwIDAgMCAwIDAuNTAxOTYxIDAgMCAwIDAgMC41MDU4ODIgMCAwIDAgMCAwLjUxNzY0NyAwIDAgMCAxLjAwMDAwMCAwIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTUgOC4yODZDMTUgNy41NzYgMTQuNDY3IDcgMTMuODA5IDdIMi4xOUMxLjUzMyA3IDEgNy41NzYgMSA4LjI4NnY2LjQyOEMxIDE1LjQyNCAxLjUzMyAxNiAyLjE5MSAxNkgxMy44MWMuNjU3IDAgMS4xOS0uNTc2IDEuMTktMS4yODZWOC4yODZ6TTEyLjYxNyA5LjU3djMuODZIMy4zODNWOS41N2g5LjIzNHpNMTMgNkE1IDUgMCAwIDAgMyA2aDIuMTA1YTIuODk1IDIuODk1IDAgMSAxIDUuNzkgMEgxM3oiIGZpbGw9IiM0MDQwNDEiLz48L2c+PC9zdmc+"
@@ -165,7 +167,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{ $post->price }} &nbsp;€
+			{{ $post->price }}&nbsp;€,
                 </div>
             </div>
         </div>
@@ -186,7 +188,7 @@
 
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{-- {{ $construction[$post->type_construction] }} --}}
+                    {{ __("$construction_title") }}
                 </div>
             </div>
         </div>
@@ -227,7 +229,7 @@
                 </div>
             <div class="css-1qzszy5 estckra8">
                 <div class="css-1wi2w6s estckra5">
-                    {{-- {{ $finish[$post->finish_condition] }} --}}
+                    {{ __("$finish_title") }}
                 </div>
             </div>
         </div>

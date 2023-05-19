@@ -244,7 +244,7 @@ class PostController extends Controller
             'material' => $request->input('material'),
             'floors' => $request->input('floors'),
             'floor' => $request->input('floor'),
-            'type_construction' => $request->input('construction'),
+            'type_construction' => $request->construction,
             'price' => $request->input('price'),
             'rent_price' => $request->input('rent_price'),
             'sale_id' => $request->input('sale_id'),
@@ -280,6 +280,8 @@ class PostController extends Controller
             return redirect()->to(route('home'));
         }
 
+	if (isset($request->price)) $price=$request->price; else $price=0;
+	if (isset($request->rent_price)) $rent_price=$request->rent_price; else $rent_price=0;
         $post->title = $request->title;
         $post->description = $request->description;
         // $post->index = $request->index;
@@ -287,11 +289,11 @@ class PostController extends Controller
         $post->rooms = $request->rooms;
         $post->square = $request->square;
         $post->bedrooms = $request->bedrooms;
-        if($request->garage){$post->garage = $request->garage;}else{$post->garage = 0;}
+        if(isset($request->garage)){$post->garage = 1;}else{$post->garage = 0;}
         if($request->balcony){$post->balcony = $request->balcony;}else{$post->garage = 0;}
         if($request->terrace){$post->terrace = $request->terrace;}else{$post->terrace = 0;}
         if($request->garden){$post->garden = $request->garden;}else{$post->garden = 0;}
-        $post->price = $request->price;
+        $post->price = $price;
         $post->sale_id = $request->sale_id;
         $post->status_id = $request->status_id;
         $post->address_latitude = $request->address_latitude;
@@ -328,8 +330,8 @@ class PostController extends Controller
         $post->material = $request->input('material');
         $post->floors = $request->input('floors');
         $post->floor = $request->input('floor');
-        $post->type_construction = $request->input('construction');
-        $post->rent_price = $request->input('rent_price');
+        $post->type_construction = $request->construction;
+        $post->rent_price = $rent_price;
         $post->movie_link = $request->input('movie_link');
         $post->wirtual_link = $request->input('wirtual_link');
 

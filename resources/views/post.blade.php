@@ -32,7 +32,13 @@
                                 <div class="col-12 my-4">
                                     <div class="d-flex justify-content-between">
                                         <h1 class="css-1sfzh0a">{{ $post->title }}</h1>
-                                        <h1  class="css-1sfzh0a">{{ $post->price }}&nbsp;€</h1>
+                                        <h1  class="css-1sfzh0a">
+						@if ($post->sale_id == 1)
+							{{ $post->price }}&nbsp;€,
+						@else
+							{{ $post->rent_price }}&nbsp;{{__('€ / month')}}
+						@endif
+					</h1>
                                     </div>
                                     <div id="addressLink">
                                         <a aria-label="Address"
