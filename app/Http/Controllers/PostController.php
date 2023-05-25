@@ -404,7 +404,7 @@ class PostController extends Controller
 	$lng = $request->address_longitude;
 	$km = ($request->filter_km)?$request->filter_km:1;
 	$from_price = ($request->from_price)?$request->from_price:0;
-	$to_price = ($request->to_price)?$request->to_price:1000000;
+	$to_price = ($request->to_price)?$request->to_price:5000000;
 	$rooms = ($request->rooms)?$request->rooms:0;
 	$square = ($request->square)?$request->square:0;
 	$bedrooms = ($request->bedrooms)?$request->bedrooms:0;
@@ -446,9 +446,10 @@ class PostController extends Controller
         $floor = (empty($request->input('floor')))?0:$request->input('floor');
         $type_construction = (empty($request->input('construction')))?0:$request->input('construction');
 
+	if ($sale == 2) $field_price="rent_price"; else $field_price="price";
 	$lat_lng = (empty($lat) || ($request->address == ""))?"(1 = 1)":"(6371 * acos(cos(radians($lat)) * cos(radians(address_latitude)) * cos(radians(address_longitude) - radians($lng)) + sin(radians($lat)) * sin(radians(address_latitude))) <= $km)";
 	$posts = Post::whereRaw("$lat_lng")
-		->whereRaw("price BETWEEN $from_price AND $to_price")
+		->whereRaw("$field_price BETWEEN $from_price AND $to_price")
 		->whereRaw("(rooms = $rooms OR $rooms = 0)")
 		->whereRaw("(square >= $square)")
 		->whereRaw("((bedrooms = $bedrooms) OR ($bedrooms = 5 AND bedrooms > 5) OR $bedrooms = 0)")

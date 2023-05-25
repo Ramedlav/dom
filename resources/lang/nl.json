@@ -862,5 +862,7 @@
 "min price": "minimale prijs",
 "max price": "maximale prijs",
 "image": "afbeelding",
-"Clear dialog": "Duidelijke dialoog"
+"Clear dialog": "Duidelijke dialoog",
+"min rent price": "minimale huurprijs",
+"max rent price": "maximale huurprijs"
 }
