@@ -841,7 +841,7 @@
 "silicate":"krzemian",
 "cellular concrete":"beton komórkowy",
 "other":"Inny",
-"pladtic":"plac",
+"plastic":"Plastikowy",
 "wooden":"drewniany",
 "aluminum":"aluminium",
 "Update photo": "Zaktualizuj zdjęcie",
@@ -864,5 +864,6 @@
 "image": "obraz",
 "Clear dialog": "Wyczyść okno dialogowe",
 "min rent price": "minimalna cena wynajmu",
-"max rent price": "maksymalna cena wynajmu"
+"max rent price": "maksymalna cena wynajmu",
+"Number telephone": "Numer telefonu"
 }

@@ -270,7 +270,7 @@
 "without garden":"без саду",
 "address":"адреса",
 "sale":"продаж",
-"Buy":"купити",
+"Buy":"Купити",
 "Rent":"Оренда",
 "additional filters":"додаткові фільтри",
 "Additional filters":"Додаткові фільтри",
@@ -806,7 +806,7 @@
 "Commercial premises":"Комерційні приміщення",
 "Halls and warehouses":"Зали та склади",
 "Garages":"Гаражі",
-"Unit":"одиниця",
+"Unit":"Частина",
 "Tenement":"Кам'яниця",
 "A detached house":"Окремий будинок",
 "Seal":"Печатка",
@@ -834,9 +834,9 @@
 "silicate":"силікатна",
 "cellular concrete":"ніздрюватий бетон",
 "other":"інший",
-"pladtic":"Пластиковий",
-"wooden":"дерев'яний",
-"aluminum":"алюміній",
+"plastic":"Пластик",
+"wooden":"Дерево",
+"aluminum":"Алюміній",
 "Update photo": "Оновити фото",
 "Delete photo": "Видалити фото",
 "Enter a title that will contain a unique feature of your property and may be of interest to searchers (e.g. \"after renovation\", \"close to the park\", etc.)": "Введіть назву, яка буде містити унікальну особливість вашої нерухомості та може зацікавити шукачів (наприклад, «після ремонту», «біля парку» тощо)",
@@ -857,5 +857,6 @@
 "image": "Зображення",
 "Clear dialog": "Очистити діалог",
 "min rent price": "мінімальна вартість оренди",
-"max rent price": "максимальна вартість оренди"
+"max rent price": "максимальна вартість оренди",
+"Number telephone": "Номер телефону"
 }

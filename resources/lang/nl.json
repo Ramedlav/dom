@@ -841,7 +841,7 @@
 "silicate":"silicaat",
 "cellular concrete":"cellenbeton",
 "other":"ander",
-"pladtic":"pladtisch",
+"plastic":"plastic",
 "wooden":"houten",
 "aluminum":"aluminium",
 "Update photo": "Bewerk foto",
@@ -864,5 +864,6 @@
 "image": "afbeelding",
 "Clear dialog": "Duidelijke dialoog",
 "min rent price": "minimale huurprijs",
-"max rent price": "maximale huurprijs"
+"max rent price": "maximale huurprijs",
+"Number telephone": "Nummer telefoon"
 }
