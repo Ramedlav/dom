@@ -114,5 +114,5 @@ Auth::routes([
 
 Route::get('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
-
-
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'show']);
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'mailToAdmin']);

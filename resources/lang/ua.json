@@ -96,8 +96,8 @@
 "with garden":"з садом",
 "without garden":"без саду",
 "Description":"опис",
-"Post add to wish list":"Публікація додати до списку бажань",
-"Post del from wish list":"Публікація зі списку бажань",
+"Post add to wish list":"Публікація додана до списку бажань",
+"Post del from wish list":"Публікація видалена зі списку бажань",
 "FINISHED!":"ГОТОВО!",
 "Finished":"Готово",
 "Add to favorites":"Додати в обране",
@@ -858,5 +858,7 @@
 "Clear dialog": "Очистити діалог",
 "min rent price": "мінімальна вартість оренди",
 "max rent price": "максимальна вартість оренди",
-"Number telephone": "Номер телефону"
+"Number telephone": "Номер телефону",
+"Feedback form": "Форма зворотного зв'язку",
+"Thank you for your feedback! Your message has been successfully sent to the site administrator!": "Спасибі за ваш відгук! Ваше повідомлення успішно відправлено адміністратору сайту!"
 }
