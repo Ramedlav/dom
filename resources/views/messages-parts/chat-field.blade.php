@@ -6,11 +6,11 @@
 @php $date = ''; @endphp
 @foreach($dialog->messages as $message)
     <li class="css-zt18dv">
-	@if ($date != date('Ymd', strtotime($message->updated_at)))
+	@if ($date != date('Ymd', strtotime($message->created_at)))
         <header class="css-rib2pn">
-            {{ date('d.m.Y', strtotime($message->updated_at)) }}
+            {{ date('d.m.Y', strtotime($message->created_at)) }}
         </header>
-	@php $date=date('Ymd', strtotime($message->updated_at)); @endphp
+	@php $date=date('Ymd', strtotime($message->created_at)); @endphp
 	@endif
 	@if (Auth::user()->id == $message->user_id)
         <div class="css-1ub42cm">
@@ -54,7 +54,7 @@
                 <p class="css-1vxpd9w">
                     <span class="css-s86lqd">
                         <span>
-                            {{ date('H:i', strtotime($message->updated_at)) }}
+                            {{ date('H:i', strtotime($message->created_at)) }}
 			</span>
                     </span>
                 </p>
@@ -84,7 +84,7 @@
                 </div>
                 <p class="css-1y7b626">
                     <span class="css-tuvzu0">
-                            {{ date('H:i', strtotime($message->updated_at)) }}
+                            {{ date('H:i', strtotime($message->created_at)) }}
                     </span>
                 </p>
             </div>

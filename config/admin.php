@@ -2,7 +2,7 @@
 
 return [
     
-    'email' => 'freebe.space@gmail.com',
+    'email' => 'freebespace@gmail.com',
     'name' => 'Freebe Space',
       
 ];

@@ -1,57 +1,77 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-        <h1 class="mb-2 text-left">{{ __('Feedback form') }}</h1>
- 
+<div class="container">
+    <div class="row justify-content-center bg-all-posts">
+        <div class="col-md-8 pt-5">
         @if(session('message'))
             <div class='alert alert-success'>
                 {{ session('message') }}
             </div>
         @endif
  
-        <div class="col-12 col-md-6">
-            <form class="form-horizontal2" method="POST" action="/contact">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="Name">{{ __('Name') }}</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
-                </div>
-                            @error('name')
-                                    <span class="invalid-feedback2" role="alert">
-                                        <strong>{{$message}}</strong>
+            <div class="card mt-5">
+		<div class="container py-2 d-flex align-items-center">
+			<h2 class="css-1q56cn me-3">{{__('Feedback form') }}</h2>
+		</div>
+
+                <div class="card-body bg-login">
+                    <form method="POST" action="/contact">
+                        @csrf
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? (Auth::check()?Auth::user()->name:'') }}" autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
- 
-                <div class="form-group">
-                    <label for="email">{{ __('Email') }} </label>
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
-                </div>
-                            @error('email')
-                                    <span class="invalid-feedback2" role="alert">
-                                        <strong>{{$message}}</strong>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? (Auth::check()?Auth::user()->email:'') }}" autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
- 
-                <div class="form-group2">
-                    <label for="message">{{ __('message') }} </label>
-                    <textarea rows="7" class="form-control" id="message" name="message" required2 style="height: 120px;">{{ old('message') }}</textarea>
-                </div>
-                            @if($errors->has('message'))
-                                    <span class="invalid-feedback2" role="alert">
-                                        <strong>{{$errors->first('message')}}</strong>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="message" class="col-md-4 col-form-label text-md-end">{{ __('message') }}</label>
+
+                            <div class="col-md-6">
+				<textarea rows="7" class="form-control @error('message') is-invalid @enderror" id="message" name="message" style="height: 120px;">{{ old('message') }}</textarea>
+
+                                @error('message')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                            @endif
- 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary mt-2 progress-button" value="Send">{{ __('Send') }}</button>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary progress-button">
+                                    {{ __('send') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
-    </div> <!-- /container -->
+    </div>
+</div>
 @endsection
