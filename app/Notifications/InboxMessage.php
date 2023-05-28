@@ -9,6 +9,8 @@ use Illuminate\Notifications\Messages\MailMessage;
 use App\Http\Requests\ContactFormRequest;
 use App\Mail\mailToAdmin;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Feedback;
+use Illuminate\Support\Facades\Auth;
  
 class InboxMessage extends Notification
 {
@@ -50,18 +52,16 @@ class InboxMessage extends Notification
 	$ms=$this->message->message;
 	$admin_email=config('admin.email');
 
+	if (Auth::check()) $user_id=Auth::user()->id; else $user_id=0;
+        $message = [
+            'user_id' => $user_id,
+            'name' => $name,
+            'email' => $mail,
+            'message' => $ms,
+	];
+	Feedback::create($message);
+
 	Mail::to($admin_email)->send(new mailToAdmin($name, $mail, $ms));
-/* 
-       return (new MailMessage)
-            ->subject(config('admin.name') . ", новое сообщение с сайта dmitxe.ru!")
-            ->greeting(" ")
-            ->salutation(" ")
-            ->from('mail.username', 'no-reply')
-            ->line('Имя: ' . 'sssssss')
-            ->line('E-mail: ' . 'bob@ps.zp.ua')
-            ->line('Сообщение: ')
-            ->line('sssssssssssssssssssssssss');
-*/
     }
  
     /**

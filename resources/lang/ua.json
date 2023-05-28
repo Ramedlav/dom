@@ -860,5 +860,12 @@
 "max rent price": "максимальна вартість оренди",
 "Number telephone": "Номер телефону",
 "Feedback form": "Форма зворотного зв'язку",
-"Thank you for your feedback! Your message has been successfully sent to the site administrator!": "Спасибі за ваш відгук! Ваше повідомлення успішно відправлено адміністратору сайту!"
+"Thank you for your feedback! Your message has been successfully sent to the site administrator!": "Спасибі за ваш відгук! Ваше повідомлення успішно відправлено адміністратору сайту!",
+"Feedback messages": "Повідомлення зворотного зв'язку",
+"About us": "Про нас",
+"Contact to admin": "Звернутися до адміністратора",
+"Clear filter": "Очистити фільтр",
+"Date": "Дата",
+"From date": "Від дати",
+"To date": "До дати"
 }

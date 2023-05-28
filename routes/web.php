@@ -66,6 +66,8 @@ Auth::routes([
     Route::post('/users/listusers',[UserController::class, 'listusers'])->name('listusers')->middleware('auth'),
     Route::get('/users/edit/{id_user}',[UserController::class, 'edituser'])->name('editEditUser')->middleware('auth'),
     Route::post('/saveuser/',[UserController::class, 'save'])->name('saveuser')->middleware('auth'),
+    Route::get('/feedback/',[FeedbackController::class, 'show'])->name('feedback')->middleware('auth'),
+    Route::post('/listmessages',[FeedbackController::class, 'listmessages'])->name('listmessages')->middleware('auth'),
 
     Route::get('/profile/',[MyProfileController::class, 'show'])->name('profile')->middleware('auth'),
     Route::post('/profile/',[MyProfileController::class, 'save'])->name('saveprofile')->middleware('auth'),

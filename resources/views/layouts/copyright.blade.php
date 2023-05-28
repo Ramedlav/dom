@@ -9,10 +9,10 @@
 	</div>
             <div class="col-12 col-sm-3 ">
                 <div>
-                    <a href="#" class="">Punkt 1</a>
+                    <a href="#" class="">{{ __('About us') }}</a>
                 </div>
                 <div>
-                    <a href="#" class="">Punkt 2</a>
+                    <a href="/contact" class="">{{ __('Contact to admin') }}</a>
                 </div>
             </div>
             <div class="col-12 col-sm-3 ">

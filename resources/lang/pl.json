@@ -867,5 +867,12 @@
 "max rent price": "maksymalna cena wynajmu",
 "Number telephone": "Numer telefonu",
 "Feedback form": "Formularz zwrotny",
-"Thank you for your feedback! Your message has been successfully sent to the site administrator!": "Dziękujemy za twoją opinię! Twoja wiadomość została pomyślnie wysłana do administratora strony!"
+"Thank you for your feedback! Your message has been successfully sent to the site administrator!": "Dziękujemy za twoją opinię! Twoja wiadomość została pomyślnie wysłana do administratora strony!",
+"Feedback messages": "Wiadomości zwrotne",
+"About us": "O nas",
+"Contact to admin": "Kontakt do admina",
+"Clear filter": "Czysty filtr",
+"Date": "Data",
+"From date": "Od daty",
+"To date": "Do daty"
 }

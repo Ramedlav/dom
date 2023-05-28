@@ -4,13 +4,13 @@
         <!--<div class="table-responsive">-->
        	<table class="table table-striped table-hover table-sm table-bordered tablesorted" id="table_listusers">
                 <thead class="thead-dark">
-                    <th style="width:2%" class="text-center">{{ __('№') }}</th>
-                    <th style="width:15%" class="text-center">{{ __('Name') }}</th>
-                    <th style="width:8%" class="text-center">{{ __('Role') }}</th>
-                    <th style="width:5%" class="text-center">{{ __('Status') }}</th>
-                    <th style="width:5%" class="text-center">{{ __('Phone') }}</th>
-                    <th style="width:10%" class="text-center">{{ __('Email') }}</th>
-                    <th style="width:2%" class="text-center">{{ __('') }}</th>
+                    <th style="width:2%" class="text-center align-middle">{{ __('№') }}</th>
+                    <th style="width:15%" class="text-center align-middle">{{ __('Name') }}</th>
+                    <th style="width:8%" class="text-center align-middle">{{ __('Role') }}</th>
+                    <th style="width:5%" class="text-center align-middle">{{ __('Status') }}</th>
+                    <th style="width:5%" class="text-center align-middle">{{ __('Phone') }}</th>
+                    <th style="width:10%" class="text-center align-middle">{{ __('Email') }}</th>
+                    <th style="width:2%" class="text-center align-middle">{{ __('') }}</th>
                 </thead>
                 <tbody>
                     @forelse($users as $user)
