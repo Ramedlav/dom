@@ -146,7 +146,7 @@
                 <label for="address">{{ __('address') }}</label>
                 <input type="text"
                         name="address"
-                        placeholder="address"
+                        placeholder="{{ __('address') }}"
                         id="address"
                         class="form-control map-input mb-2"
                         value="{{ $request->address ?? old('address') }}" >
@@ -468,7 +468,7 @@
 				</div>
 			</div>
 
-                        <button type="submit" class="btn btn-primary">{{__('Apply')}}</button>
+                        <button type="submit" class="btn btn-primary my-2">{{__('Apply')}}</button>
                     </div>
                 </div>
             </div>

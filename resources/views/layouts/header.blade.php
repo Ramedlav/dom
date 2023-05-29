@@ -108,6 +108,7 @@
                             <a class="dropdown-item" href="{{ route('savedsearch') }}">{{ __('My saved search') }}</a>
 			    @if (Auth::user()->role_id == 1)
                             	<a class="dropdown-item" href="{{ route('users') }}">{{ __('Users') }}</a>
+                            	<a class="dropdown-item" href="{{ route('feedback') }}">{{ __('Feedback messages') }}</a>
 			    @endif
 			    <hr>
                             <a class="dropdown-item" href="{{ route('logout') }}"

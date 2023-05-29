@@ -9,6 +9,7 @@ use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FeedbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

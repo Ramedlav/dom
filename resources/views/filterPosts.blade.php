@@ -198,7 +198,7 @@
                                             <input type="checkbox" id="garden" name="garden" >
                                             <label for="garden">{{__('garden')}}</label><br/>
                                         </div>
-                                    <div class="nav-item">
+                                    <div class="nav-item my-2">
                                         <button class="btn btn-primary w-100" onclick="getFilters()">{{__('Apply')}}</button>
                                     </div>
                                 </ul>

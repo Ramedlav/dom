@@ -100,11 +100,11 @@
                                 <div>{{$post->user->phone}}</div>
                                 <div>{{$post->user->email}}</div> --}}
                                 <div class="col-12">
-                                    <div class="">
+                                    <div class="row">
                                         @foreach($post->photos as $photo)
                                             @isset($photo->img)
                                                 @if ($loop->index > 0 && $loop->index < 5)
-                                                    <div class="col-12 col-sm-6 p-1">
+                                                    <div class="col-12 col-sm-4 p-1">
                                                         <a target="_blank" href="{{ asset('/storage/' . $photo->img) }}">
                                                             <img class="img-fluid" src="{{ asset('/storage/' . $photo->img) }}">
                                                         </a>

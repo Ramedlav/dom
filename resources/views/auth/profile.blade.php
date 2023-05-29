@@ -32,7 +32,7 @@
                         <div class="row mb-3">
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
                             <div class="col-md-8">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone ?? old('phone') }}" autocomplete="phone" >
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone ?? old('phone') }}" autocomplete="phone">
 
                                 @error('phone')
                                 <span class="invalid-feedback" role="alert">
@@ -144,6 +144,20 @@
   cursor: pointer;
   margin: 0 auto;
 }
+.b-input{
+  display: inline-block;   
+   margin: 0 0 0 5px;
+   position: relative;
+}
+.b-input:before{
+  content: '\f0aa';
+  position: absolute; top: 50%; left: 15px;
+  font-family:'FontAwesome';
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  pointer-events: none;
+ }
 </style>
 <script>
 function updatePhoto(user_id) {

@@ -4,7 +4,7 @@
     <div class="css-91cl9w d-flex align-items-center">
         <p class="mb-0 d-none d-lg-block">
         </p>
-        <button class=" css-1p7cuko d-flex ms-0 ms-sm-auto" type="button">
+        <a class=" css-1p7cuko d-flex ms-0 ms-sm-auto css-171pgf6" type="button" href="{{ route('showmap') }}">
             <svg aria-hidden="true"
                  focusable="false"
                  data-prefix="fas"
@@ -23,7 +23,7 @@
             <font class="d-sm-none" style="vertical-align: inherit;">
                 {{__('The map')}}
             </font>
-        </button>
+        </a>
         @auth
 	@if (!Auth::user()->saved_search)
         <button  class="css-1319u8e" type="submit">

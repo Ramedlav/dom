@@ -80,7 +80,7 @@
 	@endif
             <button data-cy="ad-page-sticky-header-area-contact-modal"
                     type="button"
-                    class="css-831445">
+                    class="css-831445 d-none">
                   {{__('Contact') }}
             </button>
         </div>
