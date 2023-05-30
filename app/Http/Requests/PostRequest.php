@@ -26,9 +26,12 @@ class PostRequest extends FormRequest
         return [
             'title'=> 'required|min:5|max:50',
             'description'=> 'required|min:5',
-            'index'=> 'required|max:7',
+//            'index'=> 'required|max:7',
             'address'=> 'required|min:5',
             'images' => 'required',
+//            'price' => 'required',
+            'square' => 'required',
+
         ];
     }
 }

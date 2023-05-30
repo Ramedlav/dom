@@ -6,3 +6,23 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import '/node_modules/flag-icons/css/flag-icons.min.css';
+
+// @import 'summernote - bs5.css';
+
+@import 'main/maps';
+
+@import 'main/layout';
+
+@import 'main/post';
+
+@import 'main/posts';
+
+@import 'main/my-posts';
+
+@import 'main/messages';
+
+@import 'main/paginate';
+
+@import 'main/create-post';

@@ -55,16 +55,50 @@
     text-align: center;
 }
 
-button.progress-button {
+.next-button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.delete-button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.progress-button {
     display: block;
     margin: 0 auto;
-    padding: 0;
-    width: 100px;
+    min-width: 100px;
     height: 40px;
-    border: 2px solid #1ECD97;
+    border: 1px solid #228B22;
     border-radius: 40px;
     background: transparent;
-    color: #1ECD97;
+    color: #228B22;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+}
+
+.progress-button:hover{
+    border-color: #228B22;
+    background-color: #228B22;
+    color: #fff;
+}
+
+.next-button {
+    display: block;
+    margin: 0 auto;
+    min-width: 100px;
+    height: 40px;
+    border: 1px solid #ffc107;
+    border-radius: 40px;
+    background-color: #ffc107;
+    /*background: transparent;*/
+    color: #fefefe;
     letter-spacing: 1px;
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
@@ -72,11 +106,92 @@ button.progress-button {
     transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
 }
 
-button.progress-button:hover{
-    border-color: #1ECD97;
-    background-color: #1ECD97;
+.next-button:hover{
+    border-color: #ffca2c;
+    background-color: #ffca2c;
     color: #fff;
 }
 
+.delete-button {
+    display: block;
+    margin: 0 auto;
+    min-width: 100px;
+    height: 40px;
+    border: 1px solid #a52834;
+    border-radius: 40px;
+    background: transparent;
+    color: #a52834;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+}
 
+.delete-button:hover{
+    border-color: #a52834;
+    background-color: #a52834;
+    color: #fff;
+}
 
+.table .thead-dark th {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #454d55;
+}
+
+.notification-container {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.notification-container__text {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  color: #fff;
+  background-color: #808080;
+  border-radius: 22px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
+}
+.sphere {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 5%;
+  position: relative;
+  display: inline-block;
+  margin: 5%;
+}
+.sphere::after {
+  background-color: rgba(255, 255, 255, 0.3);
+  content: '';
+  height: 45%;
+  width: 12%;
+  position: absolute;
+  top: 4%;
+  left: 15%;
+  border-radius: 50%;
+  transform: rotate(40deg);
+}

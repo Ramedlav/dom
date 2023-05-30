@@ -1,0 +1,321 @@
+body {
+    background-color: #fff;
+}
+
+.main-header {
+    display: flex;
+    // position: fixed;
+    z-index: 600;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    min-height: 60px;
+    border-bottom: 1px #e0e0e0 solid;
+    background-color: #464b53;
+    background-repeat: no-repeat;
+    -webkit-background-position: center top;
+    background-position: center top;
+    color: #ffffff;
+}
+
+.main-header .nav-link {
+    color: #fff;
+    font-weight: 500;
+}
+
+.main-header .nav-link:hover {
+    background-color: #596064;
+    color: #ffffff;
+}
+
+.main-header .nav-link svg {
+    width: 13px;
+    margin-right: 5px;
+}
+
+.main-header .nav-link svg path {
+  fill:#fff;
+}
+
+.main-header  .nav-link.dropdown-toggle::after {
+    margin-left: 0.5em;
+}
+
+
+
+
+.home-page {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 70%) 0% 0%,url(https://statics.otodom.pl/fp_statics/images/homepage/otodom_homepage_background.webp);
+    background-size: cover;
+    color: #ffffff;
+}
+
+.home-page  .css-1kqh57f {
+    // display: none;
+    margin: 0 0 52px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 1px 2px 1px rgb(0 0 0 / 60%);
+    font-size: 40px;
+
+}
+
+.css-1kqh57f small {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.home-page .home-form {
+    background: #acafb7a8;
+}
+
+.css-jvvr2h {
+    width: 152px;
+    height: 60px;
+    // margin-left: 10px;
+    object-fit: contain;
+}
+
+
+.main-wrapper {
+    min-height: calc(100vh - 222px);
+}
+
+.main-footer a {
+    font-size: 12px;
+    line-height: 20px;
+    color: #757575;
+    text-decoration: none;
+}
+
+ h2.form-title {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    text-shadow: 1px 1px 1px rgb(48 48 48 / 35%);
+}
+
+.home-page-card .form-card .form-link {
+    display: block;
+    position: relative;
+    height: 220px;
+    // min-width: 250px;
+    line-height: calc(20 / 14);
+}
+
+.home-page-card .form-card .img-fluid {
+    width: 100%;
+    height: 220px;
+    line-height: calc(1.42857);
+    object-fit: cover;
+}
+
+.home-page-card .form-card .form-text {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.home-page-card {
+    background: transparent;
+    border: none;
+}
+
+.home-page-card .form-card .form-text .post-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home-page-card .form-card .form-text .post-fulladdress {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home-form .nav {
+    --bs-nav-link-color: #fff;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+}
+
+.home-form .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: transparent;
+}
+
+.home-form .nav-link:hover, .nav-link:focus {
+    color: #c6c8cb;
+}
+
+.home-form .nav-tabs {
+    --bs-nav-tabs-border-color: transparent;
+}
+
+.nav-tabs .nav-link {
+    border-bottom-left-radius: var(--bs-nav-tabs-border-radius);
+    border-bottom-right-radius: var(--bs-nav-tabs-border-radius);
+}
+
+.chevron-field {
+    position: relative;
+}
+
+.chevron-icon {
+    position: absolute;
+    top: 8px;
+    right: 13px;
+}
+
+.no-found-img {
+    position: relative;
+}
+
+.no-found-img span {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+
+@media (min-width: 991px) {
+    .css-1d7m8bx {
+        padding-left: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .css-4h0vko {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: auto;
+        max-width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        border-radius: 50%;
+    }
+
+    .css-1y934yh {
+        display: block;
+    }
+
+    .css-1cu9ndh {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 1160px) {
+    .css-1d7m8bx {
+        padding-left: 8px;
+    }
+
+    .css-4h0vko {
+        display: inline-block;
+        min-width: 160px;
+        max-width: none;
+        height: auto;
+        margin-left: 0;
+        border-radius: 4px;
+    }
+
+    .css-1y934yh {
+        display: block;
+    }
+
+    .css-1cu9ndh {
+        display: none;
+    }
+
+    .css-1y934yh {
+        display: block;
+    }
+
+    .css-1cu9ndh {
+        display: none;
+    }
+}
+
+.css-4h0vko {
+    display: inline-block;
+    width: auto;
+    padding: 12px 16px;
+    -webkit-transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: #00B54B;
+    color: #ffffff;
+    width: 100%;
+    min-width: 160px;
+    border-color: transparent;
+    background-color: #00B54B;
+    color: #ffffff;
+}
+
+.css-4h0vko.css-4h0vko-mobile {
+    min-width: 10px;
+}
+
+.css-4h0vko:hover {
+    border-color: transparent;
+    background-color: #1FCE65;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    #postsList {
+        overflow-x: auto;
+    }
+
+    .home-page-card .form-card {
+        min-width: 281px;
+    }
+}
+
+
+
+
+
+
+
+
+

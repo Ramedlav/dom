@@ -23,6 +23,8 @@ class User extends Authenticatable
         'phone',
         'password',
         'phone',
+        'google_id',
+	'saved_search',
     ];
 
     /**
@@ -33,6 +35,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -44,12 +48,48 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+   /** 
+     * Аксессоры для добавления в массив модели.
+     *
+     * @var array
+     */
+
+    protected $appends = [
+
+        'profile_photo_url',
+
+    ];
+
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    public function dialogs()
+    {
+        return $this->hasMany(Dialog::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
     }
 
     public function logo()
     {
         return $this->hasOne(Logo::class);
+    }
+
+
+    public function onLine($user_id)
+    {
+	$user=User::find($user_id);
+	$up = strtotime($user->updated_at);
+	$minutes = floor(abs(strtotime(now())-$up)/60);
+	return ($minutes < 2);
     }
 }
